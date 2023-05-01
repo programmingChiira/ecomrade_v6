@@ -1,0 +1,17 @@
+{
+    "name": "ecomrade",
+    "short_name": "ecomrade",
+    "start_url": "/",
+    "background_color": "#189483",
+    "description": "Tutorial of Laravel Package",
+    "display": "fullscreen",
+    "theme_color": "#189483",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
