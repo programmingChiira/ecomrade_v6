@@ -79,7 +79,11 @@
 </template>
 
 <script>
-import Footer from './Footer.vue'
+import Footer from './Footer.vue';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+
+
 
 export default {
 
@@ -100,22 +104,21 @@ export default {
         }
     },
     methods: {
-        submit() {
-            axios
-                .post("/api/login", this.fields)
-                .then(() => {
+        async submit() {
+            try {
+                const response = await axios.post('/api/login', {
+                    phone: this.fields.phone,
+                    password: this.fields.password,
+                });
+                if (response.status === 200) {
                     this.$router
                         .push({ name: 'Home' })
-
-                    localStorage.setItem("authenticated", "true");
-                    console.log("authenticated:", localStorage.getItem("authenticated"));
-                    this.$emit("updateSidebar");
-                })
-                .catch((error) => {
-                    this.errors = error.response.data.errors;
-                });
+                        .then(() => { this.$router.go() })
+                }
+            } catch (error) {
+                console.log(error.response.data.message);
+            }
         },
-
 
         toggleShow() {
             this.showPassword = !this.showPassword;

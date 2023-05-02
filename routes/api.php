@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeMarketCategoryController;
 use App\Http\Controllers\HomeRentalCategoryController;
@@ -65,7 +66,8 @@ Route::fallback(function () {
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware('auth:sanctum')->post('logout', [AuthenticatedSessionController::class, 'destroy']);
+
+// Route::middleware('auth:sanctum')->post('logout', [AuthenticatedSessionController::class, 'destroy']);
 // categories
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('categories/create', [CategoryController::class, 'store']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('categories/{category}', [CategoryController::class, 'show']);
@@ -161,7 +163,9 @@ Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('postreviews', [Pos
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('resourcereviews', [ResourceReviewController::class, 'store']);
 //////////////////////////////////////////////// PUBLIC ROUTES //////////////////////////////////////////////// 
 Route::post('register', [RegisteredUserController::class, 'store']);
-Route::post('login', [AuthenticatedSessionController::class, 'store']);
+// Route::post('login', [AuthenticatedSessionController::class, 'store']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('throttle:1200,1')->get('connections', [ConnectionController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('categories', [CategoryController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('homemarketcategories', [HomeMarketCategoryController::class, 'index']);

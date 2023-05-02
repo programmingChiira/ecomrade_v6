@@ -11,7 +11,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\UserChatRoom;
 use App\Models\Users;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -118,6 +118,12 @@ class UserController extends Controller
             'current_page' => $users->currentPage(),
             'last_page' => $users->lastPage()
         ]);
+    }
+
+    public function getUserData()
+    {
+        $user = Auth::user();
+        return response()->json(['user' => $user], 200);
     }
 
     // public function index(Request $request)
