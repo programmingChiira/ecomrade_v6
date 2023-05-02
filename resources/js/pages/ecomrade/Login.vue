@@ -27,7 +27,7 @@
                                                     v-model="fields.password">
                                                 <span @click="toggleShow">
                                                     <span class="icon is-small is-right">
-                                                        <i
+                                                        <i class="fas"
                                                             :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
                                                         </i>
                                                     </span>
