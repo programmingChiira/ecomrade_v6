@@ -171,7 +171,7 @@
                 <i class="fa fa-trash-o" style="color: red;"></i>
               </button>
 
-              <router-link class="btn bg-gradient-primary btn-sm" :to="{
+              <router-link class="btn bg-gradient-primary btn-block btn-sm" :to="{
                 name: 'ViewBlog',
                 params: { slug: post.slug },
               }">VIEW </router-link>
