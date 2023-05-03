@@ -150,8 +150,7 @@
                                                     <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
                                                         <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                     </i>
-                                                    My
-                                                    requests for connections
+                                                    Sent requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
@@ -164,7 +163,7 @@
                                                     <i style="margin: 10px;" class="fa fa-bell">
                                                         <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                     </i>
-                                                    Requests made to me
+                                                    Received requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />

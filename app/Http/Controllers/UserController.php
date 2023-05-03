@@ -119,7 +119,6 @@ class UserController extends Controller
             'last_page' => $users->lastPage()
         ]);
     }
-
     public function getUserData()
     {
         $user = Auth::user();
