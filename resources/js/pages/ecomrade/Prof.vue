@@ -125,36 +125,61 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="ellipsisLabel"> Connection info</h5>
-                                            <button type="button" class="btn btn-sm"
-                                                data-bs-dismiss="modal" aria-label="Close"> X 
+                                            <button type="button" class="btn btn-sm" data-bs-dismiss="modal"
+                                                aria-label="Close"> X
                                             </button>
                                         </div>
                                         <div style="text-align: left;" class="modal-body">
 
-                                            <router-link title="Search user" v-show="user.id === id"
-                                                class="nav-link" to="/searchuser">
-                                                <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i> Search for Comrades
-                                            </router-link>
-
-                                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                                class="nav-link" to="/viewSentConnect">
-                                                <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i> My requests for connections
-                                            </router-link>
-
-                                            <router-link title="Connect requests you have received" v-show="user.id === id"
-                                                class="nav-link" to="/viewReceivedConnect">
-                                                <i style="margin: 10px;" class="fa fa-bell"></i> Requests made to me
-                                            </router-link>
-
-                                            <router-link title="My friends" v-show="user.id === id"
-                                                class="nav-link" to="/viewReceivedConnect">
-                                                <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
-                                            </router-link>
-
-                                            <router-link title="Chats with friends" v-show="user.id === id"
-                                                class="nav-link" to="/viewReceivedConnect">
+                                            <button v-show="user.id === id"
+                                                title="Search comrade"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/searchuser">
+                                                    <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i> Search
+                                                    for Comrades
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have sent"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewSentConnect">
+                                                    <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i> My
+                                                    requests for connections
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have received"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewReceivedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-bell"></i> Requests made to me
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="My friends"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/viewReceivedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Chats with friends"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                to="/viewReceivedConnect">
                                                 <i style="margin: 10px;" class="fa fa-envelope"></i> Chat with connections
                                             </router-link>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
