@@ -17,13 +17,14 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.56.1",
         "sass-loader": "^12.1.0",
-        "vue": "^3.2.37",
+        "vue": "^3.2.47",
         "vue-loader": "^17.1.0",
         "vue-template-compiler": "^2.7.14",
         "webpack": "^5.64.4",
         "webpack-cli": "^4.9.1"
     },
     "dependencies": {
+        "bootstrap-vue": "^2.23.1",
         "js-cookie": "^3.0.5",
         "laravel-echo": "^1.15.1",
         "pusher-js": "^8.0.2",

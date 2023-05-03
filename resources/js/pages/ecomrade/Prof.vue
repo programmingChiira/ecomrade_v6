@@ -103,7 +103,7 @@
                                         style="font-size:14px;color:#171515;padding: 4px;"></i>
                                 </button>
 
-                                <router-link :title="'Chat with '+user.name"
+                                <router-link :title="'Chat with ' + user.name"
                                     v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
                                     class="nav-link font-weight-bolder" :to="{
                                             name: 'ChatUser',
@@ -115,30 +115,50 @@
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <router-link title="Search user" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/searchuser">
-                                <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i>
-                            </router-link>
+                            <a data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </a>
 
-                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewSentConnect">
-                                <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i>
-                            </router-link>
+                            <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ellipsisLabel"> Connection info</h5>
+                                            <button type="button" class="btn btn-sm"
+                                                data-bs-dismiss="modal" aria-label="Close"> X 
+                                            </button>
+                                        </div>
+                                        <div style="text-align: left;" class="modal-body">
 
-                            <router-link title="Connect requests you have received" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-bell"></i>
-                            </router-link>
+                                            <router-link title="Search user" v-show="user.id === id"
+                                                class="nav-link" to="/searchuser">
+                                                <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i> Search for Comrades
+                                            </router-link>
 
-                            <router-link title="My friends" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-user-friends"></i>
-                            </router-link>
+                                            <router-link title="Connect requests you have sent" v-show="user.id === id"
+                                                class="nav-link" to="/viewSentConnect">
+                                                <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i> My requests for connections
+                                            </router-link>
 
-                            <router-link title="Chats with friends" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-envelope"></i>
-                            </router-link>
+                                            <router-link title="Connect requests you have received" v-show="user.id === id"
+                                                class="nav-link" to="/viewReceivedConnect">
+                                                <i style="margin: 10px;" class="fa fa-bell"></i> Requests made to me
+                                            </router-link>
+
+                                            <router-link title="My friends" v-show="user.id === id"
+                                                class="nav-link" to="/viewReceivedConnect">
+                                                <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
+                                            </router-link>
+
+                                            <router-link title="Chats with friends" v-show="user.id === id"
+                                                class="nav-link" to="/viewReceivedConnect">
+                                                <i style="margin: 10px;" class="fa fa-envelope"></i> Chat with connections
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <router-link v-show="user.id === id" class="nav-link font-weight-bolder"
                                 :to="'/editProfile' + slug">
@@ -298,7 +318,8 @@
                                 <p>Push</p>
                             </router-link>
                         </div>
-                        <a v-show="user.id === id" title="Logout" href="#" class="nav-link font-weight-bolder" @click="logout">
+                        <a v-show="user.id === id" title="Logout" href="#" class="nav-link font-weight-bolder"
+                            @click="logout">
                             <i style="color: red;float: right;" class="fa fa-power-off me-1"></i>
                         </a>
                     </div>
