@@ -149,20 +149,40 @@ class UserController extends Controller
             ->where('status', 'Pending')
             ->exists();
 
+        $sendNotConnectedCount = Connection::where('sender_id', auth()->id())
+            ->where('status', 'Pending')
+            ->count();
+
+
         $receiveNotConnected = Connection::where('receiver_id', auth()->id())
             ->where('sender_id', $user->id)
             ->where('status', 'Pending')
             ->exists();
+
+        $receiveNotConnectedCount = Connection::where('receiver_id', auth()->id())
+            ->where('status', 'Pending')
+            ->count();
 
         $sendConnected = Connection::where('sender_id', auth()->id())
             ->where('receiver_id', $user->id)
             ->where('status', 'Connected')
             ->exists();
 
+        $sendConnectedCount = Connection::where('sender_id', auth()->id())
+            ->where('status', 'Connected')
+            ->count();
+
         $receiveConnected = Connection::where('receiver_id', auth()->id())
             ->where('sender_id', $user->id)
             ->where('status', 'Connected')
             ->exists();
+
+        $receiveConnectedCount = Connection::where('receiver_id', auth()->id())
+            ->where('status', 'Connected')
+            ->count();
+
+        $connectedUsersCount = $receiveConnectedCount + $sendConnectedCount;
+
 
         $userData = [
             'id' => $user->id,
@@ -183,9 +203,12 @@ class UserController extends Controller
             'campus' => $user->campus,
             'gender' => $user->gender,
             'sendNotConnected' => $sendNotConnected,
+            'sendNotConnectedCount' => $sendNotConnectedCount,
             'receiveNotConnected' => $receiveNotConnected,
+            'receiveNotConnectedCount' => $receiveNotConnectedCount,
             'sendConnected' => $sendConnected,
             'receiveConnected' => $receiveConnected,
+            'connectedUsersCount' => $connectedUsersCount,
             'created_at' => $user->created_at->diffForHumans(),
         ];
 

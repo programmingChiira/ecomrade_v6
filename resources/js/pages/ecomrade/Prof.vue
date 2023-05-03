@@ -116,7 +116,7 @@
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
                             <a data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
-                                <i class="fa fa-ellipsis-h"></i><sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                             </a>
 
                             <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
@@ -148,7 +148,7 @@
                                                 <router-link
                                                     to="/viewSentConnect">
                                                     <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
-                                                        <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Sent requests
                                                 </router-link>
@@ -161,7 +161,7 @@
                                                 <router-link
                                                     to="/viewReceivedConnect">
                                                     <i style="margin: 10px;" class="fa fa-bell">
-                                                        <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Received requests
                                                 </router-link>
@@ -172,7 +172,7 @@
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                                 <router-link to="/viewReceivedConnect">
-                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
@@ -185,7 +185,7 @@
                                                 <i style="margin: 10px;" class="fa fa-envelope">
                                                     <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                 </i>
-                                                Chat with connections
+                                                My chat
                                             </router-link>
                                             </button>
                                         </div>
