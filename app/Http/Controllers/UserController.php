@@ -212,7 +212,15 @@ class UserController extends Controller
             'created_at' => $user->created_at->diffForHumans(),
         ];
 
-        $userchatrooms = UserChatRoomResource::collection(UserChatRoom::where('receiver_id', $user->id)->orWhere('user_id', $user->id)->oldest()->paginate(10000));
+        $userchatrooms = UserChatRoomResource::collection(
+            UserChatRoom::where('receiver_id', auth()->id())
+                ->where('user_id', $user->id)
+                ->orWhere('receiver_id', $user->id)
+                ->where('user_id', auth()->id())
+                ->oldest()
+                ->paginate(10000)
+        );
+
 
         $chatMessageData = $userchatrooms->map(function ($userchatroom) {
 
