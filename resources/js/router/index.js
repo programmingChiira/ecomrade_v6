@@ -94,7 +94,6 @@ import AdmMarketSubCat from "../pages/ecomrade/AdmMarketSubCat.vue";
 import AdmRental from "../pages/ecomrade/AdmRental.vue";
 import AdmRentalCat from "../pages/ecomrade/AdmRentalCat.vue";
 
-
 const routes = [
     {
         path: "/",
