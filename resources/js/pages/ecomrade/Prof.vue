@@ -185,7 +185,7 @@
                                                 <i style="margin: 10px;" class="fa fa-envelope">
                                                     <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                                                 </i>
-                                                My chat
+                                                My chats
                                             </router-link>
                                             </button>
                                         </div>
@@ -229,36 +229,36 @@
 
                         <div class="profile-card-inf">
                             <div class="profile-card-inf__item">
-                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
+                                <router-link title="Connections" class="btn bg-gradient-primary btn-sm" :to="{
                                         name: 'Profile',
                                         params: { slug: slug },
-                                    }">Friends
+                                    }"><i style="font-size: 12px;"  class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Store" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'ProdProfile',
                                         params: { slug: slug },
-                                    }">Products
+                                    }"><i style="font-size: 12px;" class="fa fa-store"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Articles" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'BlogProfile',
                                         params: { slug: slug },
                                     }">
-                                    Blogs
+                                    <i style="font-size: 12px;" class="fa fa-blog"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Poll" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'PollProfile',
                                         params: { slug: slug },
                                     }">
-                                    Polls
+                                    <i style="font-size: 12px;" class="fa fa-poll"></i>
                                 </router-link>
                             </div>
                         </div>

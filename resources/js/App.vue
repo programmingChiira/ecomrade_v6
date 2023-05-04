@@ -76,7 +76,7 @@
                                     <h6
                                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                       Events</h6>
-                                    <span class="text-sm">Know and access events happening around Campus.</span>
+                                    <span class="text-sm">Events happening around Campus.</span>
                                   </div>
                                 </div>
                               </router-link>
@@ -90,7 +90,7 @@
                                     <h6
                                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                       Clubs / Societies</h6>
-                                    <span class="text-sm">Create / Jion different clubs or society. </span>
+                                    <span class="text-sm">ecomrade clubs and society. </span>
                                   </div>
                                 </div>
                               </router-link>
@@ -104,7 +104,7 @@
                                     <h6
                                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                       Learning resources</h6>
-                                    <span class="text-sm">Get Access to Learning Resources. </span>
+                                    <span class="text-sm">ecomrade learning resources. </span>
                                   </div>
                                 </div>
                               </router-link>
@@ -136,7 +136,7 @@
                                   <h6
                                     class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                     Events</h6>
-                                  <span class="text-sm">Know and access events happening around Campus.</span>
+                                  <span class="text-sm">Events happening around Campus.</span>
                                 </div>
                               </div>
                             </router-link>
@@ -148,7 +148,7 @@
                                   <h6
                                     class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                     Clubs / Societies</h6>
-                                  <span class="text-sm">Create / Jion different clubs or society.</span>
+                                  <span class="text-sm">ecomrade clubs and society.</span>
                                 </div>
                               </div>
                             </router-link>
@@ -160,7 +160,7 @@
                                   <h6
                                     class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
                                     Learning resources</h6>
-                                  <span class="text-sm">Get Access to Learning Resources.</span>
+                                  <span class="text-sm">ecomrade learning resources.</span>
                                 </div>
                               </div>
                             </router-link>
