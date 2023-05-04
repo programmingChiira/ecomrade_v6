@@ -23,7 +23,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel"> Profile Pic</h5>
                                                 <button type="button" class="btn-close btn bg-gradient-dark"
-                                                    data-bs-dismiss="modal" aria-label="Close"> X </button>
+                                                    data-bs-dismiss="modal" aria-label="Close"> <i style="font-size: 12px;" class="fa fa-times"></i> </button>
                                             </div>
                                             <div class="modal-body">
                                                 <img style="width: 100%;"
@@ -103,7 +103,7 @@
                                         style="font-size:14px;color:#171515;padding: 4px;"></i>
                                 </button>
 
-                                <router-link :title="'Chat with '+user.name"
+                                <router-link :title="'Chat with ' + user.name"
                                     v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
                                     class="nav-link font-weight-bolder" :to="{
                                             name: 'ChatUser',
@@ -115,30 +115,70 @@
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/searchuser">
-                                <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i>
-                            </router-link>
+                            <a data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
+                                <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                            </a>
 
-                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewSentConnect">
-                                <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i>
-                            </router-link>
+                            <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ellipsisLabel"> Connection info</h5>
+                                            <button type="button" class="btn btn-sm" data-bs-dismiss="modal"
+                                                aria-label="Close"> <i style="font-size: 12px;" class="fa fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div style="text-align: left;" class="modal-body">
 
-                            <router-link title="Connect requests you have received" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-bell"></i>
-                            </router-link>
-
-                            <router-link title="My friends" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-user-friends"></i>
-                            </router-link>
-
-                            <router-link title="Chats with friends" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-envelope"></i>
-                            </router-link>
+                                            <button v-show="user.id === id"
+                                                title="Search comrade"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/searchuser">
+                                                    <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i> Search
+                                                    for Comrades
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have sent"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewSentConnect">
+                                                    <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
+                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                    </i>
+                                                    Sent requests
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have received"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewReceivedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-bell">
+                                                        <sup><i v-show="user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                    </i>
+                                                    Received requests
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="My friends"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/viewAcceptedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
+                                                </router-link>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <router-link v-show="user.id === id" class="nav-link font-weight-bolder"
                                 :to="'/editProfile' + slug">
@@ -146,6 +186,7 @@
                                     class="fa fa-cog"></i>
                             </router-link>
                         </div>
+
 
                         <hr class="horizontal dark my-5" />
 
@@ -175,36 +216,36 @@
 
                         <div class="profile-card-inf">
                             <div class="profile-card-inf__item">
-                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
+                                <router-link title="Connections" class="btn bg-gradient-primary btn-sm" :to="{
                                         name: 'Profile',
                                         params: { slug: slug },
-                                    }">Friends
+                                    }"><i style="font-size: 12px;"  class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Store" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'ProdProfile',
                                         params: { slug: slug },
-                                    }">Products
+                                    }"><i style="font-size: 12px;" class="fa fa-store"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Articles" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'BlogProfile',
                                         params: { slug: slug },
                                     }">
-                                    Blogs
+                                    <i style="font-size: 12px;" class="fa fa-blog"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
-                                <router-link style="background-color: white;" class="btn btn-sm" :to="{
+                                <router-link title="Poll" style="background-color: white;" class="btn btn-sm" :to="{
                                         name: 'PollProfile',
                                         params: { slug: slug },
                                     }">
-                                    Polls
+                                    <i style="font-size: 12px;" class="fa fa-poll"></i>
                                 </router-link>
                             </div>
                         </div>
@@ -214,7 +255,7 @@
                         <div v-if="type == 'admin' && user.id === id" class="profile-card-inf">
                             <router-link class="profile-card-inf__item" to="/dashboard">
                                 <i style="color: #3b5998;" class="fa fa-dashboard"></i>
-                                <p>Dashboard</p>
+                                <p>Dash</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admuser">
@@ -224,17 +265,17 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarket">
                                 <i style="color: #3b5998;" class="fa fa-store"></i>
-                                <p>Market</p>
+                                <p>Prods</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Product Category</p>
+                                <p>Prod Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketsubcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Product Sub-Category</p>
+                                <p>Prod Sub-Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrental">
@@ -244,7 +285,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Rentals Category</p>
+                                <p>Rentals Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admblog">
@@ -254,7 +295,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admBlogCat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Blog Category</p>
+                                <p>Blog Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admlocation">
@@ -274,7 +315,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admclub">
                                 <i style="color: #3b5998;" class="fa fa-users"></i>
-                                <p>Clubs / Societies</p>
+                                <p>Societies</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admresource">
@@ -297,7 +338,8 @@
                                 <p>Push</p>
                             </router-link>
                         </div>
-                        <a v-show="user.id === id" title="Logout" href="#" class="nav-link font-weight-bolder" @click="logout">
+                        <a v-show="user.id === id" title="Logout" href="#" class="nav-link font-weight-bolder"
+                            @click="logout">
                             <i style="color: red;float: right;" class="fa fa-power-off me-1"></i>
                         </a>
                     </div>
@@ -315,49 +357,65 @@
                 <br /><br />
                 <!-- /Breadcrumb -->
 
-                <div
-                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm d-flex flex-row justify-content-between">
-                    <div class="col mb-3" v-for="connection in connections" :key="connection.id">
-                        <div v-show="connection.sendConnected == true || connection.receiveConnected == true">
-                            <div style="background-color: #E9ECEF;" class="card">
-                                <div class="card-body text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                        style="width:100px;margin-top:-65px" alt="User"
-                                        class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
-                                    <h5 class="card-title" v-show="connection.receiver_id == user.id"> {{
-                                        connection.sender_name
-                                    }} </h5>
-                                    <h5 class="card-title" v-show="connection.sender_id == user.id"> {{
-                                        connection.receiver_name
-                                    }} </h5>
-                                    <p class="text-secondary mb-1">Comrade</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div v-show="connection.receiver_id == user.id">
-                                        <router-link class="nav-link font-weight-bolder" :to="{
-                                                    name: 'Profile',
-                                                    params: { slug: connection.sender_slug },
-                                                }">
-                                            <button class="btn bg-gradient-primary btn-sm me-2 btn-block" type="button">
-                                                Visit Profile
-                                            </button>
-                                        </router-link>
+
+                <div class="layout">
+                    <div class="row">
+                        <div v-for="connection in connections" :key="connection.id">
+                            
+                            <div class="profile col-md-4 col-12" v-show="connection.sendConnected == true">
+                                <div class="profile__picture"><img src="/avatar.webp"
+                                        alt="comrade" /></div>
+                                <div class="profile__header">
+                                    <div class="profile__account">
+                                        <h4 class="profile__username">{{ connection.receiver_name }}</h4>
                                     </div>
-                                    <div v-show="connection.sender_id == user.id">
-                                        <router-link class="nav-link font-weight-bolder" :to="{
+                                </div>
+                                <div class="profile__stats">
+                                    <div class="profile__stat">
+
+                                        <div class="profile__value">
+                                            <div class="profile__key">
+                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
                                                     name: 'Profile',
                                                     params: { slug: connection.receiver_slug },
                                                 }">
-                                            <button class="btn bg-gradient-primary btn-sm me-2 btn-block" type="button">
-                                                Visit Profile
-                                            </button>
-                                        </router-link>
+                                                    View profile
+                                                </router-link>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="profile col-md-4 col-12" v-show="connection.receiveConnected == true">
+                                <div class="profile__picture"><img src="/avatar.webp"
+                                        alt="comrade" /></div>
+                                <div class="profile__header">
+                                    <div class="profile__account">
+                                        <h4 class="profile__username">{{ connection.sender_name }}</h4>
+                                    </div>
+                                </div>
+                                <div class="profile__stats">
+                                    <div class="profile__stat">
+
+                                        <div class="profile__value">
+                                            <div class="profile__key">
+                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
+                                                    name: 'Profile',
+                                                    params: { slug: connection.sender_slug },
+                                                }">
+                                                    View profile
+                                                </router-link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <Footer />
@@ -481,6 +539,34 @@ export default {
                     this.success = false;
                 });
         },
+
+        logout() {
+            Swal.fire({
+                title: 'LOGOUT',
+                text: "Are you sure!",
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'LOGOUT!'
+            }).then((result) => {
+
+                // Send request to the server
+                if (result.value) {
+                    axios
+                        .post("/api/logout")
+                        .then((response) => {
+                            this.$router
+                                .push({ name: 'Login' })
+                                .then(() => { this.$router.go() })
+                            localStorage.removeItem("authenticated");
+                            this.$emit("updateSidebar");
+                            window.location.reload();
+                        })
+                        .catch((error) => console.log(error));
+                }
+            })
+
+        },
     },
     mounted() {
         axios
@@ -528,7 +614,6 @@ export default {
 
 body {
     font-family: 'Quicksand', sans-serif;
-    color: #324e63;
 }
 
 a,
@@ -670,13 +755,13 @@ a:hover {
 }
 
 .profile-card-inf__item {
-    padding: 5px 18px;
+    padding: 5px 9px;
     min-width: 100px;
 }
 
 @media screen and (max-width: 768px) {
     .profile-card-inf__item {
-        padding: 5px 20px;
+        padding: 5px 10px;
         min-width: 100px;
     }
 }
@@ -946,5 +1031,179 @@ a:hover {
     background: rgba(22, 33, 72, 0.35);
     border-radius: 12px;
     transition: all 0.3s;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700");
+
+
+@keyframes popUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(5px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.profile {
+    animation: popUp ease-in-out 350ms;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    margin-top: 40px;
+    padding: 28px 30px 30px 35px;
+    position: relative;
+    max-width: 500px;
+}
+
+.profile__account {
+    align-self: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    padding-left: 135px;
+}
+
+.profile__button {
+    border-radius: 50px;
+    border: 1px solid #000000;
+    color: #000000;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: ease-in-out 250ms background, ease-in-out 250ms color;
+}
+
+.profile__button:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.profile__edit {
+    flex: none;
+    margin-left: 30px;
+    width: 140px;
+}
+
+.profile__header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile__icon {
+    flex: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    padding-top: 3px;
+}
+
+.profile__icon--gold {
+    color: #eab100;
+}
+
+.profile__icon--blue {
+    color: #8faae8;
+}
+
+.profile__icon--pink {
+    color: #ff86af;
+}
+
+.profile__key {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.profile__picture {
+    background: #ffffff;
+    border-radius: 100px;
+    border: 10px solid #ffffff;
+    height: 125px;
+    position: absolute;
+    top: -40px;
+    width: 125px;
+}
+
+.profile__picture:before {
+    border-radius: 100px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    content: "";
+    height: calc(100% + 20px);
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: calc(100% + 20px);
+    z-index: -1;
+}
+
+.profile__picture img {
+    border-radius: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+.profile__stat {
+    animation: slideUp ease-in-out 350ms forwards;
+    border-right: 1px solid #e9e9e9;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    opacity: 0;
+    padding: 10px 4px;
+    transform: translateY(5px);
+}
+
+.profile__stat:last-of-type {
+    border-right: none;
+}
+
+.profile__stat:nth-child(1) {
+    animation-delay: 400ms;
+}
+
+.profile__stat:nth-child(2) {
+    animation-delay: 500ms;
+}
+
+.profile__stat:nth-child(3) {
+    animation-delay: 600ms;
+}
+
+.profile__stats {
+    display: flex;
+}
+
+.profile__username {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
+}
+
+.profile__value {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
 }
 </style>

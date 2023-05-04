@@ -23,7 +23,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel"> Profile Pic</h5>
                                                 <button type="button" class="btn-close btn bg-gradient-dark"
-                                                    data-bs-dismiss="modal" aria-label="Close"> X </button>
+                                                    data-bs-dismiss="modal" aria-label="Close"> <i style="font-size: 12px;" class="fa fa-times"></i> </button>
                                             </div>
                                             <div class="modal-body">
                                                 <img style="width: 100%;"
@@ -126,7 +126,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="ellipsisLabel"> Connection info</h5>
                                             <button type="button" class="btn btn-sm" data-bs-dismiss="modal"
-                                                aria-label="Close"> X
+                                                aria-label="Close"> <i style="font-size: 12px;" class="fa fa-times"></i>
                                             </button>
                                         </div>
                                         <div style="text-align: left;" class="modal-body">
