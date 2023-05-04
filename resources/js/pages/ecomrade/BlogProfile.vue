@@ -106,17 +106,20 @@
                                 <router-link :title="'Chat with ' + user.name"
                                     v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
                                     class="nav-link font-weight-bolder" :to="{
-                                            name: 'ChatUser',
-                                            params: { slug: slug },
-                                        }">
+                                        name: 'ChatUser',
+                                        params: { slug: slug },
+                                    }">
                                     <i style="color: #gray;" class="fa fa-envelope"></i>
                                 </router-link>
                             </form>
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <a  v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
-                                <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                            <a v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis"
+                                href="javascript:;">
+                                <i class="fa fa-ellipsis-h"></i><sup><i
+                                        v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0"
+                                        class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                             </a>
 
                             <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
@@ -131,8 +134,7 @@
                                         </div>
                                         <div style="text-align: left;" class="modal-body">
 
-                                            <button v-show="user.id === id"
-                                                title="Search comrade"
+                                            <button v-show="user.id === id" title="Search comrade"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                                 <router-link to="/searchuser">
@@ -141,38 +143,37 @@
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="Connect requests you have sent"
+                                            <button v-show="user.id === id" title="Connect requests you have sent"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link
-                                                    to="/viewSentConnect">
+                                                <router-link to="/viewSentConnect">
                                                     <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
-                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle"
+                                                                style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Sent requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="Connect requests you have received"
+                                            <button v-show="user.id === id" title="Connect requests you have received"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link
-                                                    to="/viewReceivedConnect">
+                                                <router-link to="/viewReceivedConnect">
                                                     <i style="margin: 10px;" class="fa fa-bell">
-                                                        <sup><i v-show="user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.receiveNotConnectedCount > 0"
+                                                                class="fa fa-circle"
+                                                                style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Received requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="My friends"
+                                            <button v-show="user.id === id" title="My friends"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                                 <router-link to="/viewAcceptedConnect">
-                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
+                                                    ( {{ user.connectedUsersCount }} )
                                                 </router-link>
                                             </button>
                                         </div>
@@ -217,34 +218,34 @@
                         <div class="profile-card-inf">
                             <div class="profile-card-inf__item">
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
-                                        name: 'Profile',
-                                        params: { slug: slug },
-                                    }"><i style="font-size: 12px;"  class="fa fa-user-friends"></i>
+                                    name: 'Profile',
+                                    params: { slug: slug },
+                                }"><i style="font-size: 12px;" class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
-                                        name: 'ProdProfile',
-                                        params: { slug: slug },
-                                    }"><i style="font-size: 12px;" class="fa fa-store"></i>
+                                    name: 'ProdProfile',
+                                    params: { slug: slug },
+                                }"><i style="font-size: 12px;" class="fa fa-store"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
                                 <router-link class="btn bg-gradient-primary btn-sm" :to="{
-                                        name: 'BlogProfile',
-                                        params: { slug: slug },
-                                    }">
+                                    name: 'BlogProfile',
+                                    params: { slug: slug },
+                                }">
                                     <i style="font-size: 12px;" class="fa fa-blog"></i>
                                 </router-link>
                             </div>
 
                             <div class="profile-card-inf__item">
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
-                                        name: 'PollProfile',
-                                        params: { slug: slug },
-                                    }">
+                                    name: 'PollProfile',
+                                    params: { slug: slug },
+                                }">
                                     <i style="font-size: 12px;" class="fa fa-poll"></i>
                                 </router-link>
                             </div>
@@ -432,20 +433,21 @@
                         <br />
 
                         <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                            <router-link class="btn bg-gradient-primary btn-block btn-sm" :to="{
+                                name: 'ViewBlog',
+                                params: { slug: post.slug },
+                            }">VIEW
+                            </router-link>
+
                             <button v-if="post.user_id == id || id == 1" type="button" @click="destroy(post.id)"
                                 class="delete-btn" style="float: left;border:none;outline:none;background: none;">
                                 <i class="fa fa-trash-o" style="color: red;"></i>
                             </button>
 
-                            <router-link class="btn bg-gradient-primary btn-sm" :to="{
-                                    name: 'ViewBlog',
-                                    params: { slug: post.slug },
-                                }">VIEW </router-link>
-
                             <router-link style="float: right;" v-if="post.user_id == id || id == 1" :to="{
-                                    name: 'EditBlog',
-                                    params: { slug: post.slug },
-                                }"><i class="fa fa-edit" style="color:#189483;"></i>
+                                name: 'EditBlog',
+                                params: { slug: post.slug },
+                            }"><i class="fa fa-edit" style="color:#189483;"></i>
                             </router-link>
                         </div>
                         <br />

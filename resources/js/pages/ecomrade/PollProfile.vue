@@ -84,43 +84,101 @@
                                 <input class="form-control" type="hidden" v-model="receiverName" />
                                 <input class="form-control" type="hidden" v-model="receiverImage" />
                                 <button
-                                        v-show="user.sendNotConnected == false && user.receiveNotConnected == false && user.sendConnected == false && user.receiveConnected == false && user.id != id"
-                                        type="submit" class="btn bg-gradient-primary btn-sm me-2">
-                                        Connect
-                                    </button>
+                                    v-show="user.sendNotConnected == false && user.receiveNotConnected == false && user.sendConnected == false && user.receiveConnected == false && user.id != id"
+                                    type="submit" class="btn bg-gradient-primary btn-sm me-2">
+                                    Connect
+                                </button>
 
-                                    <button
-                                        v-show="user.sendNotConnected == true || user.receiveNotConnected == true && user.id != id"
-                                        type="button" class="btn btn-warning btn-sm me-2">
-                                        Pending <i class="fa fa-cog fa-spin"
-                                            style="font-size:14px;color:#171515;padding: 4px;"></i>
-                                    </button>
+                                <button
+                                    v-show="user.sendNotConnected == true || user.receiveNotConnected == true && user.id != id"
+                                    type="button" class="btn btn-warning btn-sm me-2">
+                                    Pending <i class="fa fa-cog fa-spin"
+                                        style="font-size:14px;color:#171515;padding: 4px;"></i>
+                                </button>
 
-                                    <button
-                                        v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
-                                        type="button" class="btn btn-success btn-sm me-2">
-                                        Connected <i class="fa fa-certificate"
-                                            style="font-size:14px;color:#171515;padding: 4px;"></i>
-                                    </button>
+                                <button
+                                    v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
+                                    type="button" class="btn btn-success btn-sm me-2">
+                                    Connected <i class="fa fa-certificate"
+                                        style="font-size:14px;color:#171515;padding: 4px;"></i>
+                                </button>
 
+                                <router-link :title="'Chat with ' + user.name"
+                                    v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
+                                    class="nav-link font-weight-bolder" :to="{
+                                            name: 'ChatUser',
+                                            params: { slug: slug },
+                                        }">
+                                    <i style="color: #gray;" class="fa fa-envelope"></i>
+                                </router-link>
                             </form>
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/searchuser">
-                                <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i>
-                            </router-link>
+                            <a  v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
+                                <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                            </a>
 
-                            <router-link title="Connect requests you have sent" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewSentConnect">
-                                <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane"></i>
-                            </router-link>
+                            <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ellipsisLabel"> Connection info</h5>
+                                            <button type="button" class="btn btn-sm" data-bs-dismiss="modal"
+                                                aria-label="Close"> <i style="font-size: 12px;" class="fa fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div style="text-align: left;" class="modal-body">
 
-                            <router-link title="Connect requests you have received" v-show="user.id === id"
-                                class="nav-link font-weight-bolder" to="/viewReceivedConnect">
-                                <i style="margin: 10px;" class="fa fa-bell"></i>
-                            </router-link>
+                                            <button v-show="user.id === id"
+                                                title="Search comrade"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/searchuser">
+                                                    <i style="margin: 10px;color: #1CC0A0;" class="fa fa-search"></i> Search
+                                                    for Comrades
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have sent"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewSentConnect">
+                                                    <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
+                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                    </i>
+                                                    Sent requests
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="Connect requests you have received"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link
+                                                    to="/viewReceivedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-bell">
+                                                        <sup><i v-show="user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                    </i>
+                                                    Received requests
+                                                </router-link>
+                                            </button>
+                                            <hr class="horizontal dark my-2" />
+                                            <button v-show="user.id === id"
+                                                title="My friends"
+                                                style="outline:none;background: none;border:none;" type="button"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <router-link to="/viewAcceptedConnect">
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
+                                                </router-link>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <router-link v-show="user.id === id" class="nav-link font-weight-bolder"
                                 :to="'/editProfile' + slug">
@@ -128,6 +186,7 @@
                                     class="fa fa-cog"></i>
                             </router-link>
                         </div>
+
 
                         <hr class="horizontal dark my-5" />
 
@@ -160,7 +219,7 @@
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
                                     name: 'Profile',
                                     params: { slug: slug },
-                                }">Friends
+                                }"><i style="font-size: 12px;"  class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
 
@@ -168,7 +227,7 @@
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
                                     name: 'ProdProfile',
                                     params: { slug: slug },
-                                }">Products
+                                }"><i style="font-size: 12px;" class="fa fa-store"></i>
                                 </router-link>
                             </div>
 
@@ -177,7 +236,7 @@
                                     name: 'BlogProfile',
                                     params: { slug: slug },
                                 }">
-                                    Blogs
+                                <i style="font-size: 12px;" class="fa fa-blog"></i>
                                 </router-link>
                             </div>
 
@@ -186,7 +245,7 @@
                                     name: 'PollProfile',
                                     params: { slug: slug },
                                 }">
-                                    Polls
+                                <i style="font-size: 12px;" class="fa fa-poll"></i>
                                 </router-link>
                             </div>
                         </div>

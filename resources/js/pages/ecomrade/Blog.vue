@@ -183,6 +183,7 @@
               }"><i class="fa fa-edit" style="color:#189483;"></i>
               </router-link>
             </div>
+            
             <br />
           </div>
           <h5 v-if="!posts.length">Sorry, no item found!</h5>
