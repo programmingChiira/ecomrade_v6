@@ -14,57 +14,13 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-9">
+          <div class="col-md-4 col-10">
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
               <div class="container">
                 <ol class="breadcrumb">
                   <div class="badges text-right">
                     <span style="margin: 3px;" class="badge bg-dark ">
                       <i class="fa fa-comments-o"></i> {{ commentCount }}
-                    </span>
-                    <span style="margin: 3px;" class="badge bg-dark">
-                      <div v-if="Math.round(avgRating) === 0" class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div v-if="Math.round(avgRating) === 1" class="stars">
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div v-if="Math.round(avgRating) === 2" class="stars">
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div v-if="Math.round(avgRating) === 3" class="stars">
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div v-if="Math.round(avgRating) === 4" class="stars">
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div v-if="Math.round(avgRating) === 5" class="stars">
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                        <i style="color: orange;" class="fa fa-star"></i>
-                      </div>
                     </span>
                   </div>
                 </ol>
@@ -74,7 +30,7 @@
           <div style="float:right;" class="col-md-8 col-3">
             <router-link to="/createblog" style="float: right;" class="text-info icon-move-right">
               <button type="button" class="btn bg-gradient-primary btn-sm">
-                Create
+                <i class="fa fa-plus"></i>
               </button>
             </router-link>
           </div>
