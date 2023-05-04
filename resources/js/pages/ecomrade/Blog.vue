@@ -166,15 +166,16 @@
             <br />
 
             <div class="d-flex flex-row justify-content-between mb-0 px-3">
-              <button v-if="post.user_id == id || id == 1" type="button" @click="destroy(post.id)" class="delete-btn"
-                style="float: left;border:none;outline:none;background: none;">
-                <i class="fa fa-trash-o" style="color: red;"></i>
-              </button>
-
               <router-link class="btn bg-gradient-primary btn-block btn-sm" :to="{
                 name: 'ViewBlog',
                 params: { slug: post.slug },
               }">VIEW </router-link>
+            </div>
+            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+              <button v-if="post.user_id == id || id == 1" type="button" @click="destroy(post.id)" class="delete-btn"
+                style="float: left;border:none;outline:none;background: none;">
+                <i class="fa fa-trash-o" style="color: red;"></i>
+              </button>
 
               <router-link style="float: right;" v-if="post.user_id == id || id == 1" :to="{
                 name: 'EditBlog',
