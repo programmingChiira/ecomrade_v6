@@ -370,49 +370,66 @@
                 <br /><br />
                 <!-- /Breadcrumb -->
 
-                <div
-                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm d-flex flex-row justify-content-between">
-                    <div class="col mb-3" v-for="connection in connections" :key="connection.id">
-                        <div v-show="connection.sendConnected == true || connection.receiveConnected == true">
-                            <div style="background-color: #E9ECEF;" class="card">
-                                <div class="card-body text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                        style="width:100px;margin-top:-65px" alt="User"
-                                        class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
-                                    <h5 class="card-title" v-show="connection.receiver_id == user.id"> {{
-                                        connection.sender_name
-                                    }} </h5>
-                                    <h5 class="card-title" v-show="connection.sender_id == user.id"> {{
-                                        connection.receiver_name
-                                    }} </h5>
-                                    <p class="text-secondary mb-1">Comrade</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div v-show="connection.receiver_id == user.id">
-                                        <router-link class="nav-link font-weight-bolder" :to="{
-                                                    name: 'User',
-                                                    params: { slug: connection.sender_slug },
-                                                }">
-                                            <button class="btn bg-gradient-primary btn-sm me-2 btn-block" type="button">
-                                                Visit Profile
-                                            </button>
-                                        </router-link>
+
+                <div class="layout">
+                    <div class="row">
+                        <div v-for="connection in connections" :key="connection.id" class="col-md-4 col-12">
+                            
+                            <div class="profile" v-show="connection.sendConnected == true">
+                                <div class="profile__picture"><img src="/avatar.webp"
+                                        alt="comrade" /></div>
+                                <div class="profile__header">
+                                    <div class="profile__account">
+                                        <h4 class="profile__username">{{ connection.receiver_name }}</h4>
                                     </div>
-                                    <div v-show="connection.sender_id == user.id">
-                                        <router-link class="nav-link font-weight-bolder" :to="{
+                                </div>
+                                <div class="profile__stats">
+                                    <div class="profile__stat">
+
+                                        <div class="profile__value">
+                                            <div class="profile__key">
+                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
                                                     name: 'User',
                                                     params: { slug: connection.receiver_slug },
                                                 }">
-                                            <button class="btn bg-gradient-primary btn-sm me-2 btn-block" type="button">
-                                                Visit Profile
-                                            </button>
-                                        </router-link>
+                                                    View profile
+                                                </router-link>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="profile" v-show="connection.receiveConnected == true">
+                                <div class="profile__picture"><img src="/avatar.webp"
+                                        alt="comrade" /></div>
+                                <div class="profile__header">
+                                    <div class="profile__account">
+                                        <h4 class="profile__username">{{ connection.sender_name }}</h4>
+                                    </div>
+                                </div>
+                                <div class="profile__stats">
+                                    <div class="profile__stat">
+
+                                        <div class="profile__value">
+                                            <div class="profile__key">
+                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
+                                                    name: 'User',
+                                                    params: { slug: connection.sender_slug },
+                                                }">
+                                                    View profile
+                                                </router-link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
         <Footer />
@@ -611,7 +628,6 @@ export default {
 
 body {
     font-family: 'Quicksand', sans-serif;
-    color: #324e63;
 }
 
 a,
@@ -1029,5 +1045,179 @@ a:hover {
     background: rgba(22, 33, 72, 0.35);
     border-radius: 12px;
     transition: all 0.3s;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700");
+
+
+@keyframes popUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(5px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.profile {
+    animation: popUp ease-in-out 350ms;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    margin-top: 40px;
+    padding: 28px 30px 30px 35px;
+    position: relative;
+    max-width: 500px;
+}
+
+.profile__account {
+    align-self: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    padding-left: 135px;
+}
+
+.profile__button {
+    border-radius: 50px;
+    border: 1px solid #000000;
+    color: #000000;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: ease-in-out 250ms background, ease-in-out 250ms color;
+}
+
+.profile__button:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.profile__edit {
+    flex: none;
+    margin-left: 30px;
+    width: 140px;
+}
+
+.profile__header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile__icon {
+    flex: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    padding-top: 3px;
+}
+
+.profile__icon--gold {
+    color: #eab100;
+}
+
+.profile__icon--blue {
+    color: #8faae8;
+}
+
+.profile__icon--pink {
+    color: #ff86af;
+}
+
+.profile__key {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.profile__picture {
+    background: #ffffff;
+    border-radius: 100px;
+    border: 10px solid #ffffff;
+    height: 125px;
+    position: absolute;
+    top: -40px;
+    width: 125px;
+}
+
+.profile__picture:before {
+    border-radius: 100px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    content: "";
+    height: calc(100% + 20px);
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: calc(100% + 20px);
+    z-index: -1;
+}
+
+.profile__picture img {
+    border-radius: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+.profile__stat {
+    animation: slideUp ease-in-out 350ms forwards;
+    border-right: 1px solid #e9e9e9;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    opacity: 0;
+    padding: 10px 4px;
+    transform: translateY(5px);
+}
+
+.profile__stat:last-of-type {
+    border-right: none;
+}
+
+.profile__stat:nth-child(1) {
+    animation-delay: 400ms;
+}
+
+.profile__stat:nth-child(2) {
+    animation-delay: 500ms;
+}
+
+.profile__stat:nth-child(3) {
+    animation-delay: 600ms;
+}
+
+.profile__stats {
+    display: flex;
+}
+
+.profile__username {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
+}
+
+.profile__value {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
 }
 </style>
