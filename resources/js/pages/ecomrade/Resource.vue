@@ -120,8 +120,8 @@
                         </div>
                         <div style="float:right;" class="col-md-8 col-2">
                             <router-link to="/createresource" style="float: right;" class="text-info icon-move-right">
-                                <button data-toggle="tooltip" data-placement="bottom" title="New resource"
-                                    type="button" class="btn bg-gradient-primary btn-sm">
+                                <button data-toggle="tooltip" data-placement="bottom" title="New resource" type="button"
+                                    class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </router-link>
@@ -131,7 +131,8 @@
 
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-12" v-for="resource in resources" :key="resource.id">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-12" v-for="resource in resources"
+                            :key="resource.id">
                             <div style="background-color: #E9ECEF;" class="card shadow">
                                 <!-- <img src="img/no_img.png" class="card-img-top" alt="..."> -->
 
@@ -203,9 +204,18 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                    <br/>
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <router-link class="btn bg-gradient-primary btn-block btn-sm" :to="{
+                                            name: 'ViewResource',
+                                            params: { slug: resource.slug },
+                                        }">
+                                            <small>
+                                                View
+                                            </small>
+                                        </router-link>
+                                    </div>
 
-                                <div class="card-body card-p">
                                     <div class="d-flex flex-row justify-content-between">
                                         <div class="d-flex flex-column">
                                             <div class="col col-xs-6">
@@ -216,29 +226,20 @@
                                                 </button>
                                             </div>
                                         </div>
+
                                         <div class="d-flex flex-column">
                                             <div class="col col-xs-6">
-                                                <router-link :to="{
-                                                    name: 'ViewResource',
-                                                    params: { slug: resource.slug },
-                                                }">
-                                                    <button type="button" class="btn bg-gradient-primary btn-sm "><small>
-                                                            View
-                                                        </small></button>
-                                                </router-link>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column">
-                                            <div class="col col-xs-6">
-                                                <router-link style="float: right;" v-if="resource.user_id == id || id == 1" :to="{
-                                                    name: 'EditResource',
-                                                    params: { slug: resource.slug },
-                                                }"><i class="fa fa-edit" style="color: #189483;"></i>
+                                                <router-link style="float: right;" v-if="resource.user_id == id || id == 1"
+                                                    :to="{
+                                                        name: 'EditResource',
+                                                        params: { slug: resource.slug },
+                                                    }"><i class="fa fa-edit" style="color: #189483;"></i>
                                                 </router-link>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
                             <br />
