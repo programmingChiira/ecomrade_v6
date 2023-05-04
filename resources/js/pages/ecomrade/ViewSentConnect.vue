@@ -25,16 +25,16 @@
                                     v-show="connection.sender_id == id && connection.status == 'Pending'"
                                     class="col-md-4 col-12">
                                     <div class="profile">
-                                        <div class="profile__picture"><img src="http://i.pravatar.cc/250?img=58"
+                                        <div class="profile__picture"><img src="/avatar.webp"
                                                 alt="comrade" /></div>
                                         <div class="profile__header">
                                             <div class="profile__account">
-                                                <h4 class="profile__username">{{connection.receiver_name }}</h4>
+                                                <h4 class="profile__username">{{ connection.receiver_name }}</h4>
                                             </div>
                                         </div>
                                         <div class="profile__stats">
                                             <div class="profile__stat">
-                                                
+
                                                 <div class="profile__value">
                                                     <div class="profile__key">
                                                         <router-link :to="{
@@ -218,7 +218,6 @@ export default {
     },
 };
 </script>
-
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700");
