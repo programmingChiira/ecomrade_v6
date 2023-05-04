@@ -5,7 +5,7 @@
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-4 col-10">
+                            <div class="col-md-4 col-12">
                                 <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                                     <div class="container">
                                         <ol class="breadcrumb">
