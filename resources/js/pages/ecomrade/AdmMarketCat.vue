@@ -13,7 +13,7 @@
 
                 <br />
                 <div class="row">
-                    <div class="col-md-4 col-9">
+                    <div class="col-md-4 col-10">
                         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                             <div class="container">
                                 <ol class="breadcrumb">
@@ -28,7 +28,7 @@
                     <div style="float:right;" class="col-md-6 col-4">
                         <router-link :to="{ name: 'CreateMarketCategory' }" style="float: right;">
                             <button type="button" class="btn bg-gradient-primary btn-sm">
-                                Add
+                                <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
                     </div>
