@@ -119,6 +119,68 @@ class UserController extends Controller
             'last_page' => $users->lastPage()
         ]);
     }
+
+    public function searchcomrade(Request $request)
+    {
+        if ($request->search) {
+            $users = UserResource::collection(User::where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('phone', 'like', '%' . $request->search . '%')
+                ->orWhere('email', 'like', '%' . $request->search . '%')
+                ->orWhere('type', 'like', '%' . $request->search . '%')
+                ->orWhere('youtube', 'like', '%' . $request->search . '%')
+                ->orWhere('instagram', 'like', '%' . $request->search . '%')
+                ->orWhere('twitter', 'like', '%' . $request->search . '%')
+                ->orWhere('facebook', 'like', '%' . $request->search . '%')
+                ->orWhere('linkedin', 'like', '%' . $request->search . '%')
+                ->orWhere('github', 'like', '%' . $request->search . '%')
+                ->orWhere('title', 'like', '%' . $request->search . '%')
+                ->orWhere('personal_description', 'like', '%' . $request->search . '%')
+                ->orWhere('campus_area', 'like', '%' . $request->search . '%')
+                ->orWhere('campus', 'like', '%' . $request->search . '%')
+                ->orWhere('gender', 'like', '%' . $request->search . '%')
+                ->latest()->paginate(10)->withQueryString());
+
+            $userData = $users->map(function ($user) {
+
+                $connecter = Connection::where('sender_id', auth()->id())
+                    ->where('receiver_id', $user->id)
+                    ->exists();
+
+                $connector = Connection::where('receiver_id', auth()->id())
+                    ->where('sender_id', $user->id)
+                    ->exists();
+
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'slug' => $user->slug,
+                    'phone' => $user->phone,
+                    'email' => $user->email,
+                    'type' => $user->type,
+                    'youtube' => $user->youtube,
+                    'instagram' => $user->instagram,
+                    'twitter' => $user->twitter,
+                    'facebook' => $user->facebook,
+                    'linkedin' => $user->linkedin,
+                    'github' => $user->github,
+                    'profile_pic' => $user->profile_pic,
+                    'personal_description' => $user->personal_description,
+                    'campus_area' => $user->campus_area,
+                    'campus' => $user->campus,
+                    'gender' => $user->gender,
+                    'connecter' => $connecter,
+                    'connector' => $connector,
+                    'created_at' => $user->created_at->diffForHumans(),
+                ];
+            });
+
+            return response()->json([
+                'data' => $userData,
+                'current_page' => $users->currentPage(),
+                'last_page' => $users->lastPage()
+            ]);
+        }
+    }
     public function getUserData()
     {
         $user = Auth::user();

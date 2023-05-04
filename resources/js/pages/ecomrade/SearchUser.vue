@@ -6,7 +6,7 @@
 
                 <div class="row justify-content-center my-2 py-1">
                     <div class="custom-search">
-                        <input v-model="user_name" @input="searchuser" type="text" class="custom-search-input"
+                        <input v-model="name" @input="searchuser" type="text" class="custom-search-input"
                             placeholder="Search For User | Role | Gender..." name="searchuser">
                         <br>
                         <br>
@@ -16,7 +16,7 @@
                             <ul style="padding: 20px;" class="search-results">
                                 <li style="margin: 13px;" v-for="user in searchResults" :key="user.id">
                                     <input style="background-color: rgb(250, 250, 250);border:none;color:#189483;"
-                                        type="button" @click="selectItem(user)" :value="user.user_name">
+                                        type="button" @click="selectItem(user)" :value="user.name">
                                     <hr class="horizontal dark my-1">
                                 </li>
                             </ul>
@@ -58,7 +58,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="user in users" :key="user.id" v-show="user.id != id">
+                                        <tr v-for="user in searchcomrades" :key="user.id" v-show="user.id != id">
                                             <th scope="row" class="ps-4">
                                                 <div class="form-check font-size-16"><input type="checkbox"
                                                         class="form-check-input" id="contacusercheck1" /><label
@@ -80,7 +80,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <h5 v-if="!users.length">Sorry, no item found!</h5>
                             </div>
                         </div>
                     </div>
@@ -107,11 +106,11 @@ export default {
     emits: ["updateSidebar"],
     data() {
         return {
-            users: [],
+            searchcomrades: [],
             currentPage: 1,
             lastPage: 1,
 
-            user_name: '',
+            name: '',
             searchResults: [],
             //market: {},
 
@@ -123,7 +122,6 @@ export default {
             links: [],
 
             id: "",
-            name: "",
         };
     },
 
@@ -145,14 +143,14 @@ export default {
 
     methods: {
 
-        truncateText(users) {
-            const truncatedText = users.slice(0, 10) + '...'
+        truncateText(searchcomrades) {
+            const truncatedText = searchcomrades.slice(0, 10) + '...'
             return truncatedText
         },
         searchuser() {
-            if (this.user_name.length > 2) {
+            if (this.name.length > 2) {
 
-                axios.get('/api/searchuser', { params: { q: this.user_name } })
+                axios.get('/api/searchuser', { params: { q: this.name } })
                     .then(response => {
                         this.searchResults = response.data;
                     });
@@ -162,12 +160,12 @@ export default {
         },
 
         selectItem(item) {
-            this.user_name = item.user_name;
+            this.name = item.name;
             this.searchResults = [];
         },
         submit() {
             axios
-                .user("/api/users", this.fields, {
+                .user("/api/searchcomrades", this.fields, {
                     headers: { "content-type": "multipart/form-data" },
                 })
                 .then(() => {
@@ -175,9 +173,9 @@ export default {
                     this.success = true;
                     this.errors = {};
 
-                    axios.get("/api/users").then(({
+                    axios.get("/api/searchcomrades").then(({
                         data
-                    }) => (this.users = data.data));
+                    }) => (this.searchcomrades = data.data));
 
                     setTimeout(() => {
                         this.success = false;
@@ -204,7 +202,7 @@ export default {
                 // Send request to the server
                 if (result.value) {
                     axios
-                        .delete("/api/users/" + id)
+                        .delete("/api/searchcomrades/" + id)
                         .then((response) => {
                             Swal.fire(
                                 'Deleted!',
@@ -212,8 +210,8 @@ export default {
                                 'success'
                             );
                             // Fire.$emit('AfterCreate');
-                            axios.get('/api/users').then(response => {
-                                this.users = response.data.data;
+                            axios.get('/api/searchcomrades').then(response => {
+                                this.searchcomrades = response.data.data;
                             });
                         }).catch((error) => {
                             Swal.fire("Failed!", error.message, "warning");
@@ -224,13 +222,13 @@ export default {
 
         userName(page) {
             axios
-                .get('/api/users?page=' + page, {
+                .get('/api/searchcomrades?page=' + page, {
                     params: {
-                        search: this.user_name,
+                        search: this.name,
                     },
                 })
                 .then((response) => {
-                    this.users = response.data.data;
+                    this.searchcomrades = response.data.data;
                     this.currentPage = response.data.current_page;
                     this.lastPage = response.data.last_page;
                 })
@@ -243,16 +241,16 @@ export default {
     },
 
     watch: {
-        user_name(page) {
+        name(page) {
             axios
-                .get("/api/users", {
+                .get("/api/searchcomrades", {
                     params: {
                         page: page,
-                        search: this.user_name,
+                        search: this.name,
                     },
                 })
                 .then((response) => {
-                    this.users = response.data.data;
+                    this.searchcomrades = response.data.data;
                     this.currentPage = response.data.current_page;
                     this.lastPage = response.data.last_page;
                 })
@@ -267,7 +265,6 @@ export default {
             .get("/api/user")
             .then(response => {
                 this.id = response.data.id
-                this.name = response.data.name
             })
             .catch((error) => {
                 if (error.response.status === 401) {

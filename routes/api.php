@@ -225,6 +225,7 @@ Route::middleware('throttle:1200,1')->get('marketings', [MarketController::class
 Route::middleware('throttle:1200,1')->get('home', [MarketController::class, 'home']);
 Route::middleware('throttle:1200,1')->get('marketrevs/${marketId}', [MarketController::class, 'countReviews']);
 Route::middleware('throttle:1200,1')->get('users', [UserController::class, 'index']);
+Route::middleware('throttle:1200,1')->get('searchcomrades', [UserController::class, 'searchcomrade']);
 Route::middleware('throttle:1200,1')->get('related-posts/{post:slug}', [RelatedPostController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('dashboard-posts', [DashboardPostController::class, 'index']);
 
