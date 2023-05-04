@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <a data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
+                            <a  v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
                                 <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                             </a>
 
