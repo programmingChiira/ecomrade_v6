@@ -171,22 +171,9 @@
                                                 title="My friends"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link to="/viewReceivedConnect">
+                                                <router-link to="/viewAcceptedConnect">
                                                     <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
                                                 </router-link>
-                                            </button>
-                                            <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="Chats with friends"
-                                                style="outline:none;background: none;border:none;" type="button"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link
-                                                to="/viewReceivedConnect">
-                                                <i style="margin: 10px;" class="fa fa-envelope">
-                                                    <sup><i class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
-                                                </i>
-                                                My chats
-                                            </router-link>
                                             </button>
                                         </div>
                                     </div>
@@ -428,7 +415,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div>

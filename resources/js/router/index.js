@@ -13,6 +13,7 @@ import ViewResource from "../pages/ecomrade/ViewResource.vue";
 import ViewEvent from "../pages/ecomrade/ViewEvent.vue";
 import ViewPost from "../pages/ecomrade/ViewPost.vue";
 import ViewCart from "../pages/ecomrade/ViewCart.vue";
+import ViewAcceptedConnect from "../pages/ecomrade/ViewAcceptedConnect.vue";
 import ViewReceivedConnect from "../pages/ecomrade/ViewReceivedConnect.vue";
 import ViewSentConnect from "../pages/ecomrade/ViewSentConnect.vue";
 import CreateBlog from "../pages/ecomrade/CreateBlog.vue";
@@ -466,6 +467,24 @@ const routes = [
             ogTitle: 'My cart - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'Welcome to ecomrade cart! Shop the best deals on Kenyan student essentials including accessories, electronics, and more. Conveniently checkout with just a few clicks.',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/viewAcceptedConnect",
+        name: "ViewAcceptedConnect",
+        component: ViewAcceptedConnect,
+        props: true,
+        meta: {
+            title: 'Accepted Connections from Other Comrades on ecomrade :- ecomrade',
+            description: 'The Accepted Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.',
+            keywords: 'ecomrade, received connections, chat room, communication, networking, professional relationships',
+            author: 'ecomrade cart',
+            robots: 'index, follow',
+            ogTitle: 'Accepted Connections from Other Comrades on ecomrade - ecomrade',
+            ogImage: '/logo.png',
+            ogDescription: 'The Accepted Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.',
             favicon: '/favicon.ico'
         },
     },
