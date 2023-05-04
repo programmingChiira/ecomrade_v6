@@ -85,50 +85,51 @@
                                                 <h4 class="profile__username">{{ connection.sender_name }}</h4>
                                             </div>
                                         </div>
-                                        <div class="profile__stats">
-                                            <div class="profile__stat">
-
-                                                <div class="profile__value">
-                                                    <div class="profile__key">
-                                                        <router-link class="btn bg-gradient-primary btn-sm" :to="{
-                                                            name: 'User',
-                                                            params: { slug: connection.sender_slug },
-                                                        }">
-                                                            <i style="font-size: 12px;" class="fas fa-user"></i>
-                                                        </router-link>
-                                                    </div>
-                                                </div>
-
-                                                <div class="profile__stats">
-                                                    <div class="profile__stat">
-                                                        <div class="profile__value">
-                                                            <div class="profile__key">
-                                                                <router-link class="btn bg-gradient-success btn-sm" :to="{
-                                                                    name: 'ChatUser',
-                                                                    params: { slug: connection.sender_slug },
-                                                                }">
-                                                                    <i style="font-size: 12px;" class="fas fa-envelope"></i>
-                                                                </router-link>
-                                                            </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="profile__stats">
+                                                <div class="profile__stat">
+                                                    <div class="profile__value">
+                                                        <div class="profile__key">
+                                                            <router-link class="btn bg-gradient-primary btn-sm" :to="{
+                                                                name: 'User',
+                                                                params: { slug: connection.sender_slug },
+                                                            }">
+                                                                <i style="font-size: 12px;" class="fas fa-user"></i>
+                                                            </router-link>
                                                         </div>
                                                     </div>
                                                 </div>
-    
-                                                <div class="profile__stats">
-                                                    <div class="profile__stat">
-                                                        <div class="profile__value">
-                                                            <div class="profile__key">
-                                                                <button class="btn bg-gradient-danger btn-sm" type="button" @click="destroy(connection.id)">
-                                                                    <i class="fa fa-trash-o" style="color: white;font-size: 12px;"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
                                             </div>
+
+                                            <div class="profile__stats">
+                                                <div class="profile__stat">
+                                                    <div class="profile__value">
+                                                        <div class="profile__key">
+                                                            <router-link class="btn bg-gradient-success btn-sm" :to="{
+                                                                name: 'ChatUser',
+                                                                params: { slug: connection.sender_slug },
+                                                            }">
+                                                                <i style="font-size: 12px;" class="fas fa-envelope"></i>
+                                                            </router-link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="profile__stats">
+                                                <div class="profile__stat">
+                                                    <div class="profile__value">
+                                                        <div class="profile__key">
+                                                            <button class="btn bg-gradient-danger btn-sm" type="button" @click="destroy(connection.id)">
+                                                                <i class="fa fa-trash-o" style="color: white;font-size: 12px;"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
+
                                     </div>
 
                                 </div>
