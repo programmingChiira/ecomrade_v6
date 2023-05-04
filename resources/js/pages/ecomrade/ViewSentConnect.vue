@@ -19,59 +19,58 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="">
-                                    <div class="table-responsive">
-                                        <table class="table project-list-table table-nowrap align-middle table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="ps-4" style="width: 50px;">
-                                                        <div class="form-check font-size-16"><input type="checkbox"
-                                                                class="form-check-input" id="contacusercheck" /><label
-                                                                class="form-check-label" for="contacusercheck"></label>
-                                                        </div>
-                                                    </th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">View Profile</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Withdraw</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr v-for="connection in connections" :key="connection.id"
-                                                    v-show="connection.sender_id == id && connection.status == 'Pending'">
-                                                    <th scope="row" class="ps-4">
-                                                        <div class="form-check font-size-16"><input type="checkbox"
-                                                                class="form-check-input" id="contacusercheck1" /><label
-                                                                class="form-check-label" for="contacusercheck1"></label>
-                                                        </div>
-                                                    </th>
-                                                    <td><span class="badge badge-soft-success mb-0">{{
-                                                        connection.receiver_name }}</span></td>
-                                                    <td>
-                                                        <router-link class="btn btn-sm" :to="{
+                        <div class="layout">
+                            <div class="row">
+                                <div v-for="connection in connections" :key="connection.id"
+                                    v-show="connection.sender_id == id && connection.status == 'Pending'"
+                                    class="col-md-4 col-12">
+                                    <div class="profile">
+                                        <div class="profile__picture"><img src="http://i.pravatar.cc/250?img=58"
+                                                alt="comrade" /></div>
+                                        <div class="profile__header">
+                                            <div class="profile__account">
+                                                <h4 class="profile__username">{{connection.receiver_name }}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="profile__stats">
+                                            <div class="profile__stat">
+                                                
+                                                <div class="profile__value">
+                                                    <div class="profile__key">
+                                                        <router-link :to="{
                                                             name: 'Profile',
                                                             params: { slug: connection.receiver_slug },
                                                         }">
-                                                            <i class="fa fa-user me-1"></i>
+                                                            <h6><i class="fas fa-user"></i> View</h6>
                                                         </router-link>
-                                                    </td>
-                                                    <td>
-                                                        {{ connection.status }} ...
-                                                    </td>
-                                                    <td>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="profile__stat">
+                                                <div class="profile__icon">
+                                                </div>
+                                                <div class="profile__value">
+                                                    <div class="profile__key">
+                                                        <h6>
+                                                            <i class="fas fa-certificate"></i> {{ connection.status }}
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="profile__stat">
+                                                <div class="profile__value">
+                                                    <div class="profile__key">
                                                         <button type="button" @click="destroy(connection.id)"
                                                             class="delete-btn"
                                                             style="border:none;outline:none;background: none;">
-                                                            <i class="fa fa-trash-o" style="color: red;"></i>
+                                                            <h6>
+                                                                <i class="fa fa-trash-o" style="color: red;"></i> Revert
+                                                            </h6>
                                                         </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -222,86 +221,177 @@ export default {
 
 
 <style scoped>
-.project-list-table {
-    border-collapse: separate;
-    border-spacing: 0 12px
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700");
+
+
+@keyframes popUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.project-list-table tr {
-    background-color: #fff
+@keyframes slideUp {
+    from {
+        transform: translateY(5px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
-.table-nowrap td,
-.table-nowrap th {
-    white-space: nowrap;
+.profile {
+    animation: popUp ease-in-out 350ms;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    margin-top: 40px;
+    padding: 28px 30px 30px 35px;
+    position: relative;
+    max-width: 500px;
 }
 
-.table-borderless>:not(caption)>*>* {
-    border-bottom-width: 0;
-}
-
-.table>:not(caption)>*>* {
-    padding: 0.75rem 0.75rem;
-    background-color: var(--bs-table-bg);
-    border-bottom-width: 1px;
-    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-}
-
-.avatar-sm {
-    height: 2rem;
-    width: 2rem;
-}
-
-.rounded-circle {
-    border-radius: 50% !important;
-}
-
-.me-2 {
-    margin-right: 0.5rem !important;
-}
-
-img,
-svg {
-    vertical-align: middle;
-}
-
-a {
-    color: #3b76e1;
-    text-decoration: none;
-}
-
-.badge-soft-danger {
-    color: #f56e6e !important;
-    background-color: rgba(245, 110, 110, .1);
-}
-
-.badge-soft-success {
-    color: #63ad6f !important;
-    background-color: rgba(99, 173, 111, .1);
-}
-
-.badge-soft-primary {
-    color: #3b76e1 !important;
-    background-color: rgba(59, 118, 225, .1);
-}
-
-.badge-soft-info {
-    color: #57c9eb !important;
-    background-color: rgba(87, 201, 235, .1);
-}
-
-.avatar-title {
-    align-items: center;
-    background-color: #3b76e1;
-    color: #fff;
+.profile__account {
+    align-self: center;
     display: flex;
-    font-weight: 500;
+    flex: 1;
+    justify-content: flex-end;
+    padding-left: 135px;
+}
+
+.profile__button {
+    border-radius: 50px;
+    border: 1px solid #000000;
+    color: #000000;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: ease-in-out 250ms background, ease-in-out 250ms color;
+}
+
+.profile__button:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.profile__edit {
+    flex: none;
+    margin-left: 30px;
+    width: 140px;
+}
+
+.profile__header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile__icon {
+    flex: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    padding-top: 3px;
+}
+
+.profile__icon--gold {
+    color: #eab100;
+}
+
+.profile__icon--blue {
+    color: #8faae8;
+}
+
+.profile__icon--pink {
+    color: #ff86af;
+}
+
+.profile__key {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.profile__picture {
+    background: #ffffff;
+    border-radius: 100px;
+    border: 10px solid #ffffff;
+    height: 125px;
+    position: absolute;
+    top: -40px;
+    width: 125px;
+}
+
+.profile__picture:before {
+    border-radius: 100px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+    content: "";
+    height: calc(100% + 20px);
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: calc(100% + 20px);
+    z-index: -1;
+}
+
+.profile__picture img {
+    border-radius: 100px;
     height: 100%;
-    justify-content: center;
     width: 100%;
 }
 
-.bg-soft-primary {
-    background-color: rgba(59, 118, 225, .25) !important;
+.profile__stat {
+    animation: slideUp ease-in-out 350ms forwards;
+    border-right: 1px solid #e9e9e9;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    opacity: 0;
+    padding: 10px 4px;
+    transform: translateY(5px);
+}
+
+.profile__stat:last-of-type {
+    border-right: none;
+}
+
+.profile__stat:nth-child(1) {
+    animation-delay: 400ms;
+}
+
+.profile__stat:nth-child(2) {
+    animation-delay: 500ms;
+}
+
+.profile__stat:nth-child(3) {
+    animation-delay: 600ms;
+}
+
+.profile__stats {
+    display: flex;
+}
+
+.profile__username {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
+}
+
+.profile__value {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
 }
 </style>

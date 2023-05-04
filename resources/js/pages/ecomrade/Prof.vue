@@ -268,7 +268,7 @@
                         <div v-if="type == 'admin' && user.id === id" class="profile-card-inf">
                             <router-link class="profile-card-inf__item" to="/dashboard">
                                 <i style="color: #3b5998;" class="fa fa-dashboard"></i>
-                                <p>Dashboard</p>
+                                <p>Dash</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admuser">
@@ -278,17 +278,17 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarket">
                                 <i style="color: #3b5998;" class="fa fa-store"></i>
-                                <p>Market</p>
+                                <p>Prods</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Product Category</p>
+                                <p>Prod Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketsubcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Product Sub-Category</p>
+                                <p>Prod Sub-Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrental">
@@ -298,7 +298,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Rentals Category</p>
+                                <p>Rentals Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admblog">
@@ -308,7 +308,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admBlogCat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
-                                <p>Blog Category</p>
+                                <p>Blog Cat</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admlocation">
@@ -328,7 +328,7 @@
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admclub">
                                 <i style="color: #3b5998;" class="fa fa-users"></i>
-                                <p>Clubs / Societies</p>
+                                <p>Societies</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admresource">
@@ -753,13 +753,13 @@ a:hover {
 }
 
 .profile-card-inf__item {
-    padding: 5px 18px;
+    padding: 5px 9px;
     min-width: 100px;
 }
 
 @media screen and (max-width: 768px) {
     .profile-card-inf__item {
-        padding: 5px 20px;
+        padding: 5px 10px;
         min-width: 100px;
     }
 }
