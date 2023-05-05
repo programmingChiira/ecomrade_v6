@@ -39,6 +39,7 @@ use App\Http\Controllers\RentalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RelatedPostController;
 use App\Http\Controllers\RoomUserController;
+use App\Http\Middleware\CustomAuthMiddleware;
 use App\Models\Market;
 use Pusher\Pusher;
 use Illuminate\Http\Request;
@@ -48,6 +49,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -213,7 +215,13 @@ Route::middleware('throttle:1200,1')->get('userchats', [UserChatRoomController::
 Route::middleware('throttle:1200,1')->get('resources', [ResourceController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('feeds', [FeedController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('messages', [MessageController::class, 'index']);
-Route::middleware('throttle:1200,1')->get('markets', [MarketController::class, 'index']);
+// Route::middleware(['auth:sanctum','throttle:1200,1'])->get('markets', [MarketController::class, 'index']);
+
+// Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets', [MarketController::class, 'index']);
+
+Route::middleware(['throttle:1200,1', 'custom_auth'])->get('/markets', [MarketController::class, 'index']);
+
+
 Route::middleware('throttle:1200,1')->get('rentals', [RentalController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('polls', [PollController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('events', [EventController::class, 'index']);
