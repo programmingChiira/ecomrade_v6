@@ -215,12 +215,8 @@ Route::middleware('throttle:1200,1')->get('userchats', [UserChatRoomController::
 Route::middleware('throttle:1200,1')->get('resources', [ResourceController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('feeds', [FeedController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('messages', [MessageController::class, 'index']);
-// Route::middleware(['auth:sanctum','throttle:1200,1'])->get('markets', [MarketController::class, 'index']);
 
-// Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets', [MarketController::class, 'index']);
-
-Route::middleware(['throttle:1200,1', 'custom_auth'])->get('/markets', [MarketController::class, 'index']);
-
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets', [MarketController::class, 'index']);
 
 Route::middleware('throttle:1200,1')->get('rentals', [RentalController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('polls', [PollController::class, 'index']);
