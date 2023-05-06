@@ -377,20 +377,6 @@ export default {
     },
 
     mounted() {
-        axios
-            .get("/api/user")
-            .then(response => {
-                this.id = response.data.id
-                this.name = response.data.name
-                this.slug = response.data.slug
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    this.$emit("updateSidebar");
-                    localStorage.removeItem("authenticated");
-                }
-            });
-
         axios.get('/api/locations')
             .then(response => {
                 this.locations = response.data.data;
