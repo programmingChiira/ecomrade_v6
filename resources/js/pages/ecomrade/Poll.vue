@@ -46,7 +46,7 @@
                             </nav>
                         </div>
                         <div style="float:right;" class="col-md-8 col-3">
-                            <router-link v-if="id == true" to="/createpoll" style="float: right;"
+                            <router-link v-if="id == false" to="/login" style="float: right;"
                                 class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="Create poll" type="button"
                                     class="btn bg-gradient-primary btn-sm">
@@ -54,8 +54,7 @@
                                 </button>
                             </router-link>
 
-                            <router-link v-else-if="id == false" to="/login" style="float: right;"
-                                class="text-info icon-move-right">
+                            <router-link v-else to="/createpoll" style="float: right;" class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="Create poll" type="button"
                                     class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
@@ -160,18 +159,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_1" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -249,18 +248,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_2" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -336,18 +335,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_3" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -423,18 +422,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_4" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -511,18 +510,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_5" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -599,18 +598,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_6" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -688,18 +687,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_7" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -776,18 +775,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_8" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -864,18 +863,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_9" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -952,18 +951,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_10" />
-                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                    <router-link v-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
+
+                                                                    <button v-else data-toggle="tooltip"
                                                                         data-placement="bottom" title="Vote"
                                                                         style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
-
-                                                                    <router-link v-else-if="id == false" title="Vote"
-                                                                        style="font-size: 13px;float:right;" to="/login"
-                                                                        class="btn bg-gradient-primary btn-sm">
-                                                                        Vote
-                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>

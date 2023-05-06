@@ -23,7 +23,7 @@
                             </button>
                         </router-link>
 
-                        <router-link v-else-if="id == false" to="/login" style="float: right;"
+                        <router-link v-if="id == false" to="/login" style="float: right;"
                             class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create rental" type="button"
                                 class="btn bg-gradient-primary btn-sm">
@@ -259,17 +259,17 @@
                                 </div>
 
                                 <div class="try">
-                                    <a v-if="id == true" data-toggle="tooltip" data-placement="bottom"
-                                        title="Place in a call" :href="'tell:' + rental.contact_information"
-                                        class="btn bg-gradient-primary btn-sm me-2">
-                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
-                                    </a>
-
-                                    <router-link to="/login" v-else-if="id == false" data-toggle="tooltip"
+                                    <router-link to="/login" v-if="id == false" data-toggle="tooltip"
                                         data-placement="bottom" title="Place in a call"
                                         class="btn bg-gradient-primary btn-sm me-2">
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </router-link>
+
+                                    <a v-else data-toggle="tooltip" data-placement="bottom"
+                                        title="Place in a call" :href="'tell:' + rental.contact_information"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </a>
                                     <hr>
 
                                     <div class="product-description">
@@ -400,17 +400,17 @@
                                     <input class="form-control" type="hidden" v-model="rentalSlug" />
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Book Rental
-                                            </small>
-                                        </button>
-
-                                        <router-link to="/login" v-else-if="id == false" class="btn bg-gradient-primary btn-sm">
+                                        <router-link to="/login" v-if="id == false" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Rental
                                             </small>
                                         </router-link>
+
+                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Book Rental
+                                            </small>
+                                        </button>
                                     </div>
 
                                 </form>
@@ -451,17 +451,17 @@
                                     </div>
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Submit
-                                            </small>
-                                        </button>
-
-                                        <router-link v-else-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                        <router-link v-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Submit
                                             </small>
                                         </router-link>
+
+                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Submit
+                                            </small>
+                                        </button>
                                     </div>
 
                                 </form>

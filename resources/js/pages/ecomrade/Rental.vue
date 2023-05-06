@@ -119,7 +119,7 @@
                                 </button>
                             </router-link>
 
-                            <router-link v-else-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
+                            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="Create rental"
                                     type="button" class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>

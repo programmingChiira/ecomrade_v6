@@ -28,13 +28,13 @@
             </nav>
           </div>
           <div style="float:right;" class="col-md-8 col-7">
-            <router-link v-if="id == true" to="/createblog" style="float: right;" class="text-info icon-move-right">
+            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
               <button type="button" class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>
               </button>
             </router-link>
 
-            <router-link v-else-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
+            <router-link v-else to="/createblog" style="float: right;" class="text-info icon-move-right">
               <button type="button" class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>
               </button>
@@ -200,8 +200,8 @@
                     placeholder="Comment Here ...."></textarea>
                 </div>
                 <div class="col-lg-12">
-                  <button v-if="id == true" class="btn btn-primary" type="submit">Send</button>
-                  <router-link v-else-if="id == false" class="btn btn-primary" to="/login">Send</router-link>
+                  <router-link v-if="id == false" class="btn btn-primary" to="/login">Send</router-link>
+                  <button v-else class="btn btn-primary" type="submit">Send</button>
                 </div>
               </div>
             </form>

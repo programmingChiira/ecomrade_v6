@@ -77,14 +77,14 @@
             </nav>
           </div>
           <div style="float:right;" class="col-md-8 col-2">
-            <router-link v-if="id == true" to="/createblog" style="float: right;" class="text-info icon-move-right">
+            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
               <button data-toggle="tooltip" data-placement="bottom" title="Create blog" type="button"
                 class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>
               </button>
             </router-link>
 
-            <router-link v-else-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
+            <router-link v-else to="/createblog" style="float: right;" class="text-info icon-move-right">
               <button data-toggle="tooltip" data-placement="bottom" title="Create blog" type="button"
                 class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>

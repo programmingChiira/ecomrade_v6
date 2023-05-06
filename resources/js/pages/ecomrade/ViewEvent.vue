@@ -15,7 +15,7 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link v-if="id == true" to="/createEvent" style="float: right;"
+                        <router-link v-if="id == false" to="/login" style="float: right;"
                             class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
                                 class="btn bg-gradient-primary btn-sm">
@@ -23,7 +23,7 @@
                             </button>
                         </router-link>
 
-                        <router-link v-else-if="id == false" to="/login" style="float: right;"
+                        <router-link v-else to="/createEvent" style="float: right;"
                             class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
                                 class="btn bg-gradient-primary btn-sm">
@@ -111,16 +111,16 @@
                                 </div>
                                 <br />
 
-                                <button v-if="id == true" style="float: right;" data-toggle="tooltip"
+                                <router-link v-if="id == false" to="/login" style="float: right;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Report Post" class="btn bg-gradient-danger btn-sm me-2">
+                                    <i style="font-size: 13px;" class="fa fa-flag"></i>
+                                </router-link>
+
+                                <button v-else style="float: right;" data-toggle="tooltip"
                                     data-placement="bottom" title="Report Post" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" class="btn bg-gradient-danger btn-sm me-2">
                                     <i style="font-size: 13px;" class="fa fa-flag"></i>
                                 </button>
-
-                                <router-link v-else-if="id == false" to="/login" style="float: right;" data-toggle="tooltip"
-                                    data-placement="bottom" title="Report Post" class="btn bg-gradient-danger btn-sm me-2">
-                                    <i style="font-size: 13px;" class="fa fa-flag"></i>
-                                </router-link>
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
@@ -308,17 +308,17 @@
                                 </div>
 
                                 <div class="try">
-                                    <a v-if="id == true && event.show_contact == 'Yes' " data-toggle="tooltip" data-placement="bottom"
-                                        title="Place in a call" :href="'tell:' + event.contact"
-                                        class="btn bg-gradient-primary btn-sm me-2">
-                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
-                                    </a>
-
-                                    <router-link to="/login" v-else-if="id == false" data-toggle="tooltip"
+                                    <router-link to="/login" v-if="id == false" data-toggle="tooltip"
                                         data-placement="bottom" title="Place in a call"
                                         class="btn bg-gradient-primary btn-sm me-2">
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </router-link>
+
+                                    <a v-else data-toggle="tooltip" data-placement="bottom"
+                                        title="Place in a call" :href="'tell:' + event.contact"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </a>
                                     <hr>
                                 </div>
                             </div>
@@ -357,18 +357,18 @@
                                     <input class="form-control" type="hidden" v-model="eventTime" />
 
                                     <div v-if="event.booked == false" class="mx-3 mt-3 mb-2">
-                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Book Event
-                                            </small>
-                                        </button>
-
-                                        <router-link v-else-if="id == false" to="/login"
+                                        <router-link v-if="id == false" to="/login"
                                             class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Event
                                             </small>
                                         </router-link>
+
+                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Book Event
+                                            </small>
+                                        </button>
                                     </div>
 
                                     <div v-if="event.booked == true" class="mx-3 mt-3 mb-2">
@@ -413,18 +413,18 @@
                                     </div>
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Submit
-                                            </small>
-                                        </button>
-
-                                        <router-link v-else-if="id == false" to="/login"
+                                        <router-link v-if="id == false" to="/login"
                                             class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Submit
                                             </small>
                                         </router-link>
+
+                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Submit
+                                            </small>
+                                        </button>
                                     </div>
 
                                 </form>

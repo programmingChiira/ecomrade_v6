@@ -2,20 +2,6 @@
   <body class="index-page">
     <section class="my-5 py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-9">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-              <div class="container">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                  <li class="breadcrumb-item"><router-link to="/club">Room</router-link></li>
-                  <li style="color: #189483;" class="breadcrumb-item"><strong>{{ club.name }}</strong></li>
-                </ol>
-              </div>
-            </nav>
-          </div>
-        </div>
-
         <div class="row no-gutters  d-flex justify-content-center">
           <div class="page-content page-container" id="page-content">
             <div class="col-md-12">
@@ -43,7 +29,7 @@
 
 
                 <div class="ps-container ps-theme-default ps-active-y" id="chat-content" ref="chatContent"
-                  style="overflow-y: scroll !important; height: 70vh !important;">
+                  style="overflow-y: scroll !important; height: 55vh !important;">
                   <div v-for="(chat, index) in clubchats" :key="index">
                     <div style="display: flex; flex-direction: column;">
                       <div v-if="chat.user_id != id && club.id == chat.room_id"
@@ -143,7 +129,7 @@
                 </div>
 
 
-                <form @submit.prevent="submit">
+                <form v-if="club.subscribed == true" @submit.prevent="submit">
                   <h5 style="padding: 10px;text-align:center;" v-if="messageCount <= 0">Sorry, no chats found!</h5>
                   <div class="publisher bt-1 border-light">
                     <img loading="lazy" class="avatar avatar-xs" src="/img/user.png" alt="...">
@@ -168,7 +154,7 @@
                     <input type="hidden" v-model="roomId2">
                     <input type="hidden" v-model="userId2">
                     <button type="submit" class="btn bg-gradient-primary btn-block btn-sm">
-                      SUBSCRIBE TO ROOM
+                      JOIN ROOM TO CHAT
                     </button>
                   </div>
                 </form>

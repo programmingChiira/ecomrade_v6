@@ -123,7 +123,7 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link v-if="id == true" to="/createmarket" style="float: right;"
+                        <router-link v-if="id == false" to="/login" style="float: right;"
                             class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
                                 type="button" class="btn bg-gradient-primary btn-sm">
@@ -131,7 +131,7 @@
                             </button>
                         </router-link>
 
-                        <router-link v-else-if="id == false" to="/login" style="float: right;"
+                        <router-link v-else to="/createmarket" style="float: right;"
                             class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
                                 type="button" class="btn bg-gradient-primary btn-sm">
@@ -268,16 +268,16 @@
                                             <input class="form-control" type="hidden" v-model="market.contact" />
                                             <input class="form-control" type="hidden" v-model="market.product_price" />
                                             <input class="form-control" type="hidden" v-model="market.product_discount" />
-                                            <button v-if="id == true" data-toggle="tooltip" data-placement="bottom"
+                                            <router-link v-if="id == false" to="/login" style="font-size: 13px;"
+                                                class="btn bg-gradient-primary btn-sm btn-block">
+                                                Compare <sup> ( 0 )</sup>
+                                            </router-link>
+
+                                            <button v-else data-toggle="tooltip" data-placement="bottom"
                                                 title="Add to compare" style="font-size: 13px;" type="submit"
                                                 class="btn bg-gradient-primary btn-sm btn-block">
                                                 Compare <sup> ( {{ market.cart_count }} )</sup>
                                             </button>
-
-                                            <router-link v-else-if="id == false" to="/login" style="font-size: 13px;"
-                                                class="btn bg-gradient-primary btn-sm btn-block">
-                                                Compare <sup> ( 0 )</sup>
-                                            </router-link>
                                         </form>
 
                                     </div>
