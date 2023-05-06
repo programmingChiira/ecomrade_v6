@@ -63,33 +63,34 @@
                                         </div>
 
                                         <label class="label">Password</label>
+                                        <span style="float: right" @click="toggleShow"><span class="icon is-small is-right">
+                                            <i class="fas"
+                                                :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
+                                            </i>
+                                        </span>
+                                    </span>
                                         <div class="field has-addons">
                                             <div class="control is-expanded">
                                                 <input v-if="showPassword" type="text" class="form-control form-control-lg"
                                                     v-model="passwordValue" />
                                                 <input v-else type="password" class="form-control form-control-lg"
                                                     v-model="passwordValue">
-                                                <span @click="toggleShow"><span class="icon is-small is-right">
-                                                        <i class="fas"
-                                                            :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
-                                                    </span>
-                                                </span>
                                                 <span v-if="errors.password" class="error">{{ errors.password[0] }}</span>
                                             </div>
                                         </div>
 
                                         <label class="label">Password Confirm:</label>
+                                        <span style="float: right;" @click="toggleShowConfirm"><span class="icon is-small is-right">
+                                            <i class="fas"
+                                                :class="{ 'fa-eye-slash': showPasswordConfirm, 'fa-eye': !showPasswordConfirm }"></i>
+                                        </span>
+                                    </span>
                                         <div class="field has-addons">
                                             <div class="control is-expanded">
                                                 <input v-if="showPasswordConfirm" type="text" class="form-control form-control-lg"
                                                     v-model="password_confirmationValue" />
                                                 <input v-else type="password" class="form-control form-control-lg"
                                                     v-model="password_confirmationValue">
-                                                <span @click="toggleShowConfirm"><span class="icon is-small is-right">
-                                                        <i class="fas"
-                                                            :class="{ 'fa-eye-slash': showPasswordConfirm, 'fa-eye': !showPasswordConfirm }"></i>
-                                                    </span>
-                                                </span>
                                                 <span v-if="errors.password" class="error">{{ errors.password[0] }}</span>
                                             </div>
                                         </div>
