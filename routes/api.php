@@ -271,7 +271,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searc
     return response()->json($results);
 });
 
-Route::middleware('throttle:1200,1')->get('/searchevent', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchevent', function(Request $request) {
     $query = $request->input('q');
     $results = DB::table('events')->where('title', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
