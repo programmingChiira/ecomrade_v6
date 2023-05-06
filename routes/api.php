@@ -216,10 +216,9 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/userc
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/resources', [ResourceController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/feeds', [FeedController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/messages', [MessageController::class, 'index']);
-
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets', [MarketController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentals', [RentalController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('rentals', [RentalController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('polls', [PollController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('events', [EventController::class, 'index']);
 Route::post('feeds', [FeedController::class, 'store']);
