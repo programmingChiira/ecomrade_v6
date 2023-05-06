@@ -228,8 +228,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/carts
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/votes', [PollVoteController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketings', [MarketController::class, 'similarProds']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/home', [MarketController::class, 'home']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketrevs/${marketId}', [MarketController::class, 'countReviews']);
 
-Route::middleware('throttle:1200,1')->get('marketrevs/${marketId}', [MarketController::class, 'countReviews']);
 Route::middleware('throttle:1200,1')->get('users', [UserController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('searchcomrades', [UserController::class, 'searchcomrade']);
 Route::middleware('throttle:1200,1')->get('related-posts/{post:slug}', [RelatedPostController::class, 'index']);
