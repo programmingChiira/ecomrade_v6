@@ -9,7 +9,7 @@
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                   <li class="breadcrumb-item"><router-link to="/club">Club</router-link></li>
-                  <li style="color: #189483;" class="breadcrumb-item"><strong>View</strong></li>
+                  <li style="color: #189483;" class="breadcrumb-item"><strong> {{ club.name }}</strong></li>
                 </ol>
               </div>
             </nav>
@@ -46,7 +46,7 @@
                   </div>
                   <div class="col-auto">
 
-                    <router-link style="margin: 4px;" class="text-info" :to="{
+                    <router-link v-show="club.user_id === id" style="margin: 4px;" class="text-info" :to="{
                       name: 'CreateBlogClub',
                       params: { slug: slug },
                     }">
@@ -82,7 +82,7 @@
                     <span class="h3 font-bold mb-0">{{ clubmarket.club_markets_count }}</span>
                   </div>
                   <div style="text-align: center;" class="col-auto">
-                    <router-link class="text-info" :to="{
+                    <router-link v-show="club.user_id === id" class="text-info" :to="{
                       name: 'CreateMarketClub',
                       params: { slug: slug },
                     }">
@@ -118,7 +118,7 @@
                   </div>
                   <div style="text-align: center;" class="col-auto">
 
-                    <router-link class="text-info" :to="{
+                    <router-link v-show="club.user_id === id" class="text-info" :to="{
                       name: 'CreateEventClub',
                       params: { slug: slug },
                     }">
@@ -153,7 +153,7 @@
                     <span class="h3 font-bold mb-0">{{ clubpoll.club_polls_count }}</span>
                   </div>
                   <div style="text-align:center;" class="col-auto">
-                    <router-link class="text-info" :to="{
+                    <router-link v-show="club.user_id === id" class="text-info" :to="{
                       name: 'CreatePollClub',
                       params: { slug: slug },
                     }">
@@ -189,7 +189,7 @@
                     <span class="h3 font-bold mb-0">{{ clubresource.club_resources_count }}</span>
                   </div>
                   <div style="text-align: center;" class="col-auto">
-                    <router-link class="text-info" :to="{
+                    <router-link v-show="club.user_id === id" class="text-info" :to="{
                       name: 'CreateResourceClub',
                       params: { slug: slug },
                     }">
