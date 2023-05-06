@@ -306,18 +306,6 @@ export default {
 
     mounted() {
         axios
-            .get("/api/user")
-            .then(response => {
-                this.id = response.data.id
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    this.$emit("updateSidebar");
-                    localStorage.removeItem("authenticated");
-                }
-            });
-
-        axios
             .get("/api/categories")
             .then((response) => (this.categories = response.data))
             .catch((error) => {
