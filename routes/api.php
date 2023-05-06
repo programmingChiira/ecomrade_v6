@@ -189,8 +189,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getre
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getlocations', [LocationController::class, 'getSub']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getyears', [YearController::class, 'getSub']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getcourses', [CourseController::class, 'getSub']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/postreviews', [PostReviewController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('/postreviews',[PostReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/resourcereviews',[ResourceReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('home-posts', [HomeController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('posts/{post:slug}', [PostController::class, 'show']);
