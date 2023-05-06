@@ -223,7 +223,9 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/event
 
 Route::post('feeds', [FeedController::class, 'store']);
 Route::post('messages', [MessageController::class, 'store']);
-Route::middleware('throttle:1200,1')->get('carts', [MarketCartController::class, 'index']);
+
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/carts', [MarketCartController::class, 'index']);
+
 Route::middleware('throttle:1200,1')->get('votes', [PollVoteController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('marketings', [MarketController::class, 'similarProds']);
 Route::middleware('throttle:1200,1')->get('home', [MarketController::class, 'home']);
