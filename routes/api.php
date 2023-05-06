@@ -235,7 +235,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/relat
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/dashboard-posts', [DashboardPostController::class, 'index']);
 
 
-Route::middleware('throttle:1200,1')->get('/search', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/search', function(Request $request) {
     $query = $request->input('q');
     $results = DB::table('markets')->where('product_name', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
