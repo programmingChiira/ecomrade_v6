@@ -184,8 +184,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/event
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/market-reviews/average-rating/{marketId}', [MarketReviewController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketsubcategories', [MarketSubCategoryController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getmarketsubcategories', [MarketSubCategoryController::class, 'getSub']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/getmarketcategories', [MarketCategoryController::class, 'getSub']);
 
-Route::middleware('throttle:1200,1')->get('/getmarketcategories',[MarketCategoryController::class,'getSub']);
 Route::middleware('throttle:1200,1')->get('/getrentalcategories',[RentalCategoryController::class,'getSub']);
 Route::middleware('throttle:1200,1')->get('/getlocations',[LocationController::class,'getSub']);
 Route::middleware('throttle:1200,1')->get('/getyears',[YearController::class,'getSub']);
