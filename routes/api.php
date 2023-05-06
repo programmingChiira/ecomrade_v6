@@ -232,8 +232,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marke
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/users', [UserController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchcomrades', [UserController::class, 'searchcomrade']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/related-posts/{post:slug}', [RelatedPostController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/dashboard-posts', [DashboardPostController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('dashboard-posts', [DashboardPostController::class, 'index']);
 
 Route::middleware('throttle:1200,1')->get('/search', function(Request $request) {
     $query = $request->input('q');
