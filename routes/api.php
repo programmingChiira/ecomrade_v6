@@ -175,8 +175,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/homer
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketcategories', [MarketCategoryController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentalcategories', [RentalCategoryController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/locations', [LocationController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/years', [YearController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('/years',[YearController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/courses',[CourseController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/marketreviews',[MarketReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/rentalreviews',[RentalReviewController::class,'index']);
