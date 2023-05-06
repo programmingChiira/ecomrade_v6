@@ -207,8 +207,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/resou
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets/{market:slug}', [MarketController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentals/{rental:slug}', [RentalController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('polls/{poll:slug}', [PollController::class, 'show']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('events/{event:slug}', [EventController::class, 'show']);
 
-Route::middleware('throttle:1200,1')->get('events/{event:slug}', [EventController::class, 'show']);
 Route::middleware('throttle:1200,1')->get('users/{user:slug}', [UserController::class, 'show']);
 Route::middleware('throttle:1200,1')->get('posts', [PostController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('clubs', [ClubController::class, 'index']);
