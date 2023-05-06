@@ -45,9 +45,9 @@ class EventReportController extends Controller
 
     public function index()
     {
-        // $eventcategories = EventReport::get();
-        // return EventReportResource::collection($eventcategories);
-        //return EventReport::latest()->get();
+        // $marketcategories = Year::get();
+        // return YearResource::collection($marketcategories);
+        //return Year::latest()->get();
         return EventReportResource::collection(EventReport::latest()->get());
     }
 

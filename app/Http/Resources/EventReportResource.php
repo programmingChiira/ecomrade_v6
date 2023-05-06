@@ -14,19 +14,6 @@ class EventReportResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'eventImg' => $this->eventImg,
-            'senderName' => $this->senderName,
-            'senderPhone' => $this->senderPhone,
-            'senderId' => $this->senderId,
-            'userId' => $this->userId,
-            'eventId' => $this->eventId,
-            'eventTitle' => $this->eventTitle,
-            'eventSlug' => $this->eventSlug,
-            'eventIssue' => $this->eventIssue,
-            'eventComplaint' => $this->eventComplaint,
-            'created_at' => $this->created_at->diffForHumans(),
-        ];
+        return parent::toArray($request);
     }
 }

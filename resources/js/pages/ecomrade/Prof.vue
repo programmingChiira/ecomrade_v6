@@ -313,6 +313,11 @@
                                 <p>Events</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admeventreport">
+                                <i style="color: #3b5998;" class="fa fa-calendar"></i>
+                                <p>Event Reports</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admclub">
                                 <i style="color: #3b5998;" class="fa fa-users"></i>
                                 <p>Societies</p>
