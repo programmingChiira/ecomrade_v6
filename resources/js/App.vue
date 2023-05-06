@@ -234,6 +234,8 @@
         id: "",
         name: "",
         slug: "",
+        phone: "",
+        type: "",
       };
     },
     methods: {
@@ -279,6 +281,8 @@
           this.id = response.data.id
           this.name = response.data.name
           this.slug = response.data.slug
+          this.phone = response.data.phone
+          this.type = response.data.type
         })
         .catch((error) => {
           if (error.response.status === 401) {
