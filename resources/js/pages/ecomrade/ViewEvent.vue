@@ -15,9 +15,18 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link to="/createEvent" style="float: right;" class="text-info icon-move-right">
-                            <button data-toggle="tooltip" data-placement="bottom" title="Create events"
-                                type="button" class="btn bg-gradient-primary btn-sm">
+                        <router-link v-if="id == true" to="/createEvent" style="float: right;"
+                            class="text-info icon-move-right">
+                            <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
+                                class="btn bg-gradient-primary btn-sm">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </router-link>
+
+                        <router-link v-else-if="id == false" to="/login" style="float: right;"
+                            class="text-info icon-move-right">
+                            <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
+                                class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
@@ -102,11 +111,16 @@
                                 </div>
                                 <br />
 
-                                <button style="float: right;" data-toggle="tooltip" data-placement="bottom"
-                                    title="Report Post" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    class="btn bg-gradient-danger btn-sm me-2">
+                                <button v-if="id == true" style="float: right;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Report Post" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" class="btn bg-gradient-danger btn-sm me-2">
                                     <i style="font-size: 13px;" class="fa fa-flag"></i>
                                 </button>
+
+                                <router-link v-else-if="id == false" to="/login" style="float: right;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Report Post" class="btn bg-gradient-danger btn-sm me-2">
+                                    <i style="font-size: 13px;" class="fa fa-flag"></i>
+                                </router-link>
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
@@ -209,80 +223,103 @@
                                 </div>
                             </div>
 
-                            <div class="about">
-                                <h4 class="font-weight-bold"> {{ event.title }} (
-                                    <span style="color: orange;font-size:15px;" v-if="daysRemaining == 0"> Today</span>
-                                    <span style="color: #189483;font-size:15px;" v-else-if="daysRemaining == 1">
-                                        Tomorrow</span>
-                                    <span style="color: #189483;font-size:15px;" v-else-if="daysRemaining > 1"> In {{
-                                        daysRemaining }} days</span>
-                                    <span style="color: red;font-size:15px;" v-else-if="daysRemaining < 0"> Happened
-                                        </span>
-                                    )
-                                </h4>
-                            </div>
-                            <hr>
-                            <div class="about">
-                                <h6 class="font-weight-bold"> Mode : <span style="color:#189483;"> {{ event.mode }} </span>
-                                </h6>
-                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="try">
+                                    <div class="about">
+                                        <h4 class="font-weight-bold"> {{ event.title }} (
+                                            <span style="color: orange;font-size:15px;" v-if="daysRemaining == 0">
+                                                Today</span>
+                                            <span style="color: #189483;font-size:15px;" v-else-if="daysRemaining == 1">
+                                                Tomorrow</span>
+                                            <span style="color: #189483;font-size:15px;" v-else-if="daysRemaining > 1"> In
+                                                {{
+                                                    daysRemaining }} days</span>
+                                            <span style="color: red;font-size:15px;" v-else-if="daysRemaining < 0"> Happened
+                                            </span>
+                                            )
+                                        </h4>
+                                    </div>
+                                    <hr>
+                                    <div class="about">
+                                        <h6 class="font-weight-bold"> Mode : <span style="color:#189483;"> {{ event.mode }}
+                                            </span>
+                                        </h6>
+                                    </div>
 
-                            <div class="about">
-                                <h6 class="font-weight-bold"> Entry : <span style="color:#189483;"> {{ event.entry }}
-                                    </span></h6>
-                            </div>
+                                    <div class="about">
+                                        <h6 class="font-weight-bold"> Entry : <span style="color:#189483;"> {{ event.entry
+                                        }}
+                                            </span></h6>
+                                    </div>
 
-                            <div v-if="event.entry == 'Pay'" class="about">
-                                <h6 class="font-weight-bold"> Entry Fee : <span style="color:#189483;"> Ksh. {{
-                                    event.entry_cost }} </span></h6>
-                            </div>
-                            <hr>
-                            <div class="product-description">
-                                <div class="mt-2">
-                                    <h3 class="font-weight-bold">Description</h3>
-                                    <p>{{ event.description }}</p>
+                                    <div v-if="event.entry == 'Pay'" class="about">
+                                        <h6 class="font-weight-bold"> Entry Fee : <span style="color:#189483;"> Ksh. {{
+                                            event.entry_cost }} </span></h6>
+                                    </div>
+                                    <hr>
+                                    <div class="product-description">
+                                        <div class="mt-2">
+                                            <h3 class="font-weight-bold">Description</h3>
+                                            <p>{{ event.description }}</p>
+                                        </div>
+                                        <div class="mt-2">
+                                            <h3 class="font-weight-bold">Requirements</h3>
+                                            <ul
+                                                v-if="event.requirement_1 == 0 || event.requirement_1 == false || event.requirement_1 == null || event.requirement_1 == 'null' || event.requirement_1 == '' || event.requirement_1 == 'NULL' || event.requirement_1 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ event.requirement_1 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="event.requirement_2 == 0 || event.requirement_2 == false || event.requirement_2 == null || event.requirement_2 == 'null' || event.requirement_2 == '' || event.requirement_2 == 'NULL' || event.requirement_2 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ event.requirement_2 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="event.requirement_3 == 0 || event.requirement_3 == false || event.requirement_3 == null || event.requirement_3 == 'null' || event.requirement_3 == '' || event.requirement_3 == 'NULL' || event.requirement_3 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ event.requirement_3 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="event.requirement_4 == 0 || event.requirement_4 == false || event.requirement_4 == null || event.requirement_4 == 'null' || event.requirement_4 == '' || event.requirement_4 == 'NULL' || event.requirement_4 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ event.requirement_4 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="event.requirement_5 == 0 || event.requirement_5 == false || event.requirement_5 == null || event.requirement_5 == 'null' || event.requirement_5 == '' || event.requirement_5 == 'NULL' || event.requirement_5 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ event.requirement_5 }}</li>
+                                            </ul>
+                                            <br />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mt-2">
-                                    <h3 class="font-weight-bold">Requirements</h3>
-                                    <ul
-                                        v-if="event.requirement_1 == 0 || event.requirement_1 == false || event.requirement_1 == null || event.requirement_1 == 'null' || event.requirement_1 == '' || event.requirement_1 == 'NULL' || event.requirement_1 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ event.requirement_1 }}</li>
-                                    </ul>
-                                    <br />
 
-                                    <ul
-                                        v-if="event.requirement_2 == 0 || event.requirement_2 == false || event.requirement_2 == null || event.requirement_2 == 'null' || event.requirement_2 == '' || event.requirement_2 == 'NULL' || event.requirement_2 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ event.requirement_2 }}</li>
-                                    </ul>
-                                    <br />
+                                <div class="try">
+                                    <a v-if="id == true && event.show_contact == 'Yes' " data-toggle="tooltip" data-placement="bottom"
+                                        title="Place in a call" :href="'tell:' + event.contact"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </a>
 
-                                    <ul
-                                        v-if="event.requirement_3 == 0 || event.requirement_3 == false || event.requirement_3 == null || event.requirement_3 == 'null' || event.requirement_3 == '' || event.requirement_3 == 'NULL' || event.requirement_3 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ event.requirement_3 }}</li>
-                                    </ul>
-                                    <br />
-
-                                    <ul
-                                        v-if="event.requirement_4 == 0 || event.requirement_4 == false || event.requirement_4 == null || event.requirement_4 == 'null' || event.requirement_4 == '' || event.requirement_4 == 'NULL' || event.requirement_4 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ event.requirement_4 }}</li>
-                                    </ul>
-                                    <br />
-
-                                    <ul
-                                        v-if="event.requirement_5 == 0 || event.requirement_5 == false || event.requirement_5 == null || event.requirement_5 == 'null' || event.requirement_5 == '' || event.requirement_5 == 'NULL' || event.requirement_5 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ event.requirement_5 }}</li>
-                                    </ul>
-                                    <br />
+                                    <router-link to="/login" v-else-if="id == false" data-toggle="tooltip"
+                                        data-placement="bottom" title="Place in a call"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </router-link>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
@@ -318,13 +355,20 @@
                                     <input class="form-control" type="hidden" v-model="eventDate" />
 
                                     <input class="form-control" type="hidden" v-model="eventTime" />
-                                    
+
                                     <div v-if="event.booked == false" class="mx-3 mt-3 mb-2">
-                                        <button type="submit" class="btn bg-gradient-primary btn-sm">
+                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Event
                                             </small>
                                         </button>
+
+                                        <router-link v-else-if="id == false" to="/login"
+                                            class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Book Event
+                                            </small>
+                                        </router-link>
                                     </div>
 
                                     <div v-if="event.booked == true" class="mx-3 mt-3 mb-2">
@@ -369,11 +413,18 @@
                                     </div>
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button type="submit" class="btn bg-gradient-primary btn-sm">
+                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Submit
                                             </small>
                                         </button>
+
+                                        <router-link v-else-if="id == false" to="/login"
+                                            class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Submit
+                                            </small>
+                                        </router-link>
                                     </div>
 
                                 </form>
@@ -535,6 +586,7 @@ export default {
             eventreviews: {},
             id: "",
             name: "",
+            slug: "",
             avgRating: 0,
             commentCount: 0,
             eventTitleCount: 0,
@@ -1223,4 +1275,5 @@ label.radio input:checked+span::before {
 
 .card-body {
     padding: 0.3rem 0.3rem 0.2rem
-}</style>
+}
+</style>
