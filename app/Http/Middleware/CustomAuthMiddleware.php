@@ -118,6 +118,9 @@ class CustomAuthMiddleware
         if (Str::contains($request->getRequestUri(), '/api/resources/{resource:slug}') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }
+        if (Str::contains($request->getRequestUri(), '/api/markets/{market:slug}') && !$request->headers->has('referer')) {
+            abort(500, 'Server Error');
+        }
         
         return $next($request);
     }
