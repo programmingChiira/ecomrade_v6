@@ -1005,15 +1005,18 @@ export default {
 
     mounted() {
         axios
+        axios
             .get("/api/user")
             .then(response => {
                 this.id = response.data.id
                 this.name = response.data.name
+                this.type = response.data.type
             })
             .catch((error) => {
                 if (error.response.status === 401) {
                     this.$emit("updateSidebar");
                     localStorage.removeItem("authenticated");
+                    this.$router.push({ name: "Login" });
                 }
             });
 

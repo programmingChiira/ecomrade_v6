@@ -453,8 +453,6 @@ export default {
             .then(response => {
                 this.id = response.data.id
                 this.name = response.data.name
-                this.slug = response.data.slug
-                this.phone = response.data.phone
                 this.type = response.data.type
             })
             .catch((error) => {
