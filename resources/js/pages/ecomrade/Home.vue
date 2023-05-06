@@ -113,7 +113,13 @@
             </nav>
           </div>
           <div style="float:right;" class="col-md-9 col-6">
-            <router-link to="/createmarket" style="float: right;" class="text-info icon-move-right">
+            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
+              <button type="button" class="btn bg-gradient-primary btn-sm">
+                Sell
+              </button>
+            </router-link>
+
+            <router-link v-else-if="id == true" to="/createmarket" style="float: right;" class="text-info icon-move-right">
               <button type="button" class="btn bg-gradient-primary btn-sm">
                 Sell
               </button>
