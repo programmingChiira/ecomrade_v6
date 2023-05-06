@@ -29,7 +29,7 @@
 
 
                 <div class="ps-container ps-theme-default ps-active-y" id="chat-content" ref="chatContent"
-                  style="overflow-y: scroll !important; height: 55vh !important;">
+                  style="overflow-y: scroll !important; height: 63vh !important;">
                   <div v-for="(chat, index) in clubchats" :key="index">
                     <div style="display: flex; flex-direction: column;">
                       <div v-if="chat.user_id != id && club.id == chat.room_id"

@@ -2,19 +2,6 @@
   <body class="index-page">
     <section class="my-5 py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-10">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-              <div class="container">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                  <li style="color: #189483;" class="breadcrumb-item"><strong>{{ user.name }}</strong></li>
-                </ol>
-              </div>
-            </nav>
-          </div>
-        </div>
-
         <div class="row no-gutters  d-flex justify-content-center">
           <div class="page-content page-container" id="page-content">
             <div class="col-md-12">
@@ -42,7 +29,7 @@
 
 
                 <div class="ps-container ps-theme-default ps-active-y" id="chat-content" ref="chatContent"
-                  style="overflow-y: scroll !important; height: 70vh !important;">
+                  style="overflow-y: scroll !important; height: 63vh !important;">
                   <div v-for="(chat, index) in userchats" :key="index">
                     <div style="display: flex; flex-direction: column;">
                       <div v-if="chat.user_id != id && user.id == chat.user_id"
