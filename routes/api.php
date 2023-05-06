@@ -176,9 +176,9 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marke
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentalcategories', [RentalCategoryController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/locations', [LocationController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/years', [YearController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/courses', [CourseController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketreviews', [MarketReviewController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('/courses',[CourseController::class,'index']);
-Route::middleware('throttle:1200,1')->get('/marketreviews',[MarketReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/rentalreviews',[RentalReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/pollvotes',[PollVoteController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/eventreviews',[EventReviewController::class,'index']);
