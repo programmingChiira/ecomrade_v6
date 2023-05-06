@@ -178,8 +178,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/locat
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/years', [YearController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/courses', [CourseController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketreviews', [MarketReviewController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentalreviews', [RentalReviewController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('/rentalreviews',[RentalReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/pollvotes',[PollVoteController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/eventreviews',[EventReviewController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/market-reviews/average-rating/{marketId}', [MarketReviewController::class, 'count']);
