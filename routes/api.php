@@ -284,7 +284,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searc
 });
 
 
-Route::middleware('throttle:1200,1')->get('/viewed-markets', function () {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/viewed-markets', function () {
     $viewedMarkets = session('viewed_markets', []);
     $markets = Market::whereIn('id', $viewedMarkets)->get();
     return response()->json($markets);
