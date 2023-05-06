@@ -438,7 +438,9 @@
                                 params: { slug: post.slug },
                             }">VIEW
                             </router-link>
+                        </div>
 
+                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
                             <button v-if="post.user_id == id || id == 1" type="button" @click="destroy(post.id)"
                                 class="delete-btn" style="float: left;border:none;outline:none;background: none;">
                                 <i class="fa fa-trash-o" style="color: red;"></i>
@@ -450,6 +452,7 @@
                             }"><i class="fa fa-edit" style="color:#189483;"></i>
                             </router-link>
                         </div>
+                        
                         <br />
                     </div>
                     <h5 style="text-align: left;" v-if="!posts.length">Sorry, no item found!</h5>
