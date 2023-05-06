@@ -171,8 +171,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/connections', [ConnectionController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/categories', [CategoryController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/homemarketcategories', [HomeMarketCategoryController::class, 'index']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/homerentalcategories', [HomeRentalCategoryController::class, 'index']);
 
-Route::middleware('throttle:1200,1')->get('homerentalcategories', [HomeRentalCategoryController::class, 'index']);
 Route::middleware('throttle:1200,1')->get('/marketcategories',[MarketCategoryController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/rentalcategories',[RentalCategoryController::class,'index']);
 Route::middleware('throttle:1200,1')->get('/locations',[LocationController::class,'index']);
