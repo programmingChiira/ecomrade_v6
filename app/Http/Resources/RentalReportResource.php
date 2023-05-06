@@ -14,23 +14,6 @@ class RentalReportResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'rentalImg' => $this->rentalImg,
-            'senderName' => $this->senderName,
-            'senderPhone' => $this->senderPhone,
-            'senderId' => $this->senderId,
-            'userId' => $this->userId,
-            'rentalId' => $this->rentalId,
-            'rentalName' => $this->rentalName,
-            'rentalCat' => $this->rentalCat,
-            'rentalSlug' => $this->rentalSlug,
-            'rentalContact' => $this->rentalContact,
-            'rentalPrice' => $this->rentalPrice,
-            'rentalDiscount' => $this->rentalDiscount,
-            'rentalIssue' => $this->rentalIssue,
-            'rentalComplaint' => $this->rentalComplaint,
-            'created_at' => $this->created_at->diffForHumans(),
-        ];
+        return parent::toArray($request);
     }
 }

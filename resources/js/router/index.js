@@ -85,6 +85,7 @@ import AdmBlogCat from "../pages/ecomrade/AdmBlogCat.vue";
 import AdmClub from "../pages/ecomrade/AdmClub.vue";
 import AdmEvent from "../pages/ecomrade/AdmEvent.vue";
 import AdmEventReport from "../pages/ecomrade/AdmEventReport.vue";
+import AdmRentalReport from "../pages/ecomrade/AdmRentalReport.vue";
 import AdmLocation from "../pages/ecomrade/AdmLocation.vue";
 import AdmYear from "../pages/ecomrade/AdmYear.vue";
 import AdmCourse from "../pages/ecomrade/AdmCourse.vue";
@@ -1334,6 +1335,16 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'All event reports :- ecomrade',
+            favicon: '/favicon.ico'
+        }
+    },
+    {
+        path: "/admrentalreport",
+        name: "AdmRentalReport",
+        component: AdmRentalReport,
+        meta: {
+            requiresGuest: true,
+            title: 'All rental reports :- ecomrade',
             favicon: '/favicon.ico'
         }
     },

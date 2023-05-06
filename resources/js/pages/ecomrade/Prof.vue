@@ -283,6 +283,11 @@
                                 <p>Rentals</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalreport">
+                                <i style="color: #3b5998;" class="fa fa-calendar"></i>
+                                <p>Rental Reports</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
                                 <p>Rentals Cat</p>
