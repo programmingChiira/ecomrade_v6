@@ -193,8 +193,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/postr
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/resourcereviews', [ResourceReviewController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/home-posts', [HomeController::class, 'index']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/posts/{post:slug}', [PostController::class, 'show']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubs/{club:slug}', [ClubController::class, 'show']);
 
-Route::middleware('throttle:1200,1')->get('clubs/{club:slug}', [ClubController::class, 'show']);
 Route::middleware('throttle:1200,1')->get('clubarticles/{club:slug}', [ClubController::class, 'show_club_articles']);
 Route::middleware('throttle:1200,1')->get('clubmarkets/{club:slug}', [ClubController::class, 'show_club_markets']);
 Route::middleware('throttle:1200,1')->get('clubevents/{club:slug}', [ClubController::class, 'show_club_events']);
