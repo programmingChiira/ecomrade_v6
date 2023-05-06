@@ -448,6 +448,7 @@ export default {
             rental_category: "",
             id: "",
             name: "",
+            type: "",
             locations: {},
         };
     },

@@ -355,6 +355,7 @@ export default {
             poll_category: "",
             id: "",
             name: "",
+            type: "",
         };
     },
 

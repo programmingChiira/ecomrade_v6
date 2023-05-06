@@ -391,6 +391,7 @@ export default {
       post_category: "",
       id: "",
       name: "",
+      type: "",
     };
   },
 
@@ -532,20 +533,20 @@ export default {
 
   mounted() {
     axios
-            .get("/api/user")
-            .then(response => {
-                this.id = response.data.id
-                this.name = response.data.name
-                this.type = response.data.type
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    this.$emit("updateSidebar");
-                    localStorage.removeItem("authenticated");
-                    this.$router.push({ name: "Login" });
-                }
-            });
-            
+      .get("/api/user")
+      .then(response => {
+        this.id = response.data.id
+        this.name = response.data.name
+        this.type = response.data.type
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          this.$emit("updateSidebar");
+          localStorage.removeItem("authenticated");
+          this.$router.push({ name: "Login" });
+        }
+      });
+
     axios
       .get("/api/categories")
       .then((response) => (this.categories = response.data))

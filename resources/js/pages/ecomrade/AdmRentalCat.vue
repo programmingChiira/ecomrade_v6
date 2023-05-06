@@ -308,6 +308,9 @@ export default {
     return {
       rentalcategories: {},
       success: false,
+      id: "",
+      name: "",
+      type: "",
     };
   },
 
@@ -359,20 +362,20 @@ export default {
   },
   mounted() {
     axios
-            .get("/api/user")
-            .then(response => {
-                this.id = response.data.id
-                this.name = response.data.name
-                this.type = response.data.type
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    this.$emit("updateSidebar");
-                    localStorage.removeItem("authenticated");
-                    this.$router.push({ name: "Login" });
-                }
-            });
-            
+      .get("/api/user")
+      .then(response => {
+        this.id = response.data.id
+        this.name = response.data.name
+        this.type = response.data.type
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          this.$emit("updateSidebar");
+          localStorage.removeItem("authenticated");
+          this.$router.push({ name: "Login" });
+        }
+      });
+
     axios.get('/api/rentalcategories')
       .then(response => {
         this.rentalcategories = response.data.data;

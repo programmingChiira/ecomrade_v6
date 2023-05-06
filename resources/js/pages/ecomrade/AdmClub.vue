@@ -367,6 +367,8 @@ export default {
 
       club_category: "",
       id: "",
+      name: "",
+      type: "",
     };
   },
 

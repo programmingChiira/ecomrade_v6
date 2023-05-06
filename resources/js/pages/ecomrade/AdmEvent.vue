@@ -421,7 +421,7 @@ export default {
       post_category: "",
       id: "",
       name: "",
-      slug: "",
+      type: "",
       currentDateValue: new Date(),
     };
   },
