@@ -14,7 +14,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-10">
+          <div class="col-md-4 col-5">
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
               <div class="container">
                 <ol class="breadcrumb">
@@ -27,8 +27,14 @@
               </div>
             </nav>
           </div>
-          <div style="float:right;" class="col-md-8 col-2">
-            <router-link to="/createblog" style="float: right;" class="text-info icon-move-right">
+          <div style="float:right;" class="col-md-8 col-7">
+            <router-link v-if="id == true" to="/createblog" style="float: right;" class="text-info icon-move-right">
+              <button type="button" class="btn bg-gradient-primary btn-sm">
+                <i class="fa fa-plus"></i>
+              </button>
+            </router-link>
+
+            <router-link v-else-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
               <button type="button" class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>
               </button>
@@ -194,7 +200,8 @@
                     placeholder="Comment Here ...."></textarea>
                 </div>
                 <div class="col-lg-12">
-                  <button class="btn btn-primary" type="submit">Send</button>
+                  <button v-if="id == true" class="btn btn-primary" type="submit">Send</button>
+                  <router-link v-else-if="id == false" class="btn btn-primary" to="/login">Send</router-link>
                 </div>
               </div>
             </form>
