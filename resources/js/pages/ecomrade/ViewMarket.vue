@@ -16,7 +16,14 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link to="/createmarket" style="float: right;" class="text-info icon-move-right">
+                        <router-link v-if="id == true" to="/createmarket" style="float: right;" class="text-info icon-move-right">
+                            <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
+                                type="button" class="btn bg-gradient-primary btn-sm">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </router-link>
+
+                        <router-link v-else-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
                                 type="button" class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
@@ -140,11 +147,16 @@
                                                     <i class="fa fa-long-arrow-left"></i>
                                                 </router-link>
                                             </div>
-                                            <button data-toggle="tooltip" data-placement="bottom" title="Report Post"
+                                            <button v-if="id == true" data-toggle="tooltip" data-placement="bottom" title="Report Post"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 class="btn bg-gradient-danger btn-sm me-2">
                                                 <i style="font-size: 13px;" class="fa fa-flag"></i>
                                             </button>
+
+                                            <router-link to="/login" v-else-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Report Post"
+                                                class="btn bg-gradient-danger btn-sm me-2">
+                                                <i style="font-size: 13px;" class="fa fa-flag"></i>
+                                            </router-link>
 
                                             <div class="modal fade" id="exampleModal" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -324,11 +336,16 @@
                                         <div class="container mt-4 align-items-center"
                                             style="display: flex;justify-content: center;flex-wrap: wrap;align-items: flex-start;">
 
-                                            <a data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                            <a v-if="id == true" data-toggle="tooltip" data-placement="bottom" title="Place in a call"
                                                 :href="'tell:' + market.contact"
                                                 class="btn bg-gradient-primary btn-sm me-2">
                                                 <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                             </a>
+
+                                            <router-link to="/login" v-else-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                                class="btn bg-gradient-primary btn-sm me-2">
+                                                <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                            </router-link>
 
                                             <form @submit.prevent="send">
                                                 <input class="form-control" type="hidden" v-model="userId" />
@@ -340,11 +357,17 @@
                                                 <input class="form-control" type="hidden" v-model="marketContact" />
                                                 <input class="form-control" type="hidden" v-model="marketPrice" />
                                                 <input class="form-control" type="hidden" v-model="marketDiscount" />
-                                                <button data-toggle="tooltip" data-placement="bottom" title="Add to compare"
+                                                <button v-if="id == true" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
                                                     type="submit" style="font-size: 13px;"
                                                     class="btn bg-gradient-primary btn-sm me-2">
                                                     Compare <sup> {{ marketNameCount }}</sup>
                                                 </button>
+
+                                                <router-link to="/login" v-else-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
+                                                    type="submit" style="font-size: 13px;"
+                                                    class="btn bg-gradient-primary btn-sm me-2">
+                                                    Compare <sup> 0</sup>
+                                                </router-link>
                                             </form>
 
                                             <a data-toggle="tooltip" data-placement="bottom" title="Share on Twitter"
@@ -441,11 +464,17 @@
                                                         </div>
 
                                                         <div class="mx-3 mt-3 mb-2">
-                                                            <button type="submit" class="btn bg-gradient-primary btn-sm">
+                                                            <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
                                                                 <small>
                                                                     Submit
                                                                 </small>
                                                             </button>
+
+                                                            <router-link v-else-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                                                <small>
+                                                                    Submit
+                                                                </small>
+                                                            </router-link>
                                                         </div>
 
                                                     </form>
