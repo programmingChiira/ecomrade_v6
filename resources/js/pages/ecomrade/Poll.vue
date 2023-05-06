@@ -46,9 +46,18 @@
                             </nav>
                         </div>
                         <div style="float:right;" class="col-md-8 col-3">
-                            <router-link to="/createpoll" style="float: right;" class="text-info icon-move-right">
-                                <button data-toggle="tooltip" data-placement="bottom" title="Create poll"
-                                    type="button" class="btn bg-gradient-primary btn-sm">
+                            <router-link v-if="id == true" to="/createpoll" style="float: right;"
+                                class="text-info icon-move-right">
+                                <button data-toggle="tooltip" data-placement="bottom" title="Create poll" type="button"
+                                    class="btn bg-gradient-primary btn-sm">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </router-link>
+
+                            <router-link v-else-if="id == false" to="/login" style="float: right;"
+                                class="text-info icon-move-right">
+                                <button data-toggle="tooltip" data-placement="bottom" title="Create poll" type="button"
+                                    class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </router-link>
@@ -62,7 +71,8 @@
                             <div class="product-details-top">
                                 <div class="row">
 
-                                    <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls" :key="index">
+                                    <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls"
+                                        :key="index">
                                         <div style="background-color: #E9ECEF;" class="wrapper">
                                             <div v-if="poll.voter_id_count >= 1">
                                                 <button data-toggle="tooltip" data-placement="bottom"
@@ -89,8 +99,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal1-' + index">
                                                             <span
                                                                 v-if="poll.image_1 == false || poll.image_1 == null || poll.image_1 == 'null' || poll.image_1 == '' || poll.image_1 == ' ' || poll.image_1 == NULL || poll.image_1 == 'undefined'"></span>
@@ -100,7 +109,8 @@
 
 
                                                         <div class="modal fade" :id="'exampleModal1-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal1Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal1Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -150,12 +160,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_1" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -171,8 +187,7 @@
                                                 <label style="background-color: white;" for="opt-2" class="opt-2">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal2-' + index">
                                                             <span
                                                                 v-if="poll.image_2 == false || poll.image_2 == null || poll.image_2 == 'null' || poll.image_2 == '' || poll.image_2 == ' ' || poll.image_2 == NULL || poll.image_2 == 'undefined'"></span>
@@ -181,7 +196,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal2-' + index" tabindex="-1"
-                                                            :aria-labelledby="'exampleModal2Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal2Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -233,12 +249,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_2" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -254,8 +276,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal3-' + index">
                                                             <span
                                                                 v-if="poll.image_3 == false || poll.image_3 == null || poll.image_3 == 'null' || poll.image_3 == '' || poll.image_3 == ' ' || poll.image_3 == NULL || poll.image_3 == 'undefined'"></span>
@@ -264,7 +285,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal3-' + index" tabindex="-1"
-                                                            :aria-labelledby="'exampleModal3Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal3Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -314,12 +336,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_3" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -335,8 +363,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal4-' + index">
                                                             <span
                                                                 v-if="poll.image_4 == false || poll.image_4 == null || poll.image_4 == 'null' || poll.image_4 == '' || poll.image_4 == ' ' || poll.image_4 == NULL || poll.image_4 == 'undefined'"></span>
@@ -345,7 +372,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal4-' + index" tabindex="-1"
-                                                            :aria-labelledby="'exampleModal4Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal4Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -395,12 +423,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_4" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -417,8 +451,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal5-' + index">
                                                             <span
                                                                 v-if="poll.image_5 == false || poll.image_5 == null || poll.image_5 == 'null' || poll.image_5 == '' || poll.image_5 == ' ' || poll.image_5 == NULL || poll.image_5 == 'undefined'"></span>
@@ -427,7 +460,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal5-' + index" tabindex="-1"
-                                                            :aria-labelledby="'exampleModal5Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal5Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -477,12 +511,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_5" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -499,8 +539,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal6-' + index">
                                                             <span
                                                                 v-if="poll.image_6 == false || poll.image_6 == null || poll.image_6 == 'null' || poll.image_6 == '' || poll.image_6 == ' ' || poll.image_6 == NULL || poll.image_6 == 'undefined'"></span>
@@ -509,7 +548,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal6-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal6Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal6Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -559,12 +599,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_6" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -582,8 +628,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal7-' + index">
                                                             <span
                                                                 v-if="poll.image_7 == false || poll.image_7 == null || poll.image_7 == 'null' || poll.image_7 == '' || poll.image_7 == ' ' || poll.image_7 == NULL || poll.image_7 == 'undefined'"></span>
@@ -592,7 +637,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal7-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal7Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal7Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -642,12 +688,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_7" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -664,8 +716,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal8-' + index">
                                                             <span
                                                                 v-if="poll.image_8 == false || poll.image_8 == null || poll.image_8 == 'null' || poll.image_8 == '' || poll.image_8 == ' ' || poll.image_8 == NULL || poll.image_8 == 'undefined'"></span>
@@ -674,7 +725,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal8-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal8Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal8Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -724,12 +776,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_8" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -746,8 +804,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal9-' + index">
                                                             <span
                                                                 v-if="poll.image_9 == false || poll.image_9 == null || poll.image_9 == 'null' || poll.image_9 == '' || poll.image_9 == ' ' || poll.image_9 == NULL || poll.image_9 == 'undefined'"></span>
@@ -756,7 +813,8 @@
                                                         </button>
 
                                                         <div class="modal fade" :id="'exampleModal9-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal9Label-' + index" aria-hidden="true">
+                                                            :aria-labelledby="'exampleModal9Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -806,12 +864,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_9" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -828,8 +892,7 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal10-' + index">
                                                             <span
                                                                 v-if="poll.image_10 == false || poll.image_10 == null || poll.image_10 == 'null' || poll.image_10 == '' || poll.image_10 == ' ' || poll.image_10 == NULL || poll.image_10 == 'undefined'"></span>
@@ -837,8 +900,9 @@
                                                                 :src="'./img/poll/' + poll.image_10" alt="Option Image">
                                                         </button>
 
-                                                        <div class="modal fade" :id="'exampleModal10-' + index" tabindex="-1"
-                                                        :aria-labelledby="'exampleModal10Label-' + index" aria-hidden="true">
+                                                        <div class="modal fade" :id="'exampleModal10-' + index"
+                                                            tabindex="-1" :aria-labelledby="'exampleModal10Label-' + index"
+                                                            aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -888,12 +952,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_10" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -906,8 +976,8 @@
                                             <h5> {{ poll.vote_count }} Votes</h5>
 
                                             <div class="mx-3 mt-3 mb-2">
-                                                <button v-if="poll.user_id == id || id == 1" type="button" @click="destroy(poll.id)"
-                                                    class="delete-btn"
+                                                <button v-if="poll.user_id == id || id == 1" type="button"
+                                                    @click="destroy(poll.id)" class="delete-btn"
                                                     style="float: left;border:none;outline:none;background: none;">
                                                     <i class="fa fa-trash-o" style="color: red;"></i>
                                                 </button>
@@ -1946,4 +2016,5 @@ label.selectall .row .percent {
 input[type="radio"],
 input[type="checkbox"] {
     display: none;
-}</style>
+}
+</style>

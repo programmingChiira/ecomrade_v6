@@ -48,8 +48,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal">
                                                             <span
                                                                 v-if="poll.image_1 == false || poll.image_1 == null || poll.image_1 == 'null' || poll.image_1 == '' || poll.image_1 == ' ' || poll.image_1 == NULL || poll.image_1 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -108,12 +108,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_1" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -129,8 +135,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal2">
                                                             <span
                                                                 v-if="poll.image_2 == false || poll.image_2 == null || poll.image_2 == 'null' || poll.image_2 == '' || poll.image_2 == ' ' || poll.image_2 == NULL || poll.image_2 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -189,12 +195,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_2" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -210,8 +222,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal3">
                                                             <span
                                                                 v-if="poll.image_3 == false || poll.image_3 == null || poll.image_3 == 'null' || poll.image_3 == '' || poll.image_3 == ' ' || poll.image_3 == NULL || poll.image_3 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -269,12 +281,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_3" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -290,8 +308,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal4">
                                                             <span
                                                                 v-if="poll.image_4 == false || poll.image_4 == null || poll.image_4 == 'null' || poll.image_4 == '' || poll.image_4 == ' ' || poll.image_4 == NULL || poll.image_4 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -349,12 +367,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_4" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -371,8 +395,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal5">
                                                             <span
                                                                 v-if="poll.image_5 == false || poll.image_5 == null || poll.image_5 == 'null' || poll.image_5 == '' || poll.image_5 == ' ' || poll.image_5 == NULL || poll.image_5 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -430,12 +454,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_5" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -452,8 +482,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal6">
                                                             <span
                                                                 v-if="poll.image_6 == false || poll.image_6 == null || poll.image_6 == 'null' || poll.image_6 == '' || poll.image_6 == ' ' || poll.image_6 == NULL || poll.image_6 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -511,12 +541,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_6" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -534,8 +570,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal7">
                                                             <span
                                                                 v-if="poll.image_7 == false || poll.image_7 == null || poll.image_7 == 'null' || poll.image_7 == '' || poll.image_7 == ' ' || poll.image_7 == NULL || poll.image_7 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -593,12 +629,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_7" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -615,8 +657,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal8">
                                                             <span
                                                                 v-if="poll.image_8 == false || poll.image_8 == null || poll.image_8 == 'null' || poll.image_8 == '' || poll.image_8 == ' ' || poll.image_8 == NULL || poll.image_8 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -674,12 +716,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_8" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -696,8 +744,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal9">
                                                             <span
                                                                 v-if="poll.image_9 == false || poll.image_9 == null || poll.image_9 == 'null' || poll.image_9 == '' || poll.image_9 == ' ' || poll.image_9 == NULL || poll.image_9 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -755,12 +803,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_9" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -777,8 +831,8 @@
                                                 <label style="background-color: white;" for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal10">
                                                             <span
                                                                 v-if="poll.image_10 == false || poll.image_10 == null || poll.image_10 == 'null' || poll.image_10 == '' || poll.image_10 == ' ' || poll.image_10 == NULL || poll.image_10 == 'undefined'"></span>
                                                             <img v-else class="option-image"
@@ -836,12 +890,18 @@
                                                                         v-model="poll.title" />
                                                                     <input class="form-control" type="hidden"
                                                                         v-model="poll.option_10" />
-                                                                    <button data-toggle="tooltip" data-placement="bottom"
-                                                                        title="Vote" style="font-size: 13px;float:right;"
-                                                                        type="submit"
+                                                                    <button v-if="id == true" data-toggle="tooltip"
+                                                                        data-placement="bottom" title="Vote"
+                                                                        style="font-size: 13px;float:right;" type="submit"
                                                                         class="btn bg-gradient-primary btn-sm">
                                                                         Vote
                                                                     </button>
+
+                                                                    <router-link v-else-if="id == false" title="Vote"
+                                                                        style="font-size: 13px;float:right;" to="/login"
+                                                                        class="btn bg-gradient-primary btn-sm">
+                                                                        Vote
+                                                                    </router-link>
                                                                 </form>
                                                             </div>
                                                         </div>
