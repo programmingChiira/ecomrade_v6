@@ -111,9 +111,6 @@ class MarketCartController extends Controller
 
     public function destroy(MarketCart $cart)
     {
-        if (auth()->user()->id != $cart->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $cart->delete();
         return response()->json(['message' => 'Cart item deleted successfully.']);
     }
