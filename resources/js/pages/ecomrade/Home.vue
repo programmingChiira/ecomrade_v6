@@ -429,7 +429,7 @@
             <hr class="horizontal dark my-5">
 
             <div class="row mt-4">
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/market">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;"
@@ -440,7 +440,7 @@
                   </div>
                 </router-link>
               </div>
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/rental">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;"
@@ -452,7 +452,7 @@
                 </router-link>
               </div>
               <hr class="horizontal dark my-5">
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/blog">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;" src="/img/blog.jpg"
@@ -463,7 +463,7 @@
                   </div>
                 </router-link>
               </div>
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/poll">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;" src="/img/poll.jpeg"
@@ -475,7 +475,7 @@
                 </router-link>
               </div>
               <hr class="horizontal dark my-5">
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/event">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;"
@@ -485,8 +485,9 @@
                     <h6 class="mb-0"> Events around you.</h6>
                   </div>
                 </router-link>
+                <br/>
               </div>
-              <div class="col-md-6 col-6">
+              <div class="col-md-6 col-12">
                 <router-link to="/club">
                   <div class="card move-on-hover">
                     <img class="w-100" style="opacity: 1;width: 100%;height:250px;object-fit: cover;" src="/img/clb.jpg"

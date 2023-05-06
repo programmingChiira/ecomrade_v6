@@ -359,7 +359,7 @@
                             <div class="product-details-top">
                                 <div class="row">
                                     <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls"
-                                        :key="index" v-show="user.id == poll.user_id">
+                                        :key="index" v-show="user.id == poll.user_id && poll.show_owner == 'Yes'">
                                         <div style="background-color: #E9ECEF;" class="wrapper">
                                             <div v-if="poll.voter_id_count >= 1">
                                                 <button data-toggle="tooltip" data-placement="bottom"

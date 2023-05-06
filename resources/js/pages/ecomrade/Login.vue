@@ -18,20 +18,20 @@
                                                 aria-describedby="phone-addon">
                                             <span v-if="errors.phone" class="error"> {{ errors.phone[0] }} </span>
                                         </div>
-                                        <label class="label">Password</label>
+                                        <label class="label">Password </label>
+                                        <span style="float: right;" @click="toggleShow">
+                                            <span class="icon is-small is-right">
+                                                <i class="fas"
+                                                    :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
+                                                </i>
+                                            </span>
+                                        </span>
                                         <div class="field has-addons">
                                             <div class="control is-expanded">
                                                 <input v-if="showPassword" type="text" class="form-control form-control-lg"
                                                     v-model="fields.password" />
                                                 <input v-else type="password" class="form-control form-control-lg"
                                                     v-model="fields.password">
-                                                <span @click="toggleShow">
-                                                    <span class="icon is-small is-right">
-                                                        <i class="fas"
-                                                            :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
-                                                        </i>
-                                                    </span>
-                                                </span>
                                                 <span v-if="errors.password" class="error">{{ errors.password[0] }}</span>
                                             </div>
                                         </div>
