@@ -15,9 +15,18 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link to="/createrental" style="float: right;" class="text-info icon-move-right">
-                            <button data-toggle="tooltip" data-placement="bottom" title="Create rental"
-                                type="button" class="btn bg-gradient-primary btn-sm">
+                        <router-link v-if="id == true && type == 'admin' || type == 'landlord'" to="/createrental"
+                            style="float: right;" class="text-info icon-move-right">
+                            <button data-toggle="tooltip" data-placement="bottom" title="Create rental" type="button"
+                                class="btn bg-gradient-primary btn-sm">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </router-link>
+
+                        <router-link v-else-if="id == false" to="/login" style="float: right;"
+                            class="text-info icon-move-right">
+                            <button data-toggle="tooltip" data-placement="bottom" title="Create rental" type="button"
+                                class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
@@ -124,11 +133,16 @@
                                 </div>
                                 <br />
 
-                                <button style="float: right;" data-toggle="tooltip" data-placement="bottom"
-                                    title="Report Post" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    class="btn bg-gradient-danger btn-sm me-2">
+                                <button v-if="id == true" style="float: right;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Report Post" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" class="btn bg-gradient-danger btn-sm me-2">
                                     <i style="font-size: 13px;" class="fa fa-flag"></i>
                                 </button>
+
+                                <router-link to="/login" v-if="id == false" style="float: right;" data-toggle="tooltip"
+                                    data-placement="bottom" title="Report Post" class="btn bg-gradient-danger btn-sm me-2">
+                                    <i style="font-size: 13px;" class="fa fa-flag"></i>
+                                </router-link>
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
@@ -231,69 +245,95 @@
 
                                 </div>
                             </div>
-                            <div class="about"> <span class="font-weight-bold">{{ rental.rental_name }} </span>
-                                <h4 class="font-weight-bold">Ksh. {{ rental.rental_price }}</h4>
-                            </div>
-                            <hr>
-                            <div class="product-description">
-                                <div class="mt-2"> <span class="font-weight-bold">Description</span>
-                                    <ul
-                                        v-if="rental.rental_description_1 == 0 || rental.rental_description_1 == false || rental.rental_description_1 == null || rental.rental_description_1 == 'null' || rental.rental_description_1 == '' || rental.rental_description_1 == 'NULL' || rental.rental_description_1 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_1 }}</li>
-                                    </ul>
-                                    <br />
+                            <br />
+                            <div class="d-flex justify-content-between">
+                                <div class="try">
+                                    <div class="about"> <span class="font-weight-bold">{{ rental.rental_name }} </span>
+                                        <h4 class="font-weight-bold">Ksh. {{ rental.rental_price }}</h4>
+                                    </div>
+                                    <hr>
+                                    <div class="product-description">
+                                        <h4>Pay per</h4>
+                                        <p>{{ rental.pay_per }}</p>
+                                    </div>
+                                </div>
 
-                                    <ul
-                                        v-if="rental.rental_description_2 == 0 || rental.rental_description_2 == false || rental.rental_description_2 == null || rental.rental_description_2 == 'null' || rental.rental_description_2 == '' || rental.rental_description_2 == 'NULL' || rental.rental_description_2 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_2 }}</li>
-                                    </ul>
-                                    <br />
+                                <div class="try">
+                                    <a v-if="id == true" data-toggle="tooltip" data-placement="bottom"
+                                        title="Place in a call" :href="'tell:' + rental.contact_information"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </a>
 
-                                    <ul
-                                        v-if="rental.rental_description_3 == 0 || rental.rental_description_3 == false || rental.rental_description_3 == null || rental.rental_description_3 == 'null' || rental.rental_description_3 == '' || rental.rental_description_3 == 'NULL' || rental.rental_description_3 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_3 }}</li>
-                                    </ul>
-                                    <br />
+                                    <router-link to="/login" v-else-if="id == false" data-toggle="tooltip"
+                                        data-placement="bottom" title="Place in a call"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </router-link>
+                                    <hr>
 
-                                    <ul
-                                        v-if="rental.rental_description_4 == 0 || rental.rental_description_4 == false || rental.rental_description_4 == null || rental.rental_description_4 == 'null' || rental.rental_description_4 == '' || rental.rental_description_4 == 'NULL' || rental.rental_description_4 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_4 }}</li>
-                                    </ul>
-                                    <br />
+                                    <div class="product-description">
+                                        <div class="mt-2"> <span class="font-weight-bold">Description</span>
+                                            <ul
+                                                v-if="rental.rental_description_1 == 0 || rental.rental_description_1 == false || rental.rental_description_1 == null || rental.rental_description_1 == 'null' || rental.rental_description_1 == '' || rental.rental_description_1 == 'NULL' || rental.rental_description_1 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_1 }}</li>
+                                            </ul>
+                                            <br />
 
-                                    <ul
-                                        v-if="rental.rental_description_5 == 0 || rental.rental_description_5 == false || rental.rental_description_5 == null || rental.rental_description_5 == 'null' || rental.rental_description_5 == '' || rental.rental_description_5 == 'NULL' || rental.rental_description_5 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_5 }}</li>
-                                    </ul>
-                                    <br />
+                                            <ul
+                                                v-if="rental.rental_description_2 == 0 || rental.rental_description_2 == false || rental.rental_description_2 == null || rental.rental_description_2 == 'null' || rental.rental_description_2 == '' || rental.rental_description_2 == 'NULL' || rental.rental_description_2 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_2 }}</li>
+                                            </ul>
+                                            <br />
 
-                                    <ul
-                                        v-if="rental.rental_description_6 == 0 || rental.rental_description_2 == false || rental.rental_description_2 == null || rental.rental_description_2 == 'null' || rental.rental_description_2 == '' || rental.rental_description_2 == 'NULL' || rental.rental_description_2 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_6 }}</li>
-                                    </ul>
-                                    <br />
+                                            <ul
+                                                v-if="rental.rental_description_3 == 0 || rental.rental_description_3 == false || rental.rental_description_3 == null || rental.rental_description_3 == 'null' || rental.rental_description_3 == '' || rental.rental_description_3 == 'NULL' || rental.rental_description_3 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_3 }}</li>
+                                            </ul>
+                                            <br />
 
-                                    <ul
-                                        v-if="rental.rental_description_7 == 0 || rental.rental_description_3 == false || rental.rental_description_3 == null || rental.rental_description_3 == 'null' || rental.rental_description_3 == '' || rental.rental_description_3 == 'NULL' || rental.rental_description_3 == 'undefined'">
-                                    </ul>
-                                    <ul v-else>
-                                        <li> {{ rental.rental_description_7 }}</li>
-                                    </ul>
+                                            <ul
+                                                v-if="rental.rental_description_4 == 0 || rental.rental_description_4 == false || rental.rental_description_4 == null || rental.rental_description_4 == 'null' || rental.rental_description_4 == '' || rental.rental_description_4 == 'NULL' || rental.rental_description_4 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_4 }}</li>
+                                            </ul>
+                                            <br />
 
-                                    <br />
-                                    <p>{{ rental.rental_more_info }}</p>
+                                            <ul
+                                                v-if="rental.rental_description_5 == 0 || rental.rental_description_5 == false || rental.rental_description_5 == null || rental.rental_description_5 == 'null' || rental.rental_description_5 == '' || rental.rental_description_5 == 'NULL' || rental.rental_description_5 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_5 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="rental.rental_description_6 == 0 || rental.rental_description_2 == false || rental.rental_description_2 == null || rental.rental_description_2 == 'null' || rental.rental_description_2 == '' || rental.rental_description_2 == 'NULL' || rental.rental_description_2 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_6 }}</li>
+                                            </ul>
+                                            <br />
+
+                                            <ul
+                                                v-if="rental.rental_description_7 == 0 || rental.rental_description_3 == false || rental.rental_description_3 == null || rental.rental_description_3 == 'null' || rental.rental_description_3 == '' || rental.rental_description_3 == 'NULL' || rental.rental_description_3 == 'undefined'">
+                                            </ul>
+                                            <ul v-else>
+                                                <li> {{ rental.rental_description_7 }}</li>
+                                            </ul>
+
+                                            <br />
+                                            <p>{{ rental.rental_more_info }}</p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -360,11 +400,17 @@
                                     <input class="form-control" type="hidden" v-model="rentalSlug" />
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button type="submit" class="btn bg-gradient-primary btn-sm">
+                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Rental
                                             </small>
                                         </button>
+
+                                        <router-link to="/login" v-else-if="id == false" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Book Rental
+                                            </small>
+                                        </router-link>
                                     </div>
 
                                 </form>
@@ -405,11 +451,17 @@
                                     </div>
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button type="submit" class="btn bg-gradient-primary btn-sm">
+                                        <button v-if="id == true" type="submit" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Submit
                                             </small>
                                         </button>
+
+                                        <router-link v-else-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                            <small>
+                                                Submit
+                                            </small>
+                                        </router-link>
                                     </div>
 
                                 </form>
@@ -570,6 +622,7 @@ export default {
             rentalreviews: {},
             id: "",
             name: "",
+            type: "",
             avgRating: 0,
             commentCount: 0,
             rentalNameCount: 0,
@@ -1089,6 +1142,7 @@ export default {
                 this.id = response.data.id
                 this.name = response.data.name
                 this.slug = response.data.slug
+                this.type = response.data.type
             })
             .catch((error) => {
                 if (error.response.status === 401) {
