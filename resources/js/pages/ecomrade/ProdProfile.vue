@@ -472,11 +472,17 @@
                                             <input class="form-control" type="hidden" v-model="market.contact" />
                                             <input class="form-control" type="hidden" v-model="market.product_price" />
                                             <input class="form-control" type="hidden" v-model="market.product_discount" />
-                                            <button data-toggle="tooltip" data-placement="bottom" title="Add to compare"
+                                            <button v-if="id == true" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
                                                 style="font-size: 13px;" type="submit"
                                                 class="btn bg-gradient-primary btn-sm btn-block">
                                                 Compare <sup> ( {{ market.cart_count }} )</sup>
                                             </button>
+
+                                            <router-link v-else-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
+                                                style="font-size: 13px;" to="/login"
+                                                class="btn bg-gradient-primary btn-sm btn-block">
+                                                Compare <sup> ( 0 )</sup>
+                                            </router-link>
                                         </form>
 
                                     </div>
