@@ -200,8 +200,8 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clube
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubpolls/{club:slug}', [ClubController::class, 'show_club_polls']);
 // Route::middleware('throttle:1200,1')->get('clubresources/{club:slug}', [ClubController::class, 'show_club_resources']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubresources/{club:slug}', [ClubController::class, 'show_club_resources']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubusers/{club:slug}', [ClubController::class, 'show_club_users']);
 
-Route::middleware('throttle:1200,1')->get('clubusers/{club:slug}', [ClubController::class, 'show_club_users']);
 Route::middleware('throttle:1200,1')->get('clubchats/{clubchat:slug}', [ClubChatRoomController::class, 'show']);
 Route::middleware('throttle:1200,1')->get('userchats/{userchat:slug}', [UserChatRoomController::class, 'show']);
 Route::middleware('throttle:1200,1')->get('resources/{resource:slug}', [ResourceController::class, 'show']);
