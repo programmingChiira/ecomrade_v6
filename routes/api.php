@@ -41,6 +41,7 @@ use App\Http\Controllers\RelatedPostController;
 use App\Http\Controllers\RoomUserController;
 use App\Http\Middleware\CustomAuthMiddleware;
 use App\Models\Market;
+use App\Models\MarketCart;
 use Pusher\Pusher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

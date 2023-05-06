@@ -6,6 +6,7 @@ use App\Http\Resources\MarketResource;
 use App\Models\MarketCategory;
 use Illuminate\Http\Request;
 use App\Models\Market;
+use App\Models\MarketCart;
 use App\Models\MarketReview;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\File;
@@ -44,6 +45,9 @@ class MarketController extends Controller
                 $carts = $market->marketcarts;
                 $counter = $carts->count();
 
+                $totalCartCount = MarketCart::where('senderId', auth()->id())
+                    ->count();
+
                 return [
                     'id' => $market->id,
                     'slug' => $market->slug,
@@ -79,9 +83,10 @@ class MarketController extends Controller
                     'avg_rating' => $avgRating,
                     'rating_count' => $count,
                     'cart_count' => $counter,
+                    'totalCartCount' => $totalCartCount,
                 ];
             });
-            
+
             return response()->json([
                 'data' => $marketData,
                 'current_page' => $markets->currentPage(),
@@ -96,6 +101,9 @@ class MarketController extends Controller
             $avgRating = $count ? $ratings->avg('ratingValue') : 0;
             $carts = $market->marketcarts;
             $counter = $carts->count();
+
+            $totalCartCount = MarketCart::where('senderId', auth()->id())
+                ->count();
 
             return [
                 'id' => $market->id,
@@ -132,6 +140,7 @@ class MarketController extends Controller
                 'avg_rating' => $avgRating,
                 'rating_count' => $count,
                 'cart_count' => $counter,
+                'totalCartCount' => $totalCartCount,
             ];
         });
 
@@ -184,6 +193,9 @@ class MarketController extends Controller
             $carts = $market->marketcarts;
             $counter = $carts->count();
 
+            $totalCartCount = MarketCart::where('senderId', auth()->id())
+                ->count();
+
             return [
                 'id' => $market->id,
                 'slug' => $market->slug,
@@ -219,6 +231,7 @@ class MarketController extends Controller
                 'avg_rating' => $avgRating,
                 'rating_count' => $count,
                 'cart_count' => $counter,
+                'totalCartCount' => $totalCartCount,
             ];
         });
 
@@ -258,6 +271,8 @@ class MarketController extends Controller
                 $avgRating = $count ? $ratings->avg('ratingValue') : 0;
                 $carts = $market->marketcarts;
                 $counter = $carts->count();
+                $totalCartCount = MarketCart::where('senderId', auth()->id())
+                    ->count();
 
                 return [
                     'id' => $market->id,
@@ -294,6 +309,7 @@ class MarketController extends Controller
                     'avg_rating' => $avgRating,
                     'rating_count' => $count,
                     'cart_count' => $counter,
+                    'totalCartCount' => $totalCartCount,
                 ];
             });
 
@@ -311,6 +327,8 @@ class MarketController extends Controller
             $avgRating = $count ? $ratings->avg('ratingValue') : 0;
             $carts = $market->marketcarts;
             $counter = $carts->count();
+            $totalCartCount = MarketCart::where('senderId', auth()->id())
+                ->count();
 
             return [
                 'id' => $market->id,
@@ -347,6 +365,7 @@ class MarketController extends Controller
                 'avg_rating' => $avgRating,
                 'rating_count' => $count,
                 'cart_count' => $counter,
+                'totalCartCount' => $totalCartCount,
             ];
         });
 
@@ -530,7 +549,7 @@ class MarketController extends Controller
 
     public function update(Request $request, Market $market)
     {
-        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1 ) {
+        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1) {
             return abort(403);
         }
         $request->validate([
@@ -738,7 +757,7 @@ class MarketController extends Controller
             $availability = $request->input('availability');
             $market->availability = $availability;
         }
-        
+
         if ($request->input('contact')) {
             $contact = $request->input('contact');
             $market->contact = $contact;
@@ -759,7 +778,7 @@ class MarketController extends Controller
 
     public function destroy(Market $market)
     {
-        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1 ) {
+        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1) {
             return abort(403);
         }
 

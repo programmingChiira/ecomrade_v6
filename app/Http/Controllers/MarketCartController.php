@@ -11,7 +11,6 @@ class MarketCartController extends Controller
 {
     public function store(Request $request)
     {
-
         //dd($request);
         $marketcart = new MarketCart();
 

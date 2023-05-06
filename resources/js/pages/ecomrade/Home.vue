@@ -25,6 +25,7 @@
               <div class="profile-card-inf__item">
                 <router-link class="btn btn-sm" to="/viewCart">
                   <i style="color: black;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i>
+                  <!-- <sup style="background-color: green; color: white; border-radius: 50%; padding: 2px 5px;">3</sup> -->
                 </router-link>
               </div>
 

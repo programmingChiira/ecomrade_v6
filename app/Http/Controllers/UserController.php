@@ -6,6 +6,7 @@ use App\Http\Resources\PostResource;
 use App\Http\Resources\UserChatRoomResource;
 use App\Http\Resources\UserResource;
 use App\Models\Connection;
+use App\Models\MarketCart;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -48,6 +49,9 @@ class UserController extends Controller
                     ->where('sender_id', $user->id)
                     ->exists();
 
+                $totalCartCount = MarketCart::where('senderId', auth()->id())
+                    ->count();
+
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
@@ -68,6 +72,7 @@ class UserController extends Controller
                     'gender' => $user->gender,
                     'connecter' => $connecter,
                     'connector' => $connector,
+                    'totalCartCount' => $totalCartCount,
                     'created_at' => $user->created_at->diffForHumans(),
                 ];
             });
@@ -89,6 +94,10 @@ class UserController extends Controller
             $connector = Connection::where('receiver_id', auth()->id())
                 ->where('sender_id', $user->id)
                 ->exists();
+
+            $totalCartCount = MarketCart::where('senderId', auth()->id())
+                ->count();
+
             return [
                 'id' => $user->id,
                 'name' => $user->name,
@@ -109,6 +118,7 @@ class UserController extends Controller
                 'gender' => $user->gender,
                 'connecter' => $connecter,
                 'connector' => $connector,
+                'totalCartCount' => $totalCartCount,
                 'created_at' => $user->created_at->diffForHumans(),
             ];
         });
@@ -150,6 +160,9 @@ class UserController extends Controller
                     ->where('sender_id', $user->id)
                     ->exists();
 
+                $totalCartCount = MarketCart::where('senderId', auth()->id())
+                    ->count();
+
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
@@ -170,6 +183,7 @@ class UserController extends Controller
                     'gender' => $user->gender,
                     'connecter' => $connecter,
                     'connector' => $connector,
+                    'totalCartCount' => $totalCartCount,
                     'created_at' => $user->created_at->diffForHumans(),
                 ];
             });
@@ -245,6 +259,9 @@ class UserController extends Controller
 
         $connectedUsersCount = $receiveConnectedCount + $sendConnectedCount;
 
+        $totalCartCount = MarketCart::where('senderId', auth()->id())
+            ->count();
+
 
         $userData = [
             'id' => $user->id,
@@ -271,6 +288,7 @@ class UserController extends Controller
             'sendConnected' => $sendConnected,
             'receiveConnected' => $receiveConnected,
             'connectedUsersCount' => $connectedUsersCount,
+            'totalCartCount' => $totalCartCount,
             'created_at' => $user->created_at->diffForHumans(),
         ];
 

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'id','name','slug','phone','email','type', 'youtube', 'instagram', 'twitter', 'facebook', 'linkedin', 'github', 'profile_pic', 'title', 'personal_description', 'campus_area','campus','gender', 'password'
+        'id', 'name', 'slug', 'phone', 'email', 'type', 'youtube', 'instagram', 'twitter', 'facebook', 'linkedin', 'github', 'profile_pic', 'title', 'personal_description', 'campus_area', 'campus', 'gender', 'password'
     ];
 
     /**
@@ -48,5 +48,10 @@ class User extends Authenticatable
     public function users()
     {
         return $this->hasMany(Users::class);
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(MarketCart::class);
     }
 }
