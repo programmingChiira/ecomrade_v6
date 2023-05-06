@@ -145,6 +145,9 @@ class CustomAuthMiddleware
         if (Str::contains($request->getRequestUri(), '/api/userchats') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }
+        if (Str::contains($request->getRequestUri(), '/api/resources') && !$request->headers->has('referer')) {
+            abort(500, 'Server Error');
+        }
         
         return $next($request);
     }
