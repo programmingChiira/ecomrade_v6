@@ -25,27 +25,22 @@
                     <div>
                         <h6 class="mt-3 mb-2 opacity-8">Social</h6>
                         <ul class="d-flex flex-row ms-n3 nav">
-                            <li class="nav-item">
-                                <a class="nav-link pe-1" href="#">
-                                    <i class="fab fa-facebook text-lg opacity-8"></i>
-                                </a>
-                            </li>
 
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="#">
+                                <a class="nav-link pe-1" href="https://twitter.com/DennisChiira" target="_blank">
                                     <i class="fab fa-twitter text-lg opacity-8"></i>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="#">
+                                <a class="nav-link pe-1" href="https://www.linkedin.com/company/cyberacademykenya/?viewAsMember=true" target="_blank">
                                     <i class="fab fa-linkedin text-lg opacity-8"></i>
                                 </a>
                             </li>
 
 
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="#">
+                                <a class="nav-link pe-1" href="https://github.com/programmingChiira" target="_blank">
                                     <i class="fab fa-github text-lg opacity-8"></i>
                                 </a>
                             </li>
@@ -60,28 +55,17 @@
                         <h6 class="text-gradient text-primary text-sm">Company</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/market">
                                     Market
                                 </router-link>
                             </li>
 
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/rental">
                                     Rental
                                 </router-link>
                             </li>
 
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Blog
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Poll
-                                </router-link>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -91,20 +75,14 @@
                         <h6 class="text-gradient text-primary text-sm">Features</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Motor Bike
+                                <router-link class="nav-link" to="/register">
+                                    Register
                                 </router-link>
                             </li>
 
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Jobs
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Clubs / Societies
+                                <router-link class="nav-link" to="/login">
+                                    Login
                                 </router-link>
                             </li>
                         </ul>
@@ -116,26 +94,14 @@
                         <h6 class="text-gradient text-primary text-sm">Help & Support</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/contact">
                                     Contact Us
                                 </router-link>
                             </li>
 
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/faq">
                                     F.A.Q
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Login
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Register
                                 </router-link>
                             </li>
 
