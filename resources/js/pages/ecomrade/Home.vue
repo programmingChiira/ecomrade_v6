@@ -1,7 +1,7 @@
 <template>
   <body class="index-page">
     <div class="full-page-loader" v-if="loading">
-      <img src="/audio.svg" alt="Loader" />
+      <img src="/triangle.svg" alt="Loader" />
     </div>
     
     <section class="my-5 py-5">
