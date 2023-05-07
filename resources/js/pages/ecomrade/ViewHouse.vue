@@ -400,17 +400,26 @@
                                     <input class="form-control" type="hidden" v-model="rentalSlug" />
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <router-link to="/login" v-if="id == false" class="btn bg-gradient-primary btn-sm">
+                                        <router-link v-if="senderId == false" to="/login" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Rental
                                             </small>
                                         </router-link>
+                                        
+                                        <div v-else>
+                                            <button v-if="booked == false" type="submit" class="btn bg-gradient-primary btn-sm">
+                                                <small>
+                                                    Book Rental
+                                                </small>
+                                            </button>
 
-                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Book Rental
-                                            </small>
-                                        </button>
+                                            <button v-if="booked == true" type="button" class="btn btn-danger btn-sm">
+                                                <small>
+                                                    Rental Booked
+                                                </small>
+                                            </button>
+                                        </div>
+                                        
                                     </div>
 
                                 </form>
@@ -625,6 +634,7 @@ export default {
             type: "",
             avgRating: 0,
             commentCount: 0,
+            booked: "",
             rentalNameCount: 0,
         };
     },
@@ -826,6 +836,7 @@ export default {
                             console.log(JSON.stringify(response));
                             this.rental = response.data.data;
                             this.avgRating = response.data.avg_rate;
+                            this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
@@ -986,6 +997,7 @@ export default {
                             console.log(JSON.stringify(response));
                             this.rental = response.data.data;
                             this.avgRating = response.data.avg_rate;
+                            this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
@@ -1078,6 +1090,7 @@ export default {
                             console.log(JSON.stringify(response));
                             this.rental = response.data.data;
                             this.avgRating = response.data.avg_rate;
+                            this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
@@ -1156,6 +1169,7 @@ export default {
                 console.log(JSON.stringify(response));
                 this.rental = response.data.data;
                 this.avgRating = response.data.avg_rate;
+                this.booked = response.data.booked;
                 this.commentCount = response.data.comment_count;
                 this.rentalNameCount = response.data.rentalName_count;
             });

@@ -7,6 +7,7 @@ use App\Models\RentalCategory;
 use Illuminate\Http\Request;
 use App\Models\Rental;
 use App\Models\RentalReview;
+use App\Models\RentalBooking;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -475,9 +476,15 @@ class RentalController extends Controller
     {
         //return new RentalResource($rental);
 
+        $booked = false;
+        if (auth()->user()) {
+            $user = auth()->user();
+            $booked = RentalBooking::where('senderId', $user->id)->where('rentalId', $rental->id)->exists();
+        }
         $rentals = Rental::find($rental->id);
         $data = [
             "data" => $rentals,
+            "booked" => $booked,
             "avg_rate" => $rentals->average_rating,
             "comment_count" => $rentals->count_comment,
         ];
