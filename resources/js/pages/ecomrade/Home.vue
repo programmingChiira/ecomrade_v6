@@ -1,5 +1,9 @@
 <template>
   <body class="index-page">
+    <div class="full-page-loader" v-if="loading">
+      <img src="/audio.svg" alt="Loader" />
+    </div>
+    
     <section class="my-5 py-5">
       <div class="container">
 
@@ -828,6 +832,7 @@ export default {
       id: "",
       name: "",
       locations: {},
+      loading: true,
 
     };
   },
@@ -988,6 +993,9 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
     axios
       .get("/api/user")
       .then(response => {
@@ -1017,6 +1025,24 @@ export default {
 </script>
 
 <style>
+.full-page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #189483ec;
+  display: flex; /* Use flexbox to center the image horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.full-page-loader img {
+  width: 40px; /* Set the width of the image */
+  height: 40px; /* Set the height of the image */
+}
+
 .custom-search {
   position: relative;
 }
