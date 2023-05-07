@@ -268,6 +268,11 @@
                                 <p>Prods</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketreport">
+                                <i style="color: #d60d0d;" class="fa fa-warning"></i>
+                                <p>Prod Reports</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketcat">
                                 <i style="color: #3b5998;" class="fa fa-list-alt"></i>
                                 <p>Prod Cat</p>
@@ -284,7 +289,7 @@
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalreport">
-                                <i style="color: #3b5998;" class="fa fa-calendar"></i>
+                                <i style="color: #d60d0d;" class="fa fa-warning"></i>
                                 <p>Rental Reports</p>
                             </router-link>
 
@@ -319,7 +324,7 @@
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admeventreport">
-                                <i style="color: #3b5998;" class="fa fa-calendar"></i>
+                                <i style="color: #d60d0d;" class="fa fa-warning"></i>
                                 <p>Event Reports</p>
                             </router-link>
 
