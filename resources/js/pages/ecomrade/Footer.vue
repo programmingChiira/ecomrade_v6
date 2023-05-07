@@ -114,7 +114,7 @@
                         <h6 class="text-gradient text-primary text-sm">Legal</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/terms">
                                     Terms &amp; Conditions
                                 </router-link>
                             </li>
@@ -122,12 +122,6 @@
                             <li class="nav-item">
                                 <router-link class="nav-link" to="#">
                                     Privacy Policy
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="#">
-                                    Licenses (EULA)
                                 </router-link>
                             </li>
                         </ul>

@@ -59,6 +59,7 @@ import PolishMarketSubCategory from "../pages/ecomrade/PolishMarketSubCategory.v
 import Club from "../pages/ecomrade/Club.vue";
 import Resource from "../pages/ecomrade/Resource.vue";
 import Contact from "../pages/ecomrade/Contact.vue";
+import Terms from "../pages/ecomrade/Terms.vue";
 import Push from "../pages/ecomrade/Push.vue";
 import Faq from "../pages/ecomrade/Faq.vue";
 import Login from "../pages/ecomrade/Login.vue";
@@ -1158,6 +1159,23 @@ const routes = [
             ogTitle: 'Contact Us - ecomrade',
             ogImage: '/contact.jpg',
             ogDescription: 'Need assistance or have inquiries about ecomrade? Our support team is here to help you with problem-solving and answer any questions. Contact us for support through communication.',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/terms",
+        name: "Terms",
+        component: Terms,
+        meta: {
+            title: 'Terms & conditions :- ecomrade',
+            description: 'This is the page that outlines the terms and conditions of using ecomrade, a social networking platform for connecting with like-minded individuals. This page explains the rules and guidelines that users must adhere to when using the platform, and the terms of service that govern the relationship between the user and ecomrade',
+            keywords: 'ecomrade, terms and conditions, rules, guidelines, social networking, platform, terms of service, user agreement, community guidelines, user responsibilities.',
+            author: 'Dennis Chiira',
+            robots: 'index, follow',
+            ogTitle: 'Terms & conditions - ecomrade',
+            ogImage: '/contact.jpg',
+            ogDescription: 'This is the page that outlines the terms and conditions of using ecomrade, a social networking platform for connecting with like-minded individuals. This page explains the rules and guidelines that users must adhere to when using the platform, and the terms of service that govern the relationship between the user and ecomrade',
             favicon: '/favicon.ico'
         },
     },
