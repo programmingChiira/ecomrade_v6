@@ -1,7 +1,6 @@
 <template>
     <body class="index-page">
         <section class="my-5 py-5">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-10">
@@ -22,102 +21,131 @@
                         <form @submit.prevent="submit">
                             <!-- Title -->
 
-                            <label for="image"><span>Profile Pic</span></label>
-                            <input class="form-control" type="file" id="image" @input="grabFile" />
-                            <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
-                            <div class="preview row">
-                                <div class="col-6 col-md-6">
+                            <div v-if="step === 1">
 
+                                <h4>Profile</h4>
+                                <label for="image"><span>Profile Pic</span></label>
+                                <input class="form-control" type="file" id="image" @input="grabFile" />
+                                <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div class="preview row">
+                                    <div class="col-6 col-md-6">
+
+                                    </div>
+                                    <img :src="url" alt="" />
                                 </div>
-                                <img :src="url" alt="" />
+                                <br />
+
+                                <label for="name"><span>Name</span></label>
+                                <input class="form-control" type="text" id="name" v-model="fields.name"
+                                    placeholder="e.g John Doe" />
+                                <span v-if="errors.name" class="error">{{ errors.name[0] }}</span>
+                                <br />
+
+                                <label for="phone"><span>Phone No.</span></label>
+                                <input class="form-control" type="text" id="phone" v-model="fields.phone"
+                                    placeholder="e.g +254123458" />
+                                <span v-if="errors.phone" class="error">{{ errors.phone[0] }}</span>
+                                <br />
+
+                                <label for="email"><span>Email</span></label>
+                                <input class="form-control" type="email" id="email" v-model="fields.email"
+                                    placeholder="e.g john@doe.com" />
+                                <span v-if="errors.email" class="error">{{ errors.email[0] }}</span>
+                                <br />
+
+                                <label for="categories"><span>Gender:</span></label>
+                                <select class="form-control" v-model="fields.gender" id="categories">
+                                    <option disabled value="">Select option</option>
+                                    <option value="male"> Male</option>
+                                    <option value="female"> Female</option>
+                                </select>
+                                <span v-if="errors.gender" class="error">{{
+                                    errors.gender[0]
+                                }}</span>
+                                <br />
+                                <button class="btn btn-sm" @click.prevent="nextStep">Next</button>
+
+                                <button style="margin: 5px;float:right;" 
+                                    class="btn bg-gradient-primary btn-sm"
+                                    type="submit">Submit
+                                </button>
                             </div>
-                            <br />
 
-                            <label for="name"><span>Name</span></label>
-                            <input class="form-control" type="text" id="name" v-model="fields.name"
-                                placeholder="e.g John Doe" />
-                            <span v-if="errors.name" class="error">{{ errors.name[0] }}</span>
-                            <br />
 
-                            <label for="phone"><span>Phone No.</span></label>
-                            <input class="form-control" type="text" id="phone" v-model="fields.phone"
-                                placeholder="e.g +254123458" />
-                            <span v-if="errors.phone" class="error">{{ errors.phone[0] }}</span>
-                            <br />
+                            <div v-if="step === 2">
+                                <h4>Personal description</h4>
+                                <label for="title"><span> Title</span></label>
+                                <input class="form-control" type="text" id="title" v-model="fields.title"
+                                    placeholder="e.g dev, economist, teacher e.t.c" />
+                                <span v-if="errors.title" class="error">{{ errors.title[0] }}</span>
+                                <br />
 
-                            <label for="email"><span>Email</span></label>
-                            <input class="form-control" type="email" id="email" v-model="fields.email"
-                                placeholder="e.g john@doe.com" />
-                            <span v-if="errors.email" class="error">{{ errors.email[0] }}</span>
-                            <br />
+                                <label for="personal_description"><span> Personal description</span></label>
+                                <textarea class="form-control" id="personal_description"
+                                    v-model="fields.personal_description" rows="6"></textarea>
+                                <span v-if="errors.personal_description" class="error">{{ errors.personal_description[0]
+                                }}</span>
+                                <br />
 
-                            <label for="categories"><span>Gender:</span></label>
-                            <select class="form-control" v-model="fields.gender" id="categories">
-                                <option disabled value="">Select option</option>
-                                <option value="male"> Male</option>
-                                <option value="female"> Female</option>
-                            </select>
-                            <span v-if="errors.gender" class="error">{{
-                                errors.gender[0]
-                            }}</span>
-                            <br />
+                                <label for="campus"><span>Campus</span></label>
+                                <input class="form-control" type="text" id="campus" v-model="fields.campus" />
+                                <span v-if="errors.campus" class="error">{{ errors.campus[0] }}</span>
+                                <br />
 
-                            <label for="title"><span> Title</span></label>
-                            <input class="form-control" type="text" id="title" v-model="fields.title"
-                                placeholder="e.g dev, economist, teacher e.t.c" />
-                            <span v-if="errors.title" class="error">{{ errors.title[0] }}</span>
-                            <br />
+                                <label for="campus_area"><span>Campus Area</span></label>
+                                <input class="form-control" type="text" id="campus_area" v-model="fields.campus_area" />
+                                <span v-if="errors.campus_area" class="error">{{ errors.campus[0] }}</span>
+                                <br />
 
-                            <label for="personal_description"><span> Personal description</span></label>
-                            <textarea class="form-control" id="personal_description" v-model="fields.personal_description"
-                                rows="6"></textarea>
-                            <span v-if="errors.personal_description" class="error">{{ errors.personal_description[0]
-                            }}</span>
-                            <br />
+                                <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
+                                <button class="btn btn-sm" @click.prevent="nextStep">Next</button>
 
-                            <label for="campus"><span>Campus</span></label>
-                            <input class="form-control" type="text" id="campus" v-model="fields.campus" />
-                            <span v-if="errors.campus" class="error">{{ errors.campus[0] }}</span>
-                            <br />
+                                <button style="margin: 5px;float:right;" 
+                                    class="btn bg-gradient-primary btn-sm"
+                                    type="submit">Submit
+                                </button>
+                            </div>
 
-                            <label for="campus_area"><span>Campus Area</span></label>
-                            <input class="form-control" type="text" id="campus_area" v-model="fields.campus_area" />
-                            <span v-if="errors.campus_area" class="error">{{ errors.campus[0] }}</span>
-                            <br />
 
-                            <label for="youtube"><span>youtube Account Link</span></label>
-                            <input class="form-control" type="text" id="youtube" v-model="fields.youtube" />
-                            <span v-if="errors.youtube" class="error">{{ errors.youtube[0] }}</span>
-                            <br />
+                            <div v-if="step === 3">
+                                <h4>My links</h4>
+                                <label for="youtube"><span>youtube Account Link</span></label>
+                                <input class="form-control" type="text" id="youtube" v-model="fields.youtube" />
+                                <span v-if="errors.youtube" class="error">{{ errors.youtube[0] }}</span>
+                                <br />
 
-                            <label for="instagram"><span>instagram Account Link</span></label>
-                            <input class="form-control" type="text" id="instagram" v-model="fields.instagram" />
-                            <span v-if="errors.instagram" class="error">{{ errors.instagram[0] }}</span>
-                            <br />
+                                <label for="instagram"><span>instagram Account Link</span></label>
+                                <input class="form-control" type="text" id="instagram" v-model="fields.instagram" />
+                                <span v-if="errors.instagram" class="error">{{ errors.instagram[0] }}</span>
+                                <br />
 
-                            <label for="twitter"><span>twitter Account Link</span></label>
-                            <input class="form-control" type="text" id="twitter" v-model="fields.twitter" />
-                            <span v-if="errors.twitter" class="error">{{ errors.twitter[0] }}</span>
-                            <br />
+                                <label for="twitter"><span>twitter Account Link</span></label>
+                                <input class="form-control" type="text" id="twitter" v-model="fields.twitter" />
+                                <span v-if="errors.twitter" class="error">{{ errors.twitter[0] }}</span>
+                                <br />
 
-                            <label for="facebook"><span>facebook Account Link</span></label>
-                            <input class="form-control" type="text" id="facebook" v-model="fields.facebook" />
-                            <span v-if="errors.facebook" class="error">{{ errors.facebook[0] }}</span>
-                            <br />
+                                <label for="facebook"><span>facebook Account Link</span></label>
+                                <input class="form-control" type="text" id="facebook" v-model="fields.facebook" />
+                                <span v-if="errors.facebook" class="error">{{ errors.facebook[0] }}</span>
+                                <br />
 
-                            <label for="linkedin"><span>linkedin Account Link</span></label>
-                            <input class="form-control" type="text" id="linkedin" v-model="fields.linkedin" />
-                            <span v-if="errors.linkedin" class="error">{{ errors.linkedin[0] }}</span>
-                            <br />
+                                <label for="linkedin"><span>linkedin Account Link</span></label>
+                                <input class="form-control" type="text" id="linkedin" v-model="fields.linkedin" />
+                                <span v-if="errors.linkedin" class="error">{{ errors.linkedin[0] }}</span>
+                                <br />
 
-                            <label for="github"><span>github Account Link</span></label>
-                            <input class="form-control" type="text" id="github" v-model="fields.github" />
-                            <span v-if="errors.github" class="error">{{ errors.github[0] }}</span>
-                            <br />
+                                <label for="github"><span>github Account Link</span></label>
+                                <input class="form-control" type="text" id="github" v-model="fields.github" />
+                                <span v-if="errors.github" class="error">{{ errors.github[0] }}</span>
+                                <br />
 
-                            <!-- Button -->
-                            <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                type="submit">Submit</button>
+                                <!-- Button -->
+                                <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
+                                <button style="margin: 5px;float:right;" 
+                                    class="btn bg-gradient-primary btn-sm"
+                                    type="submit">Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -139,6 +167,7 @@ export default {
     props: ["slug"],
     data() {
         return {
+            step: 1,
             success: false,
             fields: {
                 category_id: "",
@@ -157,6 +186,13 @@ export default {
     },
 
     methods: {
+
+        nextStep() {
+            this.step++;
+        },
+        prevStep() {
+            this.step--;
+        },
         filterByCategory(name) {
             axios
                 .get("/api/posts", {
@@ -357,4 +393,5 @@ h1 {
     max-width: 70%;
     height: 50vh;
     object-fit: contain;
-}</style>
+}
+</style>

@@ -933,7 +933,7 @@ const routes = [
         component: EditProfile,
         meta: {
             requiresGuest: true,
-            title: 'Dashboard:- ecomrade',
+            title: 'Edit profile:- ecomrade',
             favicon: '/favicon.ico'
         },
         props: true
