@@ -32,7 +32,7 @@
 
                                         <div class="mb-3">
                                             <label> Gender :</label>
-                                            <select class="form-control form-control-lg"  v-model="genderValue">
+                                            <select class="form-control form-control-lg" v-model="genderValue">
                                                 <option>Female</option>
                                                 <option>Male</option>
                                             </select>
@@ -41,8 +41,9 @@
 
                                         <div class="mb-3">
                                             <label> Location :</label>
-                                            <select class="form-control form-control-lg"  v-model="campusArea">
-                                                <option  v-for="location in locations" :key="location.id">{{ location.name }}</option>
+                                            <select class="form-control form-control-lg" v-model="campusArea">
+                                                <option v-for="location in locations" :key="location.id">{{ location.name }}
+                                                </option>
                                             </select>
                                             <span v-if="errors.campus_area" class="error">{{ errors.campus_area[0] }}</span>
                                         </div>
@@ -64,11 +65,11 @@
 
                                         <label class="label">Password</label>
                                         <span style="float: right" @click="toggleShow"><span class="icon is-small is-right">
-                                            <i class="fas"
-                                                :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
-                                            </i>
+                                                <i class="fas"
+                                                    :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
+                                                </i>
+                                            </span>
                                         </span>
-                                    </span>
                                         <div class="field has-addons">
                                             <div class="control is-expanded">
                                                 <input v-if="showPassword" type="text" class="form-control form-control-lg"
@@ -80,14 +81,16 @@
                                         </div>
 
                                         <label class="label">Password Confirm:</label>
-                                        <span style="float: right;" @click="toggleShowConfirm"><span class="icon is-small is-right">
-                                            <i class="fas"
-                                                :class="{ 'fa-eye-slash': showPasswordConfirm, 'fa-eye': !showPasswordConfirm }"></i>
+                                        <span style="float: right;" @click="toggleShowConfirm"><span
+                                                class="icon is-small is-right">
+                                                <i class="fas"
+                                                    :class="{ 'fa-eye-slash': showPasswordConfirm, 'fa-eye': !showPasswordConfirm }"></i>
+                                            </span>
                                         </span>
-                                    </span>
                                         <div class="field has-addons">
                                             <div class="control is-expanded">
-                                                <input v-if="showPasswordConfirm" type="text" class="form-control form-control-lg"
+                                                <input v-if="showPasswordConfirm" type="text"
+                                                    class="form-control form-control-lg"
                                                     v-model="password_confirmationValue" />
                                                 <input v-else type="password" class="form-control form-control-lg"
                                                     v-model="password_confirmationValue">
@@ -95,9 +98,34 @@
                                             </div>
                                         </div>
 
+                                        <br />
+
+                                        <ul>
+                                            <li>
+                                                <router-link to="/terms" class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
+                                                    Terms & conditions
+                                                </router-link>
+                                            </li>
+                                            <li>
+                                                <router-link to="/privacy" class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
+                                                    Privacy policy
+                                                </router-link>
+                                            </li>
+                                        </ul>
+
+                                        
+
+                                        <br/>
+                                        <div class="control is-expanded">
+                                            <input type="checkbox" class="btn-check" id="btncheck1" required>
+                                            <label class="btn btn-outline-info btn-sm" for="btncheck1">
+                                                By signing up, I agree with terms, conditions, & privacy
+                                            </label>
+                                        </div>
+
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign
+                                                class="btn btn-sm bg-gradient-primary btn-sm w-100 mt-4 mb-0">Sign
                                                 Up</button>
                                         </div>
                                     </form>
@@ -118,7 +146,8 @@
                                 class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center">
 
                                 <div class="position-relative">
-                                    <img style="border-radius: 10px;" class="max-width-500 w-100 position-relative z-index-2" src="/web/faq.png">
+                                    <img style="border-radius: 10px;"
+                                        class="max-width-500 w-100 position-relative z-index-2" src="/web/faq.png">
                                 </div>
                                 <h4 class="mt-5 text-white font-weight-bolder">"Dear esteemed user"</h4>
                                 <p class="text-white"> We collaborate with creative minds to make life easier for Kenyan
@@ -262,7 +291,7 @@ export default {
                 for (let i = 0; i < 100; i++) {
                     result += characters.charAt(Math.floor(Math.random() * charactersLength));
                 }
-                return this.fields.slug = result + '-' +this.fields.name;
+                return this.fields.slug = result + '-' + this.fields.name;
             },
             set(value) {
                 this.fields.slug = value;
