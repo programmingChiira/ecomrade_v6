@@ -120,7 +120,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <router-link class="nav-link" to="#">
+                                <router-link class="nav-link" to="/privacy">
                                     Privacy Policy
                                 </router-link>
                             </li>

@@ -60,6 +60,7 @@ import Club from "../pages/ecomrade/Club.vue";
 import Resource from "../pages/ecomrade/Resource.vue";
 import Contact from "../pages/ecomrade/Contact.vue";
 import Terms from "../pages/ecomrade/Terms.vue";
+import Privacy from "../pages/ecomrade/Privacy.vue";
 import Push from "../pages/ecomrade/Push.vue";
 import Faq from "../pages/ecomrade/Faq.vue";
 import Login from "../pages/ecomrade/Login.vue";
@@ -1176,6 +1177,23 @@ const routes = [
             ogTitle: 'Terms & conditions - ecomrade',
             ogImage: '/contact.jpg',
             ogDescription: 'This is the page that outlines the terms and conditions of using ecomrade, a social networking platform for connecting with like-minded individuals. This page explains the rules and guidelines that users must adhere to when using the platform, and the terms of service that govern the relationship between the user and ecomrade',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/privacy",
+        name: "Privacy",
+        component: Privacy,
+        meta: {
+            title: 'Privacy Policy for ecomrade :- ecomrade',
+            description: 'This privacy policy outlines how Ecomrade collects, uses, and protects personal information of its users.',
+            keywords: 'ecomrade, privacy, policy, personal information, users, data protection.',
+            author: 'Dennis Chiira',
+            robots: 'index, follow',
+            ogTitle: 'Privacy Policy for ecomrade - ecomrade',
+            ogImage: '/contact.jpg',
+            ogDescription: 'This privacy policy outlines how Ecomrade collects, uses, and protects personal information of its users.',
             favicon: '/favicon.ico'
         },
     },
