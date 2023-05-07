@@ -15,16 +15,14 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link v-if="id == false" to="/login" style="float: right;"
-                            class="text-info icon-move-right">
+                        <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
                                 class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
 
-                        <router-link v-else to="/createEvent" style="float: right;"
-                            class="text-info icon-move-right">
+                        <router-link v-else to="/createEvent" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create events" type="button"
                                 class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
@@ -116,9 +114,9 @@
                                     <i style="font-size: 13px;" class="fa fa-flag"></i>
                                 </router-link>
 
-                                <button v-else style="float: right;" data-toggle="tooltip"
-                                    data-placement="bottom" title="Report Post" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" class="btn bg-gradient-danger btn-sm me-2">
+                                <button v-else style="float: right;" data-toggle="tooltip" data-placement="bottom"
+                                    title="Report Post" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    class="btn bg-gradient-danger btn-sm me-2">
                                     <i style="font-size: 13px;" class="fa fa-flag"></i>
                                 </button>
 
@@ -314,9 +312,8 @@
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </router-link>
 
-                                    <a v-else data-toggle="tooltip" data-placement="bottom"
-                                        title="Place in a call" :href="'tell:' + event.contact"
-                                        class="btn bg-gradient-primary btn-sm me-2">
+                                    <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                        :href="'tell:' + event.contact" class="btn bg-gradient-primary btn-sm me-2">
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </a>
                                     <hr>
@@ -356,27 +353,28 @@
 
                                     <input class="form-control" type="hidden" v-model="eventTime" />
 
-                                    <div v-if="event.booked == false" class="mx-3 mt-3 mb-2">
-                                        <router-link v-if="id == false" to="/login"
-                                            class="btn bg-gradient-primary btn-sm">
+                                    <div class="mx-3 mt-3 mb-2">
+                                        <router-link v-if="senderId == false" to="/login" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Event
                                             </small>
                                         </router-link>
+                                        
+                                        <div v-else>
+                                            <button v-if="booked == false" type="submit" class="btn bg-gradient-primary btn-sm">
+                                                <small>
+                                                    Book Event
+                                                </small>
+                                            </button>
 
-                                        <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
-                                            <small>
-                                                Book Event
-                                            </small>
-                                        </button>
-                                    </div>
+                                            <button v-if="booked == true" type="button" class="btn btn-danger btn-sm">
+                                                <small>
+                                                    Event Booked
+                                                </small>
+                                            </button>
+                                        </div>
 
-                                    <div v-if="event.booked == true" class="mx-3 mt-3 mb-2">
-                                        <button type="button" class="btn bg-gradient-danger btn-sm">
-                                            <small>
-                                                Already booked
-                                            </small>
-                                        </button>
+                                        
                                     </div>
 
                                 </form>
@@ -413,8 +411,7 @@
                                     </div>
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <router-link v-if="id == false" to="/login"
-                                            class="btn bg-gradient-primary btn-sm">
+                                        <router-link v-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Submit
                                             </small>
@@ -589,6 +586,7 @@ export default {
             slug: "",
             avgRating: 0,
             commentCount: 0,
+            booked: "",
             eventTitleCount: 0,
             currentDateValue: new Date(),
         };
@@ -806,6 +804,7 @@ export default {
                             this.event = response.data.data;
                             this.avgRating = response.data.avg_rate;
                             this.commentCount = response.data.comment_count;
+                            this.booked = response.data.booked;
                             this.eventTitleCount = response.data.eventTitle_count;
                         });
                 })
@@ -958,6 +957,7 @@ export default {
                             this.event = response.data.data;
                             this.avgRating = response.data.avg_rate;
                             this.commentCount = response.data.comment_count;
+                            this.booked = response.data.booked;
                             this.eventTitleCount = response.data.eventTitle_count;
                         });
                 }
@@ -1035,6 +1035,7 @@ export default {
                 this.event = response.data.data;
                 this.avgRating = response.data.avg_rate;
                 this.commentCount = response.data.comment_count;
+                this.booked = response.data.booked;
                 this.eventTitleCount = response.data.eventTitle_count;
             });
 

@@ -33,8 +33,8 @@ class EventController extends Controller
                 $count = $ratings->count();
                 $avgRating = $count ? $ratings->avg('ratingValue') : 0;
                 $booked = EventBooking::where('senderId', auth()->id())
-                        ->where('eventId', $event->id)
-                        ->exists();
+                    ->where('eventId', $event->id)
+                    ->exists();
 
                 return [
                     'id' => $event->id,
@@ -85,8 +85,8 @@ class EventController extends Controller
             $count = $ratings->count();
             $avgRating = $count ? $ratings->avg('ratingValue') : 0;
             $booked = EventBooking::where('senderId', auth()->id())
-                        ->where('eventId', $event->id)
-                        ->exists();
+                ->where('eventId', $event->id)
+                ->exists();
 
             return [
                 'id' => $event->id,
@@ -258,54 +258,73 @@ class EventController extends Controller
 
     //     return response()->json($data);
     // }
-    
+
+    // public function show(Event $event)
+    // {
+    //     $event = Event::find($event->id);
+
+    //     $user = auth()->user();
+    //     $booked = EventBooking::where('senderId', $user->id)->where('eventId', $event->id)->exists();
+
+    //     $eventData = [
+    //         'id' => $event->id,
+    //         'title' => $event->title,
+    //         'slug' => $event->slug,
+    //         'user_id' => $event->user_id,
+    //         'user_name' => $event->user_name,
+    //         'user_slug' => $event->user_slug,
+    //         'image_1' => $event->image_1,
+    //         'image_2' => $event->image_2,
+    //         'image_3' => $event->image_3,
+    //         'image_4' => $event->image_4,
+    //         'image_5' => $event->image_5,
+    //         'description' => $event->description,
+    //         'requirement_1' => $event->requirement_1,
+    //         'requirement_2' => $event->requirement_2,
+    //         'requirement_3' => $event->requirement_3,
+    //         'requirement_4' => $event->requirement_4,
+    //         'requirement_5' => $event->requirement_5,
+    //         'mode' => $event->mode,
+    //         'area' => $event->area,
+    //         'location' => $event->location,
+    //         'date' => $event->date,
+    //         'time' => $event->time,
+    //         'entry' => $event->entry,
+    //         'entry_cost' => $event->entry_cost,#
+    //         'contact' => $event->contact,
+    //         'show_contact' => $event->show_contact,
+    //         'club_id' => $event->club_id,
+    //         'booked' => $booked,
+    //     ];
+
+    //     return response()->json([
+    //         'data' => $eventData
+    //     ]);
+    // }
+
     public function show(Event $event)
     {
-        $event = Event::find($event->id);
-
-        $user = auth()->user();
-        $booked = EventBooking::where('senderId', $user->id)->where('eventId', $event->id)->exists();
-
-        $eventData = [
-            'id' => $event->id,
-            'title' => $event->title,
-            'slug' => $event->slug,
-            'user_id' => $event->user_id,
-            'user_name' => $event->user_name,
-            'user_slug' => $event->user_slug,
-            'image_1' => $event->image_1,
-            'image_2' => $event->image_2,
-            'image_3' => $event->image_3,
-            'image_4' => $event->image_4,
-            'image_5' => $event->image_5,
-            'description' => $event->description,
-            'requirement_1' => $event->requirement_1,
-            'requirement_2' => $event->requirement_2,
-            'requirement_3' => $event->requirement_3,
-            'requirement_4' => $event->requirement_4,
-            'requirement_5' => $event->requirement_5,
-            'mode' => $event->mode,
-            'area' => $event->area,
-            'location' => $event->location,
-            'date' => $event->date,
-            'time' => $event->time,
-            'entry' => $event->entry,
-            'entry_cost' => $event->entry_cost,#
-            'contact' => $event->contact,
-            'show_contact' => $event->show_contact,
-            'club_id' => $event->club_id,
-            'booked' => $booked,
+        //return new EventResource($event);
+        $booked = false;
+        if (auth()->user()) {
+            $user = auth()->user();
+            $booked = EventBooking::where('senderId', $user->id)->where('eventId', $event->id)->exists();
+        }
+        $events = Event::find($event->id);
+        $data = [
+            "data" => $events,
+            "booked" => $booked,
+            "avg_rate" => $events->average_rating,
+            "comment_count" => $events->count_comment,
         ];
 
-        return response()->json([
-            'data' => $eventData
-        ]);
+        return response()->json($data);
     }
 
 
     public function update(Request $request, Event $event)
     {
-        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1 ) {
+        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1) {
             return abort(403);
         }
         $request->validate([
@@ -407,7 +426,7 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
-        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1 ) {
+        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1) {
             return abort(403);
         }
 
