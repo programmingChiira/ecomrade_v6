@@ -86,6 +86,8 @@ import AdmClub from "../pages/ecomrade/AdmClub.vue";
 import AdmEvent from "../pages/ecomrade/AdmEvent.vue";
 import AdmEventReport from "../pages/ecomrade/AdmEventReport.vue";
 import AdmRentalReport from "../pages/ecomrade/AdmRentalReport.vue";
+import AdmRentalBooking from "../pages/ecomrade/AdmRentalBooking.vue";
+import AdmEventBooking from "../pages/ecomrade/AdmEventBooking.vue";
 import AdmMarketReport from "../pages/ecomrade/AdmMarketReport.vue";
 import AdmLocation from "../pages/ecomrade/AdmLocation.vue";
 import AdmYear from "../pages/ecomrade/AdmYear.vue";
@@ -1346,6 +1348,26 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'All rental reports :- ecomrade',
+            favicon: '/favicon.ico'
+        }
+    },
+    {
+        path: "/admrentalbooking",
+        name: "AdmRentalBooking",
+        component: AdmRentalBooking,
+        meta: {
+            requiresGuest: true,
+            title: 'All rental bookings :- ecomrade',
+            favicon: '/favicon.ico'
+        }
+    },
+    {
+        path: "/admeventbooking",
+        name: "AdmEventBooking",
+        component: AdmEventBooking,
+        meta: {
+            requiresGuest: true,
+            title: 'All event bookings :- ecomrade',
             favicon: '/favicon.ico'
         }
     },

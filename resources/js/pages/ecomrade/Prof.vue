@@ -288,6 +288,11 @@
                                 <p>Rentals</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalbooking">
+                                <i style="color: #0dd649f3;" class="fa fa-calendar"></i>
+                                <p>Rental Bookings</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admrentalreport">
                                 <i style="color: #d60d0d;" class="fa fa-warning"></i>
                                 <p>Rental Reports</p>
@@ -321,6 +326,11 @@
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admevent">
                                 <i style="color: #3b5998;" class="fa fa-calendar"></i>
                                 <p>Events</p>
+                            </router-link>
+
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admeventbooking">
+                                <i style="color: #0dd649f3;" class="fa fa-calendar"></i>
+                                <p>Event Bookings</p>
                             </router-link>
 
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admeventreport">

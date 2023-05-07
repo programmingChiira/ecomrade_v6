@@ -55,9 +55,6 @@ class RentalBookingController extends Controller
 
     public function index()
     {
-        // $rentalcategories = RentalBooking::get();
-        // return RentalBookingResource::collection($rentalcategories);
-        //return RentalBooking::latest()->get();
         return RentalBookingResource::collection(RentalBooking::latest()->get());
     }
 
