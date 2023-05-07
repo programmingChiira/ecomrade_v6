@@ -343,6 +343,11 @@
                                 <p>Societies</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admfeed">
+                                <i style="color: #3b5998;" class="fa fa-comments-o"></i>
+                                <p>Feedback</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admresource">
                                 <i style="color: #3b5998;" class="fa fa-book"></i>
                                 <p>Resources</p>
