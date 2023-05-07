@@ -41,6 +41,7 @@ import EditMarket from "../pages/ecomrade/EditMarket.vue";
 import EditPoll from "../pages/ecomrade/EditPoll.vue";
 import EditRental from "../pages/ecomrade/EditRental.vue";
 import EditProfile from "../pages/ecomrade/EditProfile.vue";
+import EditPassword from "../pages/ecomrade/EditPassword.vue";
 import CreateBlogCategory from "../pages/ecomrade/CreateBlogCategory.vue";
 import CreateMarketCategory from "../pages/ecomrade/CreateMarketCategory.vue";
 import CreateRentalCategory from "../pages/ecomrade/CreateRentalCategory.vue";
@@ -934,6 +935,17 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'Edit profile:- ecomrade',
+            favicon: '/favicon.ico'
+        },
+        props: true
+    },
+    {
+        path: "/editPassword:slug",
+        name: "EditPassword",
+        component: EditPassword,
+        meta: {
+            requiresGuest: true,
+            title: 'Edit password:- ecomrade',
             favicon: '/favicon.ico'
         },
         props: true

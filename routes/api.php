@@ -122,6 +122,7 @@ Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('posts', [PostContr
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('club_posts', [PostController::class, 'club_store']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->put('posts/{post:slug}', [PostController::class, 'update']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->put('users/{user:slug}', [UserController::class, 'update']);
+Route::middleware(['auth:sanctum', 'throttle:1200,1'])->put('userpasswords/{userpassword:slug}', [UserController::class, 'updatePassword']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->delete('posts/{post}', [PostController::class, 'destroy']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('clubs', [ClubController::class, 'store']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->put('clubs/{club:slug}', [ClubController::class, 'update']);

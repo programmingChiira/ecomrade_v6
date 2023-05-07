@@ -14,7 +14,10 @@ use App\Models\UserChatRoom;
 use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -383,6 +386,28 @@ class UserController extends Controller
         $user->linkedin = $linkedin;
         $user->github = $github;
         return $user->save();
+    }
+
+    public function updatePassword(Request $request, Users $user)
+    {
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required',
+            'password' => 'required',
+            'password_confirmation' => 'required_with:password|same:password'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        if (!Auth::attempt(['email' => Auth::user()->email, 'password' => $request->input('current_password')])) {
+            return response()->json(['error' => 'Current password does not match'], 403);
+        }
+
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+
+        return response()->json(['success' => true]);
     }
 
     public function destroy(Users $user)

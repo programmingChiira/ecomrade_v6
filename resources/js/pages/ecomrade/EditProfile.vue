@@ -15,8 +15,16 @@
                     </div>
                 </div>
 
-                <div class="row align-items-center  justify-content-center">
+                <div class="row">
+                    <div style="display: flex;flex-wrap: wrap;margin:6px;float:right;">
+                        <!-- <router-link style="margin: 10px;float:right;" title="Delete my account" to="/createblog" class="btn btn-sm">
+                            <i style="font-size: 12px;color:red;" class="fa fa-trash-o"></i>
+                        </router-link>
 
+                        <router-link style="margin: 10px;float:right;" title="Change password" :to="'/editPassword' + slug" class="btn btn-sm">
+                            <i style="font-size: 12px;color: green;" class="fa fa-eye-slash"></i>
+                        </router-link> -->
+                      </div>
                     <div style="padding: 10px;" class="col-lg-12 col-sm-12">
                         <form @submit.prevent="submit">
                             <!-- Title -->
