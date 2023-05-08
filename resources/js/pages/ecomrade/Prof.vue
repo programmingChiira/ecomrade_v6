@@ -392,7 +392,6 @@
                 <br /><br />
                 <!-- /Breadcrumb -->
 
-
                 <div class="layout">
                     <div class="row">
                         <div class="col-md-4 col-12" v-for="connection in connections" :key="connection.id">

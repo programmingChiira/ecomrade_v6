@@ -366,7 +366,8 @@
                 <div class="layout">
                     <div class="row">
                         <div class="col-md-4 col-12" v-for="connection in connections" :key="connection.id">
-                            <div class="profile" v-show="connection.sender_id == user.id && connection.status == 'Connected'">
+                            <div class="profile"
+                                v-show="connection.sender_id == user.id && connection.status == 'Connected'">
                                 <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                 <div class="profile__header">
                                     <div class="profile__account">
