@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
 
             <div v-if="type == 'admin'" class="container">
@@ -13,7 +13,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                                     <li class="breadcrumb-item"><router-link to="/dashboard">Dash</router-link></li>
-                                    <li style="color: #189483;" class="breadcrumb-item"><strong>Event Reports</strong></li>
+                                    <li style="color: #189483;" class="breadcrumb-item"><strong>Event Booking</strong></li>
                                 </ol>
                             </div>
                         </nav>
@@ -65,17 +65,18 @@
                                                 <img v-else :src="'./img/event/' + eventbooking.eventImg"
                                                     class="avatar-sm rounded-circle me-2">
                                             </td>
-                                            <td><span class="badge badge-soft-success mb-0">{{ eventbooking.eventTitle}}</span></td>
+                                            <td><span class="badge badge-soft-success mb-0">{{
+                                                eventbooking.eventTitle }}</span></td>
                                             <td>{{ eventbooking.senderName }}</td>
                                             <td>{{ eventbooking.senderPhone }}</td>
                                             <td>{{ eventbooking.eventDate }}</td>
                                             <td>{{ eventbooking.eventTime }}</td>
-                                            
+
                                             <td>
                                                 <router-link :to="{
-                                                        name: 'ViewEvent',
-                                                        params: { slug: eventbooking.eventSlug },
-                                                    }">
+                                                    name: 'ViewEvent',
+                                                    params: { slug: eventbooking.eventSlug },
+                                                }">
                                                     <button type="button" class="btn btn-sm ">
                                                         <small>
                                                             View More
@@ -94,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div v-else class="container mt-5 mb-5">
                 <div class="wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
                         <title>404</title>
@@ -329,6 +330,7 @@ export default {
             id: "",
             name: "",
             type: "",
+            loading: true,
         };
     },
 
@@ -370,6 +372,10 @@ export default {
         },
     },
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             .then(response => {
