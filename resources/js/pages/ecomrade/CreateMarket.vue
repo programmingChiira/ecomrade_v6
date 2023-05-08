@@ -280,7 +280,8 @@
                 <span v-if="errors.contact" class="error">{{ errors.contact[0] }}</span>
                 <br />
                 <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
-                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm" type="submit">Submit</button>
+                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
+                  type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -384,6 +385,7 @@ export default {
       links: [],
       phone: "",
       locations: {},
+      loading: true,
 
       // id: "",
       // name: "",
@@ -606,6 +608,9 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
 
     axios
       .get("/api/user")
