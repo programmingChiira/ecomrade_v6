@@ -395,9 +395,8 @@
 
                 <div class="layout">
                     <div class="row">
-                        <div v-for="connection in connections" :key="connection.id">
-
-                            <div class="profile col-md-4 col-12" v-show="connection.sendConnected == true">
+                        <div class="col-md-4 col-12" v-for="connection in connections" :key="connection.id">
+                            <div class="profile" v-show="connection.sendConnected == true">
                                 <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                 <div class="profile__header">
                                     <div class="profile__account">
@@ -406,13 +405,10 @@
                                 </div>
                                 <div class="profile__stats">
                                     <div class="profile__stat">
-
                                         <div class="profile__value">
                                             <div class="profile__key">
-                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
-                                                    name: 'User',
-                                                    params: { slug: connection.receiver_slug },
-                                                }">
+                                                <router-link class="btn bg-gradient-primary btn-sm"
+                                                    :to="{ name: 'User', params: { slug: connection.receiver_slug } }">
                                                     View profile
                                                 </router-link>
                                             </div>
@@ -420,7 +416,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="profile col-md-4 col-12" v-show="connection.receiveConnected == true">
                                 <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                 <div class="profile__header">
@@ -430,13 +425,10 @@
                                 </div>
                                 <div class="profile__stats">
                                     <div class="profile__stat">
-
                                         <div class="profile__value">
                                             <div class="profile__key">
-                                                <router-link class="btn bg-gradient-primary btn-sm" :to="{
-                                                    name: 'User',
-                                                    params: { slug: connection.sender_slug },
-                                                }">
+                                                <router-link class="btn bg-gradient-primary btn-sm"
+                                                    :to="{ name: 'User', params: { slug: connection.sender_slug } }">
                                                     View profile
                                                 </router-link>
                                             </div>
@@ -444,10 +436,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

@@ -1220,12 +1220,6 @@ li {
     cursor: pointer
 }
 
-img {
-    display: block;
-    height: auto;
-    width: 100%
-}
-
 .stars i {
     color: #f6d151
 }
