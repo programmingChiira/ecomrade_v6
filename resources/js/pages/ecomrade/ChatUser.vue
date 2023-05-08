@@ -227,6 +227,7 @@ export default {
       name: "",
       url1: "",
       messageCount: 0,
+      loading: true,
     };
   },
   computed: {
@@ -407,6 +408,10 @@ export default {
     },
   },
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       //.then((response) => (this.id = response.data.id))
