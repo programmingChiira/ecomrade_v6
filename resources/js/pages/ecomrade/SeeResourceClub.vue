@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -22,7 +22,8 @@
 
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-12" v-for="resource in resources" :key="resource.id" v-show="resource.club_id == club.id">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-12" v-for="resource in resources"
+                            :key="resource.id" v-show="resource.club_id == club.id">
                             <div style="background-color: #E9ECEF;" class="card shadow">
                                 <!-- <img src="img/no_img.png" class="card-img-top" alt="..."> -->
 
@@ -188,6 +189,7 @@ export default {
             resource_category: "",
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -351,6 +353,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
