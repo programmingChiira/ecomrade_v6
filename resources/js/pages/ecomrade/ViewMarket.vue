@@ -802,6 +802,7 @@ export default {
             avgRating: 0,
             commentCount: 0,
             marketNameCount: 0,
+            loading: true,
         };
     },
 
@@ -1242,6 +1243,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+      this.loading = false;
+    }, 2000);
 
         axios
             .get("/api/user")
