@@ -55,6 +55,7 @@ export default {
       field: {},
       errors: {},
       success: false,
+      loading: true,
     };
   },
 
@@ -107,6 +108,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/categories/" + this.id)
       .then((response) => (this.field = response.data))
