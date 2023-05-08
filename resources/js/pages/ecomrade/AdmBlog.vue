@@ -4,7 +4,6 @@
       <img src="/triangle.svg" alt="Loader" />
     </div>
     <section class="my-5 py-5">
-
       <div v-if="type == 'admin'" class="container">
 
         <div class="row justify-content-center my-2 py-1">
