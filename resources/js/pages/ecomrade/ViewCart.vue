@@ -2,34 +2,37 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-4 col-10">
-                              <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-                                <div class="container">
-                                  <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                                    <li style="color: #189483;" class="breadcrumb-item"><strong>Compare</strong></li>
-                                  </ol>
-                                </div>
-                              </nav>
+                                <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                                    <div class="container">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
+                                            <li style="color: #189483;" class="breadcrumb-item"><strong>Compare</strong>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </nav>
                             </div>
                             <div style="float:right;" class="col-md-8 col-2">
-                              <router-link to="/createmarket" style="float: right;" class="text-info icon-move-right">
-                                <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services" type="button"
-                                  class="btn bg-gradient-primary btn-sm">
-                                  <i class="fa fa-plus"></i>
-                                </button>
-                              </router-link>
+                                <router-link to="/createmarket" style="float: right;" class="text-info icon-move-right">
+                                    <button data-toggle="tooltip" data-placement="bottom"
+                                        title="Sell my products / services" type="button"
+                                        class="btn bg-gradient-primary btn-sm">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </router-link>
                             </div>
-                          </div>
-                          
+                        </div>
+
                         <div v-for="cart in carts" :key="cart.id">
-                            <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded" v-if="cart.senderId == id">
+                            <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded"
+                                v-if="cart.senderId == id">
                                 <div class="mr-1">
                                     <!-- <img class="rounded" src="assets/img/logo.png" width="70"> -->
 
@@ -100,6 +103,7 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -199,6 +203,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/carts")
