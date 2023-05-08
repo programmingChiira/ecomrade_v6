@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="wrapperr">
                 <div style="background-color: #E9ECEF;" class="profile-card js-profile-card">
@@ -455,7 +455,7 @@
                             }"><i class="fa fa-edit" style="color:#189483;"></i>
                             </router-link>
                         </div>
-                        
+
                         <br />
                     </div>
                     <h5 style="text-align: left;" v-if="!posts.length">Sorry, no item found!</h5>
@@ -485,6 +485,7 @@ export default {
             posts: [],
             connections: [],
             users: [],
+            loading: true,
         };
     },
 
@@ -630,6 +631,10 @@ export default {
 
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/users/" + this.slug)
             .then((response) => (this.user = response.data.data))
