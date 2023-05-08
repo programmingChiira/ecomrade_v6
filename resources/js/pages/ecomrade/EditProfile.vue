@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row">
@@ -27,7 +27,7 @@
                         <router-link style="margin: 10px;float:right;" title="Change password" :to="'/editPassword' + slug" class="btn btn-sm">
                             <i style="font-size: 12px;color: green;" class="fa fa-eye-slash"></i>
                         </router-link> -->
-                      </div>
+                    </div>
                     <div style="padding: 10px;" class="col-lg-12 col-sm-12">
                         <form @submit.prevent="submit">
                             <!-- Title -->
@@ -76,8 +76,7 @@
                                 <br />
                                 <button class="btn btn-sm" @click.prevent="nextStep">Next</button>
 
-                                <button style="margin: 5px;float:right;" 
-                                    class="btn bg-gradient-primary btn-sm"
+                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
                                     type="submit">Submit
                                 </button>
                             </div>
@@ -111,8 +110,7 @@
                                 <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
                                 <button class="btn btn-sm" @click.prevent="nextStep">Next</button>
 
-                                <button style="margin: 5px;float:right;" 
-                                    class="btn bg-gradient-primary btn-sm"
+                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
                                     type="submit">Submit
                                 </button>
                             </div>
@@ -152,8 +150,7 @@
 
                                 <!-- Button -->
                                 <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
-                                <button style="margin: 5px;float:right;" 
-                                    class="btn bg-gradient-primary btn-sm"
+                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
                                     type="submit">Submit
                                 </button>
                             </div>
@@ -193,6 +190,7 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -329,6 +327,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
