@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
@@ -28,8 +28,7 @@
                                     v-show="connection.sender_id == id && connection.status == 'Pending'"
                                     class="col-md-4 col-12">
                                     <div class="profile">
-                                        <div class="profile__picture"><img src="/avatar.webp"
-                                                alt="comrade" /></div>
+                                        <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                         <div class="profile__header">
                                             <div class="profile__account">
                                                 <h4 class="profile__username">{{ connection.receiver_name }}</h4>
@@ -114,6 +113,7 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -198,6 +198,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/connections")
