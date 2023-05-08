@@ -1,9 +1,8 @@
 <template>
-
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="wrapperr">
                 <div class="profile-card js-profile-card">
@@ -23,8 +22,8 @@
                             <div class="col-sm-3 col-6 mx-auto">
                                 <!-- Button trigger modal -->
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -38,8 +37,8 @@
                                                     v-if="user.profile_pic == false || user.profile_pic == null || user.profile_pic == 'null' || user.profile_pic == '' || user.profile_pic == ' '"
                                                     src="/web/img/no_img.jpg" alt="profile card">
 
-                                                <img style="width: 100%;" v-else
-                                                    :src="'./img/profiles/' + user.profile_pic" alt="profile card">
+                                                <img style="width: 100%;" v-else :src="'./img/profiles/' + user.profile_pic"
+                                                    alt="profile card">
 
 
                                                 <div class="profile-card-loc">
@@ -158,15 +157,15 @@
                                 <router-link class="btn btn-sm" :to="{
                                     name: 'Profile',
                                     params: { slug: slug },
-                                  }">Friends
+                                }">Friends
                                 </router-link>
                             </div>
-                            
+
                             <div class="profile-card-inf__item">
                                 <router-link class="btn btn-sm" :to="{
                                     name: 'ProdProfile',
                                     params: { slug: slug },
-                                  }">Products
+                                }">Products
                                 </router-link>
                             </div>
 
@@ -174,7 +173,7 @@
                                 <router-link class="btn btn-sm" :to="{
                                     name: 'BlogProfile',
                                     params: { slug: slug },
-                                  }">
+                                }">
                                     Blogs
                                 </router-link>
                             </div>
@@ -183,7 +182,7 @@
                                 <router-link class="btn btn-sm" :to="{
                                     name: 'PollProfile',
                                     params: { slug: slug },
-                                  }">
+                                }">
                                     Polls
                                 </router-link>
                             </div>
@@ -192,7 +191,7 @@
                                 <router-link class="btn bg-gradient-primary btn-sm" :to="{
                                     name: 'ClubProfile',
                                     params: { slug: slug },
-                                  }">
+                                }">
                                     Clubs
                                 </router-link>
                             </div>
@@ -303,10 +302,13 @@ export default {
             user: {},
             id: "",
             name: "",
+            loading: true,
         };
     },
     mounted() {
-        //
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/users/" + this.slug)
