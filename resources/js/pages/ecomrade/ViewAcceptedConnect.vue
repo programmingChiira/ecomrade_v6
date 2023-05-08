@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
@@ -69,8 +69,10 @@
                                                 <div class="profile__stat">
                                                     <div class="profile__value">
                                                         <div class="profile__key">
-                                                            <button class="btn bg-gradient-danger btn-sm" type="button" @click="destroy(connection.id)">
-                                                                <i class="fa fa-trash-o" style="color: white;font-size: 12px;"></i>
+                                                            <button class="btn bg-gradient-danger btn-sm" type="button"
+                                                                @click="destroy(connection.id)">
+                                                                <i class="fa fa-trash-o"
+                                                                    style="color: white;font-size: 12px;"></i>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -123,8 +125,10 @@
                                                 <div class="profile__stat">
                                                     <div class="profile__value">
                                                         <div class="profile__key">
-                                                            <button class="btn bg-gradient-danger btn-sm" type="button" @click="destroy(connection.id)">
-                                                                <i class="fa fa-trash-o" style="color: white;font-size: 12px;"></i>
+                                                            <button class="btn bg-gradient-danger btn-sm" type="button"
+                                                                @click="destroy(connection.id)">
+                                                                <i class="fa fa-trash-o"
+                                                                    style="color: white;font-size: 12px;"></i>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -176,6 +180,7 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -313,6 +318,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/connections")
@@ -510,5 +518,4 @@ export default {
     font-size: 28px;
     font-weight: 700;
     text-align: center;
-}
-</style>
+}</style>
