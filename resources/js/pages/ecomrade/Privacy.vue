@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-2 py-2">
             <div class="container">
                 <div class="row">
@@ -197,6 +197,7 @@ export default {
             fields: {
                 //
             },
+            loading: true,
         };
     },
 
@@ -241,6 +242,10 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/home-posts")
             .then((response) => (this.posts = response.data.data))
