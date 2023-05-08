@@ -367,6 +367,7 @@ export default {
       id: "",
       name: "",
       type: "",
+      loading: true,
     };
   },
 
@@ -506,6 +507,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       .then(response => {
