@@ -66,6 +66,20 @@
         * {
             font-family: 'Arvo', serif;
         }
+
+        .full-page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background-color: #189483ec;
+            display: flex;
+            /* Use flexbox to center the image horizontally and vertically */
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
