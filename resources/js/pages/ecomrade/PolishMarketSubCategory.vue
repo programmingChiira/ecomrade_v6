@@ -68,6 +68,7 @@ export default {
       errors: {},
       success: false,
       getmarketcategories: [],
+      loading: true,
     };
   },
 
@@ -149,6 +150,9 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
 
     // axios
     //   .get("/api/marketcategories")
