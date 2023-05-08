@@ -98,7 +98,8 @@ export default {
             fields: {},
             errors: {},
             showPassword: false,
-            password: null
+            password: null,
+            loading: true,
         };
     },
     computed: {
@@ -126,6 +127,12 @@ export default {
         toggleShow() {
             this.showPassword = !this.showPassword;
         },
+    },
+
+    mounted() {
+        setTimeout(() => {
+      this.loading = false;
+    }, 2000);
     },
 };
 </script>
