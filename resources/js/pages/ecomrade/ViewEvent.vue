@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row">
@@ -357,14 +357,16 @@
                                     <input class="form-control" type="hidden" v-model="eventTime" />
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <router-link v-if="senderId == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                        <router-link v-if="senderId == false" to="/login"
+                                            class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Event
                                             </small>
                                         </router-link>
-                                        
+
                                         <div v-else>
-                                            <button v-if="booked == false" type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <button v-if="booked == false" type="submit"
+                                                class="btn bg-gradient-primary btn-sm">
                                                 <small>
                                                     Book Event
                                                 </small>
@@ -377,7 +379,7 @@
                                             </button>
                                         </div>
 
-                                        
+
                                     </div>
 
                                 </form>
@@ -592,6 +594,7 @@ export default {
             booked: "",
             eventTitleCount: 0,
             currentDateValue: new Date(),
+            loading: true,
         };
     },
 
@@ -1016,6 +1019,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
