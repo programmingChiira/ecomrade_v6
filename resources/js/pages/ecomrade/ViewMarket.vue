@@ -345,7 +345,7 @@
                                             </router-link>
 
                                             <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
-                                                :href="'tell:' + market.contact"
+                                                :href="'tel:' + market.contact"
                                                 class="btn bg-gradient-primary btn-sm me-2">
                                                 <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                             </a>

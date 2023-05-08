@@ -268,7 +268,7 @@
                                     </router-link>
 
                                     <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
-                                        :href="'tell:' + rental.contact_information"
+                                        :href="'tel:' + rental.contact_information"
                                         class="btn bg-gradient-primary btn-sm me-2">
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </a>
