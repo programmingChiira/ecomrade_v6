@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -26,8 +26,8 @@
                             <div class="product-details-top">
                                 <div class="row">
 
-                                    <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls"
-                                        :key="index"  v-show="poll.club_id == club.id">
+                                    <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls" :key="index"
+                                        v-show="poll.club_id == club.id">
                                         <div class="wrapper">
                                             <div v-if="poll.voter_id_count >= 1">
                                                 <button data-toggle="tooltip" data-placement="bottom"
@@ -54,8 +54,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal1-' + index">
                                                             <span
                                                                 v-if="poll.image_1 == false || poll.image_1 == null || poll.image_1 == 'null' || poll.image_1 == '' || poll.image_1 == ' ' || poll.image_1 == NULL || poll.image_1 == 'undefined'"></span>
@@ -137,8 +136,7 @@
                                                 <label for="opt-2" class="opt-2">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal2-' + index">
                                                             <span
                                                                 v-if="poll.image_2 == false || poll.image_2 == null || poll.image_2 == 'null' || poll.image_2 == '' || poll.image_2 == ' ' || poll.image_2 == NULL || poll.image_2 == 'undefined'"></span>
@@ -221,8 +219,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal3-' + index">
                                                             <span
                                                                 v-if="poll.image_3 == false || poll.image_3 == null || poll.image_3 == 'null' || poll.image_3 == '' || poll.image_3 == ' ' || poll.image_3 == NULL || poll.image_3 == 'undefined'"></span>
@@ -303,8 +300,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal4-' + index">
                                                             <span
                                                                 v-if="poll.image_4 == false || poll.image_4 == null || poll.image_4 == 'null' || poll.image_4 == '' || poll.image_4 == ' ' || poll.image_4 == NULL || poll.image_4 == 'undefined'"></span>
@@ -386,8 +382,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal5-' + index">
                                                             <span
                                                                 v-if="poll.image_5 == false || poll.image_5 == null || poll.image_5 == 'null' || poll.image_5 == '' || poll.image_5 == ' ' || poll.image_5 == NULL || poll.image_5 == 'undefined'"></span>
@@ -469,8 +464,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal6-' + index">
                                                             <span
                                                                 v-if="poll.image_6 == false || poll.image_6 == null || poll.image_6 == 'null' || poll.image_6 == '' || poll.image_6 == ' ' || poll.image_6 == NULL || poll.image_6 == 'undefined'"></span>
@@ -553,8 +547,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal7-' + index">
                                                             <span
                                                                 v-if="poll.image_7 == false || poll.image_7 == null || poll.image_7 == 'null' || poll.image_7 == '' || poll.image_7 == ' ' || poll.image_7 == NULL || poll.image_7 == 'undefined'"></span>
@@ -636,8 +629,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal8-' + index">
                                                             <span
                                                                 v-if="poll.image_8 == false || poll.image_8 == null || poll.image_8 == 'null' || poll.image_8 == '' || poll.image_8 == ' ' || poll.image_8 == NULL || poll.image_8 == 'undefined'"></span>
@@ -719,8 +711,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal9-' + index">
                                                             <span
                                                                 v-if="poll.image_9 == false || poll.image_9 == null || poll.image_9 == 'null' || poll.image_9 == '' || poll.image_9 == ' ' || poll.image_9 == NULL || poll.image_9 == 'undefined'"></span>
@@ -802,8 +793,7 @@
                                                 <label for="opt-1" class="opt-1">
                                                     <div class="option-wrapper">
                                                         <button style="background: none;border:none;" data-toggle="tooltip"
-                                                            data-placement="bottom" title="View file"
-                                                            data-bs-toggle="modal"
+                                                            data-placement="bottom" title="View file" data-bs-toggle="modal"
                                                             :data-bs-target="'#exampleModal10-' + index">
                                                             <span
                                                                 v-if="poll.image_10 == false || poll.image_10 == null || poll.image_10 == 'null' || poll.image_10 == '' || poll.image_10 == ' ' || poll.image_10 == NULL || poll.image_10 == 'undefined'"></span>
@@ -956,6 +946,7 @@ export default {
             poll_category: "",
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -1623,6 +1614,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
