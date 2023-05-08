@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row">
@@ -26,8 +26,7 @@
                             </button>
                         </router-link>
 
-                        <router-link v-if="id == false" to="/login" style="float: right;"
-                            class="text-info icon-move-right">
+                        <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Create rental" type="button"
                                 class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
@@ -268,8 +267,8 @@
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </router-link>
 
-                                    <a v-else data-toggle="tooltip" data-placement="bottom"
-                                        title="Place in a call" :href="'tell:' + rental.contact_information"
+                                    <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                        :href="'tell:' + rental.contact_information"
                                         class="btn bg-gradient-primary btn-sm me-2">
                                         <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                     </a>
@@ -403,14 +402,16 @@
                                     <input class="form-control" type="hidden" v-model="rentalSlug" />
 
                                     <div class="mx-3 mt-3 mb-2">
-                                        <router-link v-if="senderId == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                        <router-link v-if="senderId == false" to="/login"
+                                            class="btn bg-gradient-primary btn-sm">
                                             <small>
                                                 Book Rental
                                             </small>
                                         </router-link>
-                                        
+
                                         <div v-else>
-                                            <button v-if="booked == false" type="submit" class="btn bg-gradient-primary btn-sm">
+                                            <button v-if="booked == false" type="submit"
+                                                class="btn bg-gradient-primary btn-sm">
                                                 <small>
                                                     Book Rental
                                                 </small>
@@ -422,7 +423,7 @@
                                                 </small>
                                             </button>
                                         </div>
-                                        
+
                                     </div>
 
                                 </form>
@@ -639,6 +640,7 @@ export default {
             commentCount: 0,
             booked: "",
             rentalNameCount: 0,
+            loading: true,
         };
     },
 
@@ -1150,6 +1152,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
