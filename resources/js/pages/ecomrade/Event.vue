@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -88,16 +88,17 @@
                             </nav>
                         </div>
                         <div style="float:right;" class="col-md-8 col-2">
-                            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
-                                <button data-toggle="tooltip" data-placement="bottom" title="Create event"
-                                    type="button" class="btn bg-gradient-primary btn-sm">
+                            <router-link v-if="id == false" to="/login" style="float: right;"
+                                class="text-info icon-move-right">
+                                <button data-toggle="tooltip" data-placement="bottom" title="Create event" type="button"
+                                    class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </router-link>
 
                             <router-link v-else to="/createEvent" style="float: right;" class="text-info icon-move-right">
-                                <button data-toggle="tooltip" data-placement="bottom" title="Create event"
-                                    type="button" class="btn bg-gradient-primary btn-sm">
+                                <button data-toggle="tooltip" data-placement="bottom" title="Create event" type="button"
+                                    class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </router-link>
@@ -129,7 +130,8 @@
                                                     Today</span>
                                                 <span style="color: #189483;font-size:15px;"
                                                     v-else-if="event.diffInDays == 1"> Tomorrow</span>
-                                                <span style="color: #189483;font-size:15px;" v-else-if="event.diffInDays > 1">
+                                                <span style="color: #189483;font-size:15px;"
+                                                    v-else-if="event.diffInDays > 1">
                                                     In {{ event.diffInDays }} days</span>
                                                 <span style="color: red;font-size:15px;" v-else-if="event.diffInDays < 0">
                                                     Already happened</span>
@@ -183,8 +185,8 @@
 
                                     <div class="d-flex flex-row justify-content-between p-3 mid">
                                         <div class="d-flex flex-column">
-                                            <button v-if="event.user_id == id || id == 1" type="button" @click="destroy(event.id)"
-                                                class="delete-btn"
+                                            <button v-if="event.user_id == id || id == 1" type="button"
+                                                @click="destroy(event.id)" class="delete-btn"
                                                 style="float: left;border:none;outline:none;background: none;">
                                                 <i class="fa fa-trash-o" style="color: red;"></i>
                                             </button>
@@ -285,6 +287,7 @@ export default {
             name: "",
             slug: "",
             currentDateValue: new Date(),
+            loading: true,
         };
     },
 
@@ -431,6 +434,10 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             .then(response => {
