@@ -1,6 +1,9 @@
 <template>
 
     <body class="about-us">
+        <div class="full-page-loader" v-if="loading">
+            <img src="/triangle.svg" alt="Loader" />
+          </div>
         <section class="my-5 py-5">
             <div class="wrapperr">
                 <div class="profile-card js-profile-card">

@@ -1,5 +1,8 @@
 <template>
     <body class="about-us">
+        <div class="full-page-loader" v-if="loading">
+            <img src="/triangle.svg" alt="Loader" />
+          </div>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">

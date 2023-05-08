@@ -1,5 +1,8 @@
 <template>
     <body class="sign-in-illustration">
+        <div class="full-page-loader" v-if="loading">
+            <img src="/triangle.svg" alt="Loader" />
+          </div>
         <section class="my-5 py-5">
             <div class="page-header min-vh-100">
                 <div class="container">

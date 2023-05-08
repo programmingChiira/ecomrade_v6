@@ -1,6 +1,9 @@
 <template>
 
     <body class="about-us">
+        <div class="full-page-loader" v-if="loading">
+            <img src="/triangle.svg" alt="Loader" />
+          </div>
         <!-- -------- START HEADER 7 w/ text and video ------- -->
         <header class="bg-gradient-dark">
             <div class="page-header min-vh-55" style="background-image: url('web/faq.png');">

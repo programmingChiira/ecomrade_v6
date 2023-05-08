@@ -1,5 +1,8 @@
 <template>
   <body class="contact-us">
+    <div class="full-page-loader" v-if="loading">
+      <img src="/triangle.svg" alt="Loader" />
+    </div>
     <header>
       <div class="page-header min-vh-85">
         <div>
