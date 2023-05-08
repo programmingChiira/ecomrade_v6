@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
 
             <div v-if="type == 'admin'" class="container">
@@ -65,17 +65,18 @@
                                                 <img v-else :src="'./img/house/' + rentalbooking.rentalImg"
                                                     class="avatar-sm rounded-circle me-2">
                                             </td>
-                                            <td><span class="badge badge-soft-success mb-0">{{ rentalbooking.rentalName}}</span></td>
+                                            <td><span class="badge badge-soft-success mb-0">{{
+                                                rentalbooking.rentalName }}</span></td>
                                             <td>{{ rentalbooking.senderName }}</td>
                                             <td>{{ rentalbooking.senderPhone }}</td>
                                             <td>{{ rentalbooking.rentalCategory }}</td>
                                             <td>{{ rentalbooking.rentalPrice }}</td>
-                                            
+
                                             <td>
                                                 <router-link :to="{
-                                                        name: 'ViewRental',
-                                                        params: { slug: rentalbooking.rentalSlug },
-                                                    }">
+                                                    name: 'ViewRental',
+                                                    params: { slug: rentalbooking.rentalSlug },
+                                                }">
                                                     <button type="button" class="btn btn-sm ">
                                                         <small>
                                                             View More
@@ -94,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div v-else class="container mt-5 mb-5">
                 <div class="wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
                         <title>404</title>
@@ -329,6 +330,7 @@ export default {
             id: "",
             name: "",
             type: "",
+            loading: true,
         };
     },
 
@@ -370,6 +372,10 @@ export default {
         },
     },
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             .then(response => {
