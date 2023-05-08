@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="wrapperr">
                 <div style="background-color: #E9ECEF;" class="profile-card js-profile-card">
@@ -109,17 +109,20 @@
                                 <router-link :title="'Chat with ' + user.name"
                                     v-show="user.sendConnected == true || user.receiveConnected == true && user.id != id"
                                     class="nav-link font-weight-bolder" :to="{
-                                            name: 'ChatUser',
-                                            params: { slug: slug },
-                                        }">
+                                        name: 'ChatUser',
+                                        params: { slug: slug },
+                                    }">
                                     <i style="color: #gray;" class="fa fa-envelope"></i>
                                 </router-link>
                             </form>
                         </div>
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <a  v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis" href="javascript:;">
-                                <i class="fa fa-ellipsis-h"></i><sup><i v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                            <a v-show="user.id === id" data-bs-toggle="modal" data-bs-target="#ellipsis"
+                                href="javascript:;">
+                                <i class="fa fa-ellipsis-h"></i><sup><i
+                                        v-show="user.sendNotConnectedCount > 0 || user.receiveNotConnectedCount > 0"
+                                        class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
                             </a>
 
                             <div class="modal fade" id="ellipsis" tabindex="-1" aria-labelledby="ellipsisLabel"
@@ -134,8 +137,7 @@
                                         </div>
                                         <div style="text-align: left;" class="modal-body">
 
-                                            <button v-show="user.id === id"
-                                                title="Search comrade"
+                                            <button v-show="user.id === id" title="Search comrade"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                                 <router-link to="/searchuser">
@@ -144,38 +146,37 @@
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="Connect requests you have sent"
+                                            <button v-show="user.id === id" title="Connect requests you have sent"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link
-                                                    to="/viewSentConnect">
+                                                <router-link to="/viewSentConnect">
                                                     <i style="margin: 10px;color:#00acee;" class="fa fa-paper-plane">
-                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.sendNotConnectedCount > 0" class="fa fa-circle"
+                                                                style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Sent requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="Connect requests you have received"
+                                            <button v-show="user.id === id" title="Connect requests you have received"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
-                                                <router-link
-                                                    to="/viewReceivedConnect">
+                                                <router-link to="/viewReceivedConnect">
                                                     <i style="margin: 10px;" class="fa fa-bell">
-                                                        <sup><i v-show="user.receiveNotConnectedCount > 0" class="fa fa-circle" style="font-size:10px;color:red"></i></sup>
+                                                        <sup><i v-show="user.receiveNotConnectedCount > 0"
+                                                                class="fa fa-circle"
+                                                                style="font-size:10px;color:red"></i></sup>
                                                     </i>
                                                     Received requests
                                                 </router-link>
                                             </button>
                                             <hr class="horizontal dark my-2" />
-                                            <button v-show="user.id === id"
-                                                title="My friends"
+                                            <button v-show="user.id === id" title="My friends"
                                                 style="outline:none;background: none;border:none;" type="button"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                                 <router-link to="/viewAcceptedConnect">
-                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections ( {{ user.connectedUsersCount }} )
+                                                    <i style="margin: 10px;" class="fa fa-user-friends"></i> My connections
+                                                    ( {{ user.connectedUsersCount }} )
                                                 </router-link>
                                             </button>
                                         </div>
@@ -222,7 +223,7 @@
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
                                     name: 'Profile',
                                     params: { slug: slug },
-                                }"><i style="font-size: 12px;"  class="fa fa-user-friends"></i>
+                                }"><i style="font-size: 12px;" class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
 
@@ -239,7 +240,7 @@
                                     name: 'BlogProfile',
                                     params: { slug: slug },
                                 }">
-                                <i style="font-size: 12px;" class="fa fa-blog"></i>
+                                    <i style="font-size: 12px;" class="fa fa-blog"></i>
                                 </router-link>
                             </div>
 
@@ -248,7 +249,7 @@
                                     name: 'PollProfile',
                                     params: { slug: slug },
                                 }">
-                                <i style="font-size: 12px;" class="fa fa-poll"></i>
+                                    <i style="font-size: 12px;" class="fa fa-poll"></i>
                                 </router-link>
                             </div>
                         </div>
@@ -357,7 +358,8 @@
                 <!-- /Breadcrumb -->
 
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id" v-show="user.id == market.user_id">
+                    <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id"
+                        v-show="user.id == market.user_id">
                         <div class="card card-plain card-blog">
                             <div style="background-color: #E9ECEF;" class="card">
 
@@ -475,13 +477,13 @@
                                             <input class="form-control" type="hidden" v-model="market.contact" />
                                             <input class="form-control" type="hidden" v-model="market.product_price" />
                                             <input class="form-control" type="hidden" v-model="market.product_discount" />
-                                            <router-link v-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
-                                                style="font-size: 13px;" to="/login"
+                                            <router-link v-if="id == false" data-toggle="tooltip" data-placement="bottom"
+                                                title="Add to compare" style="font-size: 13px;" to="/login"
                                                 class="btn bg-gradient-primary btn-sm btn-block">
                                                 Compare <sup> ( 0 )</sup>
                                             </router-link>
-                                            <button v-else data-toggle="tooltip" data-placement="bottom" title="Add to compare"
-                                                style="font-size: 13px;" type="submit"
+                                            <button v-else data-toggle="tooltip" data-placement="bottom"
+                                                title="Add to compare" style="font-size: 13px;" type="submit"
                                                 class="btn bg-gradient-primary btn-sm btn-block">
                                                 Compare <sup> ( {{ market.cart_count }} )</sup>
                                             </button>
@@ -489,8 +491,8 @@
 
                                     </div>
                                     <div class="mx-3 mt-3 mb-2">
-                                        <button v-if="market.user_id == id || id == 1" type="button" @click="destroy(market.id)"
-                                            class="delete-btn"
+                                        <button v-if="market.user_id == id || id == 1" type="button"
+                                            @click="destroy(market.id)" class="delete-btn"
                                             style="float: left;border:none;outline:none;background: none;">
                                             <i class="fa fa-trash-o" style="color: red;"></i>
                                         </button>
@@ -534,6 +536,7 @@ export default {
             markets: [],
             connections: [],
             users: [],
+            loading: true,
         };
     },
 
@@ -619,7 +622,7 @@ export default {
                             console.log(error);
                         });
 
-                        axios
+                    axios
                         .get("/api/connections")
                         .then((response) => (this.connections = response.data.data))
                         .catch((error) => {
@@ -635,6 +638,9 @@ export default {
         },
     },
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
         axios
             .get("/api/users/" + this.slug)
             .then((response) => (this.user = response.data.data))
@@ -658,7 +664,7 @@ export default {
                 console.log(error);
             });
 
-            axios
+        axios
             .get("/api/connections")
             .then((response) => (this.connections = response.data.data))
             .catch((error) => {
