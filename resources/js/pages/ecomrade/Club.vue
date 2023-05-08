@@ -39,7 +39,7 @@
                   <div v-if="lastPage > 1" class="pagination">
                     <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;" v-if="currentPage > 1"
                       @click="clubName(currentPage - 1)">&laquo; Prev</button>
-        
+
                     <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;" v-if="currentPage < lastPage"
                       @click="clubName(currentPage + 1)">Next &raquo;</button>
                   </div>
@@ -125,7 +125,7 @@
                     }"><i class="fa fa-edit" style="color: black;"></i>
                     </router-link>
                   </li>
-                  
+
                 </ul>
               </div>
             </article>
@@ -184,6 +184,7 @@ export default {
 
       club_category: "",
       id: "",
+      loading: true,
     };
   },
 
@@ -204,7 +205,7 @@ export default {
   },
 
   methods: {
-    
+
     searchclub() {
       if (this.name.length > 2) {
 
@@ -321,6 +322,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       .then(response => {
