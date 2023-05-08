@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -122,14 +122,16 @@
                             </nav>
                         </div>
                         <div style="float:right;" class="col-md-8 col-2">
-                            <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
+                            <router-link v-if="id == false" to="/login" style="float: right;"
+                                class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="New resource" type="button"
                                     class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </router-link>
 
-                            <router-link v-else to="/createresource" style="float: right;" class="text-info icon-move-right">
+                            <router-link v-else to="/createresource" style="float: right;"
+                                class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="New resource" type="button"
                                     class="btn bg-gradient-primary btn-sm">
                                     <i class="fa fa-plus"></i>
@@ -214,7 +216,7 @@
                                         </div>
 
                                     </div>
-                                    <br/>
+                                    <br />
                                     <div class="d-flex flex-row justify-content-between">
                                         <router-link class="btn bg-gradient-primary btn-block btn-sm" :to="{
                                             name: 'ViewResource',
@@ -312,6 +314,7 @@ export default {
             resource_category: "",
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -458,6 +461,10 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             .then(response => {

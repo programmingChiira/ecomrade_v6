@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -21,7 +21,8 @@
                 </div>
 
                 <div class="container2">
-                    <div style="background-color: #E9ECEF;" class="card" v-for="post in posts" :key="post.id" v-show="post.club_id == club.id">
+                    <div style="background-color: #E9ECEF;" class="card" v-for="post in posts" :key="post.id"
+                        v-show="post.club_id == club.id">
                         <div class="card__header">
                             <img style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
                                 v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL"
@@ -140,6 +141,7 @@ export default {
             url: "",
             user_id: "",
             links: [],
+            loading: true,
         };
     },
 
@@ -374,6 +376,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
