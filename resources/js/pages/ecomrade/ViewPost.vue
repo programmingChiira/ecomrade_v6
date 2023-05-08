@@ -345,20 +345,21 @@
             <div class="card mb-4">
               <div class="card-body p-0">
                 <h2 style="padding: 8px;" class="h5 mb-3">Recent posts</h2>
-                <div v-for="similar in posts" :key="similar.id" class="d-flex mb-3"><a class="flex-shrink-0" href="post.html"></a>
+                <div v-for="similar in posts" :key="similar.id" class="d-flex mb-3"><a class="flex-shrink-0"
+                    href="post.html"></a>
                   <div class="ms-3">
-                    <h6> 
+                    <h6>
                       <router-link class="reset-anchor" :to="{
                         name: 'ViewBlog',
                         params: { slug: similar.slug },
-                    }">
+                      }">
                         {{ similar.title }}
                       </router-link>
                     </h6>
                     <p class="text-sm text-muted lh-sm mb-0">{{ truncateText(similar.body) }}</p>
                     <hr class="horizontal dark my-1">
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -393,6 +394,7 @@ export default {
       name: "",
       avgRating: 0,
       commentCount: 0,
+      loading: true,
     };
   },
 
@@ -653,6 +655,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       //.then((response) => (this.id = response.data.id))
