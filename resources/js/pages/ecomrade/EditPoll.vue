@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
 
             <div class="container">
@@ -371,6 +371,7 @@ export default {
             polls: [],
             title: "",
             links: [],
+            loading: true,
         };
     },
 
@@ -639,6 +640,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
