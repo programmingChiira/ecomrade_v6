@@ -2,7 +2,7 @@
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
@@ -29,8 +29,7 @@
                                     v-show="connection.receiver_id == id && connection.status == 'Pending'"
                                     class="col-md-4 col-12">
                                     <div class="profile">
-                                        <div class="profile__picture"><img src="/avatar.webp"
-                                                alt="comrade" /></div>
+                                        <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                         <div class="profile__header">
                                             <div class="profile__account">
                                                 <h4 class="profile__username">{{ connection.sender_name }}</h4>
@@ -56,8 +55,7 @@
                                                 <div class="profile__value">
                                                     <div class="profile__key">
                                                         <form @submit.prevent="accept(connection.id)">
-                                                            <button type="submit"
-                                                                class="delete-btn"
+                                                            <button type="submit" class="delete-btn"
                                                                 style="border:none;outline:none;background: none;">
                                                                 <h6>
                                                                     <i class="fa fa-check" style="color: green;"></i> Accept
@@ -121,6 +119,7 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
@@ -258,6 +257,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/connections")
