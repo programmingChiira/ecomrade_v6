@@ -2,7 +2,7 @@
     <body class="sign-in-illustration">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="page-header min-vh-100">
                 <div class="container">
@@ -105,20 +105,22 @@
 
                                         <ul>
                                             <li>
-                                                <router-link to="/terms" class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
+                                                <router-link to="/terms"
+                                                    class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
                                                     Terms & conditions
                                                 </router-link>
                                             </li>
                                             <li>
-                                                <router-link to="/privacy" class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
+                                                <router-link to="/privacy"
+                                                    class="mb-4 text-sm mx-auto text-primary text-gradient font-weight-bold">
                                                     Privacy policy
                                                 </router-link>
                                             </li>
                                         </ul>
 
-                                        
 
-                                        <br/>
+
+                                        <br />
                                         <div class="control is-expanded">
                                             <input type="checkbox" class="btn-check" id="btncheck1" required>
                                             <label class="btn btn-outline-info btn-sm" for="btncheck1">
@@ -193,6 +195,7 @@ export default {
             showPassword: false,
             password: null,
             showPasswordConfirm: false,
+            loading: true,
         };
     },
     methods: {
@@ -320,6 +323,10 @@ export default {
         }
     },
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios.get('/api/locations')
             .then(response => {
                 this.locations = response.data.data;
