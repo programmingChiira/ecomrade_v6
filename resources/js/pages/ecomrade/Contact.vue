@@ -79,6 +79,7 @@ export default {
       fields: {
         //
       },
+      loading: true,
     };
   },
 
@@ -123,6 +124,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/home-posts")
       .then((response) => (this.posts = response.data.data))
