@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row justify-content-center my-2 py-1">
@@ -126,16 +126,14 @@
                         </nav>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
-                        <router-link v-if="id == false" to="/login" style="float: right;"
-                            class="text-info icon-move-right">
+                        <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
                                 type="button" class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
 
-                        <router-link v-else to="/createmarket" style="float: right;"
-                            class="text-info icon-move-right">
+                        <router-link v-else to="/createmarket" style="float: right;" class="text-info icon-move-right">
                             <button data-toggle="tooltip" data-placement="bottom" title="Sell my products / services"
                                 type="button" class="btn bg-gradient-primary btn-sm">
                                 <i class="fa fa-plus"></i>
@@ -359,6 +357,7 @@ export default {
             id: "",
             name: "",
             locations: {},
+            loading: true,
         };
     },
 
@@ -513,6 +512,10 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             .then(response => {
@@ -572,4 +575,5 @@ export default {
     list-style: none;
     margin: 0;
     padding: 0;
-}</style>
+}
+</style>
