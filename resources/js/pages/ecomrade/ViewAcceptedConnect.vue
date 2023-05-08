@@ -25,9 +25,9 @@
 
                         <div class="layout">
                             <div class="row">
-                                <div v-for="connection in connections" :key="connection.id">
+                                <div class="col-md-4 col-12" v-for="connection in connections" :key="connection.id">
 
-                                    <div class="profile col-md-4 col-12" v-show="connection.sendConnected == true">
+                                    <div class="profile" v-show="connection.sendConnected == true && connection.sender_id == id && connection.status == 'Connected'">
                                         <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                         <div class="profile__header">
                                             <div class="profile__account">
@@ -83,7 +83,7 @@
 
                                     </div>
 
-                                    <div class="profile col-md-4 col-12" v-show="connection.receiveConnected == true">
+                                    <div class="profile" v-show="connection.receiveConnected == true && connection.receiver_id == id && connection.status == 'Connected'">
                                         <div class="profile__picture"><img src="/avatar.webp" alt="comrade" /></div>
                                         <div class="profile__header">
                                             <div class="profile__account">

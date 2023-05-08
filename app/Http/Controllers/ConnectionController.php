@@ -6,6 +6,8 @@ use App\Http\Resources\ConnectionResource;
 use Illuminate\Http\Request;
 use App\Models\Connection;
 use App\Models\MarketSubCategory;
+use App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 
 class ConnectionController extends Controller
 {
@@ -33,7 +35,7 @@ class ConnectionController extends Controller
         return $connection->save();
     }
 
-    public function index(Request $request)
+    public function index(Request $request, Users $user)
     {
         if ($request->search) {
 
@@ -66,8 +68,9 @@ class ConnectionController extends Controller
         //return ConnectionResource::collection(Connection::latest()->paginate(10));
         $connections = ConnectionResource::collection(Connection::latest()->paginate(10));
 
-        $connectionData = $connections->map(function ($connection) {
+        $connectionData = $connections->map(function ($connection) use ($user) {
 
+            $user = Users::find($user->id);
             $sendNotConnected = Connection::where('sender_id', auth()->id())
                 ->where('status', 'Pending')
                 ->exists();
