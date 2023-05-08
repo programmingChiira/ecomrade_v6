@@ -3,7 +3,7 @@
     <div class="full-page-loader" v-if="loading">
       <img src="/triangle.svg" alt="Loader" />
     </div>
-    
+
     <section class="my-5 py-5">
       <div class="container">
 
@@ -137,9 +137,9 @@
               <div style="background-color: #E9ECEF;" class="card">
 
                 <router-link :to="{
-                    name: 'ViewMarket',
-                    params: { slug: market.slug },
-                  }">
+                  name: 'ViewMarket',
+                  params: { slug: market.slug },
+                }">
                   <img
                     v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL"
                     loading="lazy" style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
@@ -250,11 +250,13 @@
                       <input class="form-control" type="hidden" v-model="market.product_price" />
                       <input class="form-control" type="hidden" v-model="market.product_discount" />
 
-                      <router-link v-if="id == false"  to="/login" style="font-size: 13px;" class="btn bg-gradient-primary btn-sm btn-block">
+                      <router-link v-if="id == false" to="/login" style="font-size: 13px;"
+                        class="btn bg-gradient-primary btn-sm btn-block">
                         Compare <sup> ( 0 )</sup>
                       </router-link>
 
-                      <button v-else style="font-size: 13px;" type="submit" class="btn bg-gradient-primary btn-sm btn-block">
+                      <button v-else style="font-size: 13px;" type="submit"
+                        class="btn bg-gradient-primary btn-sm btn-block">
                         Compare <sup> ( {{ market.cart_count }} )</sup>
                       </button>
 
@@ -268,9 +270,9 @@
                     </button>
 
                     <router-link style="float: right;" v-if="market.user_id == id || id == 1" :to="{
-                        name: 'EditMarket',
-                        params: { slug: market.slug },
-                      }"><i class="fa fa-edit" style="color: #189483;"></i>
+                      name: 'EditMarket',
+                      params: { slug: market.slug },
+                    }"><i class="fa fa-edit" style="color: #189483;"></i>
                     </router-link>
                   </div>
 
@@ -490,7 +492,7 @@
                     <h6 class="mb-0"> Events around you.</h6>
                   </div>
                 </router-link>
-                <br/>
+                <br />
               </div>
               <div class="col-md-6 col-12">
                 <router-link to="/club">
@@ -586,7 +588,8 @@
                     </div>
                   </div>
                 </div>
-                <p style="color: white;">With ecomrade, you can stay up to date with the latest news and opinions from fellow students. 
+                <p style="color: white;">With ecomrade, you can stay up to date with the latest news and opinions from
+                  fellow students.
                   Read informative and entertaining blogs on a variety of topics, from fashion to politics.
                 </p>
               </div>
@@ -604,7 +607,8 @@
                     </div>
                   </div>
                 </div>
-                <p>At ecomrade, you have the power to shape the conversation by rating and commenting on blogs. Show your support 
+                <p>At ecomrade, you have the power to shape the conversation by rating and commenting on blogs. Show your
+                  support
                   for inspiring writers and start a dialogue with like-minded students.
                 </p>
               </div>
@@ -655,7 +659,7 @@
 
             <div class="description ps-5">
               <h5 class="text-white">Getting Started</h5>
-              <p style="color: white;">Have your voice heard on ecomrade by creating anonymous polls. 
+              <p style="color: white;">Have your voice heard on ecomrade by creating anonymous polls.
                 Choose from a variety of topics and see what your fellow students really think.
               </p>
               <router-link to="/" class="text-white icon-move-right">
@@ -689,7 +693,7 @@
             </div>
             <div class="description ps-5">
               <h5>Plugins</h5>
-              <p>With ecomrade, you can vote on polls and have your say in important 
+              <p>With ecomrade, you can vote on polls and have your say in important
                 campus discussions. See how your opinion compares to your peers.
               </p>
               <router-link to="/" class="text-primary icon-move-right">
@@ -724,7 +728,7 @@
             </div>
             <div class="description ps-5">
               <h5>Utility Classes</h5>
-              <p>Get involved in campus issues with ecomrade's anonymous polls. See the results 
+              <p>Get involved in campus issues with ecomrade's anonymous polls. See the results
                 in real-time and join the conversation about what matters most to you.
               </p>
               <router-link to="/" class="text-primary icon-move-right">
@@ -1025,10 +1029,11 @@ export default {
 </script>
 
 <style>
-
 .full-page-loader img {
-  width: 40px; /* Set the width of the image */
-  height: 40px; /* Set the height of the image */
+  width: 40px;
+  /* Set the width of the image */
+  height: 40px;
+  /* Set the height of the image */
 }
 
 .custom-search {
@@ -1063,5 +1068,4 @@ export default {
   display: inline-block;
   width: 27px;
   height: 27px;
-}
-</style>
+}</style>
