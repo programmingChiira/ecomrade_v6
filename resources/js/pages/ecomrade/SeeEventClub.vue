@@ -194,6 +194,7 @@ export default {
             url: "",
             user_id: "",
             links: [],
+            loading: true,
         };
     },
 
@@ -282,6 +283,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+      this.loading = false;
+    }, 2000);
 
         axios
             .get("/api/user")
