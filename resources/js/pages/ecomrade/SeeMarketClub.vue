@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container">
 
@@ -21,7 +21,8 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id" v-show="club.id == market.club_id">
+                    <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id"
+                        v-show="club.id == market.club_id">
                         <div class="card card-plain card-blog">
                             <div style="background-color: #E9ECEF;" class="card">
 
@@ -168,6 +169,7 @@ export default {
             id: "",
             name: "",
             locations: {},
+            loading: true,
         };
     },
 
@@ -340,6 +342,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
@@ -366,7 +371,7 @@ export default {
                 console.log(error);
             });
 
-            axios
+        axios
             .get("/api/homemarketcategories")
             .then((response) => (this.categories = response.data))
             .catch((error) => {
