@@ -76,7 +76,6 @@
             z-index: 9999;
             background-color: #189483ec;
             display: flex;
-            /* Use flexbox to center the image horizontally and vertically */
             justify-content: center;
             align-items: center;
         }
