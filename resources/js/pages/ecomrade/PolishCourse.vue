@@ -67,9 +67,10 @@ export default {
       errors: {},
       success: false,
       getcourses: [],
+      loading: true,
     };
   },
-  
+
   methods: {
     submit() {
       axios
@@ -119,6 +120,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/courses/" + this.id)
       .then((response) => (this.field = response.data))
