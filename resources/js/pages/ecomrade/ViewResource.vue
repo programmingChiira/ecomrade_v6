@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container py-4">
                 <div class="row text-center">
@@ -76,13 +76,14 @@
                                             <div class="d-flex flex-column">
                                                 <div class="col col-xs-6">
                                                     <router-link v-if="id == false" to="/login">
-                                                        <button class="btn bg-gradient-primary btn-sm" data-bs-dismiss="modal">
+                                                        <button class="btn bg-gradient-primary btn-sm"
+                                                            data-bs-dismiss="modal">
                                                             Preview
                                                         </button>
                                                     </router-link>
 
-                                                    <a v-else :href="'./img/resource/' + resource.resource_1" target="_blank"
-                                                        class="btn bg-gradient-primary btn-sm">
+                                                    <a v-else :href="'./img/resource/' + resource.resource_1"
+                                                        target="_blank" class="btn bg-gradient-primary btn-sm">
                                                         Preview
                                                     </a>
                                                 </div>
@@ -90,13 +91,14 @@
                                             <div class="d-flex flex-column">
                                                 <div class="col col-xs-6">
                                                     <router-link v-if="id == false" to="/login">
-                                                        <button class="btn bg-gradient-primary btn-sm" data-bs-dismiss="modal">
+                                                        <button class="btn bg-gradient-primary btn-sm"
+                                                            data-bs-dismiss="modal">
                                                             Download
                                                         </button>
                                                     </router-link>
 
-                                                    <a v-else :href="'./img/resource/' + resource.resource_1" download="resource_1"
-                                                        class="btn bg-gradient-primary btn-sm">
+                                                    <a v-else :href="'./img/resource/' + resource.resource_1"
+                                                        download="resource_1" class="btn bg-gradient-primary btn-sm">
                                                         Download
                                                     </a>
                                                 </div>
@@ -304,7 +306,8 @@
                 <div v-else class="col-lg-3 col-md-4 col-6 thumb">
 
                     <button style="border:none;outline:none;background: none;width: 100%;" data-toggle="tooltip"
-                        data-placement="bottom" title="View resourse" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                        data-placement="bottom" title="View resourse" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal5">
                         <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                             src="/img/file.jpg" alt="Random Image">
                         {{ resource.resource_5 }}
@@ -568,6 +571,7 @@ export default {
             name: "",
             avgRating: 0,
             commentCount: 0,
+            loading: true,
         };
     },
 
@@ -827,6 +831,10 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/user")
             //.then((response) => (this.id = response.data.id))
@@ -1041,5 +1049,4 @@ label.radio input:checked+span {
 
 .hide {
     display: none;
-}
-</style>
+}</style>
