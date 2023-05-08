@@ -66,8 +66,8 @@
                     name: 'SeeBlogClub',
                     params: { slug: slug },
                   }">
-                    <button data-toggle="tooltip" data-placement="bottom" title="Articles"
-                      type="button" class="btn bg-gradient-primary btn-block btn-sm">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Articles" type="button"
+                      class="btn bg-gradient-primary btn-block btn-sm">
                       <small> Articles</small>
                     </button>
                   </router-link>
@@ -101,8 +101,8 @@
                     name: 'SeeMarketClub',
                     params: { slug: slug },
                   }">
-                    <button data-toggle="tooltip" data-placement="bottom" title="Blogs"
-                      type="button" class="btn bg-gradient-primary btn-block btn-sm">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Blogs" type="button"
+                      class="btn bg-gradient-primary btn-block btn-sm">
                       <small> Products</small>
                     </button>
                   </router-link>
@@ -137,8 +137,8 @@
                     name: 'SeeEventClub',
                     params: { slug: slug },
                   }">
-                    <button data-toggle="tooltip" data-placement="bottom" title="Events"
-                      type="button" class="btn bg-gradient-primary btn-block btn-sm">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Events" type="button"
+                      class="btn bg-gradient-primary btn-block btn-sm">
                       <small> Events</small>
                     </button>
                   </router-link>
@@ -173,8 +173,8 @@
                     name: 'SeePollClub',
                     params: { slug: slug },
                   }">
-                    <button data-toggle="tooltip" data-placement="bottom" title="Polls"
-                      type="button" class="btn bg-gradient-primary btn-block btn-sm">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Polls" type="button"
+                      class="btn bg-gradient-primary btn-block btn-sm">
                       <small> Polls</small>
                     </button>
                   </router-link>
@@ -209,8 +209,8 @@
                     name: 'SeeResourceClub',
                     params: { slug: slug },
                   }">
-                    <button data-toggle="tooltip" data-placement="bottom" title="Resources"
-                      type="button" class="btn bg-gradient-primary btn-block btn-sm">
+                    <button data-toggle="tooltip" data-placement="bottom" title="Resources" type="button"
+                      class="btn bg-gradient-primary btn-block btn-sm">
                       <small> Resources</small>
                     </button>
                   </router-link>
@@ -253,6 +253,7 @@ export default {
       url1: "",
       clubchats: [],
       messageCount: 0,
+      loading: true,
     };
   },
   computed: {
@@ -390,6 +391,10 @@ export default {
     },
   },
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       //.then((response) => (this.id = response.data.id))
@@ -466,7 +471,7 @@ export default {
         //console.log(error);
       });
 
-      axios
+    axios
       .get("/api/clubusers/" + this.slug)
       .then(response => {
         //console.log(JSON.stringify(response));
