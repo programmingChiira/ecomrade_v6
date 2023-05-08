@@ -280,6 +280,7 @@ export default {
             locations: {},
             id: "",
             name: "",
+            loading: true,
         };
     },
     computed: {
@@ -607,6 +608,9 @@ export default {
 
     },
     mounted() {
+        setTimeout(() => {
+      this.loading = false;
+    }, 2000);
 
         axios
             .get("/api/user")
