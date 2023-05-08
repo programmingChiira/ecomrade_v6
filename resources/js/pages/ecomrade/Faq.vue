@@ -1,9 +1,8 @@
 <template>
-
     <body class="about-us">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <!-- -------- START HEADER 7 w/ text and video ------- -->
         <header class="bg-gradient-dark">
             <div class="page-header min-vh-55" style="background-image: url('web/faq.png');">
@@ -13,8 +12,7 @@
                         <div class="col-lg-8 text-center mx-auto my-auto">
                             <h1 class="text-white">ecomrade</h1>
                             <p class="lead mb-4 text-white opacity-8">A Hub for Kenyan University Comrades.</p>
-                            <router-link v-if="id == false" to="/register"
-                                class="dropdown-item py-2 ps-3 border-radius-md">
+                            <router-link v-if="id == false" to="/register" class="dropdown-item py-2 ps-3 border-radius-md">
                                 <button type="submit" class="btn bg-white text-dark">Create Account</button>
                             </router-link>
                             <h6 class="text-white mb-2 mt-5">Find us on</h6>
@@ -57,9 +55,9 @@
                             <div class="accordion accordion-flush" id="accordionFlushExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse-1"
-                                            aria-expanded="false" aria-controls="flush-collapse-1">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse-1" aria-expanded="false"
+                                            aria-controls="flush-collapse-1">
                                             Who are we?
                                         </button>
                                     </h2>
@@ -76,9 +74,9 @@
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse-2"
-                                            aria-expanded="false" aria-controls="flush-collapse-2">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse-2" aria-expanded="false"
+                                            aria-controls="flush-collapse-2">
                                             How can I sell?
                                         </button>
                                     </h2>
@@ -87,8 +85,7 @@
                                         <div class="accordion-body">
                                             <p style="color: black;">Selling on ecomrade is completely free for
                                                 comrades. To achieve this, cick
-                                                <router-link style="color: #17C1E8;text-decoration:underline;"
-                                                    to="/market">
+                                                <router-link style="color: #17C1E8;text-decoration:underline;" to="/market">
                                                     Sell</router-link>, then the green 'New Product' button on your
                                                 top
                                                 right and fill the
@@ -99,9 +96,9 @@
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse-3"
-                                            aria-expanded="false" aria-controls="flush-collapse-3">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse-3" aria-expanded="false"
+                                            aria-controls="flush-collapse-3">
                                             How to find rentals?
                                         </button>
                                     </h2>
@@ -113,8 +110,7 @@
                                                 recommend to visit
                                                 the actual location of the rental without making any payments. Find
                                                 rentals at
-                                                <router-link style="color: #17C1E8;text-decoration:underline;"
-                                                    to="/rental">
+                                                <router-link style="color: #17C1E8;text-decoration:underline;" to="/rental">
                                                     Rentals</router-link>
                                             </p>
                                         </div>
@@ -123,9 +119,9 @@
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse4"
-                                            aria-expanded="false" aria-controls="flush-collapse4">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse4" aria-expanded="false"
+                                            aria-controls="flush-collapse4">
                                             How can I put up blogs?
                                         </button>
                                     </h2>
@@ -145,9 +141,9 @@
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse5"
-                                            aria-expanded="false" aria-controls="flush-collapse5">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse5" aria-expanded="false"
+                                            aria-controls="flush-collapse5">
                                             Create my own polls?
                                         </button>
                                     </h2>
@@ -168,9 +164,9 @@
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#flush-collapse6"
-                                            aria-expanded="false" aria-controls="flush-collapse6">
+                                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                                            data-mdb-target="#flush-collapse6" aria-expanded="false"
+                                            aria-controls="flush-collapse6">
                                             Create my club / society?
                                         </button>
                                     </h2>
@@ -240,10 +236,15 @@ export default {
 
             id: "",
             name: "",
+            loading: true,
         };
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
+
         axios
             .get("/api/home-posts")
             .then((response) => (this.posts = response.data.data))
