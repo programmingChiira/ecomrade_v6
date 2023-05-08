@@ -103,8 +103,8 @@
                 v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL"
                 loading="lazy" src="/web/img/no_img.jpg" class="card__image" width="600">
 
-              <img v-else style="background-color: white;width: 100%;height: 200px; object-fit: cover;" :src="'./img/blog/' + post.image_1"
-                class="card__image" width="600">
+              <img v-else style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
+                :src="'./img/blog/' + post.image_1" class="card__image" width="600">
 
             </div>
             <div class="card__body">
@@ -193,7 +193,7 @@
               }"><i class="fa fa-edit" style="color:#189483;"></i>
               </router-link>
             </div>
-            
+
             <br />
           </div>
           <h5 v-if="!posts.length">Sorry, no item found!</h5>
@@ -253,6 +253,7 @@ export default {
       post_category: "",
       id: "",
       name: "",
+      loading: true,
     };
   },
 
@@ -393,6 +394,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
     axios
       .get("/api/user")
       .then(response => {
