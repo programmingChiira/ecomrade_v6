@@ -2,7 +2,7 @@
     <body class="index-page">
         <div class="full-page-loader" v-if="loading">
             <img src="/triangle.svg" alt="Loader" />
-          </div>
+        </div>
         <section class="my-5 py-5">
             <div class="container mt-5 mb-5">
 
@@ -150,7 +150,8 @@
                                                     <i class="fa fa-long-arrow-left"></i>
                                                 </router-link>
                                             </div>
-                                            <router-link to="/login" v-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Report Post"
+                                            <router-link to="/login" v-if="id == false" data-toggle="tooltip"
+                                                data-placement="bottom" title="Report Post"
                                                 class="btn bg-gradient-danger btn-sm me-2">
                                                 <i style="font-size: 13px;" class="fa fa-flag"></i>
                                             </router-link>
@@ -338,7 +339,8 @@
 
                                         <div class="container mt-4 align-items-center"
                                             style="display: flex;justify-content: center;flex-wrap: wrap;align-items: flex-start;">
-                                            <router-link to="/login" v-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                            <router-link to="/login" v-if="id == false" data-toggle="tooltip"
+                                                data-placement="bottom" title="Place in a call"
                                                 class="btn bg-gradient-primary btn-sm me-2">
                                                 <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                             </router-link>
@@ -359,14 +361,14 @@
                                                 <input class="form-control" type="hidden" v-model="marketContact" />
                                                 <input class="form-control" type="hidden" v-model="marketPrice" />
                                                 <input class="form-control" type="hidden" v-model="marketDiscount" />
-                                                <router-link to="/login" v-if="id == false" data-toggle="tooltip" data-placement="bottom" title="Add to compare"
-                                                    type="submit" style="font-size: 13px;"
-                                                    class="btn bg-gradient-primary btn-sm me-2">
+                                                <router-link to="/login" v-if="id == false" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Add to compare" type="submit"
+                                                    style="font-size: 13px;" class="btn bg-gradient-primary btn-sm me-2">
                                                     Compare <sup> 0</sup>
                                                 </router-link>
 
-                                                <button v-else data-toggle="tooltip" data-placement="bottom" title="Add to compare"
-                                                    type="submit" style="font-size: 13px;"
+                                                <button v-else data-toggle="tooltip" data-placement="bottom"
+                                                    title="Add to compare" type="submit" style="font-size: 13px;"
                                                     class="btn bg-gradient-primary btn-sm me-2">
                                                     Compare <sup> {{ marketNameCount }}</sup>
                                                 </button>
@@ -466,13 +468,15 @@
                                                         </div>
 
                                                         <div class="mx-3 mt-3 mb-2">
-                                                            <router-link v-if="id == false" to="/login" class="btn bg-gradient-primary btn-sm">
+                                                            <router-link v-if="id == false" to="/login"
+                                                                class="btn bg-gradient-primary btn-sm">
                                                                 <small>
                                                                     Submit
                                                                 </small>
                                                             </router-link>
 
-                                                            <button v-else type="submit" class="btn bg-gradient-primary btn-sm">
+                                                            <button v-else type="submit"
+                                                                class="btn bg-gradient-primary btn-sm">
                                                                 <small>
                                                                     Submit
                                                                 </small>
@@ -642,7 +646,8 @@
             <hr class="horizontal dark my-2">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-4 col-6" v-for="marketing in markets" :key="marketing.id" v-show="marketing.product_category == market.product_category && marketing.id != market.id">
+                    <div class="col-md-4 col-6" v-for="marketing in markets" :key="marketing.id"
+                        v-show="marketing.product_category == market.product_category && marketing.id != market.id">
                         <div style="background-color: #E9ECEF;" class="card">
                             <router-link :to="{
                                 name: 'ViewMarket',
@@ -801,6 +806,7 @@ export default {
             avgRating: 0,
             commentCount: 0,
             marketNameCount: 0,
+            loading: true,
         };
     },
 
@@ -1241,6 +1247,9 @@ export default {
     },
 
     mounted() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 2000);
 
         axios
             .get("/api/user")
@@ -1436,5 +1445,4 @@ label.radio input:checked+span {
 
 .hide {
     display: none;
-}
-</style>
+}</style>
