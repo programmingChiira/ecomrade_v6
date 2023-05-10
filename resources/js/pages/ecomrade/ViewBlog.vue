@@ -18,17 +18,11 @@
 
         <div class="row">
           <div class="col-md-4 col-5">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-              <div class="container">
-                <ol class="breadcrumb">
-                  <div class="badges text-right">
-                    <span style="margin: 3px;" class="badge bg-dark ">
-                      <i class="fa fa-comments-o"></i> {{ commentCount }}
-                    </span>
-                  </div>
-                </ol>
-              </div>
-            </nav>
+            <div class="badges text-right">
+              <span style="margin: 3px;" class="badge bg-dark ">
+                <i class="fa fa-comments-o"></i> {{ commentCount }}
+              </span>
+            </div>
           </div>
           <div style="float:right;" class="col-md-8 col-7">
             <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
@@ -55,7 +49,7 @@
           <img v-else style="width: 100%; height: 40vh; object-fit: contain;" id="main-image"
             :src="'./img/blog/' + post.image_1" class="card-img-top" width="550" @click="activateImageView">
         </div>
-        <br/>
+        <br />
         <div class="thumbnail text-center">
           <span
             v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'">
@@ -138,7 +132,8 @@
         <div class="full-image-page" v-if="imageLoading">
 
           <div class="thumbnail text-center">
-            <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;" class="fa fa-times" @click="deactivateImageView"></i>
+            <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
+              class="fa fa-times" @click="deactivateImageView"></i>
 
             <img style="width: 100%; height: 80vh; object-fit: contain;" id="main-view"
               :src="'./img/blog/' + post.image_1" class="card-img-top" width="750" @click="deactivateImageView">
