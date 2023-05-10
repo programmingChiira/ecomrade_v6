@@ -35,12 +35,14 @@ class RentalController extends Controller
                 ->orWhere('rental_description_7', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_8', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_more_info', 'like', '%' . $request->search . '%')
-                ->latest()->with('rentalreviews')->paginate(10)->withQueryString());
+                ->latest()->with('rentalreviews')->with('rentalbookings')->paginate(10)->withQueryString());
 
             $rentalData = $rentals->map(function ($rental) {
                 $ratings = $rental->rentalReviews;
                 $count = $ratings->count();
                 $avgRating = $count ? $ratings->avg('ratingValue') : 0;
+                $bookings = $rental->rentalBookings;
+                $countBooking = $bookings->count();
 
                 return [
                     'id' => $rental->id,
@@ -73,6 +75,7 @@ class RentalController extends Controller
                     'rental_more_info' => $rental->rental_more_info,
                     'avg_rating' => $avgRating,
                     'rating_count' => $count,
+                    'booking_count' => $countBooking,
                 ];
             });
 
@@ -82,12 +85,14 @@ class RentalController extends Controller
                 'last_page' => $rentals->lastPage()
             ]);
         }
-        $rentals = RentalResource::collection(Rental::latest()->with('rentalreviews')->paginate(20));
+        $rentals = RentalResource::collection(Rental::latest()->with('rentalreviews')->with('rentalbookings')->paginate(20));
 
         $rentalData = $rentals->map(function ($rental) {
             $ratings = $rental->rentalReviews;
             $count = $ratings->count();
             $avgRating = $count ? $ratings->avg('ratingValue') : 0;
+            $bookings = $rental->rentalBookings;
+            $countBooking = $bookings->count();
 
             return [
                 'id' => $rental->id,
@@ -120,6 +125,7 @@ class RentalController extends Controller
                 'rental_more_info' => $rental->rental_more_info,
                 'avg_rating' => $avgRating,
                 'rating_count' => $count,
+                'booking_count' => $countBooking,
             ];
         });
 
@@ -486,6 +492,7 @@ class RentalController extends Controller
             "data" => $rentals,
             "booked" => $booked,
             "avg_rate" => $rentals->average_rating,
+            'booking_count' => $rentals->count_booking,
             "comment_count" => $rentals->count_comment,
         ];
 

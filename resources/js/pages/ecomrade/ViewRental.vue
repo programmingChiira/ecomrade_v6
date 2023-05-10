@@ -246,32 +246,35 @@
                                     </span>
 
                                 </div>
+
+
+                            </div>
+                            <br />
+                            <div class="p-ratings">
+                                <span style="margin: 3px;" class="badge bg-light">
+                                    <div v-if="Math.round(rental.no_of_rooms) <= Math.round(bookingCount)" class="stars">
+                                        <span>
+                                            <h6 style="color: red;">No available rooms</h6>
+                                        </span>
+                                    </div>
+                                    <div v-if="Math.round(rental.no_of_rooms) > Math.round(bookingCount)" class="stars">
+                                        <span>
+                                            <h6 style="color:#189483;">{{ Math.round(rental.no_of_rooms) -
+                                                Math.round(bookingCount) }} available rooms</h6>
+                                        </span>
+                                    </div>
+
+                                </span>
                             </div>
                             <br />
                             <div class="d-flex justify-content-between">
                                 <div class="try">
                                     <div class="about"> <span class="font-weight-bold">{{ rental.rental_name }} </span>
-                                        <h4 class="font-weight-bold">Ksh. {{ rental.rental_price }}</h4>
+                                        <span>
+                                            <h4 class="font-weight-bold">Ksh. {{ rental.rental_price }} / {{ rental.pay_per
+                                            }}</h4>
+                                        </span>
                                     </div>
-                                    <hr>
-                                    <div class="product-description">
-                                        <h4>Pay per</h4>
-                                        <p>{{ rental.pay_per }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="try">
-                                    <router-link to="/login" v-if="id == false" data-toggle="tooltip"
-                                        data-placement="bottom" title="Place in a call"
-                                        class="btn bg-gradient-primary btn-sm me-2">
-                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
-                                    </router-link>
-
-                                    <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
-                                        :href="'tel:' + rental.contact_information"
-                                        class="btn bg-gradient-primary btn-sm me-2">
-                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
-                                    </a>
                                     <hr>
 
                                     <div class="product-description">
@@ -335,6 +338,20 @@
                                             <p>{{ rental.rental_more_info }}</p>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="try">
+                                    <router-link to="/login" v-if="id == false" data-toggle="tooltip"
+                                        data-placement="bottom" title="Place in a call"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </router-link>
+
+                                    <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
+                                        :href="'tel:' + rental.contact_information"
+                                        class="btn bg-gradient-primary btn-sm me-2">
+                                        <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
+                                    </a>
 
                                 </div>
                             </div>
@@ -360,8 +377,7 @@
                                         </router-link>
 
                                         <div class="card-body">
-                                            <h6 class="card-title"> {{ rentaling.rental_name }} ( {{
-                                                rentaling.rental_category }} )</h6>
+                                            <h6 class="card-title"> {{ rentaling.rental_name }} </h6>
                                             <h6 class="card-title">Ksh. {{ rentaling.rental_price }}</h6>
                                             <h6 class="card-title">Per {{ rentaling.pay_per }}</h6>
                                         </div>
@@ -410,8 +426,17 @@
                                         </router-link>
 
                                         <div v-else>
-                                            <button v-if="booked == false" type="submit"
-                                                class="btn bg-gradient-primary btn-sm">
+
+                                            <div v-if="booked == false && Math.round(rental.no_of_rooms) <= Math.round(bookingCount)"
+                                                class="stars">
+                                                <span>
+                                                    <h6 style="color: red;">No available rooms</h6>
+                                                </span>
+                                            </div>
+
+                                            <button
+                                                v-if="booked == false && Math.round(rental.no_of_rooms) > Math.round(bookingCount)"
+                                                type="submit" class="btn bg-gradient-primary btn-sm">
                                                 <small>
                                                     Book Rental
                                                 </small>
@@ -638,6 +663,7 @@ export default {
             type: "",
             avgRating: 0,
             commentCount: 0,
+            bookingCount: 0,
             booked: "",
             rentalNameCount: 0,
             loading: true,
@@ -843,6 +869,7 @@ export default {
                             this.avgRating = response.data.avg_rate;
                             this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
+                            this.bookingCount = response.data.booking_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
                 })
@@ -1004,6 +1031,7 @@ export default {
                             this.avgRating = response.data.avg_rate;
                             this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
+                            this.bookingCount = response.data.booking_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
                 })
@@ -1097,6 +1125,7 @@ export default {
                             this.avgRating = response.data.avg_rate;
                             this.booked = response.data.booked;
                             this.commentCount = response.data.comment_count;
+                            this.bookingCount = response.data.booking_count;
                             this.rentalNameCount = response.data.rentalName_count;
                         });
                 }
@@ -1179,6 +1208,7 @@ export default {
                 this.avgRating = response.data.avg_rate;
                 this.booked = response.data.booked;
                 this.commentCount = response.data.comment_count;
+                this.bookingCount = response.data.booking_count;
                 this.rentalNameCount = response.data.rentalName_count;
             });
 
@@ -1219,6 +1249,7 @@ li {
     margin-right: 6px;
     cursor: pointer
 }
+
 .stars i {
     color: #f6d151
 }
@@ -1417,5 +1448,4 @@ label.radio input:checked+span::before {
 
 .card-body {
     padding: 0.3rem 0.3rem 0.2rem
-}
-</style>
+}</style>

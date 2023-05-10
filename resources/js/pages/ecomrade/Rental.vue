@@ -143,14 +143,16 @@
                                 }">
                                     <img v-if="rental.image_1 == false || rental.image_1 == null || rental.image_1 == 'null' || rental.image_1 == '' || rental.image_1 == 'undefined' || rental.image_1 == NULL"
                                         loading="lazy" src="/web/img/no_img.jpg"
+                                        style="background-color: white;width: 100%;height: 200px; object-fit: contain;"
                                         class="img-fluid img-responsive rounded product-image">
 
                                     <img v-else :src="'./img/house/' + rental.image_1"
+                                    style="background-color: white;width: 100%;height: 200px; object-fit: contain;"
                                         class="img-fluid img-responsive rounded product-image">
 
                                 </router-link>
                             </div>
-                            <div class="col-md-6 mt-1">
+                            <div style="background-color: #e9ecef;border: none; border-radius: 5px;padding: 5px;" class="col-md-6 mt-1">
                                 <h5> {{ rental.rental_name }} </h5>
                                 <div class="d-flex flex-row">
                                     <span style="margin: 3px;" class="badge bg-dark">
@@ -222,8 +224,19 @@
                                 <ul v-else>
                                     <li> {{ rental.rental_description_3 }}</li>
                                 </ul>
+
+                                <div class="d-flex flex-row">
+                                    <span style="margin: 3px;" class="badge bg-light">
+                                        <div v-if="Math.round(rental.no_of_rooms) <= Math.round(rental.booking_count)" class="stars">
+                                            <span><h6 style="color: red;">No available rooms</h6></span>
+                                        </div>
+                                        <div v-if="Math.round(rental.no_of_rooms) > Math.round(rental.booking_count)" class="stars">
+                                            <span><h6 style="color:#189483;">{{ Math.round(rental.no_of_rooms) - Math.round(rental.booking_count) }} available rooms</h6></span>
+                                        </div>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div style="background-color: #e9ecef;border: none; border-radius: 5px;padding: 5px;" class="align-items-center align-content-center col-md-3 border-left mt-1">
                                 <div class="d-flex flex-row align-items-center">
                                     <h4 class="mr-1">Ksh. {{ rental.rental_price }}</h4>
                                 </div>

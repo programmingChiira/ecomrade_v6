@@ -26,12 +26,9 @@ class Rental extends Model
         return $this->hasMany(RentalReview::class, 'rentalId');
     }
 
-    public function rentalcarts()
+    public function rentalbookings()
     {
-        //return $this->hasMany(RentalCart::class, 'rentalId');
-        //return $this->hasMany(RentalCart::class, 'rentalId')->where('senderName', auth()->user()->id);
-
-        return $this->hasMany(RentalCart::class, 'rentalId')->where('senderId', auth()->user()->id ?? null);
+        return $this->hasMany(RentalBooking::class, 'rentalId');
 
     }
 
@@ -48,6 +45,11 @@ class Rental extends Model
     public function getCountCommentAttribute()
     {
         return $this->rentalreviews->count('comment');
+    }
+
+    public function getCountBookingAttribute()
+    {
+        return $this->rentalbookings->count('rentalId');
     }
 
     public function getCountRentalNameAttribute()
