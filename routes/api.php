@@ -66,9 +66,17 @@ Route::fallback(function () {
     return response()->json(['message' => 'Resource not found'], 404);
 })->where('fallback', '(.*)');
 //////////////////////////////////////////////// PRIVATE ROUTES //////////////////////////////////////////////// 
+// Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('/user', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+    $totalCartCount = MarketCart::where('senderId', $user->id)->count();
+    $user->totalCartCount = $totalCartCount;
+    return $user;
 });
+
 
 // Route::middleware('auth:sanctum')->post('logout', [AuthenticatedSessionController::class, 'destroy']);
 // categories

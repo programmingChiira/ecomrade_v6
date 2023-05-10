@@ -27,6 +27,8 @@
                         <span style="float:right;margin:6px;">
                             <router-link class="btn btn-sm" to="/viewCart">
                                 <i style="color: black;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i>
+                                <sup style="background-color: #189483; color: white; border-radius: 50%; padding: 2px 5px;">
+                                    {{ cart }}</sup>
                             </router-link>
 
                             <button data-toggle="tooltip" data-placement="bottom" title="Categories" data-bs-toggle="modal"
@@ -178,11 +180,11 @@
                                         <small class="text-muted mt-1">Cost</small>
                                         <h6>
                                             <span
-                                                v-if="market.product_discount == 0 || market.product_discount == false || market.product_discount == null || market.product_discount == 'null' || market.product_discount == '' || market.product_discount == ' '">Ksh.
+                                                v-if="market.product_discount == 0 || market.product_discount == false || market.product_discount == null || market.product_discount == 'null' || market.product_discount == '' || market.product_discount == ' ' || market.product_discount == 'undefined'">Ksh.
                                                 {{ market.product_price }}</span>
-                                            <span v-else><span style="text-decoration: line-through;color: #189483;">Ksh. {{
+                                            <span v-else><span style="color: #189483;">Ksh. {{
                                                 market.product_price - market.product_discount
-                                            }}</span> Ksh. {{ market.product_price }}</span>
+                                            }}</span> <span style="text-decoration: line-through;font-size: 10px;"> Ksh. {{ market.product_price }} </span></span>
                                         </h6>
                                     </div>
 
@@ -356,6 +358,7 @@ export default {
             product_category: "",
             id: "",
             name: "",
+            cart: 0,
             locations: {},
             loading: true,
         };
@@ -416,6 +419,18 @@ export default {
                         })
                         .catch(error => {
                             console.log(error);
+                        });
+
+                    axios
+                        .get("/api/user")
+                        .then(response => {
+                            this.cart = response.data.totalCartCount
+                        })
+                        .catch((error) => {
+                            if (error.response.status === 401) {
+                                this.$emit("updateSidebar");
+                                localStorage.removeItem("authenticated");
+                            }
                         });
 
                     Swal.fire({
@@ -521,6 +536,7 @@ export default {
             .then(response => {
                 this.id = response.data.id
                 this.name = response.data.name
+                this.cart = response.data.totalCartCount
             })
             .catch((error) => {
                 if (error.response.status === 401) {
