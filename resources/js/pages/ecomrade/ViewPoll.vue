@@ -1557,8 +1557,8 @@ export default {
 .option-image {
     flex: 0 0 auto;
     margin-right: 16px;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     background-color: white;
     border-radius: 50%;
