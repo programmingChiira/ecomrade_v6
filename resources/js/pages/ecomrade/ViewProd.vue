@@ -50,7 +50,7 @@
 
                                             <img v-else style="width: 100%;height: 450px; object-fit: contain;"
                                                 id="main-image" :src="'./img/market/' + market.image_1" class="card-img-top"
-                                                width="380">
+                                                width="380" @click="activateImageView">
 
                                         </div>
                                         <div class="thumbnail text-center">
@@ -138,6 +138,113 @@
                                                 </a>
                                             </span>
 
+                                        </div>
+
+                                        <div class="full-image-page" v-if="imageLoading">
+
+                                            <div class="thumbnail text-center">
+                                                <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
+                                                    class="fa fa-times" @click="deactivateImageView"></i>
+
+                                                <img style="width: 100%;height: 80vh; object-fit: contain;" id="main-view"
+                                                    :src="'./img/market/' + market.image_1" class="card-img-top" width="750"
+                                                    @click="deactivateImageView">
+
+                                                <div class="thumbnail text-center">
+                                                    <span
+                                                        v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL || market.image_1 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_1"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_2 == false || market.image_2 == null || market.image_2 == 'null' || market.image_2 == '' || market.image_2 == ' ' || market.image_2 == NULL || market.image_2 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_2"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_3 == false || market.image_3 == null || market.image_3 == 'null' || market.image_3 == '' || market.image_3 == ' ' || market.image_3 == NULL || market.image_3 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_3"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_4 == false || market.image_4 == null || market.image_4 == 'null' || market.image_4 == '' || market.image_4 == ' ' || market.image_4 == NULL || market.image_4 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_4"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_5 == false || market.image_5 == null || market.image_5 == 'null' || market.image_5 == '' || market.image_5 == ' ' || market.image_5 == NULL || market.image_5 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_5"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_6 == false || market.image_6 == null || market.image_6 == 'null' || market.image_6 == '' || market.image_6 == ' ' || market.image_6 == NULL || market.image_6 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_6"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                    <span
+                                                        v-if="market.image_7 == false || market.image_7 == null || market.image_7 == 'null' || market.image_7 == '' || market.image_7 == ' ' || market.image_7 == NULL || market.image_7 == 'undefined'">
+
+                                                    </span>
+                                                    <span v-else>
+                                                        <a href="#">
+                                                            <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                                :src="'./img/market/' + market.image_7"
+                                                                onclick="change_view(this)" class="card-img-top"
+                                                                width="70">
+                                                        </a>
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -339,6 +446,7 @@
 
                                         <div class="container mt-4 align-items-center"
                                             style="display: flex;justify-content: center;flex-wrap: wrap;align-items: flex-start;">
+
                                             <router-link to="/login" v-if="id == false" data-toggle="tooltip"
                                                 data-placement="bottom" title="Place in a call"
                                                 class="btn bg-gradient-primary btn-sm me-2">
@@ -346,8 +454,7 @@
                                             </router-link>
 
                                             <a v-else data-toggle="tooltip" data-placement="bottom" title="Place in a call"
-                                                :href="'tel:' + market.contact"
-                                                class="btn bg-gradient-primary btn-sm me-2">
+                                                :href="'tel:' + market.contact" class="btn bg-gradient-primary btn-sm me-2">
                                                 <i style="font-size: 14px;" class="fa fa-volume-control-phone"></i>
                                             </a>
 
@@ -807,6 +914,7 @@ export default {
             commentCount: 0,
             marketNameCount: 0,
             loading: true,
+            imageLoading: false
         };
     },
 
@@ -929,6 +1037,14 @@ export default {
     },
 
     methods: {
+        activateImageView() {
+            this.imageLoading = true;
+        },
+
+        deactivateImageView() {
+            this.imageLoading = false;
+        },
+
         setRating(rating) {
             this.rating = rating;
         },
