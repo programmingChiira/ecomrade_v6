@@ -61,10 +61,11 @@
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Quicksand:wght@500&display=swap');
 
         * {
             font-family: 'Arvo', serif;
+            font-family: 'Quicksand', sans-serif;
         }
 
         .full-page-loader {
@@ -170,13 +171,13 @@
         document.addEventListener("DOMContentLoaded", function(event) {});
     </script>
 
-<script>
-    function change_view(image) {
-        var container = document.getElementById("main-view");
-        container.src = image.src;
-    }
-    document.addEventListener("DOMContentLoaded", function(event) {});
-</script>
+    <script>
+        function change_view(image) {
+            var container = document.getElementById("main-view");
+            container.src = image.src;
+        }
+        document.addEventListener("DOMContentLoaded", function(event) {});
+    </script>
     <script></script>
 </body>
 

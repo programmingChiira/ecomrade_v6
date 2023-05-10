@@ -51,12 +51,9 @@
                                 </div>
 
                                 <div class="price d-flex flex-row align-items-center" v-else>
-                                    <h4 style="margin: 5px;"> Ksh. {{
+                                    <h6 style="margin: 5px;"> Ksh. {{
                                         cart.marketPrice - cart.marketDiscount
-                                    }} </h4>
-                                    <div class="ml-2">
-                                        <small class="dis-price">Ksh. {{ cart.marketPrice }} </small>
-                                    </div>
+                                    }} </h6>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <button type="button" @click="destroy(cart.id)" class="delete-btn"
