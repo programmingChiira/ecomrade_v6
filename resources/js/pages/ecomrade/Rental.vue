@@ -199,7 +199,6 @@
                                             <i style="color: orange;" class="fa fa-star"></i>
                                         </div>
                                     </span>
-                                    <span> ({{ rental.rating_count }}) </span>
                                 </div>
                                 <div class="mt-1 mb-1 spec-1">
                                     <span>{{ rental.rental_category }}</span>

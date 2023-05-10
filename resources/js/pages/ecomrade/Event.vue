@@ -134,7 +134,7 @@
                                                     v-else-if="event.diffInDays > 1">
                                                     In {{ event.diffInDays }} days</span>
                                                 <span style="color: red;font-size:15px;" v-else-if="event.diffInDays < 0">
-                                                    Already happened</span>
+                                                    Happened</span>
                                                 )
                                             </h4>
                                         </div>

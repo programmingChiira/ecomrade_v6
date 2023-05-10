@@ -27,7 +27,7 @@
             </nav>
           </div>
 
-          <div style="float:right;" class="col-md-6 col-4">
+          <div style="float:right;" class="col-md-6 col-2">
             <router-link :to="{ name: 'CreateLocation' }" style="float: right;">
               <button type="button" class="btn bg-gradient-primary btn-sm">
                 <i class="fa fa-plus"></i>
