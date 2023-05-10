@@ -331,11 +331,6 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
         $title = $request->title;
@@ -356,6 +351,9 @@ class EventController extends Controller
         $show_contact = $request->input('show_contact');
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/event');
@@ -367,6 +365,9 @@ class EventController extends Controller
         }
 
         if ($request->file('file2')) {
+            $request->validate([
+                'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image2 = $request->file('file2');
             $image_2 = $request->file('file2')->store('');
             $destinationPath = public_path('img/event');
@@ -378,6 +379,9 @@ class EventController extends Controller
         }
 
         if ($request->file('file3')) {
+            $request->validate([
+                'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image3 = $request->file('file3');
             $image_3 = $request->file('file3')->store('');
             $destinationPath = public_path('img/event');
@@ -389,6 +393,9 @@ class EventController extends Controller
         }
 
         if ($request->file('file4')) {
+            $request->validate([
+                'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image4 = $request->file('file4');
             $image_4 = $request->file('file4')->store('');
             $destinationPath = public_path('img/event');
@@ -400,6 +407,9 @@ class EventController extends Controller
         }
 
         if ($request->file('file5')) {
+            $request->validate([
+                'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image5 = $request->file('file5');
             $image_5 = $request->file('file5')->store('');
             $destinationPath = public_path('img/event');

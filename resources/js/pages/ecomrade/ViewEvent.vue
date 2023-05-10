@@ -46,7 +46,8 @@
                                         id="main-image" src="/web/img/no_img.jpg" width="550">
 
                                     <img v-else style="width: 100%;height: 550px; object-fit: contain;border-radius: 5px;"
-                                        id="main-image" :src="'./img/event/' + event.image_1" width="550">
+                                        id="main-image" :src="'./img/event/' + event.image_1" width="550"
+                                        @click="activateImageView">
                                 </div>
 
                                 <div
@@ -109,6 +110,75 @@
 
 
 
+                                </div>
+
+                                <div class="full-image-page" v-if="imageLoading">
+
+                                    <div class="thumbnail text-center">
+                                        <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
+                                            class="fa fa-times" @click="deactivateImageView"></i>
+
+                                        <img style="width: 100%;height: 550px; object-fit: contain;border-radius: 5px;"
+                                            id="main-view" :src="'./img/event/' + event.image_1" width="550"
+                                            @click="deactivateImageView">
+
+                                        <span
+                                            v-if="event.image_1 == false || event.image_1 == null || event.image_1 == 'null' || event.image_1 == '' || event.image_1 == ' ' || event.image_1 == NULL || event.image_1 == 'undefined'">
+                                        </span>
+                                        <span v-else>
+                                            <a href="#">
+                                                <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                    :src="'./img/event/' + event.image_1" onclick="change_view(this)"
+                                                    class="card-img-top" width="70">
+                                            </a>
+
+                                        </span>
+
+                                        <span
+                                            v-if="event.image_2 == false || event.image_2 == null || event.image_2 == 'null' || event.image_2 == '' || event.image_2 == ' ' || event.image_2 == NULL || event.image_2 == 'undefined'">
+                                        </span>
+                                        <span v-else>
+                                            <a href="#">
+                                                <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                    :src="'./img/event/' + event.image_2" onclick="change_view(this)"
+                                                    class="card-img-top" width="70">
+                                            </a>
+                                        </span>
+
+                                        <span
+                                            v-if="event.image_3 == false || event.image_3 == null || event.image_3 == 'null' || event.image_3 == '' || event.image_3 == ' ' || event.image_3 == NULL || event.image_3 == 'undefined'">
+                                        </span>
+                                        <span v-else>
+                                            <a href="#">
+                                                <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                    :src="'./img/event/' + event.image_3" onclick="change_view(this)"
+                                                    class="card-img-top" width="70">
+                                            </a>
+                                        </span>
+
+                                        <span
+                                            v-if="event.image_4 == false || event.image_4 == null || event.image_4 == 'null' || event.image_4 == '' || event.image_4 == ' ' || event.image_4 == NULL || event.image_4 == 'undefined'">
+                                        </span>
+                                        <span v-else>
+                                            <a href="#">
+                                                <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                    :src="'./img/event/' + event.image_4" onclick="change_view(this)"
+                                                    class="card-img-top" width="70">
+                                            </a>
+                                        </span>
+
+                                        <span
+                                            v-if="event.image_5 == false || event.image_5 == null || event.image_5 == 'null' || event.image_5 == '' || event.image_5 == ' ' || event.image_5 == NULL || event.image_5 == 'undefined'">
+                                        </span>
+                                        <span v-else>
+                                            <a href="#">
+                                                <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                                                    :src="'./img/event/' + event.image_5" onclick="change_view(this)"
+                                                    class="card-img-top" width="70">
+                                            </a>
+                                        </span>
+
+                                    </div>
                                 </div>
                                 <br />
 
@@ -595,6 +665,7 @@ export default {
             eventTitleCount: 0,
             currentDateValue: new Date(),
             loading: true,
+            imageLoading: false
         };
     },
 
@@ -737,6 +808,15 @@ export default {
     },
 
     methods: {
+
+        activateImageView() {
+            this.imageLoading = true;
+        },
+
+        deactivateImageView() {
+            this.imageLoading = false;
+        },
+
         setRating(rating) {
             this.rating = rating;
         },

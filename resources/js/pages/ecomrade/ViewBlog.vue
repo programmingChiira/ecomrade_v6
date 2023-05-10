@@ -135,8 +135,8 @@
             <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
               class="fa fa-times" @click="deactivateImageView"></i>
 
-            <img style="width: 100%; height: 80vh; object-fit: contain;" id="main-view"
-              :src="'./img/blog/' + post.image_1" class="card-img-top" width="750" @click="deactivateImageView">
+            <img style="width: 100%; height: 90vh; object-fit: contain;" id="main-view"
+              :src="'./img/blog/' + post.image_1" class="card-img-top" width="850" @click="deactivateImageView">
 
             <span
               v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'">
