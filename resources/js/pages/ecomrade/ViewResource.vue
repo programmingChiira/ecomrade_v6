@@ -13,17 +13,11 @@
 
                 <div class="row">
                     <div class="col-md-4 col-10">
-                        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-                            <div class="container">
-                                <ol class="breadcrumb">
-                                    <div class="badges text-right">
-                                        <span style="margin: 3px;" class="badge bg-dark ">
-                                            <i class="fa fa-comments-o"></i> {{ commentCount }}
-                                        </span>
-                                    </div>
-                                </ol>
-                            </div>
-                        </nav>
+                        <div class="badges text-right">
+                            <span style="margin: 3px;" class="badge bg-dark ">
+                                <i class="fa fa-comments-o"></i> {{ commentCount }}
+                            </span>
+                        </div>
                     </div>
                     <div style="float:right;" class="col-md-8 col-2">
                         <router-link v-if="id == false" to="/login" style="float: right;" class="text-info icon-move-right">
@@ -53,7 +47,7 @@
                             data-bs-target="#exampleModal1">
                             <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                                 src="/img/file.jpg" alt="Random Image">
-                            {{ resource.resource_1 }}
+                            {{ truncateText(resource.resource_1) }}
                         </button>
                         <br /><br />
 
@@ -129,7 +123,7 @@
                             data-bs-target="#exampleModal2">
                             <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                                 src="/img/file.jpg" alt="Random Image">
-                            {{ resource.resource_2 }}
+                            {{ truncateText(resource.resource_2) }}
                         </button>
                         <br /><br />
 
@@ -189,7 +183,7 @@
                             data-bs-target="#exampleModal3">
                             <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                                 src="/img/file.jpg" alt="Random Image">
-                            {{ resource.resource_3 }}
+                            {{ truncateText(resource.resource_3) }}
                         </button>
                         <br /><br />
 
@@ -249,7 +243,7 @@
                             data-bs-target="#exampleModal4">
                             <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                                 src="/img/file.jpg" alt="Random Image">
-                            {{ resource.resource_4 }}
+                            {{ truncateText(resource.resource_4) }}
                         </button>
                         <br /><br />
 
@@ -310,7 +304,7 @@
                         data-bs-target="#exampleModal5">
                         <img loading="lazy" style="width: 100%;object-fit: contain;" class="img-fluid img-thumbnail"
                             src="/img/file.jpg" alt="Random Image">
-                        {{ resource.resource_5 }}
+                        {{ truncateText(resource.resource_5) }}
                     </button>
                     <br /><br />
 
@@ -654,6 +648,11 @@ export default {
     },
 
     methods: {
+
+        truncateText(resource) {
+            const truncatedText = resource.slice(0, 10) + '...'
+            return truncatedText
+        },
 
         isImage(filename) {
             const extension = filename.split('.').pop().toLowerCase();
@@ -1049,4 +1048,5 @@ label.radio input:checked+span {
 
 .hide {
     display: none;
-}</style>
+}
+</style>
