@@ -48,7 +48,7 @@
                                 </div>
                             </nav>
                         </div>
-                        <div style="float:right;" class="col-md-8 col-3">
+                        <div style="float:right;" class="col-md-8 col-2">
                             <router-link v-if="id == false" to="/login" style="float: right;"
                                 class="text-info icon-move-right">
                                 <button data-toggle="tooltip" data-placement="bottom" title="Create poll" type="button"
