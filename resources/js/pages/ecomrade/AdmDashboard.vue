@@ -19,7 +19,6 @@
                                         <div class="container">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                                                <li class="breadcrumb-item"><router-link to="/">Adm</router-link></li>
                                                 <li style="color: #189483;" class="breadcrumb-item"><strong>Dash</strong>
                                                 </li>
                                             </ol>
