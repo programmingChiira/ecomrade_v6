@@ -114,10 +114,6 @@ class MessageController extends Controller
 
     public function destroy(Message $message)
     {
-        if (auth()->user()->id !== $message->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
-
         return $message->delete();
     }
 }

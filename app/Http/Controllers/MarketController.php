@@ -549,9 +549,6 @@ class MarketController extends Controller
 
     public function update(Request $request, Market $market)
     {
-        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
         $request->validate([
             'product_name' => 'required',
             'file' => 'nullable | image',
@@ -778,9 +775,6 @@ class MarketController extends Controller
 
     public function destroy(Market $market)
     {
-        if (auth()->user()->id != $market->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
 
         return $market->delete();
     }

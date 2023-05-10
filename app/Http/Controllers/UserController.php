@@ -412,10 +412,6 @@ class UserController extends Controller
 
     public function destroy(Users $user)
     {
-        if (auth()->user()->id != $user->user->id || auth()->user()->id == 1) {
-            return abort(403);
-        }
-
-        return $user->delete();
+       return $user->delete();
     }
 }

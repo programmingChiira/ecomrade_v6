@@ -41,9 +41,6 @@ class LocationController extends Controller
 
     public function update(Request $request, Location $location)
     {
-        if (auth()->user()->id != 1) {
-            return abort(403);
-        }
         $request->validate([
             'name' => 'required | unique:locations',
         ]);
@@ -56,9 +53,6 @@ class LocationController extends Controller
     
     public function destroy(Location $location)
     {
-        if (auth()->user()->id != 1) {
-            return abort(403);
-        }
         return $location->delete();
     }
 }

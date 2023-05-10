@@ -282,9 +282,6 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        if (auth()->user()->id != $post->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -363,10 +360,6 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        if (auth()->user()->id != $post->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
-
         return $post->delete();
     }
 }

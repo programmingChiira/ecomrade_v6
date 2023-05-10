@@ -495,9 +495,6 @@ class RentalController extends Controller
 
     public function update(Request $request, Rental $rental)
     {
-        if (auth()->user()->id != $rental->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'rental_name' => 'required',
             'file' => 'nullable | image',
@@ -714,10 +711,6 @@ class RentalController extends Controller
 
     public function destroy(Rental $rental)
     {
-        if (auth()->user()->id != $rental->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
-
         return $rental->delete();
     }
 }

@@ -725,9 +725,6 @@ class PollController extends Controller
 
     public function update(Request $request, Poll $poll)
     {
-        if (auth()->user()->id != $poll->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'title' => 'required',
             'file' => 'nullable | image',
@@ -971,9 +968,6 @@ class PollController extends Controller
 
     public function destroy(Poll $poll)
     {
-        if (auth()->user()->id != $poll->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         return $poll->delete();
     }
 }

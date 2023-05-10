@@ -324,9 +324,6 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
         $request->validate([
             'title' => 'required',
         ]);
@@ -426,10 +423,6 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
-        if (auth()->user()->id != $event->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
-
         return $event->delete();
     }
 }

@@ -111,8 +111,7 @@ class MarketCartController extends Controller
 
     public function destroy(MarketCart $cart)
     {
-        $cart->delete();
-        return response()->json(['message' => 'Cart item deleted successfully.']);
+        return $cart->delete();
     }
 
 }

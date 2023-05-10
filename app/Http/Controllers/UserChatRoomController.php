@@ -146,10 +146,6 @@ class UserChatRoomController extends Controller
 
     public function destroy(UserChatRoom $userchatroom)
     {
-        if (auth()->user()->id != $userchatroom->user->id || auth()->user()->id == 1 ) {
-            return abort(403);
-        }
-
         return $userchatroom->delete();
     }
 }

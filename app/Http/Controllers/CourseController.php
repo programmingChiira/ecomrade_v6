@@ -41,9 +41,6 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
-        if (auth()->user()->id != $course->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'name' => 'required | unique:courses',
         ]);
@@ -56,9 +53,6 @@ class CourseController extends Controller
     
     public function destroy(Course $course)
     {
-        if (auth()->user()->id != $course->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         return $course->delete();
     }
 }

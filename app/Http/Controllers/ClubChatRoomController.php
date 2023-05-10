@@ -176,9 +176,6 @@ class ClubChatRoomController extends Controller
 
     public function destroy(ClubChatRoom $clubchatroom)
     {
-        if (auth()->user()->id != $clubchatroom->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         return $clubchatroom->delete();
     }
 }

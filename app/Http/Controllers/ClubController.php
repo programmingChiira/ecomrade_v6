@@ -276,10 +276,6 @@ class ClubController extends Controller
 
     public function update(Request $request, Club $club)
     {
-        if (auth()->user()->id != $club->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
-
         $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -307,10 +303,6 @@ class ClubController extends Controller
 
     public function destroy(Club $club)
     {
-        if (auth()->user()->id !== $club->user->id || auth()->user()->id != 1) {
-            return abort(403);
-        }
-
         return $club->delete();
     }
 }

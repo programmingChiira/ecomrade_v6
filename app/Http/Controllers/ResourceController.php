@@ -340,9 +340,6 @@ class ResourceController extends Controller
 
     public function update(Request $request, Resource $resource)
     {
-        if (auth()->user()->id != $resource->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'title' => 'required',
             'academic_year' => 'required',
@@ -565,10 +562,6 @@ class ResourceController extends Controller
 
     public function destroy(Resource $resource)
     {
-        if (auth()->user()->id != $resource->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
-
         return $resource->delete();
     }
 }

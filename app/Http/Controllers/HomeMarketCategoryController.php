@@ -32,9 +32,6 @@ class HomeMarketCategoryController extends Controller
 
     public function update(Request $request, MarketCategory $category)
     {
-        if (auth()->user()->id != $category->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         $request->validate([
             'name' => 'required | unique:categories',
         ]);
@@ -47,9 +44,6 @@ class HomeMarketCategoryController extends Controller
 
     public function destroy(MarketCategory $category)
     {
-        if (auth()->user()->id != $category->user->id || auth()->user()->id != 1 ) {
-            return abort(403);
-        }
         return $category->delete();
     }
 }
