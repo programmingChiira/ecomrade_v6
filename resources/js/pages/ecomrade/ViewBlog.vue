@@ -7,7 +7,7 @@
       <div class="container py-4">
         <div class="row text-center">
           <div class="col-lg-8 mx-auto"><a class="category-link mb-3 d-inline-block" href="#!">Inspire</a>
-            <h1>{{ post.title }}</h1>
+            <h5>{{ post.title }}</h5>
             <ul class="list-inline mb-5">
               <li class="list-inline-item mx-2"><a class="text-uppercase text-muted reset-anchor" href="#!">BY {{
                 post.user_name
@@ -49,14 +49,13 @@
         <div style="background-color: #E9ECEF;" class="text-center p-4">
           <img
             v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'"
-            loading="lazy" style="width: 100%;height: 450px; object-fit: contain;" id="main-image"
-            src="/web/img/no_img.jpg" class="card-img-top" width="380">
+            loading="lazy" style="width: 100%; height: 40vh; object-fit: cover;" id="main-image" src="/web/img/no_img.jpg"
+            class="card-img-top" width="380">
 
-          <img v-else style="width: 100%;height: 450px; object-fit: contain;" id="main-image"
-            :src="'./img/blog/' + post.image_1" class="card-img-top" width="450">
+          <img v-else style="width: 100%; height: 40vh; object-fit: contain;" id="main-image"
+            :src="'./img/blog/' + post.image_1" class="card-img-top" width="550" @click="activateImageView">
         </div>
-        <hr class="horizontal dark my-5">
-
+        <br/>
         <div class="thumbnail text-center">
           <span
             v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'">
@@ -133,6 +132,70 @@
               :src="'./img/blog/' + post.image_5" onclick="change_image(this)" class="card-img-top" width="70">
           </span>
 
+        </div>
+
+
+        <div class="full-image-page" v-if="imageLoading">
+
+          <div class="thumbnail text-center">
+            <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;" class="fa fa-times" @click="deactivateImageView"></i>
+
+            <img style="width: 100%; height: 80vh; object-fit: contain;" id="main-view"
+              :src="'./img/blog/' + post.image_1" class="card-img-top" width="750" @click="deactivateImageView">
+
+            <span
+              v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'">
+
+            </span>
+            <span v-else>
+
+              <img
+                style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                :src="'./img/blog/' + post.image_1" onclick="change_view(this)" class="card-img-top" width="70">
+            </span>
+
+            <span
+              v-if="post.image_2 == false || post.image_2 == null || post.image_2 == 'null' || post.image_2 == '' || post.image_2 == ' ' || post.image_2 == NULL || post.image_2 == 'undefined'">
+
+            </span>
+            <span v-else>
+              <img
+                style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                :src="'./img/blog/' + post.image_2" onclick="change_view(this)" class="card-img-top" width="70">
+            </span>
+
+            <span
+              v-if="post.image_3 == false || post.image_3 == null || post.image_3 == 'null' || post.image_3 == '' || post.image_3 == ' ' || post.image_3 == NULL || post.image_3 == 'undefined'">
+
+            </span>
+            <span v-else>
+              <img
+                style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                :src="'./img/blog/' + post.image_3" onclick="change_view(this)" class="card-img-top" width="70">
+            </span>
+
+            <span
+              v-if="post.image_4 == false || post.image_4 == null || post.image_4 == 'null' || post.image_4 == '' || post.image_4 == ' ' || post.image_4 == NULL || post.image_4 == 'undefined'">
+
+            </span>
+            <span v-else>
+              <img
+                style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                :src="'./img/blog/' + post.image_4" onclick="change_view(this)" class="card-img-top" width="70">
+            </span>
+
+            <span
+              v-if="post.image_5 == false || post.image_5 == null || post.image_5 == 'null' || post.image_5 == '' || post.image_5 == ' ' || post.image_5 == NULL || post.image_5 == 'undefined'">
+
+            </span>
+            <span v-else>
+
+              <img
+                style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
+                :src="'./img/blog/' + post.image_5" onclick="change_view(this)" class="card-img-top" width="70">
+            </span>
+
+          </div>
         </div>
         <hr class="horizontal dark my-5">
 
@@ -345,8 +408,7 @@
             <div class="card mb-4">
               <div class="card-body p-0">
                 <h2 style="padding: 8px;" class="h5 mb-3">Recent posts</h2>
-                <div v-for="similar in posts" :key="similar.id" class="d-flex mb-3"><a class="flex-shrink-0"
-                    href="post.html"></a>
+                <div v-for="similar in posts" :key="similar.id" class="d-flex mb-3">
                   <div class="ms-3">
                     <h6>
                       <router-link class="reset-anchor" :to="{
@@ -395,6 +457,7 @@ export default {
       avgRating: 0,
       commentCount: 0,
       loading: true,
+      imageLoading: false
     };
   },
 
@@ -477,6 +540,14 @@ export default {
   },
 
   methods: {
+
+    activateImageView() {
+      this.imageLoading = true;
+    },
+
+    deactivateImageView() {
+      this.imageLoading = false;
+    },
 
     truncateText(posts) {
       const truncatedText = posts.slice(0, 30) + '...'

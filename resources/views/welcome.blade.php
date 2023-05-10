@@ -79,6 +79,19 @@
             justify-content: center;
             align-items: center;
         }
+
+        .full-image-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background-color: #189483ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -156,6 +169,14 @@
         }
         document.addEventListener("DOMContentLoaded", function(event) {});
     </script>
+
+<script>
+    function change_view(image) {
+        var container = document.getElementById("main-view");
+        container.src = image.src;
+    }
+    document.addEventListener("DOMContentLoaded", function(event) {});
+</script>
     <script></script>
 </body>
 
