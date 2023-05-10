@@ -753,7 +753,7 @@
             <hr class="horizontal dark my-2">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-4 col-6" v-for="marketing in markets" :key="marketing.id"
+                    <div class="col-md-4 col-12" v-for="marketing in markets" :key="marketing.id"
                         v-show="marketing.product_category == market.product_category && marketing.id != market.id">
                         <div style="background-color: #E9ECEF;" class="card">
                             <router-link :to="{
