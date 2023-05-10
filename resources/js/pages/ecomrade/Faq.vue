@@ -17,9 +17,9 @@
                             </router-link>
                             <h6 class="text-white mb-2 mt-5">Find us on</h6>
                             <div class="d-flex justify-content-center">
-                                <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
-                                <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
-                                <a href="javascript:;"><i class="fab fa-linkedin text-lg text-white"></i></a>
+                                <a href="https://twitter.com/DennisChiira" target="_blank"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+                                <a href="https://www.linkedin.com/company/cyberacademykenya/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin text-lg text-white"></i></a>
+                                <a href="https://github.com/programmingChiira" target="_blank"><i class="fab fa-github text-lg text-white me-4"></i></a>
                             </div>
                         </div>
                     </div>
