@@ -89,6 +89,10 @@ class ClubChatRoomController extends Controller
             $clubchatroomId = ClubChatRoom::latest()->first()->id + 1;
         }
 
+        $request->validate([
+            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+        ]);
+
         $clubchatroom = new ClubChatRoom();
 
         $user = auth()->user();
@@ -101,7 +105,7 @@ class ClubChatRoomController extends Controller
         // check if the user has already subscribed the event
         $userExists = RoomUser::where('user_id', $user->id)->where('room_id', $room_id)->exists();
         if (!$userExists) {
-            return response()->json(['message' => 'You need to join room to allow chatting.'], 409);
+            return response()->json(['message' => 'You need to join room to allow chatting OR Wrong image format.'], 409);
         }
         // create and save clubchatroom
 
@@ -115,6 +119,7 @@ class ClubChatRoomController extends Controller
             })->save($destinationPath . '/' . $image_1);
             $clubchatroom->image_1 = $image_1;
         }
+
 
         $clubchatroom->room_id = $room_id;
         $clubchatroom->user_id = $user_id;
@@ -132,7 +137,6 @@ class ClubChatRoomController extends Controller
         $pusher->trigger('my-club-channel', 'my-club-event', $clubchatroom);
 
         return response($clubchatroom['message']);
-        
     }
     // public function show(ClubChatRoom $clubchatroom)
     // {

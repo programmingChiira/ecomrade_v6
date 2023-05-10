@@ -331,9 +331,9 @@ class UserController extends Controller
     public function update(Request $request, Users $user)
     {
         $request->validate([
-            'file' => 'nullable | image',
             'name' => 'required',
             'phone' => 'required',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
         $name = $request->input('name');

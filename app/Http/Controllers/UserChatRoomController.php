@@ -88,6 +88,10 @@ class UserChatRoomController extends Controller
         
         // created and save userchatroom
 
+        $request->validate([
+            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+        ]);
+
         if ($request->file('file1')) {
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');

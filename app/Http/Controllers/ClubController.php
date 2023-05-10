@@ -73,6 +73,7 @@ class ClubController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
         $name = $request->name;
 
@@ -279,6 +280,7 @@ class ClubController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
         $name = $request->name;
