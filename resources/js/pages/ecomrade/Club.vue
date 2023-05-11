@@ -64,8 +64,7 @@
           </div>
         </div>
 
-        <section>
-          <div class="container py-2">
+          <div class="my-2 py-1 container">
             <article class="postcard light blue" v-for="club in clubs" :key="club.id">
               <a class="postcard__img_link">
                 <img
@@ -139,7 +138,6 @@
             <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;" v-if="currentPage < lastPage"
               @click="clubName(currentPage + 1)">Next &raquo;</button>
           </div>
-        </section>
       </div>
       <hr class="horizontal dark my-5">
     </section>

@@ -199,13 +199,7 @@
                     }
                 }
             });
-
-            Swal.fire({
-                title: 'Hello there comrade!',
-                text: data.message,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
+            
         });
     </script>
 

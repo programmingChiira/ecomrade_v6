@@ -106,8 +106,7 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="row">
+                    <div class="d-flex justify-content-center row">
                         <div class="col-md-6" v-for="event in events" :key="event.id">
                             <div style="margin: 10px;background-color: #E9ECEF;" class="card">
                                 <img v-if="event.image_1 == false || event.image_1 == null || event.image_1 == 'null' || event.image_1 == '' || event.image_1 == ' ' || event.image_1 == NULL"
@@ -226,7 +225,6 @@
                         <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;" v-if="currentPage < lastPage"
                             @click="eventTitle(currentPage + 1)">Next &raquo;</button>
                     </div>
-                </div>
 
             </div>
             <hr class="horizontal dark my-5">

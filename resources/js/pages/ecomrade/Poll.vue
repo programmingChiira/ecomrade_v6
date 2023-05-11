@@ -67,11 +67,8 @@
                     </div>
                 </div>
 
-                <div class="row align-items-center">
-                    <div class="page-content">
-                        <div class="container">
-                            <div class="product-details-top">
-                                <div class="row">
+
+                <div class="d-flex justify-content-center row">
 
                                     <div style="margin: 10px;" class="col-md-12" v-for="(poll, index) in polls"
                                         :key="index">
@@ -1007,11 +1004,7 @@
                                         &raquo;</button>
                                 </div>
 
-                            </div><!-- End .product-details-top -->
-                            <hr class="mt-3 mb-5">
-                        </div><!-- End .container -->
-                    </div>
-                </div>
+                            
             </div>
             <hr class="horizontal dark my-5">
         </section>
