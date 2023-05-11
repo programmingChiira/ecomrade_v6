@@ -11,6 +11,7 @@
               class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0"
               src="/img/Push-Notification-Examples.jpg" alt="image">
           </div>
+        
           <div class="container">
             <div class="row">
               <div class="col-lg-7 d-flex justify-content-center flex-column">

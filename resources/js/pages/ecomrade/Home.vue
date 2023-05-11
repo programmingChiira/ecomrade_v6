@@ -175,7 +175,7 @@
                     <h6>
                       <span style="color: red;"
                         v-if="market.availability == 'Out of stock' || market.availability == false || market.availability == null || market.availability == 'null' || market.availability == '' || market.availability == ' '">
-                        Out Of Order</span>
+                        Out Of Stock</span>
                       <span style="color: #189483;" v-else> Available</span>
                     </h6>
                   </div>

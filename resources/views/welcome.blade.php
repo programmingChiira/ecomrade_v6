@@ -133,7 +133,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-    <script>
+    {{-- <script>
         // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
 
@@ -151,6 +151,61 @@
             )
 
             // alert();
+        });
+    </script> --}}
+
+    <script>
+        Notification.requestPermission().then(function(permission) {
+            if (permission === "granted") {
+                // If the user grants permission, show a thank you message
+                var notification = new Notification("Thank you!", {
+                    body: "You will now receive notifications from ecomrade",
+                    icon: "/logo.png",
+                    vibrate: [200, 100, 200]
+                });
+            } else {
+                // If the user denies permission, show a message explaining why notifications are useful
+                var notification = new Notification("Oops!", {
+                    body: "It looks like you've denied permission for notifications. Notifications can help you stay up to date with the latest news and updates from ecomrade. If you change your mind, you can enable notifications in your browser settings.",
+                    icon: "/logo.png"
+                });
+            }
+        });
+
+        var pusher = new Pusher('9820769533922d6161b6', {
+            cluster: 'ap2'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            // Check if notifications are supported
+            if (!("Notification" in window)) {
+                console.error("This browser does not support desktop notifications");
+                return;
+            }
+
+            // Request permission for notifications
+            Notification.requestPermission().then(function(permission) {
+                // If the user grants permission, show the notification
+                if (permission === "granted") {
+                    var notification = new Notification("Hello there comrade!", {
+                        body: data.message,
+                        icon: "/logo.png",
+                        vibrate: [200, 100, 200]
+                    });
+                    notification.onclick = function(event) {
+                        event.preventDefault();
+                        window.focus();
+                    }
+                }
+            });
+
+            Swal.fire({
+                title: 'Hello there comrade!',
+                text: data.message,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
         });
     </script>
 

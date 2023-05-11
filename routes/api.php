@@ -62,6 +62,7 @@ use Illuminate\Support\Facades\Auth;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::fallback(function () {
     return response()->json(['message' => 'Resource not found'], 404);
 })->where('fallback', '(.*)');
@@ -250,49 +251,49 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/relat
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/dashboard-posts', [DashboardPostController::class, 'index']);
 
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/search', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/search', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('markets')->where('product_name', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchrental', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchrental', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('rentals')->where('rental_name', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchpost', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchpost', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('posts')->where('title', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchuser', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchuser', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('users')->where('name', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchclub', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchclub', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('clubs')->where('name', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchresource', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchresource', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('resources')->where('title', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchevent', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchevent', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('events')->where('title', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
 });
 
-Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchpoll', function(Request $request) {
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/searchpoll', function (Request $request) {
     $query = $request->input('q');
     $results = DB::table('polls')->where('title', 'like', "%$query%")->take(9)->get();
     return response()->json($results);
