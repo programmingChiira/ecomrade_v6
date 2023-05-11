@@ -106,8 +106,8 @@
                     </div>
                 </div>
 
-                    <div class="d-flex justify-content-center row">
-                        <div class="col-md-6" v-for="event in events" :key="event.id">
+                    <div class="row justify-content-center my-2 py-1">
+                        <div class="col-md-6 col-12" v-for="event in events" :key="event.id">
                             <div style="margin: 10px;background-color: #E9ECEF;" class="card">
                                 <img v-if="event.image_1 == false || event.image_1 == null || event.image_1 == 'null' || event.image_1 == '' || event.image_1 == ' ' || event.image_1 == NULL"
                                     loading="lazy"
@@ -123,7 +123,8 @@
 
                                     <div class="d-flex flex-row justify-content-between p-3 mid">
                                         <div class="d-flex flex-column">
-                                            <h4 style="padding: 10px;">{{ event.title }}
+                                            <h4 style="padding: 10px;">{{ event.title }}</h4>
+                                            <h4 style="padding: 10px;">
                                                 (
                                                 <span style="color: orange;font-size:15px;" v-if="event.diffInDays == 0">
                                                     Today</span>
@@ -133,7 +134,7 @@
                                                     v-else-if="event.diffInDays > 1">
                                                     In {{ event.diffInDays }} days</span>
                                                 <span style="color: red;font-size:15px;" v-else-if="event.diffInDays < 0">
-                                                    Happened</span>
+                                                    Already Happened</span>
                                                 )
                                             </h4>
                                         </div>

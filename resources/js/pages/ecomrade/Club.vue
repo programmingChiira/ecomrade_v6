@@ -64,7 +64,7 @@
           </div>
         </div>
 
-          <div class="my-2 py-1 container">
+          <div>
             <article class="postcard light blue" v-for="club in clubs" :key="club.id">
               <a class="postcard__img_link">
                 <img

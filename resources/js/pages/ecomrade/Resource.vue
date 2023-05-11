@@ -141,7 +141,6 @@
                     </div>
                 </div>
 
-                <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-12" v-for="resource in resources"
                             :key="resource.id">
@@ -267,7 +266,6 @@
                             @click="resourceTitle(currentPage + 1)">
                             Next &raquo;</button>
                     </div>
-                </div>
             </div>
             <hr class="horizontal dark my-5">
         </section>
