@@ -85,14 +85,14 @@ class UserChatRoomController extends Controller
         $user_slug = auth()->user()->slug;
         $receiver_id = $request->input('receiver_id');
         $message = $request->input('message');
-        
+
         // created and save userchatroom
 
-        $request->validate([
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-        ]);
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/userchatroom');
@@ -119,9 +119,8 @@ class UserChatRoomController extends Controller
         $pusher->trigger('my-user-channel', 'my-user-event', $userchatroom);
 
         return response($userchatroom['message']);
-        
     }
-    
+
     public function show(UserChatRoom $userchatroom)
     {
         $userchatroom = UserChatRoom::find($userchatroom->id);

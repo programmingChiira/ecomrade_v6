@@ -333,7 +333,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
         $name = $request->input('name');
@@ -355,6 +354,9 @@ class UserController extends Controller
         $github = $request->input('github');
 
         if ($request->file('file')) {
+            $request->validate([
+                'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($user->profile_pic);
 
             $image = $request->file('file');
@@ -412,6 +414,6 @@ class UserController extends Controller
 
     public function destroy(Users $user)
     {
-       return $user->delete();
+        return $user->delete();
     }
 }

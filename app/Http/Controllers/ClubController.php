@@ -73,7 +73,6 @@ class ClubController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
         $name = $request->name;
 
@@ -93,6 +92,9 @@ class ClubController extends Controller
         // create and save club
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/clubs');
@@ -280,7 +282,6 @@ class ClubController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
         $name = $request->name;
@@ -288,6 +289,9 @@ class ClubController extends Controller
         $description = $request->input('description');
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/clubs');

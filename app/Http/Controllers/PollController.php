@@ -278,15 +278,6 @@ class PollController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
             'title' => 'required',
             'argument' => 'required',
         ]);
@@ -330,6 +321,9 @@ class PollController extends Controller
         $club_id = $request->input('club_id');
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/poll');
@@ -342,6 +336,9 @@ class PollController extends Controller
 
 
         if ($request->file('file2')) {
+            $request->validate([
+                'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image2 = $request->file('file2');
             $image_2 = $request->file('file2')->store('');
             $destinationPath = public_path('img/poll');
@@ -353,6 +350,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file3')) {
+            $request->validate([
+                'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image3 = $request->file('file3');
             $image_3 = $request->file('file3')->store('');
             $destinationPath = public_path('img/poll');
@@ -364,6 +364,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file4')) {
+            $request->validate([
+                'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image4 = $request->file('file4');
             $image_4 = $request->file('file4')->store('');
             $destinationPath = public_path('img/poll');
@@ -375,6 +378,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file5')) {
+            $request->validate([
+                'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image5 = $request->file('file5');
             $image_5 = $request->file('file5')->store('');
             $destinationPath = public_path('img/poll');
@@ -386,6 +392,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file6')) {
+            $request->validate([
+                'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image6 = $request->file('file6');
             $image_6 = $request->file('file6')->store('');
             $destinationPath = public_path('img/poll');
@@ -397,6 +406,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file7')) {
+            $request->validate([
+                'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image7 = $request->file('file7');
             $image_7 = $request->file('file7')->store('');
             $destinationPath = public_path('img/poll');
@@ -408,6 +420,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file8')) {
+            $request->validate([
+                'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image8 = $request->file('file8');
             $image_8 = $request->file('file8')->store('');
             $destinationPath = public_path('img/poll');
@@ -419,6 +434,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file9')) {
+            $request->validate([
+                'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image9 = $request->file('file9');
             $image_9 = $request->file('file9')->store('');
             $destinationPath = public_path('img/poll');
@@ -430,6 +448,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file10')) {
+            $request->validate([
+                'file10' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image10 = $request->file('file10');
             $image_10 = $request->file('file10')->store('');
             $destinationPath = public_path('img/poll');
@@ -471,15 +492,6 @@ class PollController extends Controller
     public function club_store(Request $request)
     {
         $request->validate([
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
             'title' => 'required',
             'argument' => 'required',
         ]);
@@ -523,6 +535,9 @@ class PollController extends Controller
         $club_id = $request->input('club_id');
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/poll');
@@ -535,6 +550,9 @@ class PollController extends Controller
 
 
         if ($request->file('file2')) {
+            $request->validate([
+                'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image2 = $request->file('file2');
             $image_2 = $request->file('file2')->store('');
             $destinationPath = public_path('img/poll');
@@ -546,6 +564,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file3')) {
+            $request->validate([
+                'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image3 = $request->file('file3');
             $image_3 = $request->file('file3')->store('');
             $destinationPath = public_path('img/poll');
@@ -557,6 +578,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file4')) {
+            $request->validate([
+                'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image4 = $request->file('file4');
             $image_4 = $request->file('file4')->store('');
             $destinationPath = public_path('img/poll');
@@ -568,6 +592,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file5')) {
+            $request->validate([
+                'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image5 = $request->file('file5');
             $image_5 = $request->file('file5')->store('');
             $destinationPath = public_path('img/poll');
@@ -579,6 +606,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file6')) {
+            $request->validate([
+                'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image6 = $request->file('file6');
             $image_6 = $request->file('file6')->store('');
             $destinationPath = public_path('img/poll');
@@ -590,6 +620,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file7')) {
+            $request->validate([
+                'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image7 = $request->file('file7');
             $image_7 = $request->file('file7')->store('');
             $destinationPath = public_path('img/poll');
@@ -601,6 +634,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file8')) {
+            $request->validate([
+                'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image8 = $request->file('file8');
             $image_8 = $request->file('file8')->store('');
             $destinationPath = public_path('img/poll');
@@ -612,6 +648,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file9')) {
+            $request->validate([
+                'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image9 = $request->file('file9');
             $image_9 = $request->file('file9')->store('');
             $destinationPath = public_path('img/poll');
@@ -623,6 +662,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file10')) {
+            $request->validate([
+                'file10' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image10 = $request->file('file10');
             $image_10 = $request->file('file10')->store('');
             $destinationPath = public_path('img/poll');
@@ -668,7 +710,7 @@ class PollController extends Controller
     //     ];
     //     return response()->json($data);
     // }
-    
+
     public function show(Poll $poll)
     {
         $votes = $poll->pollVotes;
@@ -743,19 +785,13 @@ class PollController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-            'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
         ]);
 
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_1);
 
             $image = $request->file('file1');
@@ -772,6 +808,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file2')) {
+            $request->validate([
+                'file2' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_2);
 
             $image = $request->file('file2');
@@ -788,6 +827,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file3')) {
+            $request->validate([
+                'file3' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_3);
 
             $image = $request->file('file3');
@@ -804,6 +846,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file4')) {
+            $request->validate([
+                'file4' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_4);
 
             $image = $request->file('file4');
@@ -820,6 +865,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file5')) {
+            $request->validate([
+                'file5' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_5);
 
             $image = $request->file('file5');
@@ -836,6 +884,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file6')) {
+            $request->validate([
+                'file6' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_6);
 
             $image = $request->file('file6');
@@ -852,6 +903,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file7')) {
+            $request->validate([
+                'file7' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_7);
 
             $image = $request->file('file7');
@@ -868,6 +922,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file8')) {
+            $request->validate([
+                'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_8);
 
             $image = $request->file('file8');
@@ -884,6 +941,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file9')) {
+            $request->validate([
+                'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_9);
 
             $image = $request->file('file9');
@@ -900,6 +960,9 @@ class PollController extends Controller
         }
 
         if ($request->file('file10')) {
+            $request->validate([
+                'file10' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             File::delete($poll->image_10);
 
             $image = $request->file('file10');

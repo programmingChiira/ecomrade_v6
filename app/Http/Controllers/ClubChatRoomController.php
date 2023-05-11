@@ -89,10 +89,6 @@ class ClubChatRoomController extends Controller
             $clubchatroomId = ClubChatRoom::latest()->first()->id + 1;
         }
 
-        $request->validate([
-            'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
-        ]);
-
         $clubchatroom = new ClubChatRoom();
 
         $user = auth()->user();
@@ -110,6 +106,9 @@ class ClubChatRoomController extends Controller
         // create and save clubchatroom
 
         if ($request->file('file1')) {
+            $request->validate([
+                'file1' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
             $image1 = $request->file('file1');
             $image_1 = $request->file('file1')->store('');
             $destinationPath = public_path('img/chatroom');
