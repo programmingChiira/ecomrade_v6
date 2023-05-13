@@ -216,7 +216,14 @@ const routes = [
             ogTitle: 'View Learning Resource - ecomrade',
             ogImage: '/img/learningresource.webp',
             ogDescription: 'Explore ecomrade\'s learning resources and expand your knowledge on a variety of topics. From academic subjects to personal development, we have something for everyone.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/learningresource.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Explore ecomrade\'s learning resources and expand your knowledge on a variety of topics. From academic subjects to personal development, we have something for everyone.'
+            }
         },
 
     },
