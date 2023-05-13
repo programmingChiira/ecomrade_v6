@@ -291,8 +291,15 @@ const routes = [
             robots: 'index, follow',
             ogTitle: 'Club Chat Room - ecomrade',
             ogImage: '/web/chatroom.webp',
-            ogDescription: ' Connect with members of different clubs and societies on ecomrade chat room. Engage in discussions on various topics of interest and grow your network.',
-            favicon: '/favicon.ico'
+            ogDescription: 'Connect with members of different clubs and societies on ecomrade chat room. Engage in discussions on various topics of interest and grow your network.',
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/chatroom.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Connect with members of different clubs and societies on ecomrade chat room. Engage in discussions on various topics of interest and grow your network.'
+            }
         },
     },
 
