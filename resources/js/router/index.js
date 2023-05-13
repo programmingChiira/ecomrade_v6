@@ -165,7 +165,14 @@ const routes = [
             ogTitle: 'Blogs - ecomrade',
             ogImage: '/img/blog.jpg',
             ogDescription: 'Explore the creativity and perspectives of Kenyan comrades through our blogs. Share personal experiences, opinions, and critiques on culture, arts, and more.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/blog.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Explore the creativity and perspectives of Kenyan comrades through our blogs. Share personal experiences, opinions, and critiques on culture, arts, and more.'
+            }
         },
     },
 
