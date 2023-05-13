@@ -367,7 +367,14 @@ const routes = [
             ogTitle: 'Create club blog - ecomrade',
             ogImage: '/img/createblog.png',
             ogDescription: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createblog.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.'
+            }
         },
     },
 
