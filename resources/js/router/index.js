@@ -342,7 +342,14 @@ const routes = [
             ogTitle: 'Instant Messaging with Connected Comrades on ecomrade - ecomrade',
             ogImage: '/web/messaging.jpg',
             ogDescription: 'ecomrade\'s instant messaging feature allows you to chat with your connected comrades in real-time. Whether you want to have a private conversation with one person or group chat with multiple members, this feature provides a convenient way to communicate with others on the platform.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/messaging.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'ecomrade\'s instant messaging feature allows you to chat with your connected comrades in real-time. Whether you want to have a private conversation with one person or group chat with multiple members, this feature provides a convenient way to communicate with others on the platform.'
+            }
         },
     },
 
