@@ -692,7 +692,14 @@ const routes = [
             ogTitle: 'Sent Connects from Other Comrades on ecomrade - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'The Received Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/logo.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'The Received Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.'
+            }
         },
     },
 
@@ -709,7 +716,14 @@ const routes = [
             ogTitle: 'View Rental - ecomrade',
             ogImage: '/web/rental.jpg',
             ogDescription: 'Browse and view available rental properties on ecomrade, including affordable, safe, and secure options around campus. Find your ideal rental through our platform.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/rental.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Browse and view available rental properties on ecomrade, including affordable, safe, and secure options around campus. Find your ideal rental through our platform.'
+            }
         },
     },
     {
@@ -725,7 +739,14 @@ const routes = [
             ogTitle: 'View Rental - ecomrade',
             ogImage: '/web/rental.jpg',
             ogDescription: 'Browse and view available rental properties on ecomrade, including affordable, safe, and secure options around campus. Find your ideal rental through our platform.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/rental.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Browse and view available rental properties on ecomrade, including affordable, safe, and secure options around campus. Find your ideal rental through our platform.'
+            }
         },
     },
 
@@ -743,7 +764,14 @@ const routes = [
             ogTitle: 'View poll - ecomrade',
             ogImage: '/img/poll.png',
             ogDescription: 'Join poll now and cast your vote! Share it with your friends to get more opinions.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/poll.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Join poll now and cast your vote! Share it with your friends to get more opinions.'
+            }
         },
     },
     {
@@ -760,7 +788,14 @@ const routes = [
             ogTitle: 'View product - ecomrade',
             ogImage: '/assets/images/demos/denim.jpg',
             ogDescription: 'Check out my amazing product! Buy it now and share with your friends.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/assets/images/demos/denim.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Check out my amazing product! Buy it now and share with your friends.'
+            }
         },
     },
     {
@@ -777,7 +812,14 @@ const routes = [
             ogTitle: 'View product - ecomrade',
             ogImage: '/assets/images/demos/denim.jpg',
             ogDescription: 'Check out my amazing product! Buy it now and share with your friends.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/assets/images/demos/denim.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Check out my amazing product! Buy it now and share with your friends.'
+            }
         },
     },
     {
@@ -794,7 +836,14 @@ const routes = [
             ogTitle: 'View profile - ecomrade',
             ogImage: '/img/profile.jpg',
             ogDescription: 'Connect with me on ecomrade! Check out my profile and let us be friends.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/profile.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Connect with me on ecomrade! Check out my profile and let us be friends.'
+            }
         },
     },
 
@@ -812,7 +861,14 @@ const routes = [
             ogTitle: 'View profile - ecomrade',
             ogImage: '/img/profile.jpg',
             ogDescription: 'Connect with me on ecomrade! Check out my profile and let us be friends.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/profile.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Connect with me on ecomrade! Check out my profile and let us be friends.'
+            }
         },
     },
 
@@ -830,7 +886,14 @@ const routes = [
             ogTitle: 'View profile - ecomrade',
             ogImage: '/img/profile.jpg',
             ogDescription: 'Connect with me on ecomrade! Check out my profile and let us be friends.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/profile.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Connect with me on ecomrade! Check out my profile and let us be friends.'
+            }
         },
     },
     {
@@ -847,7 +910,14 @@ const routes = [
             ogTitle: 'Profile Products - ecomrade',
             ogImage: '/img/prodlist.jpg',
             ogDescription: 'Discover a diverse range of products that I offer by browsing through my profile. Find everything you need in one place. Stay up-to-date with my latest offerings and avail exciting discounts by following my profile.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/prodlist.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Discover a diverse range of products that I offer by browsing through my profile. Find everything you need in one place. Stay up-to-date with my latest offerings and avail exciting discounts by following my profile.'
+            }
         },
     },
     {
@@ -864,7 +934,14 @@ const routes = [
             ogTitle: 'Profile Blog Posts - ecomrade',
             ogImage: '/img/bloglist.webp',
             ogDescription: 'Get to know me better by exploring my personal blog on my ecomrade profile. From personal experiences to critiques of culture and arts, my blog is a reflection of my unique perspective.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/bloglist.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Get to know me better by exploring my personal blog on my ecomrade profile. From personal experiences to critiques of culture and arts, my blog is a reflection of my unique perspective.'
+            }
         },
     },
 
@@ -882,7 +959,14 @@ const routes = [
             ogTitle: 'Profile Polls - ecomrade',
             ogImage: '/img/pollList.png',
             ogDescription: 'Explore my profile for a comprehensive list of polls that I have created. Share your opinion and engage in thought-provoking discussions.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/pollList.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Explore my profile for a comprehensive list of polls that I have created. Share your opinion and engage in thought-provoking discussions.'
+            }
         },
     },
     {
@@ -899,7 +983,14 @@ const routes = [
             ogTitle: 'Profile clubs and societies - ecomrade',
             ogImage: '/img/clubsandsocieties.png',
             ogDescription: 'Check out my ecomrade profile to see the diverse range of clubs and societies I am a member of. From academic to social, find out what groups I am involved with and join the conversation.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/clubsandsocieties.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Check out my ecomrade profile to see the diverse range of clubs and societies I am a member of. From academic to social, find out what groups I am involved with and join the conversation.'
+            }
         },
     },
     {
@@ -915,7 +1006,14 @@ const routes = [
             ogTitle: 'Create Blog - ecomrade',
             ogImage: '/img/createblog.png',
             ogDescription: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createblog.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.'
+            }
         },
     },
 
@@ -932,7 +1030,14 @@ const routes = [
             ogTitle: 'Create Club - ecomrade',
             ogImage: '/img/createclub.jpg',
             ogDescription: 'Start your own club or society on ecomrade and connect with like-minded individuals. Share your interests and passions with the community. Get started today!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createclub.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Start your own club or society on ecomrade and connect with like-minded individuals. Share your interests and passions with the community. Get started today!'
+            }
         },
     },
 
@@ -949,7 +1054,14 @@ const routes = [
             ogTitle: 'Create Resource - ecomrade',
             ogImage: '/img/learningresource.png',
             ogDescription: 'Discover comprehensive learning resources on ecomrade. Access a variety of educational materials on various topics, all in one place.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/learningresource.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Discover comprehensive learning resources on ecomrade. Access a variety of educational materials on various topics, all in one place.'
+            }
         },
     },
 
@@ -966,7 +1078,14 @@ const routes = [
             ogTitle: 'Create event - ecomrade',
             ogImage: '/img/createevents.jpg',
             ogDescription: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createevents.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.'
+            }
         },
     },
 
@@ -983,7 +1102,14 @@ const routes = [
             ogTitle: 'Advertise Products and Services - ecomrade',
             ogImage: '/img/postproducts.png',
             ogDescription: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/postproducts.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.'
+            }
         },
     },
 
@@ -1000,7 +1126,14 @@ const routes = [
             ogTitle: 'Create poll - ecomrade',
             ogImage: '/img/createpoll.png',
             ogDescription: 'Create thought-provoking polls and surveys on ecomrade to collect valuable feedback and insights. Gather opinions and make data-driven decisions for personal or business purposes.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createpoll.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Create thought-provoking polls and surveys on ecomrade to collect valuable feedback and insights. Gather opinions and make data-driven decisions for personal or business purposes.'
+            }
         },
     },
 
@@ -1288,7 +1421,14 @@ const routes = [
             ogTitle: 'Clubs and societies - ecomrade',
             ogImage: '/web/club.jpeg',
             ogDescription: 'Join ecomrade clubs and societies to network and socialize with fellow students, and engage in activities and events based on your interests. Develop your leadership, collaboration, and creativity skills while building meaningful connections. Become a member and get involved in a community that values innovation and concept-sharing.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/club.jpeg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Join ecomrade clubs and societies to network and socialize with fellow students, and engage in activities and events based on your interests. Develop your leadership, collaboration, and creativity skills while building meaningful connections. Become a member and get involved in a community that values innovation and concept-sharing.'
+            }
         },
     },
 
@@ -1305,7 +1445,14 @@ const routes = [
             ogTitle: 'Learning Resources - ecomrade',
             ogImage: '/web/learningresources.jpg',
             ogDescription: 'ecomrade offers a variety of learning resources, including articles, videos, and podcasts, to help you enhance your knowledge and skills. Explore our platform and find valuable educational content on various topics.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/learningresources.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'ecomrade offers a variety of learning resources, including articles, videos, and podcasts, to help you enhance your knowledge and skills. Explore our platform and find valuable educational content on various topics.'
+            }
         },
     },
 
@@ -1322,7 +1469,14 @@ const routes = [
             ogTitle: 'Contact Us - ecomrade',
             ogImage: '/contact.jpg',
             ogDescription: 'Need assistance or have inquiries about ecomrade? Our support team is here to help you with problem-solving and answer any questions. Contact us for support through communication.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/contact.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Need assistance or have inquiries about ecomrade? Our support team is here to help you with problem-solving and answer any questions. Contact us for support through communication.'
+            }
         },
     },
 
@@ -1339,7 +1493,14 @@ const routes = [
             ogTitle: 'Terms & conditions - ecomrade',
             ogImage: '/contact.jpg',
             ogDescription: 'This is the page that outlines the terms and conditions of using ecomrade, a social networking platform for connecting with like-minded individuals. This page explains the rules and guidelines that users must adhere to when using the platform, and the terms of service that govern the relationship between the user and ecomrade',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/contact.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'This is the page that outlines the terms and conditions of using ecomrade, a social networking platform for connecting with like-minded individuals. This page explains the rules and guidelines that users must adhere to when using the platform, and the terms of service that govern the relationship between the user and ecomrade'
+            }
         },
     },
 
@@ -1356,7 +1517,14 @@ const routes = [
             ogTitle: 'Privacy Policy for ecomrade - ecomrade',
             ogImage: '/contact.jpg',
             ogDescription: 'This privacy policy outlines how Ecomrade collects, uses, and protects personal information of its users.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/contact.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'This privacy policy outlines how Ecomrade collects, uses, and protects personal information of its users.'
+            }
         },
     },
 
@@ -1383,7 +1551,14 @@ const routes = [
             ogTitle: 'F.A.Q - ecomrade',
             ogImage: '/img/faq.png',
             ogDescription: 'Find answers to common questions on our ecomrade FAQ page. Get help with troubleshooting, policies, and account management. Contact us for more support!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/faq.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Find answers to common questions on our ecomrade FAQ page. Get help with troubleshooting, policies, and account management. Contact us for more support!'
+            }
         },
     },
     {
@@ -1399,7 +1574,14 @@ const routes = [
             ogTitle: 'Market - ecomrade',
             ogImage: '/assets/images/demos/denim.jpg',
             ogDescription: 'Discover deals on our campus e-marketplace! Buy, sell, or trade in-person with cash payments. Connect with fellow students and shop smarter on ecomrade!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/assets/images/demos/denim.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Discover deals on our campus e-marketplace! Buy, sell, or trade in-person with cash payments. Connect with fellow students and shop smarter on ecomrade!'
+            }
         },
     },
 
@@ -1417,7 +1599,14 @@ const routes = [
             ogTitle: 'Polls - ecomrade',
             ogImage: '/img/poll.jpeg',
             ogDescription: 'Gather opinions and feedback with ecomrade customizable polls. Engage your audience with multiple choice and open-ended questions. Try it now!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/poll.jpeg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Gather opinions and feedback with ecomrade customizable polls. Engage your audience with multiple choice and open-ended questions. Try it now!'
+            }
         },
     },
 
@@ -1434,7 +1623,14 @@ const routes = [
             ogTitle: 'Rentals - ecomrade',
             ogImage: '/img/rental.webp',
             ogDescription: 'Find affordable and secure rentals around your campus with ecomrade. Apartments, rooms, shared housing, and convenient amenities. Find your next home now!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/rental.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Find affordable and secure rentals around your campus with ecomrade. Apartments, rooms, shared housing, and convenient amenities. Find your next home now!'
+            }
         },
     },
     {
@@ -1451,7 +1647,14 @@ const routes = [
             ogTitle: 'Sign in - ecomrade',
             ogImage: '/img/login.webp',
             ogDescription: 'Sign in to your ecomrade account to access your user profile and explore the platform. Ensure secure authentication and password protection for your account.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/login.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Sign in to your ecomrade account to access your user profile and explore the platform. Ensure secure authentication and password protection for your account.'
+            }
         }
     },
     {
@@ -1461,14 +1664,21 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'Sign up :- ecomrade',
-            description: ' Create your ecomrade account by filling out the registration form and enjoy access to a personalized user profile on the platform. Ensure secure authentication and password protection for your account.',
+            description: 'Create your ecomrade account by filling out the registration form and enjoy access to a personalized user profile on the platform. Ensure secure authentication and password protection for your account.',
             keywords: 'ecomrade register, sign up, create account, user profile, registration form, authentication, security.',
             author: 'Dennis Chiira',
             robots: 'index, follow',
             ogTitle: 'Sign up - ecomrade',
             ogImage: '/img/register.png',
-            ogDescription: ' Create your ecomrade account by filling out the registration form and enjoy access to a personalized user profile on the platform. Ensure secure authentication and password protection for your account.',
-            favicon: '/favicon.ico'
+            ogDescription: 'Create your ecomrade account by filling out the registration form and enjoy access to a personalized user profile on the platform. Ensure secure authentication and password protection for your account.',
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/register.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Create your ecomrade account by filling out the registration form and enjoy access to a personalized user profile on the platform. Ensure secure authentication and password protection for your account.'
+            }
         }
     },
 
