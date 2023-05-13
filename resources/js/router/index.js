@@ -242,7 +242,14 @@ const routes = [
             ogTitle: 'View event - ecomrade',
             ogImage: '/img/event.webp',
             ogDescription: 'Join us for an unforgettable event! Discover the best in entertainment, culture, and more. RSVP now, buy your tickets, and get ready to have a great time. See you there!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/event.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Join us for an unforgettable event! Discover the best in entertainment, culture, and more. RSVP now, buy your tickets, and get ready to have a great time. See you there!'
+            }
         },
     },
 
