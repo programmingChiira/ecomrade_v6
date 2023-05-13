@@ -442,7 +442,14 @@ const routes = [
             ogTitle: 'Club Products and Services - ecomrade',
             ogImage: '/img/postproducts.png',
             ogDescription: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/postproducts.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.'
+            }
         },
     },
 
@@ -460,7 +467,14 @@ const routes = [
             ogTitle: 'Create club event - ecomrade',
             ogImage: '/img/createevents.jpg',
             ogDescription: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createevents.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.'
+            }
         },
     },
 
@@ -478,7 +492,14 @@ const routes = [
             ogTitle: 'Create club event - ecomrade',
             ogImage: '/img/createevents.jpg',
             ogDescription: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createevents.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'ecomrade allows you to plan and promote your events with ease. Create exciting and engaging events that bring people together.'
+            }
         },
     },
 
@@ -496,7 +517,14 @@ const routes = [
             ogTitle: 'Create club poll - ecomrade',
             ogImage: '/img/createpoll.png',
             ogDescription: 'Create thought-provoking polls and surveys on ecomrade to collect valuable feedback and insights. Gather opinions and make data-driven decisions for personal or business purposes.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createpoll.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Create thought-provoking polls and surveys on ecomrade to collect valuable feedback and insights. Gather opinions and make data-driven decisions for personal or business purposes.'
+            }
         },
     },
 
@@ -514,7 +542,14 @@ const routes = [
             ogTitle: 'View club poll - ecomrade',
             ogImage: '/img/poll.png',
             ogDescription: 'Join poll now and cast your vote! Share it with your friends to get more opinions.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/poll.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Join poll now and cast your vote! Share it with your friends to get more opinions.'
+            }
         },
     },
 
@@ -532,7 +567,14 @@ const routes = [
             ogTitle: 'Post Club Resource - ecomrade',
             ogImage: '/img/learningresource.png',
             ogDescription: 'Discover comprehensive learning resources on ecomrade. Access a variety of educational materials on various topics, all in one place.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/learningresource.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Discover comprehensive learning resources on ecomrade. Access a variety of educational materials on various topics, all in one place.'
+            }
         },
     },
 
@@ -550,7 +592,14 @@ const routes = [
             ogTitle: 'View Club Resource - ecomrade',
             ogImage: '/img/learningresource.webp',
             ogDescription: 'Explore ecomrade\'s learning resources and expand your knowledge on a variety of topics. From academic subjects to personal development, we have something for everyone.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/learningresource.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Explore ecomrade\'s learning resources and expand your knowledge on a variety of topics. From academic subjects to personal development, we have something for everyone.'
+            }
         },
     },
 
@@ -568,7 +617,14 @@ const routes = [
             ogTitle: 'My cart - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'Welcome to ecomrade cart! Shop the best deals on Kenyan student essentials including accessories, electronics, and more. Conveniently checkout with just a few clicks.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/logo.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Welcome to ecomrade cart! Shop the best deals on Kenyan student essentials including accessories, electronics, and more. Conveniently checkout with just a few clicks.'
+            }
         },
     },
 
@@ -586,7 +642,14 @@ const routes = [
             ogTitle: 'Accepted Connections from Other Comrades on ecomrade - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'The Accepted Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/logo.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'The Accepted Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.'
+            }
         },
     },
 
@@ -604,7 +667,14 @@ const routes = [
             ogTitle: 'Received Connections from Other Comrades on ecomrade - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'The Received Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/logo.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'The Received Connections chat room on ecomrade allows users to communicate and interact with other members who have sent them connection requests. This feature is a great way to expand ones network and build professional relationships.'
+            }
         },
     },
 
