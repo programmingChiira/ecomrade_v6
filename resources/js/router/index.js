@@ -392,7 +392,14 @@ const routes = [
             ogTitle: 'View club blog - ecomrade',
             ogImage: '/img/createblog.png',
             ogDescription: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/createblog.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Express your thoughts, ideas, and experiences through blogs on ecomrade. Engage with other users, start conversations, and share your knowledge.'
+            }
         },
     },
 
@@ -410,7 +417,14 @@ const routes = [
             ogTitle: 'Advertise Club Products and Services - ecomrade',
             ogImage: '/img/postproducts.png',
             ogDescription: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/postproducts.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Find the latest and greatest products and services from fellow comrades on ecomrade. From fashion and beauty to tech and home goods, we\'ve got you covered.'
+            }
         },
     },
 
