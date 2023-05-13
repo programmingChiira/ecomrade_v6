@@ -154,68 +154,7 @@
         });
     </script> --}}
 
-    <script>
-        // if ("Notification" in window) {
-        //     // Check if notifications are supported
-        //     Notification.requestPermission().then(function(permission) {
-        //         if (permission === "granted") {
-        //             // If the user grants permission, show a thank you message
-        //             var notification = new Notification("Thank you!", {
-        //                 body: "You will now receive notifications from ecomrade",
-        //                 icon: "/logo.png",
-        //                 vibrate: [200, 100, 200],
-        //             });
-        //         } else {
-        //             // If the user denies permission, show a message explaining why notifications are useful
-        //             var notification = new Notification("Oops!", {
-        //                 body: "It looks like you've denied permission for notifications. Notifications can help you stay up to date with the latest news and updates from ecomrade. If you change your mind, you can enable notifications in your browser settings.",
-        //                 icon: "/logo.png",
-        //             });
-        //         }
-        //     });
-        // } else {
-        //     console.error("This browser does not support desktop notifications");
-        // }
-
-        // var pusher = new Pusher("9820769533922d6161b6", {
-        //     cluster: "ap2",
-        // });
-
-        // var channel = pusher.subscribe("my-channel");
-        // channel.bind("my-event", function(data) {
-        //     if (Notification.permission === "granted") {
-        //         // If the user has already granted permission, show the notification
-        //         var notification = new Notification("Hello there comrade!", {
-        //             body: data.message,
-        //             icon: "/logo.png",
-        //             vibrate: [200, 100, 200],
-        //         });
-        //         notification.onclick = function(event) {
-        //             event.preventDefault();
-        //             window.focus();
-        //         };
-        //     } else if (
-        //         Notification.permission !== "denied" &&
-        //         window.matchMedia("(display-mode: standalone)").matches
-        //     ) {
-        //         // If the user hasn't denied permission, and the app is running as a PWA, request permission
-        //         Notification.requestPermission().then(function(permission) {
-        //             if (permission === "granted") {
-        //                 var notification = new Notification("Hello there comrade!", {
-        //                     body: data.message,
-        //                     icon: "/logo.png",
-        //                     vibrate: [200, 100, 200],
-        //                 });
-        //                 notification.onclick = function(event) {
-        //                     event.preventDefault();
-        //                     window.focus();
-        //                 };
-        //             }
-        //         });
-        //     }
-        // });
-
-
+    {{-- <script>
         var pusher;
 
         // Check if the browser is a mobile browser or a PWA.
@@ -227,6 +166,84 @@
                 cluster: 'ap2',
                 useServiceWorker: true
             });
+        } else {
+            // If the browser is not a mobile browser or a PWA, use the regular Pusher API.
+            pusher = new Pusher('9820769533922d6161b6', {
+                cluster: 'ap2'
+            });
+        }
+
+        // Subscribe to the `my-channel` channel.
+        var channel = pusher.subscribe('my-channel');
+
+        // Bind an event handler to the `my-event` event.
+        channel.bind('my-event', function(data) {
+            // Check if notifications are supported.
+            if ("Notification" in window) {
+                Notification.requestPermission().then(function(permission) {
+                    if (permission === "granted") {
+                        // If the user grants permission, show the notification.
+                        var notification = new Notification("Hello there comrade!", {
+                            body: data.message,
+                            icon: "/logo.png",
+                            vibrate: [200, 100, 200],
+                        });
+                        notification.onclick = function(event) {
+                            event.preventDefault();
+                            window.focus();
+                        };
+                    } else if (
+                        Notification.permission !== "denied" &&
+                        window.matchMedia("(display-mode: standalone)").matches
+                    ) {
+                        // If the user hasn't denied permission, and the app is running as a PWA, request permission.
+                        Notification.requestPermission().then(function(permission) {
+                            if (permission === "granted") {
+                                var notification = new Notification("Hello there comrade!", {
+                                    body: data.message,
+                                    icon: "/logo.png",
+                                    vibrate: [200, 100, 200],
+                                });
+                                notification.onclick = function(event) {
+                                    event.preventDefault();
+                                    window.focus();
+                                };
+                            }
+                        });
+                    }
+                });
+            } else {
+                console.error("This browser does not support desktop notifications");
+            }
+        });
+    </script> --}}
+
+    <script>
+        var pusher;
+
+        // Check if the browser is a mobile browser or a PWA.
+        var browser = navigator.userAgent.toLowerCase();
+
+        if (browser.indexOf('iphone') > -1 || browser.indexOf('android') > -1 || browser.indexOf('pwa') > -1) {
+            // If the browser is a mobile browser or a PWA, use the Pusher service worker.
+            const pusherOptions = {
+                useServiceWorker: true,
+                cluster: 'ap2',
+            };
+            pusher = new Pusher('9820769533922d6161b6', pusherOptions);
+
+            // Register service worker for handling push notifications
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/pusher-worker.js')
+                    .then(function(registration) {
+                        console.log('Service worker registered successfully for Pusher');
+                        pusherOptions.serviceWorkerRegistration = registration;
+                        pusher = new Pusher('9820769533922d6161b6', pusherOptions);
+                    })
+                    .catch(function(error) {
+                        console.error('Failed to register service worker for Pusher', error);
+                    });
+            }
         } else {
             // If the browser is not a mobile browser or a PWA, use the regular Pusher API.
             pusher = new Pusher('9820769533922d6161b6', {
@@ -303,6 +320,8 @@
         }
         document.addEventListener("DOMContentLoaded", function(event) {});
     </script>
+    <script src="/pusher-worker.js"></script>
+
     <script></script>
 </body>
 
