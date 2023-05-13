@@ -190,7 +190,14 @@ const routes = [
             ogTitle: 'View blog - ecomrade',
             ogImage: '/img/blog.jpg',
             ogDescription: 'Join me on ecomrade blog platform and share your thoughts, experiences, and creativity with Kenyan comrades. Do not forget to read, comment, and rate my blog too!',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/blog.jpg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Join me on ecomrade blog platform and share your thoughts, experiences, and creativity with Kenyan comrades. Do not forget to read, comment, and rate my blog too!'
+            }
         },
 
     },
