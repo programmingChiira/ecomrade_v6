@@ -105,6 +105,7 @@ import AdmRental from "../pages/ecomrade/AdmRental.vue";
 import AdmRentalCat from "../pages/ecomrade/AdmRentalCat.vue";
 
 const routes = [
+   
     {
         path: "/",
         name: "Home",
@@ -118,8 +119,15 @@ const routes = [
             ogTitle: 'Home page - ecomrade',
             ogImage: '/logo.png',
             ogDescription: 'The social hub for Kenyan campus students. Connect, network and collaborate. Find student associations, events, e-market, polls, clubs, societies, and rentals.',
-            favicon: '/favicon.ico'
-        },
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/logo.png',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'The social hub for Kenyan campus students. Connect, network and collaborate. Find student associations, events, e-market, polls, clubs, societies, and rentals.'
+            }
+        }
     },
     {
         path: "/event",
@@ -134,7 +142,14 @@ const routes = [
             ogTitle: 'Events - ecomrade',
             ogImage: '/img/event.webp',
             ogDescription: 'Discover and attend the best events, concerts, workshops, and festivals on our platform. RSVP, buy tickets, and enjoy entertainment, culture, and more.',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/img/event.webp',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Discover and attend the best events, concerts, workshops, and festivals on our platform. RSVP, buy tickets, and enjoy entertainment, culture, and more.'
+            }
         },
     },
     {
@@ -227,7 +242,7 @@ const routes = [
             favicon: '/favicon.ico'
         },
     },
-    
+
     {
         path: "/viewClub:slug",
         name: "ViewClub",
@@ -566,7 +581,7 @@ const routes = [
             favicon: '/favicon.ico'
         },
     },
-    
+
     {
         path: "/viewPoll:slug",
         name: "ViewPoll",
@@ -807,7 +822,7 @@ const routes = [
             favicon: '/favicon.ico'
         },
     },
-    
+
     {
         path: "/createmarket",
         name: "CreateMarket",
@@ -824,7 +839,7 @@ const routes = [
             favicon: '/favicon.ico'
         },
     },
-    
+
     {
         path: "/createpoll",
         name: "CreatePoll",
@@ -841,7 +856,7 @@ const routes = [
             favicon: '/favicon.ico'
         },
     },
-    
+
     {
         path: "/createrental",
         name: "CreateRental",
