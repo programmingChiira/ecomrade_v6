@@ -317,7 +317,14 @@ const routes = [
             ogTitle: 'View Club - ecomrade',
             ogImage: '/web/club.jpeg',
             ogDescription: 'Explore the various clubs and societies available on ecomrade, including their activities, membership requirements, and upcoming events. Join the community and connect with like-minded individuals',
-            favicon: '/favicon.ico'
+            favicon: '/favicon.ico',
+            ogImage: {
+                url: '/web/club.jpeg',
+                alt: 'ecomrade logo'
+            },
+            ogDescription: {
+                content: 'Explore the various clubs and societies available on ecomrade, including their activities, membership requirements, and upcoming events. Join the community and connect with like-minded individuals'
+            }
         },
     },
 
