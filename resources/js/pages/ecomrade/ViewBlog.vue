@@ -40,13 +40,13 @@
         </div>
 
 
-        <div style="background-color: #E9ECEF;" class="text-center p-4">
+        <div style="background-color: #E9ECEF;">
           <img
             v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'"
             loading="lazy" style="width: 100%; height: 40vh; object-fit: cover;" id="main-image" src="/web/img/no_img.jpg"
             class="card-img-top" width="380">
 
-          <img v-else style="width: 100%; height: 40vh; object-fit: contain;" id="main-image"
+          <img v-else style="width: 100%; height: 70vh; object-fit: contain;" id="main-image"
             :src="'./img/blog/' + post.image_1" class="card-img-top" width="550" @click="activateImageView">
         </div>
         <br />
@@ -135,7 +135,7 @@
             <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
               class="fa fa-times" @click="deactivateImageView"></i>
 
-            <img style="width: 100%; height: 90vh; object-fit: contain;" id="main-view"
+            <img style="width: 100%; height: 70vh; object-fit: contain;" id="main-view"
               :src="'./img/blog/' + post.image_1" class="card-img-top" width="850" @click="deactivateImageView">
 
             <span
