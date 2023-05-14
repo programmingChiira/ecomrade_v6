@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="images p-3">
-                                        <div class="text-center p-4">
+                                        <div>
 
                                             <img v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL || market.image_1 == 'undefined'"
                                                 loading="lazy" style="width: 100%;height: 450px; object-fit: contain;"
@@ -59,7 +59,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_1" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -71,7 +71,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_2" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -83,7 +83,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_3" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -95,7 +95,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_4" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -107,7 +107,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_5" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -119,7 +119,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_6" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -131,7 +131,7 @@
 
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/market/' + market.image_7" onclick="change_image(this)"
                                                         class="card-img-top" width="70">
@@ -146,8 +146,8 @@
                                                 <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
                                                     class="fa fa-times" @click="deactivateImageView"></i>
 
-                                                <img style="width: 100%;height: 80vh; object-fit: contain;" id="main-view"
-                                                    :src="'./img/market/' + market.image_1" class="card-img-top" width="750"
+                                                <img style="width: 100%;object-fit: contain;" id="main-view"
+                                                    :src="'./img/market/' + market.image_1"
                                                     @click="deactivateImageView">
 
                                                 <div class="thumbnail text-center">
@@ -156,7 +156,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_1"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -169,7 +169,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_2"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -182,7 +182,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_3"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -195,7 +195,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_4"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -208,7 +208,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_5"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -221,7 +221,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_6"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -234,7 +234,7 @@
 
                                                     </span>
                                                     <span v-else>
-                                                        <a href="#">
+                                                        <a>
                                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                                 :src="'./img/market/' + market.image_7"
                                                                 onclick="change_view(this)" class="card-img-top"
@@ -1417,7 +1417,7 @@ export default {
     background-color: #ddd;
     margin-bottom: 20px;
     border: #00a8cc solid 1px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .card {
