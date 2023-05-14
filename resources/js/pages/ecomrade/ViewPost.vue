@@ -136,7 +136,7 @@
               class="fa fa-times" @click="deactivateImageView"></i>
 
             <img style="width: 100%; height: 70vh; object-fit: contain;" id="main-view"
-              :src="'./img/blog/' + post.image_1" class="card-img-top" width="850" @click="deactivateImageView">
+              :src="'./img/blog/' + post.image_1" width="850" @click="deactivateImageView">
 
             <span
               v-if="post.image_1 == false || post.image_1 == null || post.image_1 == 'null' || post.image_1 == '' || post.image_1 == ' ' || post.image_1 == NULL || post.image_1 == 'undefined'">
