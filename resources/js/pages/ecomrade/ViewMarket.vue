@@ -471,26 +471,26 @@
                                                 <router-link to="/login" v-if="id == false" data-toggle="tooltip"
                                                     data-placement="bottom" title="Add to compare" type="submit"
                                                     style="font-size: 13px;" class="btn bg-gradient-primary btn-sm me-2">
-                                                    Compare <sup> 0</sup>
+                                                    <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"> </i> <sup> 0</sup>
                                                 </router-link>
 
                                                 <button v-else data-toggle="tooltip" data-placement="bottom"
                                                     title="Add to compare" type="submit" style="font-size: 13px;"
                                                     class="btn bg-gradient-primary btn-sm me-2">
-                                                    Compare <sup> {{ marketNameCount }}</sup>
+                                                    <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"> </i> <sup> {{ marketNameCount }}</sup>
                                                 </button>
                                             </form>
 
                                             <a data-toggle="tooltip" data-placement="bottom" title="Share on Twitter"
-                                                :href="'https://twitter.com/intent/tweet?text=Hi%20there,%20am%20selling%20' + market.product_name + '%20at%20ecormade,click%20&url=https%3A%2F%2Fwww.ecomrade.co.ke/viewMarket' + market.product_name + '%20to%20view.%20ecomrade%20is%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20e%20-%20market.%20%23comrade%20%23university%20%23ecommerce'"
+                                                :href="'https://twitter.com/intent/tweet?text=Hi%20there,%20check%20out%20' + market.product_name + '%20at%20ecormade,click%20&url=https%3A%2F%2Fwww.ecomrade.co.ke/viewMarket' + market.slug + '%20to%20view.%20ecomrade%20is%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20e%20-%20market.%20%23comrade%20%23university%20%23ecommerce'"
                                                 class="btn btn-info btn-sm me-2" target="_blank">
-                                                <i class="fab fa-twitter me-1"></i> Tweet
+                                                <i style="color: white;font-size: 13px;" class="fab fa-twitter me-1"></i>
                                             </a>
                                             <a data-toggle="tooltip" data-placement="bottom" title="Share on Facebook"
-                                                :href="'https://www.facebook.com/sharer/sharer.php?u=https://www.ecomrade.co.ke/viewMarket' + market.product_name"
+                                                :href="'https://www.facebook.com/sharer/sharer.php?u=https://www.ecomrade.co.ke/viewMarket' + market.slug"
                                                 style="background-color: #3b5998;" class="btn btn-primary btn-sm me-2"
                                                 target="_blank">
-                                                <i class="fab fa-facebook-square me-1"></i> Share
+                                                <i style="color: white;font-size: 13px;" class="fab fa-facebook-square me-1"></i>
                                             </a>
                                         </div>
                                     </div>
