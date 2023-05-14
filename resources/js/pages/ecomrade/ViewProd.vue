@@ -482,7 +482,7 @@
                                             </form>
 
                                             <a data-toggle="tooltip" data-placement="bottom" title="Share on Twitter"
-                                                :href="'https://twitter.com/intent/tweet?text=Hi%20there,%20check%20out%20' + market.product_name + '%20at%20ecormade,click%20&url=https%3A%2F%2Fwww.ecomrade.co.ke/viewMarket' + market.slug + '%20to%20view.%20ecomrade%20is%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20e-market.%20%23comrade%20%23university%20%23ecommerce%20%23NikujaribuTu%20%23programming%20%23Azimio%20%23Gachagua%20%23Ruto'"
+                                                :href="'https://twitter.com/intent/tweet?text=Hi%20there,%20check%20out%20' + market.product_name + '%20at%20ecormade,%20click%20&url=https%3A%2F%2Fwww.ecomrade.co.ke/viewMarket' + market.product_name + '%20to%20view.%20ecomrade%20is%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20e%20-%20market.%20%23comrade%20%23university%20%23ecommerce%20%23NikujaribuTu%20%23programming%20%23Azimio%20%23Gachagua%20%23Ruto&amp;media=' + market.image_1"
                                                 class="btn btn-info btn-sm me-2" target="_blank">
                                                 <i style="color: white;font-size: 13px;" class="fab fa-twitter me-1"></i>
                                             </a>
