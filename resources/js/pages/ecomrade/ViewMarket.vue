@@ -517,7 +517,7 @@
                                             <li class="nav-item">
                                                 <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab"
                                                     href="#code-btn-icon" role="tab" aria-selected="false">
-                                                    <i class="fas fa-star text-sm me-2"></i> Review
+                                                    <i class="fas fa-star text-sm me-2"></i> Rate
                                                 </a>
                                             </li>
                                         </ul>
