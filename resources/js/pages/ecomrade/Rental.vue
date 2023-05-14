@@ -143,11 +143,11 @@
                                 }">
                                     <img v-if="rental.image_1 == false || rental.image_1 == null || rental.image_1 == 'null' || rental.image_1 == '' || rental.image_1 == 'undefined' || rental.image_1 == NULL"
                                         loading="lazy" src="/web/img/no_img.jpg"
-                                        style="background-color: white;width: 100%;height: 200px; object-fit: contain;"
+                                        style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
                                         class="img-fluid img-responsive rounded product-image">
 
                                     <img v-else :src="'./img/house/' + rental.image_1"
-                                    style="background-color: white;width: 100%;height: 200px; object-fit: contain;"
+                                    style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
                                         class="img-fluid img-responsive rounded product-image">
 
                                 </router-link>
