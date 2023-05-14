@@ -40,13 +40,13 @@
 
 
                             <div class="demo">
-                                <div class="text-center p-4">
+                                <div>
 
                                     <img v-if="rental.image_1 == false || rental.image_1 == null || rental.image_1 == 'null' || rental.image_1 == '' || rental.image_1 == ' ' || rental.image_1 == NULL || rental.image_1 == 'undefined'"
                                         loading="lazy" style="width: 100%;height: 450px; object-fit: contain;"
                                         id="main-image" src="/web/img/no_img.jpg" width="550">
 
-                                    <img v-else style="width: 100%;height: 550px; object-fit: contain;" id="main-image"
+                                    <img v-else style="width: 100%;height: 60vh; object-fit: contain;" id="main-image"
                                         :src="'./img/house/' + rental.image_1" width="550" @click="activateImageView">
                                 </div>
 
@@ -56,7 +56,7 @@
                                         v-if="rental.image_1 == false || rental.image_1 == null || rental.image_1 == 'null' || rental.image_1 == '' || rental.image_1 == ' ' || rental.image_1 == NULL || rental.image_1 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_1" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -68,7 +68,7 @@
                                         v-if="rental.image_2 == false || rental.image_2 == null || rental.image_2 == 'null' || rental.image_2 == '' || rental.image_2 == ' ' || rental.image_2 == NULL || rental.image_2 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_2" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -79,7 +79,7 @@
                                         v-if="rental.image_3 == false || rental.image_3 == null || rental.image_3 == 'null' || rental.image_3 == '' || rental.image_3 == ' ' || rental.image_3 == NULL || rental.image_3 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_3" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -90,7 +90,7 @@
                                         v-if="rental.image_4 == false || rental.image_4 == null || rental.image_4 == 'null' || rental.image_4 == '' || rental.image_4 == ' ' || rental.image_4 == NULL || rental.image_4 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_4" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -101,7 +101,7 @@
                                         v-if="rental.image_5 == false || rental.image_5 == null || rental.image_5 == 'null' || rental.image_5 == '' || rental.image_5 == ' ' || rental.image_5 == NULL || rental.image_5 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_5" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -112,7 +112,7 @@
                                         v-if="rental.image_6 == false || rental.image_6 == null || rental.image_6 == 'null' || rental.image_6 == '' || rental.image_6 == ' ' || rental.image_6 == NULL || rental.image_6 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_6" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -123,7 +123,7 @@
                                         v-if="rental.image_7 == false || rental.image_7 == null || rental.image_7 == 'null' || rental.image_7 == '' || rental.image_7 == ' ' || rental.image_7 == NULL || rental.image_7 == 'undefined'">
                                     </span>
                                     <span v-else>
-                                        <a href="#">
+                                        <a>
                                             <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                 :src="'./img/house/' + rental.image_7" onclick="change_image(this)"
                                                 class="card-img-top" width="70">
@@ -141,14 +141,14 @@
                                             class="fa fa-times" @click="deactivateImageView"></i>
 
                                         <img style="width: 100%;height: 80vh; object-fit: contain;" id="main-view"
-                                            :src="'./img/house/' + rental.image_1" width="750" @click="deactivateImageView">
+                                            :src="'./img/house/' + rental.image_1" @click="deactivateImageView">
 
                                         <div class="thumbnail text-center">
                                             <span
                                                 v-if="rental.image_1 == false || rental.image_1 == null || rental.image_1 == 'null' || rental.image_1 == '' || rental.image_1 == ' ' || rental.image_1 == NULL || rental.image_1 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_1" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -160,7 +160,7 @@
                                                 v-if="rental.image_2 == false || rental.image_2 == null || rental.image_2 == 'null' || rental.image_2 == '' || rental.image_2 == ' ' || rental.image_2 == NULL || rental.image_2 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_2" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -171,7 +171,7 @@
                                                 v-if="rental.image_3 == false || rental.image_3 == null || rental.image_3 == 'null' || rental.image_3 == '' || rental.image_3 == ' ' || rental.image_3 == NULL || rental.image_3 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_3" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -182,7 +182,7 @@
                                                 v-if="rental.image_4 == false || rental.image_4 == null || rental.image_4 == 'null' || rental.image_4 == '' || rental.image_4 == ' ' || rental.image_4 == NULL || rental.image_4 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_4" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -193,7 +193,7 @@
                                                 v-if="rental.image_5 == false || rental.image_5 == null || rental.image_5 == 'null' || rental.image_5 == '' || rental.image_5 == ' ' || rental.image_5 == NULL || rental.image_5 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_5" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -204,7 +204,7 @@
                                                 v-if="rental.image_6 == false || rental.image_6 == null || rental.image_6 == 'null' || rental.image_6 == '' || rental.image_6 == ' ' || rental.image_6 == NULL || rental.image_6 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_6" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
@@ -215,7 +215,7 @@
                                                 v-if="rental.image_7 == false || rental.image_7 == null || rental.image_7 == 'null' || rental.image_7 == '' || rental.image_7 == ' ' || rental.image_7 == NULL || rental.image_7 == 'undefined'">
                                             </span>
                                             <span v-else>
-                                                <a href="#">
+                                                <a>
                                                     <img style="border: solid 1px black;border-radius: 5px;margin: 3px;width: 60px;height: 80px; object-fit: contain;"
                                                         :src="'./img/house/' + rental.image_7" onclick="change_view(this)"
                                                         class="card-img-top" width="70">
