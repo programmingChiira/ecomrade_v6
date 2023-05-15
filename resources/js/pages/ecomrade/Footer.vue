@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col-md-12">
-                    <a href="https://twitter.com/intent/tweet?text=ecormade,%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20market.%20%23comrade%20%23university%20%23ecommerce&url=https%3A%2F%2Fwww.ecomrade.co.ke" class="btn btn-info mb-0 me-2" target="_blank">
-                        <i class="fab fa-twitter me-1"></i> Tweet
+                    <a href="https://twitter.com/intent/tweet?text=ecormade,%20a%20hub%20for%20Kenyan%20comrades,%20rentals,%20market.&url=https%3A%2F%2Fwww.ecomrade.co.ke%20%23comrade%20%23university%20%23ecommerce%20%23NikujaribuTu%20%23programming%20%23Azimio%20%23Gachagua%20%23Ruto" class="btn btn-info mb-0 me-2" target="_blank">
+                        <i style="font-size: 13px;" class="fab fa-twitter me-1"></i>
                     </a>
                     <a style="background-color: #3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=https://www.ecomrade.co.ke" class="btn btn-primary mb-0 me-2" target="_blank">
-                        <i class="fab fa-facebook-square me-1"></i> Share
+                        <i style="font-size: 13px;" class="fab fa-facebook-square me-1"></i>
                     </a>
                 </div>
             </div>
