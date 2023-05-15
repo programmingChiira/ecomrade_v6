@@ -36,15 +36,6 @@
                                         <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                                         <li style="color: #189483;" class="breadcrumb-item"><strong>Polls</strong></li>
                                     </ol>
-
-                                    <div v-if="lastPage > 1" class="pagination">
-                                        <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;"
-                                            v-if="currentPage > 1" @click="pollTitle(currentPage - 1)">&laquo; Prev</button>
-
-                                        <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;"
-                                            v-if="currentPage < lastPage" @click="pollTitle(currentPage + 1)">
-                                            Next &raquo;</button>
-                                    </div>
                                 </div>
                             </nav>
                         </div>

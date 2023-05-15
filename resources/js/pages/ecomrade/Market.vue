@@ -116,14 +116,6 @@
                                     <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                                     <li style="color: #189483;" class="breadcrumb-item"><strong>Market</strong></li>
                                 </ol>
-                                <div v-if="lastPage > 1" class="pagination">
-                                    <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;"
-                                        v-if="currentPage > 1" @click="productName(currentPage - 1)">&laquo; Prev</button>
-
-                                    <button class="btn bg-gradient-primary btn-sm" style="margin: 4px;"
-                                        v-if="currentPage < lastPage" @click="productName(currentPage + 1)">
-                                        Next &raquo;</button>
-                                </div>
                             </div>
                         </nav>
                     </div>
@@ -161,7 +153,7 @@
                                     name: 'ViewMarket',
                                     params: { slug: market.slug },
                                 }">
-                                    <img v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL"
+                                    <img v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL || market.image_1 == 'undefined'"
                                         loading="lazy"
                                         style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
                                         src="/web/img/no_img.jpg" class="card-img-top" width="100%">
@@ -413,14 +405,7 @@ export default {
                     this.success = true;
                     this.errors = {};
 
-                    axios.get('/api/markets')
-                        .then(response => {
-                            this.markets = response.data.data;
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        });
-
+                    
                     axios
                         .get("/api/user")
                         .then(response => {

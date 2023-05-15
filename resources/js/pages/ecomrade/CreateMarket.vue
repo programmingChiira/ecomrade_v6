@@ -85,6 +85,7 @@
                   <option>Children</option>
                   <option>Male</option>
                   <option>Female</option>
+                  <option>Unisex</option>
                 </select>
                 <span v-if="errors.gender" class="error">{{ errors.gender[0] }}</span>
                 <br />
