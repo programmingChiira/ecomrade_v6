@@ -449,35 +449,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div style="background-color: #E9ECEF;" class="card mt-2"> <span>Similar rentals:</span>
-
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column" v-for="rentaling in rentals" :key="rentaling.id">
-                                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"
-                                        v-if="rentaling.rental_category == rental.rental_category">
-
-                                        <router-link :to="{
-                                            name: 'ViewHouse',
-                                            params: { slug: rentaling.slug },
-                                        }">
-
-                                            <img v-if="rentaling.image_1 == false || rentaling.image_1 == null || rentaling.image_1 == 'null' || rentaling.image_1 == '' || rentaling.image_1 == ' ' || rentaling.image_1 == NULL"
-                                                loading="lazy" src="/web/img/no_img.jpg" class="card-img-top">
-
-                                            <img v-else :src="'./img/house/' + rentaling.image_1" class="card-img-top">
-
-                                        </router-link>
-
-                                        <div class="card-body">
-                                            <h6 class="card-title"> {{ rentaling.rental_name }} </h6>
-                                            <h6 class="card-title">Ksh. {{ rentaling.rental_price }}</h6>
-                                            <h6 class="card-title">Per {{ rentaling.pay_per }}</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
 
