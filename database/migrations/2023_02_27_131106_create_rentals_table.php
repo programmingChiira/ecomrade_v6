@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('rental_area')->nullable();
             $table->string('vacancy_status')->nullable();
             $table->string('rental_price')->nullable();
+            $table->string('main_student_residents')->nullable();
             $table->string('pay_per')->nullable();
             $table->string('image_1')->nullable();
             $table->string('image_2')->nullable();

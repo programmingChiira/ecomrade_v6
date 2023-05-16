@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ class Rental extends Model
     }
 
     protected $fillable = [
-        'user_id','slug','contact_information','rental_name','rental_category','no_of_rooms','maps','rental_area','vacancy_status','rental_price','pay_per','image_1','image_2','image_3','image_4','image_5','image_6','image_7','rental_description_1','rental_description_2','rental_description_3','rental_description_4','rental_description_5','rental_description_6','rental_description_7','rental_description_8','rental_more_info'
+        'user_id', 'slug', 'contact_information', 'rental_name', 'rental_category', 'no_of_rooms', 'maps', 'rental_area', 'vacancy_status', 'rental_price', 'pay_per', 'main_student_residents', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'rental_description_1', 'rental_description_2', 'rental_description_3', 'rental_description_4', 'rental_description_5', 'rental_description_6', 'rental_description_7', 'rental_description_8', 'rental_more_info'
     ];
 
     public function rentalreviews()
@@ -29,13 +30,12 @@ class Rental extends Model
     public function rentalbookings()
     {
         return $this->hasMany(RentalBooking::class, 'rentalId');
-
     }
 
     public function carts()
-{
-    return $this->belongsToMany(RentalCart::class);
-}
+    {
+        return $this->belongsToMany(RentalCart::class);
+    }
 
     public function getAverageRatingAttribute()
     {
@@ -57,7 +57,5 @@ class Rental extends Model
         //return $this->rentalcarts->count('rentalName');
         //return $this->rentalcarts()->where('senderName', auth()->user()->id)->whereNotNull('rentalName')->count();
         return $this->rentalcarts()->where('senderId', auth()->user()->id ?? null)->whereNotNull('rentalName')->count();
-
     }
-
 }

@@ -72,10 +72,17 @@
 
                                 <label for="rental_area"><span>Rental Location<span style="color: red;"> *
                                         </span></span></label>
-                                <select class="form-control" type="text" id="rental_area" v-model="rentArea" required>
+                                        <input class="form-control" type="text" id="rental_area" v-model="rentArea" required />
+                                
+                                <span v-if="errors.rental_area" class="error">{{ errors.rental_area[0] }}</span>
+                                <br />
+
+                                <label for="main_student_residents"><span>Main campus student residents<span style="color: red;"> *
+                                        </span></span></label>
+                                <select class="form-control" type="text" id="main_student_residents" v-model="studentResident" required>
                                     <option v-for="location in locations" :key="location.id"> {{ location.name }}</option>
                                 </select>
-                                <span v-if="errors.rental_area" class="error">{{ errors.rental_area[0] }}</span>
+                                <span v-if="errors.main_student_residents" class="error">{{ errors.main_student_residents[0] }}</span>
                                 <br />
 
                                 <label for="vacancy_status"><span>Rental Availability<span style="color: red;"> *
@@ -359,6 +366,7 @@ export default {
                 contact_information: '',
                 rental_price: '',
                 pay_per: '',
+                main_student_residents: '',
                 rental_service: '',
                 selectedCategory: '',
                 name: '',
@@ -523,6 +531,7 @@ export default {
             fd.append("contact_information", this.fields.contact_information);
             fd.append("rental_price", this.fields.rental_price);
             fd.append("pay_per", this.fields.pay_per);
+            fd.append("main_student_residents", this.fields.main_student_residents);
             fd.append("file1", this.fields.file1);
             fd.append("file2", this.fields.file2);
             fd.append("file3", this.fields.file3);
@@ -767,6 +776,15 @@ export default {
             },
             set(value) {
                 this.fields.rental_area = value;
+            }
+        },
+
+        studentResident: {
+            get() {
+                return this.fields.main_student_residents;
+            },
+            set(value) {
+                this.fields.main_student_residents = value;
             }
         },
 

@@ -26,6 +26,7 @@ class RentalController extends Controller
                 ->orWhere('rental_price', 'like', '%' . $request->search . '%')
                 ->orWhere('pay_per', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_area', 'like', '%' . $request->search . '%')
+                ->orWhere('main_student_residents', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_1', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_2', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_3', 'like', '%' . $request->search . '%')
@@ -57,6 +58,7 @@ class RentalController extends Controller
                     'vacancy_status' => $rental->vacancy_status,
                     'rental_price' => $rental->rental_price,
                     'pay_per' => $rental->pay_per,
+                    'main_student_residents' => $rental->main_student_residents,
                     'image_1' => $rental->image_1,
                     'image_2' => $rental->image_2,
                     'image_3' => $rental->image_3,
@@ -107,6 +109,7 @@ class RentalController extends Controller
                 'vacancy_status' => $rental->vacancy_status,
                 'rental_price' => $rental->rental_price,
                 'pay_per' => $rental->pay_per,
+                'main_student_residents' => $rental->main_student_residents,
                 'image_1' => $rental->image_1,
                 'image_2' => $rental->image_2,
                 'image_3' => $rental->image_3,
@@ -150,6 +153,7 @@ class RentalController extends Controller
                     ->orWhere('rental_price', 'like', '%' . $request->search . '%')
                     ->orWhere('pay_per', 'like', '%' . $request->search . '%')
                     ->orWhere('rental_area', 'like', '%' . $request->search . '%')
+                    ->orWhere('main_student_residents', 'like', '%' . $request->search . '%')
                     ->orWhere('rental_description_1', 'like', '%' . $request->search . '%')
                     ->orWhere('rental_description_2', 'like', '%' . $request->search . '%')
                     ->orWhere('rental_description_3', 'like', '%' . $request->search . '%')
@@ -227,6 +231,7 @@ class RentalController extends Controller
                 ->orWhere('rental_price', 'like', '%' . $request->search . '%')
                 ->orWhere('pay_per', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_area', 'like', '%' . $request->search . '%')
+                ->orWhere('main_student_residents', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_1', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_2', 'like', '%' . $request->search . '%')
                 ->orWhere('rental_description_3', 'like', '%' . $request->search . '%')
@@ -256,6 +261,7 @@ class RentalController extends Controller
                     'vacancy_status' => $rental->vacancy_status,
                     'rental_price' => $rental->rental_price,
                     'pay_per' => $rental->pay_per,
+                    'main_student_residents' => $rental->main_student_residents,
                     'image_1' => $rental->image_1,
                     'image_2' => $rental->image_2,
                     'image_3' => $rental->image_3,
@@ -303,6 +309,7 @@ class RentalController extends Controller
                 'vacancy_status' => $rental->vacancy_status,
                 'rental_price' => $rental->rental_price,
                 'pay_per' => $rental->pay_per,
+                'main_student_residents' => $rental->main_student_residents,
                 'image_1' => $rental->image_1,
                 'image_2' => $rental->image_2,
                 'image_3' => $rental->image_3,
@@ -365,6 +372,7 @@ class RentalController extends Controller
         $rental_area = $request->input('rental_area');
         $vacancy_status = $request->input('vacancy_status');
         $pay_per = $request->input('pay_per');
+        $main_student_residents = $request->input('main_student_residents');
         $rental_description_1 = $request->input('rental_description_1');
         $rental_description_2 = $request->input('rental_description_2');
         $rental_description_3 = $request->input('rental_description_3');
@@ -487,6 +495,7 @@ class RentalController extends Controller
         $rental->rental_area = $rental_area;
         $rental->vacancy_status = $vacancy_status;
         $rental->pay_per = $pay_per;
+        $rental->main_student_residents = $main_student_residents;
         $rental->rental_description_1 = $rental_description_1;
         $rental->rental_description_2 = $rental_description_2;
         $rental->rental_description_3 = $rental_description_3;
@@ -707,6 +716,11 @@ class RentalController extends Controller
         if ($request->input('pay_per')) {
             $pay_per = $request->input('pay_per');
             $rental->pay_per = $pay_per;
+        }
+
+        if ($request->input('main_student_residents')) {
+            $main_student_residents = $request->input('main_student_residents');
+            $rental->main_student_residents = $main_student_residents;
         }
 
         if ($request->input('rental_description_1')) {
