@@ -118,15 +118,13 @@
                                             </li>
                                         </ul>
 
+                                        <label class="label">
+                                                By signing up, I agree with terms, conditions, & privacy
+                                            </label>
+
 
 
                                         <br />
-                                        <div class="control is-expanded">
-                                            <input type="checkbox" class="btn-check" id="btncheck1" required>
-                                            <label class="btn btn-outline-info btn-sm" for="btncheck1">
-                                                By signing up, I agree with terms, conditions, & privacy
-                                            </label>
-                                        </div>
 
                                         <div class="text-center">
                                             <button type="submit"
