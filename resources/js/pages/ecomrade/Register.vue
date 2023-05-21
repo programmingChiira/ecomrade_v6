@@ -218,6 +218,17 @@
                                             </div>
                                         </div>
 
+                                        <div v-if="errors">
+                                            <h6
+                                                style="
+                                                    color: red;
+                                                    font-size: 12px;
+                                                "
+                                            >
+                                                {{ errors }} :- Please check your format.
+                                            </h6>
+                                        </div>
+
                                         <br />
 
                                         <ul>
@@ -246,11 +257,25 @@
 
                                         <div class="text-center">
                                             <button
+                                                v-if="!isSubmitting"
                                                 type="submit"
                                                 class="btn btn-sm bg-gradient-primary btn-sm w-100 mt-4 mb-0"
                                             >
                                                 Sign Up
                                             </button>
+                                            <br/>
+                                            <i
+                                                v-if="isSubmitting"
+                                                style="
+                                                    -webkit-animation: fa-spin
+                                                        3s infinite linear;
+                                                    animation: fa-spin 2s
+                                                        infinite linear;
+                                                    font-size: 17px;
+                                                    color: #189483 ;
+                                                "
+                                                class="fa fa-graduation-cap"
+                                            ></i>
                                         </div>
                                     </form>
                                 </div>
@@ -318,8 +343,9 @@ export default {
                 campus_area: "",
                 slug: "",
                 password: "",
+                isSubmitting: false,
             },
-            errors: {},
+            errors: "",
             name: "",
             locations: {},
             showPassword: false,
@@ -330,13 +356,17 @@ export default {
     },
     methods: {
         submit() {
+            this.isSubmitting = true;
             axios
                 .post("/api/register", this.fields)
                 .then(() => {
+                    this.isSubmitting = true;
                     this.$router.push({ name: "Login" });
+                    this.isSubmitting = true;
                 })
                 .catch((error) => {
                     this.errors = error.response.data.errors;
+                    this.isSubmitting = false;
                 });
         },
         fetchCategories() {

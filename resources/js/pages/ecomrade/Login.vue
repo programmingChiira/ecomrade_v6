@@ -99,7 +99,6 @@
                                                 Sign in
                                             </button>
                                             <br/>
-
                                             <i
                                                 v-if="isSubmitting"
                                                 style="
