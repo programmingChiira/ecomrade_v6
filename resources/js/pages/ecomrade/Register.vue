@@ -343,7 +343,6 @@ export default {
                 campus_area: "",
                 slug: "",
                 password: "",
-                isSubmitting: false,
             },
             errors: "",
             name: "",
@@ -352,6 +351,7 @@ export default {
             password: null,
             showPasswordConfirm: false,
             loading: true,
+            isSubmitting: false,
         };
     },
     methods: {
