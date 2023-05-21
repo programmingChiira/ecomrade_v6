@@ -33,7 +33,7 @@ class AuthController extends Controller
             ], 401);
         } elseif (Auth::attempt($credentials)) {
             return response()->json([
-                'message' => 'Authorized'
+                'message' => 'Authorized',
             ], 200);
         }
 
