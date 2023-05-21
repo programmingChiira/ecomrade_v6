@@ -31,7 +31,7 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Unauthorized'
             ], 401);
-        }elseif (Auth::attempt($credentials)) {
+        } elseif (Auth::attempt($credentials)) {
             return response()->json([
                 'message' => 'Authorized'
             ], 200);
@@ -50,6 +50,33 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|unique:users',
+            'gender' => 'required',
+            'campus_area' => 'required',
+            'password' => 'required',
+        ]);
+
+        // Create the new user
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'gender' => $request->input('gender'),
+            'slug' => $request->input('slug') . '-' . $request->input('name'),
+            'campus_area' => $request->input('campus_area'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        // Return a response or redirect as needed
+        return response()->json(['message' => 'User created successfully'], 201);
     }
 
 

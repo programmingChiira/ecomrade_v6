@@ -11,7 +11,7 @@ class Users extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id','name','slug','phone','email','type', 'youtube', 'instagram', 'twitter', 'facebook', 'linkedin', 'github', 'profile_pic', 'title', 'personal_description', 'campus_area','campus','gender'
+        'id', 'name', 'slug', 'phone', 'email', 'type', 'youtube', 'instagram', 'twitter', 'facebook', 'linkedin', 'github', 'profile_pic', 'title', 'personal_description', 'campus_area', 'campus', 'gender', 'password'
     ];
 
     public function user()
