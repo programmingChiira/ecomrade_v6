@@ -92,11 +92,26 @@
 
                                         <div class="text-center">
                                             <button
+                                                v-if="!isSubmitting"
                                                 type="submit"
                                                 class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
                                             >
                                                 Sign in
                                             </button>
+                                            <br/>
+
+                                            <i
+                                                v-if="isSubmitting"
+                                                style="
+                                                    -webkit-animation: fa-spin
+                                                        3s infinite linear;
+                                                    animation: fa-spin 2s
+                                                        infinite linear;
+                                                    font-size: 17px;
+                                                    color: #189483 ;
+                                                "
+                                                class="fa fa-graduation-cap"
+                                            ></i>
                                         </div>
                                     </form>
                                 </div>
@@ -164,6 +179,7 @@ export default {
             showPassword: false,
             password: null,
             loading: true,
+            isSubmitting: false,
         };
     },
     computed: {
@@ -173,18 +189,27 @@ export default {
     },
     methods: {
         async submit() {
+            this.isSubmitting = true; // Set isSubmitting to true to disable the login button
+
             try {
                 const response = await axios.post("/api/login", {
                     phone: this.fields.phone,
                     password: this.fields.password,
                 });
                 if (response.status === 200) {
-                    window.location.href = '/';
+                    this.isSubmitting = true;
+                    window.location.href = "/";
+                    this.isSubmitting = true;
                 }
             } catch (error) {
                 console.log(error.response.data.message);
                 this.errors = error.response.data.message;
+                this.isSubmitting = false;
             }
+            
+            // finally {
+            //     this.isSubmitting = false; // Reset the form submission status
+            // }
         },
 
         toggleShow() {
