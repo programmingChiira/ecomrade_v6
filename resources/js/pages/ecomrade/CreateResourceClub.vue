@@ -104,8 +104,27 @@
                             }}</span>
                             <br />
 
-                            <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                type="submit">Submit</button>
+                            
+                            <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                         </form>
                     </div>
                 </div>
@@ -159,6 +178,7 @@ export default {
             id: "",
             name: "",
             loading: true,
+            isSubmitting: false,
         };
     },
 
@@ -248,6 +268,7 @@ export default {
         },
 
         submit() {
+            this.isSubmitting = true;
             const fd = new FormData();
             fd.append("title", this.fields.title);
             fd.append("academic_year", this.fields.academic_year);
@@ -300,8 +321,10 @@ export default {
                     }).then((result) => {
                         /* Read more about handling dismissals below */
                         if (result.dismiss === Swal.DismissReason.timer) {
+                            this.isSubmitting = true;
                             console.log('All is well')
                             this.$router.push({ name: "Resource" });
+                            this.isSubmitting = true;
                         }
                     })
 
@@ -312,6 +335,7 @@ export default {
                 .catch((error) => {
                     this.errors = error.response.data.errors;
                     this.success = false;
+                    this.isSubmitting = false;
                 });
         },
 
