@@ -4,276 +4,642 @@
             <img src="/triangle.svg" alt="Loader" />
         </div>
         <section class="my-5 py-5">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-10">
-                        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                        <nav
+                            aria-label="breadcrumb"
+                            class="breadcrumb-nav mb-2"
+                        >
                             <div class="container">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                                    <li class="breadcrumb-item"><router-link to="/poll">Poll</router-link></li>
-                                    <li style="color: #189483;" class="breadcrumb-item"><strong>Edit</strong></li>
+                                    <li class="breadcrumb-item">
+                                        <router-link to="/">Home</router-link>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <router-link to="/poll"
+                                            >Poll</router-link
+                                        >
+                                    </li>
+                                    <li
+                                        style="color: #189483"
+                                        class="breadcrumb-item"
+                                    >
+                                        <strong>Edit</strong>
+                                    </li>
                                 </ol>
                             </div>
                         </nav>
                     </div>
                 </div>
 
-
-
-                <div class="row align-items-center  justify-content-center">
-
-                    <div style="padding: 10px;" class="col-lg-12 col-sm-12">
+                <div class="row align-items-center justify-content-center">
+                    <div style="padding: 10px" class="col-lg-12 col-sm-12">
                         <form @submit.prevent="submit">
                             <div v-if="step === 1">
                                 <h4>Poll Intro :</h4>
-                                <label for="title"><span>Title<span style="color: red;"> *
-                                        </span></span></label>
-                                <input class="form-control" type="text" id="title" v-model="pollTitle" required />
-                                <span v-if="errors.title" class="error">{{ errors.title[0] }}</span>
+                                <label for="title"
+                                    ><span
+                                        >Title<span style="color: red">
+                                            *
+                                        </span></span
+                                    ></label
+                                >
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    id="title"
+                                    v-model="pollTitle"
+                                    required
+                                />
+                                <span v-if="errors.title" class="error">{{
+                                    errors.title[0]
+                                }}</span>
                                 <br />
 
-                                <label for="argument"><span>Argument<span style="color: red;"> *
-                                        </span></span></label>
-                                <input class="form-control" type="text" id="argument" v-model="pollArgument" required />
-                                <span v-if="errors.argument" class="error">{{ errors.argument[0] }}</span>
+                                <label for="argument"
+                                    ><span
+                                        >Argument<span style="color: red">
+                                            *
+                                        </span></span
+                                    ></label
+                                >
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    id="argument"
+                                    v-model="pollArgument"
+                                    required
+                                />
+                                <span v-if="errors.argument" class="error">{{
+                                    errors.argument[0]
+                                }}</span>
                                 <br />
 
-                                <label for="status">Show creator of poll </label>
-                                <select class="form-control" v-model="pollOwner">
-                                    <option> Yes</option>
-                                    <option> No</option>
+                                <label for="status"
+                                    >Show creator of poll
+                                </label>
+                                <select
+                                    class="form-control"
+                                    v-model="pollOwner"
+                                >
+                                    <option>Yes</option>
+                                    <option>No</option>
                                 </select>
-                                <span v-if="errors.show_owner" class="error">{{ errors.show_owner[0] }}</span>
+                                <span v-if="errors.show_owner" class="error">{{
+                                    errors.show_owner[0]
+                                }}</span>
                                 <br />
 
-                                <button class="btn btn-sm" @click.prevent="nextStep">Next</button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                <button
+                                    class="btn btn-sm"
+                                    @click.prevent="nextStep"
+                                >
+                                    Next
+                                </button>
+
+                                <button
+                                    v-if="!isSubmitting"
+                                    style="margin: 5px; float: right"
+                                    class="btn bg-gradient-primary btn-sm"
+                                    type="submit"
+                                >
+                                    Submit
+                                </button>
+                                <i
+                                    v-if="isSubmitting"
+                                    style="
+                                        -webkit-animation: fa-spin 3s infinite
+                                            linear;
+                                        animation: fa-spin 2s infinite linear;
+                                        font-size: 17px;
+                                        color: #189483;
+                                        float: right;
+                                    "
+                                    class="fa fa-graduation-cap"
+                                ></i>
                             </div>
 
                             <div v-if="step === 2">
                                 <h4>Poll Options</h4>
-                                <div style="margin: 10px;">
-                                    <label for="option_1"><span>Option 1<span style="color: red;"> *</span></span></label>
-                                    <input class="form-control" type="text" id="option_1" v-model="pollOption1" required />
-                                    <span v-if="errors.option_1" class="error">{{ errors.option_1[0] }}</span>
-                                    <label for="image"><span>Option 1 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile1" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div style="margin: 10px">
+                                    <label for="option_1"
+                                        ><span
+                                            >Option 1<span style="color: red">
+                                                *</span
+                                            ></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_1"
+                                        v-model="pollOption1"
+                                        required
+                                    />
+                                    <span
+                                        v-if="errors.option_1"
+                                        class="error"
+                                        >{{ errors.option_1[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 1 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile1"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url1" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input2 === 2" style="margin: 10px;">
-                                    <label for="option_2"><span>Option 2<span style="color: red;"> *</span></span></label>
-                                    <input class="form-control" type="text" id="option_2" v-model="pollOption2" required />
-                                    <span v-if="errors.option_2" class="error">{{ errors.option_2[0] }}</span>
-                                    <label for="image"><span>Option 2 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile2" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input2 === 2" style="margin: 10px">
+                                    <label for="option_2"
+                                        ><span
+                                            >Option 2<span style="color: red">
+                                                *</span
+                                            ></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_2"
+                                        v-model="pollOption2"
+                                        required
+                                    />
+                                    <span
+                                        v-if="errors.option_2"
+                                        class="error"
+                                        >{{ errors.option_2[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 2 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile2"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url2" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input3 === 3" style="margin: 10px;">
-                                    <label for="option_1"><span>Option 3<span style="color: red;"> *</span></span></label>
-                                    <input class="form-control" type="text" id="option_3" v-model="pollOption3" required />
-                                    <span v-if="errors.option_3" class="error">{{ errors.option_3[0] }}</span>
-                                    <label for="image"><span>Option 3 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile3" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input3 === 3" style="margin: 10px">
+                                    <label for="option_1"
+                                        ><span
+                                            >Option 3<span style="color: red">
+                                                *</span
+                                            ></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_3"
+                                        v-model="pollOption3"
+                                        required
+                                    />
+                                    <span
+                                        v-if="errors.option_3"
+                                        class="error"
+                                        >{{ errors.option_3[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 3 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile3"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url3" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input4 === 4" style="margin: 10px;">
-                                    <label for="option_4"><span>Option 4</span></label>
-                                    <input class="form-control" type="text" id="option_4" v-model="pollOption4" />
-                                    <span v-if="errors.option_4" class="error">{{ errors.option_4[0] }}</span>
-                                    <label for="image"><span>Option 4 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile4" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input4 === 4" style="margin: 10px">
+                                    <label for="option_4"
+                                        ><span>Option 4</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_4"
+                                        v-model="pollOption4"
+                                    />
+                                    <span
+                                        v-if="errors.option_4"
+                                        class="error"
+                                        >{{ errors.option_4[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 4 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile4"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url4" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input5 === 5" style="margin: 10px;">
-                                    <label for="option_5"><span>Option 5</span></label>
-                                    <input class="form-control" type="text" id="option_5" v-model="pollOption5" />
-                                    <span v-if="errors.option_5" class="error">{{ errors.option_5[0] }}</span>
-                                    <label for="image"><span>Option 5 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile5" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input5 === 5" style="margin: 10px">
+                                    <label for="option_5"
+                                        ><span>Option 5</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_5"
+                                        v-model="pollOption5"
+                                    />
+                                    <span
+                                        v-if="errors.option_5"
+                                        class="error"
+                                        >{{ errors.option_5[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 5 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile5"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url5" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input6 === 6" style="margin: 10px;">
-                                    <label for="option_1"><span>Option 6</span></label>
-                                    <input class="form-control" type="text" id="option_6" v-model="pollOption6" />
-                                    <span v-if="errors.option_6" class="error">{{ errors.option_6[0] }}</span>
-                                    <label for="image"><span>Option 6 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile6" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input6 === 6" style="margin: 10px">
+                                    <label for="option_1"
+                                        ><span>Option 6</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_6"
+                                        v-model="pollOption6"
+                                    />
+                                    <span
+                                        v-if="errors.option_6"
+                                        class="error"
+                                        >{{ errors.option_6[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 6 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile6"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url6" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input7 === 7" style="margin: 10px;">
-                                    <label for="option_1"><span>Option 7</span></label>
-                                    <input class="form-control" type="text" id="option_7" v-model="pollOption7" />
-                                    <span v-if="errors.option_7" class="error">{{ errors.option_7[0] }}</span>
-                                    <label for="image"><span>Option 7 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile7" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input7 === 7" style="margin: 10px">
+                                    <label for="option_1"
+                                        ><span>Option 7</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_7"
+                                        v-model="pollOption7"
+                                    />
+                                    <span
+                                        v-if="errors.option_7"
+                                        class="error"
+                                        >{{ errors.option_7[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 7 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile7"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url7" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input8 === 8" style="margin: 10px;">
-                                    <label for="option_8"><span>Option 8</span></label>
-                                    <input class="form-control" type="text" id="option_8" v-model="pollOption8" />
-                                    <span v-if="errors.option_8" class="error">{{ errors.option_8[0] }}</span>
-                                    <label for="image"><span>Option 8 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile8" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input8 === 8" style="margin: 10px">
+                                    <label for="option_8"
+                                        ><span>Option 8</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_8"
+                                        v-model="pollOption8"
+                                    />
+                                    <span
+                                        v-if="errors.option_8"
+                                        class="error"
+                                        >{{ errors.option_8[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 8 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile8"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url8" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input9 === 9" style="margin: 10px;">
-                                    <label for="option_9"><span>Option 9</span></label>
-                                    <input class="form-control" type="text" id="option_9" v-model="pollOption9" />
-                                    <span v-if="errors.option_9" class="error">{{ errors.option_9[0] }}</span>
-                                    <label for="image"><span>Option 9 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile9" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input9 === 9" style="margin: 10px">
+                                    <label for="option_9"
+                                        ><span>Option 9</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_9"
+                                        v-model="pollOption9"
+                                    />
+                                    <span
+                                        v-if="errors.option_9"
+                                        class="error"
+                                        >{{ errors.option_9[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 9 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile9"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url9" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <div v-if="input10 === 10" style="margin: 10px;">
-                                    <label for="option_10"><span>Option 10</span></label>
-                                    <input class="form-control" type="text" id="option_10" v-model="pollOption10" />
-                                    <span v-if="errors.option_10" class="error">{{ errors.option_10[0] }}</span>
-                                    <label for="image"><span>Option 10 Thumbnail <span style="color: red;"> *
-                                            </span></span></label>
-                                    <input class="form-control" type="file" id="image" @input="grabFile10" />
-                                    <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                                <div v-if="input10 === 10" style="margin: 10px">
+                                    <label for="option_10"
+                                        ><span>Option 10</span></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="option_10"
+                                        v-model="pollOption10"
+                                    />
+                                    <span
+                                        v-if="errors.option_10"
+                                        class="error"
+                                        >{{ errors.option_10[0] }}</span
+                                    >
+                                    <label for="image"
+                                        ><span
+                                            >Option 10 Thumbnail
+                                            <span style="color: red">
+                                                *
+                                            </span></span
+                                        ></label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        @input="grabFile10"
+                                    />
+                                    <span v-if="errors.file" class="error">{{
+                                        errors.file[0]
+                                    }}</span>
                                     <div class="preview row">
-                                        <div class="col-6 col-md-6">
-
-                                        </div>
+                                        <div class="col-6 col-md-6"></div>
                                         <img :src="url10" alt="" />
                                     </div>
-                                    <hr class="horizontal dark my-5">
+                                    <hr class="horizontal dark my-5" />
                                 </div>
 
-                                <h4 v-if="input11 === 11" style="color: #189483;"> Sorry ! you've maxed out on image upload.
+                                <h4
+                                    v-if="input11 === 11"
+                                    style="color: #189483"
+                                >
+                                    Sorry ! you've maxed out on image upload.
                                 </h4>
 
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear2" type="button"
-                                    @click="showInput2">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear2"
+                                    type="button"
+                                    @click="showInput2"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear3" type="button"
-                                    @click="showInput3">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear3"
+                                    type="button"
+                                    @click="showInput3"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear4" type="button"
-                                    @click="showInput4">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear4"
+                                    type="button"
+                                    @click="showInput4"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear5" type="button"
-                                    @click="showInput5">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear5"
+                                    type="button"
+                                    @click="showInput5"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear6" type="button"
-                                    @click="showInput6">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear6"
+                                    type="button"
+                                    @click="showInput6"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear7" type="button"
-                                    @click="showInput7">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear7"
+                                    type="button"
+                                    @click="showInput7"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear8" type="button"
-                                    @click="showInput8">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear8"
+                                    type="button"
+                                    @click="showInput8"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear9" type="button"
-                                    @click="showInput9">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear9"
+                                    type="button"
+                                    @click="showInput9"
+                                >
+                                    Add Image
                                 </button>
-                                <button class="btn bg-gradient-primary btn-sm" v-if="disappear10" type="button"
-                                    @click="showInput10">Add
-                                    Image
+                                <button
+                                    class="btn bg-gradient-primary btn-sm"
+                                    v-if="disappear10"
+                                    type="button"
+                                    @click="showInput10"
+                                >
+                                    Add Image
                                 </button>
                                 <br />
-                                <button class="btn btn-sm" @click.prevent="prevStep">Prev </button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                <button
+                                    class="btn btn-sm"
+                                    @click.prevent="prevStep"
+                                >
+                                    Prev
+                                </button>
+
+                                <button
+                                    v-if="!isSubmitting"
+                                    style="margin: 5px; float: right"
+                                    class="btn bg-gradient-primary btn-sm"
+                                    type="submit"
+                                >
+                                    Submit
+                                </button>
+                                <i
+                                    v-if="isSubmitting"
+                                    style="
+                                        -webkit-animation: fa-spin 3s infinite
+                                            linear;
+                                        animation: fa-spin 2s infinite linear;
+                                        font-size: 17px;
+                                        color: #189483;
+                                        float: right;
+                                    "
+                                    class="fa fa-graduation-cap"
+                                ></i>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <hr class="horizontal dark my-5">
+            <hr class="horizontal dark my-5" />
         </section>
 
         <Footer />
@@ -281,12 +647,11 @@
 </template>
 
 <script>
-import Footer from './Footer.vue'
+import Footer from "./Footer.vue";
 
 export default {
-
     components: {
-        Footer
+        Footer,
     },
     props: ["slug"],
     data() {
@@ -326,33 +691,33 @@ export default {
             file10: null,
 
             fields: {
-                slug: '',
-                title: '',
-                contact: '',
-                argument: '',
-                show_owner: '',
-                image_1: '',
-                image_2: '',
-                image_3: '',
-                image_4: '',
-                image_5: '',
-                image_6: '',
-                image_7: '',
-                image_8: '',
-                image_9: '',
-                image_10: '',
-                option_1: '',
-                option_2: '',
-                option_3: '',
-                option_4: '',
-                option_5: '',
-                option_6: '',
-                option_7: '',
-                option_8: '',
-                option_9: '',
-                option_10: '',
+                slug: "",
+                title: "",
+                contact: "",
+                argument: "",
+                show_owner: "",
+                image_1: "",
+                image_2: "",
+                image_3: "",
+                image_4: "",
+                image_5: "",
+                image_6: "",
+                image_7: "",
+                image_8: "",
+                image_9: "",
+                image_10: "",
+                option_1: "",
+                option_2: "",
+                option_3: "",
+                option_4: "",
+                option_5: "",
+                option_6: "",
+                option_7: "",
+                option_8: "",
+                option_9: "",
+                option_10: "",
             },
-            name: '',
+            name: "",
 
             success: false,
             errors: {},
@@ -367,16 +732,15 @@ export default {
             url9: "",
             url10: "",
 
-
             polls: [],
             title: "",
             links: [],
             loading: true,
+            isSubmitting: false,
         };
     },
 
     methods: {
-
         nextStep() {
             this.step++;
         },
@@ -562,24 +926,23 @@ export default {
             URL.revokeObjectURL(event.target.files[0]);
         },
 
-
         submit() {
-
-            let timerInterval
+            this.isSubmitting = true;
+            let timerInterval;
             Swal.fire({
-                title: 'Processing',
-                html: '',
+                title: "Processing",
+                html: "",
                 timer: 1000,
                 timerProgressBar: true,
 
                 didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector("b");
                     timerInterval = setInterval(() => {
                         if (b) {
-                            b.textContent = Swal.getTimerLeft()
+                            b.textContent = Swal.getTimerLeft();
                         }
-                    }, 100)
+                    }, 100);
 
                     const fd = new FormData();
                     fd.append("title", this.fields.title);
@@ -606,7 +969,6 @@ export default {
                     fd.append("file9", this.fields.file9);
                     fd.append("file10", this.fields.file10);
 
-
                     fd.append("_method", "PUT");
 
                     axios
@@ -621,22 +983,30 @@ export default {
                         .catch((error) => {
                             this.errors = error.response.data.errors;
                             if (error.response.status === 403) {
-                                this.$router.push({ name: "DashboardPostsList" });
+                                this.$router.push({
+                                    name: "DashboardPostsList",
+                                });
                             }
                         });
                 },
                 willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('All is well')
-                    this.$router.push({ name: "Poll" });
-                }
+                    clearInterval(timerInterval);
+                },
             })
+                .then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        this.isSubmitting = true;
+                        console.log("All is well");
+                        this.$router.push({ name: "Poll" });
+                        this.isSubmitting = true;
+                    }
+                })
+                .catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.isSubmitting = false;
+                });
         },
-
     },
 
     mounted() {
@@ -646,10 +1016,10 @@ export default {
 
         axios
             .get("/api/user")
-            .then(response => {
-                this.id = response.data.id
-                this.name = response.data.name
-                this.phone = response.data.phone
+            .then((response) => {
+                this.id = response.data.id;
+                this.name = response.data.name;
+                this.phone = response.data.phone;
             })
             .catch((error) => {
                 if (error.response.status === 401) {
@@ -673,14 +1043,12 @@ export default {
                 this.url8 = "./img/poll/" + response.data.data.image_8;
                 this.url9 = "./img/poll/" + response.data.data.image_9;
                 this.url10 = "./img/poll/" + response.data.data.image_10;
-
             })
             .catch((error) => {
                 if (error.response.status === 403) {
                     this.$router.push({ name: "Poll" });
                 }
             });
-
     },
 
     computed: {
@@ -690,7 +1058,7 @@ export default {
             },
             set(value) {
                 this.fields.title = value;
-            }
+            },
         },
 
         pollArgument: {
@@ -699,7 +1067,7 @@ export default {
             },
             set(value) {
                 this.fields.argument = value;
-            }
+            },
         },
 
         pollOwner: {
@@ -708,7 +1076,7 @@ export default {
             },
             set(value) {
                 this.fields.show_owner = value;
-            }
+            },
         },
 
         pollOption1: {
@@ -717,7 +1085,7 @@ export default {
             },
             set(value) {
                 this.fields.option_1 = value;
-            }
+            },
         },
 
         pollOption2: {
@@ -726,7 +1094,7 @@ export default {
             },
             set(value) {
                 this.fields.option_2 = value;
-            }
+            },
         },
 
         pollOption3: {
@@ -735,7 +1103,7 @@ export default {
             },
             set(value) {
                 this.fields.option_3 = value;
-            }
+            },
         },
 
         pollOption4: {
@@ -744,7 +1112,7 @@ export default {
             },
             set(value) {
                 this.fields.option_4 = value;
-            }
+            },
         },
 
         pollOption5: {
@@ -753,7 +1121,7 @@ export default {
             },
             set(value) {
                 this.fields.option_5 = value;
-            }
+            },
         },
 
         pollOption6: {
@@ -762,7 +1130,7 @@ export default {
             },
             set(value) {
                 this.fields.option_6 = value;
-            }
+            },
         },
 
         pollOption7: {
@@ -771,7 +1139,7 @@ export default {
             },
             set(value) {
                 this.fields.option_7 = value;
-            }
+            },
         },
 
         pollOption8: {
@@ -780,7 +1148,7 @@ export default {
             },
             set(value) {
                 this.fields.option_8 = value;
-            }
+            },
         },
 
         pollOption9: {
@@ -789,7 +1157,7 @@ export default {
             },
             set(value) {
                 this.fields.option_9 = value;
-            }
+            },
         },
 
         pollOption10: {
@@ -798,9 +1166,8 @@ export default {
             },
             set(value) {
                 this.fields.option_10 = value;
-            }
+            },
         },
-
     },
 };
 </script>
