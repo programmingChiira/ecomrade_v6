@@ -5,72 +5,121 @@
         </div>
         <section class="my-5 py-5">
             <div class="container">
-
                 <div class="row">
                     <div class="col-md-4 col-10">
-                        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                        <nav
+                            aria-label="breadcrumb"
+                            class="breadcrumb-nav mb-2"
+                        >
                             <div class="container">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
-                                    <li class="breadcrumb-item"><router-link to="/club">Club</router-link></li>
-                                    <li style="color: #189483;" class="breadcrumb-item"><strong>Edit</strong></li>
+                                    <li class="breadcrumb-item">
+                                        <router-link to="/">Home</router-link>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <router-link to="/club"
+                                            >Club</router-link
+                                        >
+                                    </li>
+                                    <li
+                                        style="color: #189483"
+                                        class="breadcrumb-item"
+                                    >
+                                        <strong>Edit</strong>
+                                    </li>
                                 </ol>
                             </div>
                         </nav>
                     </div>
                 </div>
 
-                <div class="row align-items-center  justify-content-center">
-
-                    <div style="padding: 10px;" class="col-lg-12 col-sm-12">
+                <div class="row align-items-center justify-content-center">
+                    <div style="padding: 10px" class="col-lg-12 col-sm-12">
                         <form @submit.prevent="submit">
                             <!-- Title -->
                             <label for="name"><span>Club name</span></label>
-                            <input class="form-control" type="text" id="name" v-model="fields.name" />
-                            <span v-if="errors.name" class="error">{{ errors.name[0] }}</span>
+                            <input
+                                class="form-control"
+                                type="text"
+                                id="name"
+                                v-model="fields.name"
+                            />
+                            <span v-if="errors.name" class="error">{{
+                                errors.name[0]
+                            }}</span>
                             <br />
 
                             <!-- Image -->
                             <label for="image"><span>Thumbnail</span></label>
-                            <input class="form-control" type="file" id="image" @input="grabFile1" />
-                            <span v-if="errors.file" class="error">{{ errors.file[0] }}</span>
+                            <input
+                                class="form-control"
+                                type="file"
+                                id="image"
+                                @input="grabFile1"
+                            />
+                            <span v-if="errors.file" class="error">{{
+                                errors.file[0]
+                            }}</span>
                             <div class="preview row">
-                                <div class="col-6 col-md-6">
-
-                                </div>
+                                <div class="col-6 col-md-6"></div>
                                 <img :src="url1" alt="" />
                             </div>
                             <br />
 
-                            <label for="description"><span>Description</span></label>
-                            <textarea class="form-control" id="description" v-model="fields.description"
-                                rows="6"></textarea>
-                            <span v-if="errors.description" class="error">{{ errors.description[0] }}</span>
-                            <br>
-                            <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                type="submit">Submit</button>
+                            <label for="description"
+                                ><span>Description</span></label
+                            >
+                            <textarea
+                                class="form-control"
+                                id="description"
+                                v-model="fields.description"
+                                rows="6"
+                            ></textarea>
+                            <span v-if="errors.description" class="error">{{
+                                errors.description[0]
+                            }}</span>
+                            <br />
+
+                            <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                         </form>
                     </div>
                 </div>
             </div>
-            <hr class="horizontal dark my-5">
+            <hr class="horizontal dark my-5" />
         </section>
         <Footer />
     </body>
 </template>
 
 <script>
-import Footer from './Footer.vue'
+import Footer from "./Footer.vue";
 
 export default {
-
     components: {
-        Footer
+        Footer,
     },
     props: ["slug"],
     data() {
         return {
-
             showInput: 0,
 
             file1: null,
@@ -89,11 +138,11 @@ export default {
             id: "",
             name: "",
             loading: true,
+            isSubmitting: false,
         };
     },
 
     methods: {
-
         grabFile1(event) {
             this.fields.file1 = event.target.files[0];
             this.url1 = URL.createObjectURL(event.target.files[0]);
@@ -101,21 +150,22 @@ export default {
         },
 
         submit() {
-            let timerInterval
+            this.isSubmitting = true;
+            let timerInterval;
             Swal.fire({
-                title: 'Processing',
-                html: '',
+                title: "Processing",
+                html: "",
                 timer: 1000,
                 timerProgressBar: true,
 
                 didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector("b");
                     timerInterval = setInterval(() => {
                         if (b) {
-                            b.textContent = Swal.getTimerLeft()
+                            b.textContent = Swal.getTimerLeft();
                         }
-                    }, 100)
+                    }, 100);
 
                     const fd = new FormData();
                     fd.append("name", this.fields.name);
@@ -138,22 +188,30 @@ export default {
                         .catch((error) => {
                             this.errors = error.response.data.errors;
                             if (error.response.status === 403) {
-                                this.$router.push({ name: "DashboardPostsList" });
+                                this.$router.push({
+                                    name: "DashboardPostsList",
+                                });
                             }
                         });
                 },
                 willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('All is well')
-                    this.$router.push({ name: "Club" });
-                }
+                    clearInterval(timerInterval);
+                },
             })
+                .then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        this.isSubmitting = true;
+                        console.log("All is well");
+                        this.$router.push({ name: "Club" });
+                        this.isSubmitting = true;
+                    }
+                })
+                .catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.isSubmitting = false;
+                });
         },
-
     },
 
     watch: {
@@ -208,7 +266,6 @@ export default {
             .catch((error) => {
                 console.log(error);
             });
-
     },
 };
 </script>
