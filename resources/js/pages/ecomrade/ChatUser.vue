@@ -520,7 +520,7 @@
                                                 ></button>
                                             </div>
 
-                                            <form @submit.prevent="submit">
+                                            <form @submit.prevent="submitImg">
                                                 <div
                                                     style="padding: 15px"
                                                     class="container row"
@@ -779,6 +779,96 @@ export default {
                 }
                 this.isSubmitting = false;
             });
+        },
+
+        submitImg() {
+            this.isSubmitting = true;
+            // if (this.fields.message.trim() === '') return;
+            const formData = new FormData();
+            formData.append("message", this.fields.message);
+            formData.append("receiver_id", this.receiverId1);
+            formData.append("user_id", this.userId1);
+            formData.append("file1", this.fields.file1);
+            formData.append("_method", "POST");
+
+            axios
+                .post("/api/userchats", formData, {
+                    headers: { "content-type": "multipart/form-data" },
+                })
+                .then(() => {
+                    this.fields.message = "";
+                    this.fields.file1 = "";
+
+                    axios
+                        .get("/api/users/" + this.slug)
+                        .then((response) => {
+                            //console.log(JSON.stringify(response));
+                            this.user = response.data.data;
+                            this.userchats = response.data.messages;
+                            this.messageCount = response.data.message_count;
+                        })
+                        .catch((error) => {
+                            //console.log(error);
+                        });
+
+                    Pusher.logToConsole = true;
+                    const pusher = new Pusher("9820769533922d6161b6", {
+                        cluster: "ap2",
+                    });
+                    const channel = pusher.subscribe("my-user-channel");
+                    const chat = channel.bind("my-user-event", (data) => {
+                        //this.userchats.push(data);
+                    });
+                })
+                .catch((error) => {
+                    this.isSubmitting = false;
+                    console.error(error);
+                    this.errors = error.response.data.errors;
+                    this.success = false;
+                    Swal.fire({
+                        icon: "error",
+                        title: "You have to be connected!",
+                        text: "For permissions to chat",
+                        footer: "",
+                    });
+                    this.isSubmitting = false;
+                });
+
+            this.$nextTick(() => {
+                this.$refs.chatContent.scrollTop =
+                    this.$refs.chatContent.scrollHeight;
+            });
+
+            let timerInterval;
+            Swal.fire({
+                title: "Processing...",
+                html: "",
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        if (b) {
+                            b.textContent = Swal.getTimerLeft();
+                        }
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                },
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                    this.isSubmitting = false;
+                }
+                this.isSubmitting = false;
+            });
+
+            document
+                .querySelector('#exampleModal button[data-bs-dismiss="modal"]')
+                .click();
         },
 
         scrollToLastMessage() {
