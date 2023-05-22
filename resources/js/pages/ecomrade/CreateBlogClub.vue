@@ -26,7 +26,7 @@
             <form @submit.prevent="submit">
               <!-- Title -->
               <label for="title"><span>Title</span></label>
-              <input class="form-control" type="text" id="title" v-model="fields.title" />
+              <input class="form-control" type="text" id="title" v-model="fields.title" required/>
               <input class="form-control" type="hidden" v-model="clubId" />
               <input class="form-control" type="hidden" v-model="clubName" />
               <span v-if="errors.title" class="error">{{ errors.title[0] }}</span>
@@ -114,11 +114,30 @@
               <br />
 
               <label for="body"><span>Body</span></label>
-              <textarea class="form-control" id="body" v-model="fields.body" rows="6"></textarea>
+              <textarea class="form-control" id="body" v-model="fields.body" rows="6" required></textarea>
               <span v-if="errors.body" class="error">{{ errors.body[0] }}</span>
               <br>
-              <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                type="submit">Submit</button>
+              
+                <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
             </form>
           </div>
         </div>
@@ -173,6 +192,7 @@ export default {
       id: "",
       name: "",
       loading: true,
+      isSubmitting: false,
     };
   },
   computed: {
@@ -261,6 +281,7 @@ export default {
     },
 
     submit() {
+      this.isSubmitting = true;
       const fd = new FormData();
       fd.append("title", this.fields.title);
       fd.append("post_category", this.fields.post_category);
@@ -315,8 +336,10 @@ export default {
           }).then((result) => {
             /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
+              this.isSubmitting = true;
               console.log('All is well')
               this.$router.push({ name: "Post" });
+              this.isSubmitting = true;
             }
           })
 
@@ -327,6 +350,7 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
           this.success = false;
+          this.isSubmitting = false;
         });
     },
 
