@@ -103,8 +103,28 @@
                                 <br />
 
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="nextStep">Next</button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                
+                                
+                                <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                             </div>
 
                             <div v-if="step === 2">
@@ -211,8 +231,28 @@
                                 <br />
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="prevStep">Prev </button>
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="nextStep">Next</button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                
+                                
+                                <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                             </div>
 
                             <div v-if="step === 3">
@@ -274,8 +314,28 @@
                                 <br />
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="prevStep">Prev </button>
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="nextStep">Next </button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                
+                                
+                                <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                             </div>
 
                             <div v-if="step === 4">
@@ -293,8 +353,28 @@
                                 }}</span>
                                 <br />
                                 <button style="margin: 4px;" class="btn btn-sm" @click.prevent="prevStep">Prev </button>
-                                <button style="margin: 5px;float:right;" class="btn bg-gradient-primary btn-sm"
-                                    type="submit">Submit</button>
+                                
+                                
+                                <button
+                                v-if="!isSubmitting"
+                                style="margin: 5px; float: right"
+                                class="btn bg-gradient-primary btn-sm"
+                                type="submit"
+                            >
+                                Submit
+                            </button>
+                            <i
+                                v-if="isSubmitting"
+                                style="
+                                    -webkit-animation: fa-spin 3s infinite
+                                        linear;
+                                    animation: fa-spin 2s infinite linear;
+                                    font-size: 17px;
+                                    color: #189483;
+                                    float: right;
+                                "
+                                class="fa fa-graduation-cap"
+                            ></i>
                             </div>
                         </form>
                     </div>
@@ -397,6 +477,7 @@ export default {
             phone: "",
             locations: {},
             loading: true,
+            isSubmitting: false,
 
             // id: "",
             // name: "",
@@ -519,7 +600,7 @@ export default {
 
 
         submit() {
-
+            this.isSubmitting = true;
             let timerInterval
             Swal.fire({
                 title: 'Processing',
@@ -589,10 +670,16 @@ export default {
             }).then((result) => {
                 /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
+                    this.isSubmitting = true;
                     console.log('All is well')
                     this.$router.push({ name: "Rental" });
+                    this.isSubmitting = true;
                 }
             })
+            .catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.isSubmitting = false;
+                });
         },
 
     },
