@@ -332,14 +332,6 @@
                       >
                         <i class="fa fa-paper-plane"></i>
                       </button>
-                      <i
-                        v-if="isSubmitting"
-                        style="
-                          -webkit-animation: fa-spin 3s infinite linear;
-                          animation: fa-spin 3s infinite linear;
-                        "
-                        class="fa fa-spinner"
-                      ></i>
                     </div>
                   </div>
                 </form>
@@ -401,15 +393,6 @@
                           >
                             <i style="color: white" class="fa fa-paper-plane"></i>
                           </button>
-
-                          <i
-                            v-if="isSubmitting"
-                            style="
-                              -webkit-animation: fa-spin 3s infinite linear;
-                              animation: fa-spin 3s infinite linear;
-                            "
-                            class="fa fa-spinner"
-                          ></i>
                         </div>
                       </form>
                     </div>
@@ -620,6 +603,7 @@ export default {
           const chat = channel.bind("my-user-event", (data) => {
             //this.userchats.push(data);
           });
+          document.querySelector('#exampleModal button[data-bs-dismiss="modal"]').click();
         })
         .catch((error) => {
           this.isSubmitting = false;
@@ -666,7 +650,7 @@ export default {
         this.isSubmitting = false;
       });
 
-      document.querySelector('#exampleModal button[data-bs-dismiss="modal"]').click();
+      
     },
 
     scrollToLastMessage() {

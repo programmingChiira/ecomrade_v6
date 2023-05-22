@@ -3,7 +3,7 @@
     <div class="full-page-loader" v-if="loading">
       <img src="/triangle.svg" alt="Loader" />
     </div>
-    <section class="my-5 py-5">
+    <section class="my-5 py-5" style="height: 88vh">
       <div class="container">
         <div class="row no-gutters  d-flex justify-content-center">
           <div class="page-content page-container" id="page-content">
@@ -27,7 +27,7 @@
 
                   </router-link>
                   <button style="border:none;outline:none;background: none;" @click="scrollToLastMessage"
-                    data-abc="true"><i class="fa fa-arrow-circle-down" style="font-size:24px"></i></button>
+                    data-abc="true"><i class="fa fa-angle-down" style="font-size:24px"></i></button>
                 </div>
 
 
@@ -39,6 +39,8 @@
                         style="align-self: flex-start;max-width:70%;">
                         <div class="media media-chat">
                           <div class="media-body">
+                          <router-link :to="'/profile' + chat.user_slug"> <span style="font-size: 11px;">{{chat.user_name}}</span> </router-link>
+                          <hr class="horizontal dark my-1">
                             <span
                               v-if="chat.image_1 == false || chat.image_1 == null || chat.image_1 == 'null' || chat.image_1 == '' || chat.image_1 == ' ' || chat.image_1 == NULL || chat.image_1 == 'undefined'">
                             </span>
@@ -62,7 +64,7 @@
 
                                   <div class="container row">
                                     <img loading="lazy"
-                                      style="background-color: white;width: 100%;height: 70vh; object-fit: contain;border-radius: 5px;"
+                                      style="background-color: white;width: 100%;height: 63vh; object-fit: contain;border-radius: 5px;"
                                       :src="'./img/chatroom/' + chat.image_1">
                                   </div>
                                   <div class="modal-footer justify-content-between">
@@ -103,7 +105,7 @@
 
                                   <div class="container row">
                                     <img loading="lazy"
-                                      style="background-color: white;width: 100%;height: 70vh; object-fit: contain;border-radius: 5px;"
+                                      style="background-color: white;width: 100%;height: 63vh; object-fit: contain;border-radius: 5px;"
                                       :src="'./img/chatroom/' + chat.image_1">
                                   </div>
                                   <div class="modal-footer justify-content-between">
@@ -138,17 +140,34 @@
                     <img loading="lazy" class="avatar avatar-xs" src="/img/user.png" alt="...">
                     <input type="hidden" v-model="roomId1">
                     <input type="hidden" v-model="userId1">
-                    <input class="publisher-input" type="text" v-model="fields.message" placeholder="Text...">
-                    <button type="button" style="outline: none;" data-toggle="tooltip" data-placement="bottom"
-                      title="Post Image" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                      class="publisher-btn file-group">
-                      <i class="fa fa-paperclip file-browser"></i>
-                    </button>
+                    <input class="publisher-input" type="text" v-model="fields.message" placeholder="Text..." required>
 
-                    <button type="submit" class="publisher-btn text-info" data-abc="true"
-                      style="border:none;outline:none;background: none;">
-                      <i class="fa fa-paper-plane"></i>
-                    </button>
+                   
+                    <div class="d-flex justify-content-between" style="margin: 5px;">
+                      <button
+                        type="button"
+                        style="outline: none"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="Post Image"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        class="publisher-btn file-group"
+                      >
+                        <i class="fa fa-paperclip file-browser"></i>
+                      </button>
+
+                      <button
+                        v-if="!isSubmitting"
+                        type="submit"
+                        class="publisher-btn text-info"
+                        data-abc="true"
+                        style="border: none; outline: none; background: none"
+                      >
+                        <i class="fa fa-paper-plane"></i>
+                      </button>
+                    </div>
+                    
                   </div>
                 </form>
 
@@ -173,7 +192,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
 
-                      <form @submit.prevent="submit">
+                      <form @submit.prevent="submitImg">
 
                         <div style="padding: 15px;" class="container row">
 
@@ -195,8 +214,13 @@
                         <div class="modal-footer justify-content-between">
                           <button type="button" class="btn bg-gradient-dark btn-sm" data-bs-dismiss="modal">Close</button>
 
-                          <button type="submit" class="btn bg-gradient-primary btn-sm" data-abc="true">
-                            <i style="color: white;" class="fa fa-paper-plane"></i>
+                          <button
+                            v-if="!isSubmitting"
+                            type="submit"
+                            class="btn bg-gradient-primary btn-sm"
+                            data-abc="true"
+                          >
+                            <i style="color: white" class="fa fa-paper-plane"></i>
                           </button>
                         </div>
                       </form>
@@ -210,7 +234,6 @@
         </div>
       </div>
     </section>
-    <Footer />
   </body>
 </template>
 
@@ -238,6 +261,7 @@ export default {
       url1: "",
       messageCount: 0,
       loading: true,
+      isSubmitting: false,
     };
   },
   computed: {
@@ -285,6 +309,7 @@ export default {
     },
 
     submit() {
+      this.isSubmitting = true;
       // if (this.fields.message.trim() === '') return;
       const formData = new FormData();
       formData.append('message', this.fields.message);
@@ -325,6 +350,7 @@ export default {
           document.querySelector('#exampleModal button[data-bs-dismiss="modal"]').click();
         })
         .catch((error) => {
+          this.isSubmitting = false;
           console.error(error);
           this.errors = error.response.data.errors;
           this.success = false;
@@ -334,6 +360,7 @@ export default {
             text: 'For permissions to chat',
             footer: ''
           })
+          this.isSubmitting = false;
         });
 
       this.$nextTick(() => {
@@ -361,8 +388,98 @@ export default {
       }).then((result) => {
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
-          console.log('I was closed by the timer')
+          console.log('I was closed by the timer');
+          this.isSubmitting = false;
         }
+        this.isSubmitting = false;
+      })
+
+    },
+
+    submitImg() {
+      this.isSubmitting = true;
+      // if (this.fields.message.trim() === '') return;
+      const formData = new FormData();
+      formData.append('message', this.fields.message);
+      formData.append('room_id', this.roomId1);
+      formData.append('user_id', this.userId1);
+      formData.append("file1", this.fields.file1);
+      formData.append('_method', 'POST');
+
+      axios.post('/api/clubchats', formData, {
+        headers: { 'content-type': 'multipart/form-data' },
+      })
+        .then(() => {
+
+          this.fields.message = '';
+          this.fields.file1 = '';
+
+          axios
+            .get("/api/clubs/" + this.slug)
+            .then(response => {
+              //console.log(JSON.stringify(response));
+              this.club = response.data.data;
+              this.clubchats = response.data.messages;
+              this.messageCount = response.data.message_count;
+            })
+            .catch((error) => {
+              //console.log(error);
+            });
+
+          Pusher.logToConsole = true;
+          const pusher = new Pusher('9820769533922d6161b6', {
+            cluster: 'ap2',
+          });
+          const channel = pusher.subscribe('my-club-channel');
+          const chat = channel.bind('my-club-event', (data) => {
+            //this.clubchats.push(data);
+          });
+
+          document.querySelector('#exampleModal button[data-bs-dismiss="modal"]').click();
+        })
+        .catch((error) => {
+          this.isSubmitting = false;
+          console.error(error);
+          this.errors = error.response.data.errors;
+          this.success = false;
+          Swal.fire({
+            icon: 'error',
+            title: 'You have to join room!',
+            text: 'For permissions to chat',
+            footer: ''
+          })
+          this.isSubmitting = false;
+        });
+
+      this.$nextTick(() => {
+        this.$refs.chatContent.scrollTop = this.$refs.chatContent.scrollHeight;
+      });
+
+      let timerInterval
+      Swal.fire({
+        title: 'Processing...',
+        html: '',
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            if (b) {
+              b.textContent = Swal.getTimerLeft()
+            }
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer');
+          this.isSubmitting = false;
+        }
+        this.isSubmitting = false;
       })
 
     },
