@@ -133,7 +133,7 @@ class CustomAuthMiddleware
         if (Str::contains($request->getRequestUri(), '/api/users/{user:slug}') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }
-        if (Str::contains($request->getRequestUri(), '/api/countUsers}') && !$request->headers->has('referer')) {
+        if (Str::contains($request->getRequestUri(), '/api/countUsers') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }
         if (Str::contains($request->getRequestUri(), '/api/userpasswords/{userpassword:slug}') && !$request->headers->has('referer')) {
