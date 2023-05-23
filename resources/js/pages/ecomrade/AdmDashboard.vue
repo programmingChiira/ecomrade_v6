@@ -478,7 +478,7 @@ export default {
             this.markets = response.data.data;
         });
 
-        axios.get('/api/rentals').then(response => {
+        axios.get('/api/rentalCount').then(response => {
             this.rentals = response.data.data;
         });
 

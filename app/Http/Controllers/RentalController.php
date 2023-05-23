@@ -508,6 +508,11 @@ class RentalController extends Controller
         $rental->save();
     }
 
+    public function count()
+    {
+        return RentalResource::collection(Rental::latest()->get());
+    }
+
     public function show(Rental $rental)
     {
         //return new RentalResource($rental);

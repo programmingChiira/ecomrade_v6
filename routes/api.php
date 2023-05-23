@@ -218,6 +218,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/resou
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/markets/{market:slug}', [MarketController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/marketCount', [MarketController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentals/{rental:slug}', [RentalController::class, 'show']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/rentalCount', [RentalController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/polls/{poll:slug}', [PollController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/events/{event:slug}', [EventController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/users/{user:slug}', [UserController::class, 'show']);
