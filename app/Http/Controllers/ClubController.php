@@ -69,6 +69,11 @@ class ClubController extends Controller
         ]);
     }
 
+    public function count()
+    {
+        return ClubResource::collection(Club::latest()->get());
+    }
+
     public function store(Request $request)
     {
         $request->validate([

@@ -206,6 +206,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/home-
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/postCount', [PostController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubs/{club:slug}', [ClubController::class, 'show']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubCount', [ClubController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubarticles/{club:slug}', [ClubController::class, 'show_club_articles']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubmarkets/{club:slug}', [ClubController::class, 'show_club_markets']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/clubevents/{club:slug}', [ClubController::class, 'show_club_events']);

@@ -97,6 +97,9 @@ class CustomAuthMiddleware
         if (Str::contains($request->getRequestUri(), '/api/clubs/{club:slug}') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }
+        if (Str::contains($request->getRequestUri(), '/api/clubCount') && !$request->headers->has('referer')) {
+            abort(500, 'Server Error');
+        }
         if (Str::contains($request->getRequestUri(), '/api/clubarticles/{club:slug}') && !$request->headers->has('referer')) {
             abort(500, 'Server Error');
         }

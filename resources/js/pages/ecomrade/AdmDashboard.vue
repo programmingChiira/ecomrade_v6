@@ -494,7 +494,7 @@ export default {
             this.events = response.data.data;
         });
 
-        axios.get('/api/clubs').then(response => {
+        axios.get('/api/clubCount').then(response => {
             this.clubs = response.data.data;
         });
 
