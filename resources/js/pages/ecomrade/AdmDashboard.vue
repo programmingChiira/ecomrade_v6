@@ -35,7 +35,7 @@
                                                 <div class="col">
                                                     <span
                                                         class="h6 font-semibold text-muted text-sm d-block mb-2">Users</span>
-                                                    <span class="h3 font-bold mb-0"> {{ countUsers.length }} </span>
+                                                    <span class="h3 font-bold mb-0"> {{ users.length }} </span>
                                                 </div>
                                                 <div style="text-align: center;" class="col-auto">
                                                     <router-link class="text-info" to="/admuser">
@@ -148,7 +148,7 @@
                                                     <router-link class="text-info" to="/admevent">
                                                         <div
                                                             class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                                            <i class="fa fa-countUsers"></i>
+                                                            <i class="fa fa-users"></i>
                                                         </div>
                                                     </router-link>
                                                 </div>
@@ -435,7 +435,7 @@ export default {
     emits: ["updateSidebar"],
     data() {
         return {
-            countUsers: [],
+            users: [],
             markets: [],
             rentals: [],
             posts: [],
