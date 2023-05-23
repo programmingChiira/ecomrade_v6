@@ -474,7 +474,7 @@ export default {
             this.users = response.data.data;
         });
 
-        axios.get('/api/markets').then(response => {
+        axios.get('/api/marketCount').then(response => {
             this.markets = response.data.data;
         });
 
