@@ -23,9 +23,6 @@ class MarketCategoryController extends Controller
 
     public function index()
     {
-        // $marketcategories = MarketCategory::get();
-        // return MarketCategoryResource::collection($marketcategories);
-        //return MarketCategory::latest()->get();
         return MarketCategoryResource::collection(MarketCategory::latest()->get());
     }
 
@@ -50,7 +47,7 @@ class MarketCategoryController extends Controller
 
         return $marketcategory->save();
     }
-    
+
     public function destroy(MarketCategory $marketcategory)
     {
         return $marketcategory->delete();
