@@ -133,6 +133,11 @@ class UserController extends Controller
         ]);
     }
 
+    public function count()
+    {
+        return UserResource::collection(User::latest()->get());
+    }
+
     public function searchcomrade(Request $request)
     {
         if ($request->search) {
