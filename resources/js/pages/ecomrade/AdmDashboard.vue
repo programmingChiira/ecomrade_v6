@@ -482,7 +482,7 @@ export default {
             this.rentals = response.data.data;
         });
 
-        axios.get('/api/posts').then(response => {
+        axios.get('/api/postCount').then(response => {
             this.posts = response.data.data;
         });
 

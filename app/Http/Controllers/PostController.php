@@ -296,6 +296,12 @@ class PostController extends Controller
         $post->club_id = $club_id;
         $post->save();
     }
+
+    public function count()
+    {
+        return PostResource::collection(Post::latest()->get());
+    }
+
     public function show(Post $post)
     {
         //return new PostResource($post);
