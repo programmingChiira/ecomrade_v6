@@ -130,6 +130,11 @@ class EventController extends Controller
         ]);
     }
 
+    public function count()
+    {
+        return EventResource::collection(Event::latest()->get());
+    }
+
     public function store(Request $request)
     {
         $request->validate([

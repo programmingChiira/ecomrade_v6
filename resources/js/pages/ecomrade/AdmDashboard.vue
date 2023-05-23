@@ -490,7 +490,7 @@ export default {
             this.polls = response.data.data;
         });
 
-        axios.get('/api/events').then(response => {
+        axios.get('/api/eventCount').then(response => {
             this.events = response.data.data;
         });
 

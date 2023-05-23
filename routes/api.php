@@ -223,6 +223,7 @@ Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/renta
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/polls/{poll:slug}', [PollController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/pollCount', [PollController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/events/{event:slug}', [EventController::class, 'show']);
+Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/eventCount', [EventController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/users/{user:slug}', [UserController::class, 'show']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/countUsers', [UserController::class, 'count']);
 Route::middleware(['throttle:1200,1', CustomAuthMiddleware::class])->get('/posts', [PostController::class, 'index']);
