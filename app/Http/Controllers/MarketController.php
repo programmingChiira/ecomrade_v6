@@ -153,6 +153,11 @@ class MarketController extends Controller
         //return MarketResource::collection(Market::latest()->paginate(10));
     }
 
+    public function count()
+    {
+        return MarketResource::collection(Market::latest()->get());
+    }
+
     public function page(Request $request)
     {
         if ($request->search) {
