@@ -498,7 +498,7 @@ export default {
             this.clubs = response.data.data;
         });
 
-        axios.get('/api/resources').then(response => {
+        axios.get('/api/resourceCount').then(response => {
             this.resources = response.data.data;
         });
     },

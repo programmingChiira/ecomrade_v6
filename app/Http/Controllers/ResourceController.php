@@ -87,6 +87,11 @@ class ResourceController extends Controller
         ]);
     }
 
+    public function count()
+    {
+        return ResourceResource::collection(Resource::latest()->get());
+    }
+
     public function store(Request $request)
     {
         $request->validate([
