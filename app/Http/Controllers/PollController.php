@@ -153,6 +153,13 @@ class PollController extends Controller
             'last_page' => $polls->lastPage()
         ]);
     }
+
+    public function count()
+    {
+        return PollResource::collection(Poll::latest()->get());
+    }
+
+
     public function home(Request $request)
     {
         if ($request->search) {

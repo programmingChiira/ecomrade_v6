@@ -486,7 +486,7 @@ export default {
             this.posts = response.data.data;
         });
 
-        axios.get('/api/polls').then(response => {
+        axios.get('/api/pollCount').then(response => {
             this.polls = response.data.data;
         });
 
