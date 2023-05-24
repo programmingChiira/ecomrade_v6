@@ -26,10 +26,10 @@ export default {
         };
     },
     mounted() {
-    // Retrieve the flag value from localStorage when the component is mounted
-    const showButton = localStorage.getItem('showButton');
-    this.showButton = showButton !== null ? JSON.parse(showButton) : true;
-  },
+        // Retrieve the flag value from localStorage when the component is mounted
+        const showButton = localStorage.getItem("showButton");
+        this.showButton = showButton !== null ? JSON.parse(showButton) : true;
+    },
     methods: {
         clearCache() {
             Swal.fire({
@@ -54,7 +54,7 @@ export default {
                 }
             });
             this.showButton = false;
-            localStorage.setItem('showButton', JSON.stringify(this.showButton));
+            localStorage.setItem("showButton", JSON.stringify(this.showButton));
         },
     },
 };
