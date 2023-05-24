@@ -1,0 +1,52 @@
+<template>
+    <div
+        class="profile-card-inf"
+        style="display: flex; flex-wrap: wrap; float: left"
+    >
+        <div class="profile-card-inf__item">
+            <button
+                @click="clearCache"
+                class="btn bg-gradient-warning btn-sm"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Clear cache"
+            >
+                <i
+                    style="color: white; font-size: 10px"
+                    class="fa fa-warning"
+                    aria-hidden="true"
+                ></i>
+            </button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    methods: {
+        clearCache() {
+            Swal.fire({
+                title: "Clear Cache?",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, Clear cache!",
+            }).then((result) => {
+                // Send request to the server
+                if (result.value) {
+                    if ("caches" in window) {
+                        // Clear all caches
+                        caches.keys().then((cacheNames) => {
+                            cacheNames.forEach((cacheName) => {
+                                caches.delete(cacheName);
+                            });
+                        });
+                    }
+
+                    location.reload(true);
+                }
+            });
+        },
+    },
+};
+</script>

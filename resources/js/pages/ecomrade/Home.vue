@@ -9,6 +9,7 @@
 
         <div class="row justify-content-center my-2 py-1">
           <div class="custom-search">
+          <Cache />
             <input v-model="product_name" @input="search" type="text" class="custom-search-input"
               placeholder="Search market | Item | Category..." name="search">
             <br>
@@ -809,6 +810,7 @@
 <script>
 import Footer from './Footer.vue'
 import Install from './Install.vue'
+import Cache from './Cache.vue'
 
 import axios from 'axios';
 
@@ -817,7 +819,8 @@ export default {
 
   components: {
     Footer,
-    Install
+    Install,
+    Cache
   },
   emits: ["updateSidebar"],
   data() {
