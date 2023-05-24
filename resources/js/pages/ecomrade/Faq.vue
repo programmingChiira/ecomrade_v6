@@ -223,13 +223,11 @@
 
 <script>
 import Footer from './Footer.vue'
-import Install from './Install.vue'
 
 export default {
 
     components: {
-        Footer,
-        Install
+        Footer
     },
     emits: ["updateSidebar"],
     data() {
