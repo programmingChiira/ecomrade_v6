@@ -11,11 +11,7 @@
                 data-placement="bottom"
                 title="Clear cache"
             >
-                <i
-                    style="color: white; font-size: 10px"
-                    class="fa fa-warning"
-                    aria-hidden="true"
-                ></i>
+            <span> Clear cache to view recent app updates</span>
             </button>
         </div>
     </div>
