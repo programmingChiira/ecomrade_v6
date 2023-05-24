@@ -24,6 +24,8 @@
                             </ul>
                         </div>
 
+                        <Install />
+
                         <span style="float:right;margin:6px;">
                             <router-link class="btn btn-sm" to="/viewCart">
                                 <i style="color: black;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i>
@@ -317,13 +319,15 @@
 
 <script>
 import Footer from './Footer.vue'
+import Install from './Install.vue'
 
 import axios from 'axios';
 
 export default {
 
     components: {
-        Footer
+        Footer,
+        Install
     },
     emits: ["updateSidebar"],
     data() {
