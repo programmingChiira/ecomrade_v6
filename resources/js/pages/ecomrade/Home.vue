@@ -25,7 +25,9 @@
               </ul>
             </div>
 
-            <div class="profile-card-inf" style="display: flex;flex-wrap: wrap;margin:6px;float:right;">
+            <Install />
+
+            <div class="profile-card-inf" style="display: flex;flex-wrap: wrap;float:right;">
               <div class="profile-card-inf__item">
                 <router-link class="btn btn-sm" to="/viewCart">
                   <i style="color: black;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i>
@@ -806,6 +808,7 @@
 
 <script>
 import Footer from './Footer.vue'
+import Install from './Install.vue'
 
 import axios from 'axios';
 
@@ -813,7 +816,8 @@ import axios from 'axios';
 export default {
 
   components: {
-    Footer
+    Footer,
+    Install
   },
   emits: ["updateSidebar"],
   data() {
@@ -842,7 +846,6 @@ export default {
       cart: 0,
       locations: {},
       loading: true,
-
     };
   },
 
@@ -1042,6 +1045,10 @@ export default {
       .then(response => {
         this.locations = response.data.data;
       });
+
+      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      this.isPWAInstalled = true;
+    }
   },
 };
 </script>
