@@ -24,6 +24,8 @@
                             </ul>
                         </div>
 
+                        <Install />
+
                         <span style="float:right;margin:6px;">
                             <button data-toggle="tooltip" data-placement="bottom" title="List" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal" class="btn btn-sm">
@@ -280,6 +282,7 @@
 
 <script>
 import Footer from './Footer.vue'
+import Install from './Install.vue'
 
 import axios from 'axios';
 
@@ -288,7 +291,8 @@ import Cookies from 'js-cookie';
 export default {
 
     components: {
-        Footer
+        Footer,
+        Install
     },
     emits: ["updateSidebar"],
     data() {
