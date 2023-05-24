@@ -5,13 +5,14 @@
     >
         <div class="profile-card-inf__item">
             <button
+                v-if="showButton"
                 @click="clearCache"
-                class="btn bg-gradient-warning btn-sm"
+                class="btn bg-gradient-primary btn-sm"
                 data-toggle="tooltip"
                 data-placement="bottom"
                 title="Clear cache"
             >
-            <span> Clear cache to view recent app updates</span>
+                <span> View recent app updates</span>
             </button>
         </div>
     </div>
@@ -19,6 +20,16 @@
 
 <script>
 export default {
+    data() {
+        return {
+            showButton: true,
+        };
+    },
+    mounted() {
+    // Retrieve the flag value from localStorage when the component is mounted
+    const showButton = localStorage.getItem('showButton');
+    this.showButton = showButton !== null ? JSON.parse(showButton) : true;
+  },
     methods: {
         clearCache() {
             Swal.fire({
@@ -42,6 +53,8 @@ export default {
                     location.reload(true);
                 }
             });
+            this.showButton = false;
+            localStorage.setItem('showButton', JSON.stringify(this.showButton));
         },
     },
 };
