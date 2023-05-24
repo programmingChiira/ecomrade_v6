@@ -695,6 +695,7 @@ export default {
         },
 
         submit() {
+            this.isSubmitting = true;
             const fd = new FormData();
             fd.append("title", this.fields.title);
             fd.append("file1", this.fields.file1);
