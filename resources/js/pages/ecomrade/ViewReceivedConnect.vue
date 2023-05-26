@@ -238,9 +238,12 @@ export default {
                                 'success'
                             );
                             // Fire.$emit('AfterCreate');
-                            console.log("All is well");
-                            this.$router.push({ name: "Profile" });
-                            this.isSubmitting = true;
+                            axios
+                                .get("/api/connections")
+                                .then((response) => (this.connections = response.data.data))
+                                .catch((error) => {
+                                    console.log(error);
+                                });
                         }).catch((error) => {
                             Swal.fire("Failed!", error.message, "warning");
                         });
