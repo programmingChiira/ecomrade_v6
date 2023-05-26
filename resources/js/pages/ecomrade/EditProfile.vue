@@ -513,6 +513,7 @@ export default {
                     clearInterval(timerInterval);
                 },
             })
+    
                 .then((result) => {
                     /* Read more about handling dismissals below */
                     if (result.dismiss === Swal.DismissReason.timer) {
