@@ -369,7 +369,6 @@ export default {
 
       club_category: "",
       id: "",
-      name: "",
       type: "",
       loading: true,
     };
@@ -517,7 +516,6 @@ export default {
       .get("/api/user")
       .then(response => {
         this.id = response.data.id
-        this.name = response.data.name
         this.type = response.data.type
       })
       .catch((error) => {
