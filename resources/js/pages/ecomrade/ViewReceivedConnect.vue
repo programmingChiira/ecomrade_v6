@@ -196,12 +196,9 @@ export default {
                         })
                         .then((res) => {
                             this.$emit("showEditSuccess");
-                            axios
-                                .get("/api/connections")
-                                .then((response) => (this.connections = response.data.data))
-                                .catch((error) => {
-                                    console.log(error);
-                                });
+                            console.log("All is well");
+                            this.$router.push({ name: "Profile" });
+                            this.isSubmitting = true;
                         })
                         .catch((error) => {
                             this.errors = error.response.data.errors;
@@ -241,12 +238,9 @@ export default {
                                 'success'
                             );
                             // Fire.$emit('AfterCreate');
-                            axios
-                                .get("/api/connections")
-                                .then((response) => (this.connections = response.data.data))
-                                .catch((error) => {
-                                    console.log(error);
-                                });
+                            console.log("All is well");
+                            this.$router.push({ name: "Profile" });
+                            this.isSubmitting = true;
                         }).catch((error) => {
                             Swal.fire("Failed!", error.message, "warning");
                         });
