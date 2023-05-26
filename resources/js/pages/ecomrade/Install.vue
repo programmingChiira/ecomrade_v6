@@ -7,12 +7,20 @@
             <button
                 v-if="!isPWAInstalled"
                 @click="showModal"
-                class="btn bg-gradient-primary btn-sm"
+                class="btn bg-gradient-success btn-sm"
                 data-toggle="tooltip"
                 data-placement="bottom"
                 title="Install ecomrade"
                 data-bs-toggle="modal"
                 data-bs-target="#installPwa"
+                style="
+                    width: 30px;
+                    height: 30px;
+                    padding: 6px 0px;
+                    border-radius: 15px;
+                    font-size: 8px;
+                    text-align: center;
+                "
             >
                 <i
                     style="color: white; font-size: 10px"
