@@ -149,151 +149,136 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id">
                         <div class="card card-plain card-blog">
-                            <div style="background-color: #E9ECEF;" class="card">
+                        <div style="background-color: #E9ECEF;" class="card">
 
-                                <router-link :to="{
-                                    name: 'ViewMarket',
-                                    params: { slug: market.slug },
-                                }">
-                                    <img v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL || market.image_1 == 'undefined'"
-                                        loading="lazy"
-                                        style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
-                                        src="/web/img/no_img.jpg" class="card-img-top" width="100%">
+                            <router-link :to="{
+                            name: 'ViewMarket',
+                            params: { slug: market.slug },
+                            }">
+                            <img
+                                v-if="market.image_1 == false || market.image_1 == null || market.image_1 == 'null' || market.image_1 == '' || market.image_1 == ' ' || market.image_1 == NULL"
+                                loading="lazy" style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
+                                src="/web/img/no_img.jpg" class="card-img-top" width="100%">
 
-                                    <img v-else
-                                        style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
-                                        :src="'./img/market/' + market.image_1" class="card-img-top" width="100%">
+                            <img v-else style="background-color: white;width: 100%;height: 200px; object-fit: cover;"
+                                :src="'./img/market/' + market.image_1" class="card-img-top" width="100%">
 
+                            </router-link>
+
+                            <div class="card-body pt-0 px-0">
+                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                <h4>{{ market.product_name }}</h4>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                <small class="text-muted mt-1">Price</small>
+                                <h6>
+                                <span
+                                    v-if="market.product_discount == 0 || market.product_discount == false || market.product_discount == null || market.product_discount == 'null' || market.product_discount == '' || market.product_discount == ' ' || market.product_discount == 'undefined'">Ksh.
+                                    {{ market.product_price }}</span>
+                                <span v-else><span style="color: #189483;">Ksh. {{
+                                    market.product_price - market.product_discount
+                                }}</span>
+                                </span>
+                                </h6>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                <small class="text-muted mt-1">Status</small>
+                                <h6>
+                                <span style="color: red;"
+                                    v-if="market.availability == 'Out of stock' || market.availability == false || market.availability == null || market.availability == 'null' || market.availability == '' || market.availability == ' '">
+                                    Out Of Stock</span>
+                                <span style="color: #189483;" v-else> Available</span>
+                                </h6>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                <h6>
+                                <span style="color: red;"
+                                    v-if="market.location == 'undefined' || market.location == false || market.location == null || market.location == 'null' || market.location == '' || market.location == ' '">
+                                </span>
+                                <span style="color: #189483;" v-else> <a :href="market.location" target="_blank"></a></span>
+                                </h6>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                <span style="margin: 3px;" class="badge bg-dark ">
+                                <i class="fa fa-comments-o"></i> {{ market.rating_count }}
+                                </span>
+
+                                <span style="margin: 3px;" class="badge bg-dark">
+                                <div v-if="Math.round(market.avg_rating) === 0" class="stars">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div v-if="Math.round(market.avg_rating) === 1" class="stars">
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                </div>
+                                <div v-if="Math.round(market.avg_rating) === 2" class="stars">
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                </div>
+                                <div v-if="Math.round(market.avg_rating) === 3" class="stars">
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                </div>
+                                <div v-if="Math.round(market.avg_rating) === 4" class="stars">
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                </div>
+                                <div v-if="Math.round(market.avg_rating) === 5" class="stars">
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                    <i style="color: orange;" class="fa fa-star"></i>
+                                </div>
+                                </span>
+                            </div>
+
+
+                            <div class="mx-3 mt-3 mb-2">
+                                <form @submit.prevent="submit(market)">
+                                <input class="form-control" type="hidden" v-model="market.user_id" />
+                                <input class="form-control" type="hidden" v-model="market.id" />
+                                <input class="form-control" type="hidden" v-model="market.product_name" />
+                                <input class="form-control" type="hidden" v-model="market.product_category" />
+                                <input class="form-control" type="hidden" v-model="market.image_1" />
+                                <input class="form-control" type="hidden" v-model="market.slug" />
+                                <input class="form-control" type="hidden" v-model="market.contact" />
+                                <input class="form-control" type="hidden" v-model="market.product_price" />
+                                <input class="form-control" type="hidden" v-model="market.product_discount" />
+
+                                <router-link v-if="id == false" to="/login" style="font-size: 13px;"
+                                    class="btn bg-gradient-primary btn-sm btn-block">
+                                    <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i> <sup> 0</sup>
                                 </router-link>
 
-                                <div class="card-body pt-0 px-0">
-                                    <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                        <h4>{{ market.product_name }}</h4>
-                                    </div>
-                                    <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                        <small class="text-muted mt-1">Cost</small>
-                                        <h6>
-                                            <span
-                                                v-if="market.product_discount == 0 || market.product_discount == false || market.product_discount == null || market.product_discount == 'null' || market.product_discount == '' || market.product_discount == ' ' || market.product_discount == 'undefined'">Ksh.
-                                                {{ market.product_price }}</span>
-                                            <span v-else><span style="color: #189483;">Ksh. {{
-                                                market.product_price - market.product_discount
-                                            }}</span> <span style="text-decoration: line-through;font-size: 10px;"> Ksh. {{ market.product_price }} </span></span>
-                                        </h6>
-                                    </div>
+                                <button v-else style="font-size: 13px;" type="submit"
+                                    class="btn bg-gradient-primary btn-sm btn-block">
+                                    <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i> <sup> {{ market.cart_count }}</sup>
+                                </button>
 
-                                    <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                        <small class="text-muted mt-1">Status</small>
-                                        <h6>
-                                            <span style="color: red;"
-                                                v-if="market.availability == 'Out of stock' || market.availability == false || market.availability == null || market.availability == 'null' || market.availability == '' || market.availability == ' '">
-                                                Out Of Stock</span>
-                                            <span style="color: #189483;" v-else> Available</span>
-                                        </h6>
-                                    </div>
+                                </form>
 
-                                    <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                        <small class="text-muted mt-1">Location</small>
-                                        <h6>
-                                            <span style="color: red;"
-                                                v-if="market.location == 'undefined' || market.location == false || market.location == null || market.location == 'null' || market.location == '' || market.location == ' '">
-                                                Not Provided</span>
-                                            <span style="color: #189483;" v-else> {{ market.location }}</span>
-                                        </h6>
-                                    </div>
-
-                                    <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                        <span style="margin: 3px;" class="badge bg-dark ">
-                                            <i class="fa fa-comments-o"></i> {{ market.rating_count }}
-                                        </span>
-
-                                        <span style="margin: 3px;" class="badge bg-dark">
-                                            <div v-if="Math.round(market.avg_rating) === 0" class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div v-if="Math.round(market.avg_rating) === 1" class="stars">
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div v-if="Math.round(market.avg_rating) === 2" class="stars">
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div v-if="Math.round(market.avg_rating) === 3" class="stars">
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div v-if="Math.round(market.avg_rating) === 4" class="stars">
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div v-if="Math.round(market.avg_rating) === 5" class="stars">
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                                <i style="color: orange;" class="fa fa-star"></i>
-                                            </div>
-                                        </span>
-                                    </div>
-
-
-                                    <div class="mx-3 mt-3 mb-2">
-                                        <form @submit.prevent="submit(market)">
-                                            <input class="form-control" type="hidden" v-model="market.user_id" />
-                                            <input class="form-control" type="hidden" v-model="market.id" />
-                                            <input class="form-control" type="hidden" v-model="market.product_name" />
-                                            <input class="form-control" type="hidden" v-model="market.product_category" />
-                                            <input class="form-control" type="hidden" v-model="market.image_1" />
-                                            <input class="form-control" type="hidden" v-model="market.slug" />
-                                            <input class="form-control" type="hidden" v-model="market.contact" />
-                                            <input class="form-control" type="hidden" v-model="market.product_price" />
-                                            <input class="form-control" type="hidden" v-model="market.product_discount" />
-                                            <router-link v-if="id == false" to="/login" style="font-size: 13px;"
-                                                class="btn bg-gradient-primary btn-sm btn-block">
-                                                Compare <sup> ( 0 )</sup>
-                                            </router-link>
-
-                                            <button v-else data-toggle="tooltip" data-placement="bottom"
-                                                title="Add to compare" style="font-size: 13px;" type="submit"
-                                                class="btn bg-gradient-primary btn-sm btn-block">
-                                                Compare <sup> ( {{ market.cart_count }} )</sup>
-                                            </button>
-                                        </form>
-
-                                    </div>
-                                    <div class="mx-3 mt-3 mb-2">
-                                        <button v-if="market.user_id == id || id == 1" type="button"
-                                            @click="destroy(market.id)" class="delete-btn"
-                                            style="float: left;border:none;outline:none;background: none;">
-                                            <i class="fa fa-trash-o" style="color: red;"></i>
-                                        </button>
-
-                                        <router-link style="float: right;" v-if="market.user_id == id || id == 1" :to="{
-                                            name: 'EditMarket',
-                                            params: { slug: market.slug },
-                                        }"><i class="fa fa-edit" style="color: #189483;"></i>
-                                        </router-link>
-                                    </div>
-
-                                </div>
                             </div>
+                            <div class="mx-3 mt-3 mb-2">
+                                <button v-if="market.user_id == id || id == 1" type="button" @click="destroy(market.id)"
+                                class="delete-btn" style="float: left;border:none;outline:none;background: none;">
+                                <i class="fa fa-trash-o" style="color: red;"></i>
+                                </button>
+
+                                <router-link style="float: right;" v-if="market.user_id == id || id == 1" :to="{
+                                name: 'EditMarket',
+                                params: { slug: market.slug },
+                                }"><i class="fa fa-edit" style="color: #189483;"></i>
+                                </router-link>
+                            </div>
+
+                            </div>
+                        </div>
                         </div>
                         <br />
                     </div>

@@ -159,7 +159,7 @@
                     <h4>{{ market.product_name }}</h4>
                   </div>
                   <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                    <small class="text-muted mt-1">Cost</small>
+                    <small class="text-muted mt-1">Price</small>
                     <h6>
                       <span
                         v-if="market.product_discount == 0 || market.product_discount == false || market.product_discount == null || market.product_discount == 'null' || market.product_discount == '' || market.product_discount == ' ' || market.product_discount == 'undefined'">Ksh.
@@ -167,8 +167,6 @@
                       <span v-else><span style="color: #189483;">Ksh. {{
                         market.product_price - market.product_discount
                       }}</span>
-                        <span style="text-decoration: line-through;font-size: 10px;"> Ksh. {{
-                          market.product_price }} </span>
                       </span>
                     </h6>
                   </div>
@@ -184,12 +182,11 @@
                   </div>
 
                   <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                    <small class="text-muted mt-1">Location</small>
                     <h6>
                       <span style="color: red;"
                         v-if="market.location == 'undefined' || market.location == false || market.location == null || market.location == 'null' || market.location == '' || market.location == ' '">
-                        Not Provided</span>
-                      <span style="color: #189483;" v-else> {{ market.location }}</span>
+                      </span>
+                      <span style="color: #189483;" v-else> <a :href="market.location" target="_blank"></a></span>
                     </h6>
                   </div>
 
@@ -201,38 +198,24 @@
                     <span style="margin: 3px;" class="badge bg-dark">
                       <div v-if="Math.round(market.avg_rating) === 0" class="stars">
                         <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
                       </div>
                       <div v-if="Math.round(market.avg_rating) === 1" class="stars">
                         <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
                       </div>
                       <div v-if="Math.round(market.avg_rating) === 2" class="stars">
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
                       </div>
                       <div v-if="Math.round(market.avg_rating) === 3" class="stars">
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
                       </div>
                       <div v-if="Math.round(market.avg_rating) === 4" class="stars">
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
                         <i style="color: orange;" class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
                       </div>
                       <div v-if="Math.round(market.avg_rating) === 5" class="stars">
                         <i style="color: orange;" class="fa fa-star"></i>
@@ -259,12 +242,12 @@
 
                       <router-link v-if="id == false" to="/login" style="font-size: 13px;"
                         class="btn bg-gradient-primary btn-sm btn-block">
-                        Compare <sup> ( 0 )</sup>
+                        <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i> <sup> 0</sup>
                       </router-link>
 
                       <button v-else style="font-size: 13px;" type="submit"
                         class="btn bg-gradient-primary btn-sm btn-block">
-                        Compare <sup> ( {{ market.cart_count }} )</sup>
+                        <i style="color: white;font-size: 13px;" class="fa fa-random" aria-hidden="true"></i> <sup> {{ market.cart_count }}</sup>
                       </button>
 
                     </form>
