@@ -407,6 +407,12 @@ export default {
                             }
                         });
 
+                    axios
+                        .get("/api/markets")
+                        .then((response) => {
+                            this.markets = response.data.data;
+                        })
+
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
