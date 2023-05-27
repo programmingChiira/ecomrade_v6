@@ -98,7 +98,7 @@
                 </div>
 
                     <div class="row justify-content-center my-2 py-1">
-                        <div class="col-md-6 col-12" v-for="event in events" :key="event.id">
+                        <div class="col-md-4 col-12" v-for="event in events" :key="event.id">
                             <div style="margin: 10px;background-color: #E9ECEF;" class="card">
                                 <img v-if="event.image_1 == false || event.image_1 == null || event.image_1 == 'null' || event.image_1 == '' || event.image_1 == ' ' || event.image_1 == NULL"
                                     loading="lazy"
