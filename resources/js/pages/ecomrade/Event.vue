@@ -128,16 +128,21 @@
                                                     Already Happened</span>
                                                 )
                                             </h4>
+
+                                            <h5 class="text-muted mb-1">Entry 
+                                                <small style="text-decoration: underline;color:#189483;" class="ghj">
+                                                {{ event.entry }}
+                                                </small>
+                                            </h5>
+                                            <div class="d-flex flex-row">
+                                                <div class="d-flex flex-column ml-1">
+                                                    
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="d-flex flex-column">
-                                            <h5 class="text-muted mb-1">Entry</h5>
-                                            <div class="d-flex flex-row">
-                                                <div class="d-flex flex-column ml-1">
-                                                    <small style="text-decoration: underline;color:#189483;" class="ghj"> {{
-                                                        event.entry }}</small>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
