@@ -147,6 +147,10 @@ export default {
         return {
             message: 'footer'
         }
+    },
+
+    mounted(){
+        window.scrollTo(0, 0);
     }
 }
 </script>
