@@ -1,8 +1,6 @@
 <template>
   <body class="about-us">
-    <div class="full-page-loader" v-if="loading">
-      <img src="/triangle.svg" alt="Loader" />
-    </div>
+    <Loader/>
     <section class="my-5 py-5">
 
       <div v-if="type == 'admin'" class="container">
@@ -384,13 +382,15 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 import axios from 'axios';
 
 export default {
 
   components: {
-    Footer
+    Footer,
+    Loader,
   },
   emits: ["updateSidebar"],
   data() {
@@ -419,7 +419,6 @@ export default {
       name: "",
       type: "",
       locations: {},
-      loading: true,
     };
   },
 
@@ -574,10 +573,6 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
-
     axios
       .get("/api/user")
       .then(response => {
