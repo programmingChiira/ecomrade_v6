@@ -38,11 +38,13 @@
                                         loading="lazy" src="/web/img/no_img.jpg" class="rounded" width="100">
 
                                     <img v-else :src="'./img/market/' + cart.marketImg" class="rounded" width="100">
+                                    <br/>
+                                    <span style="text-align: center;" class="font-weight-bold"> {{ cart.marketName }}</span>
 
                                 </div>
-                                <div class="d-flex flex-column align-items-center product-details">
-                                    <span class="font-weight-bold"> {{ cart.marketName }}</span>
-                                </div>
+                                <!-- <div class="d-flex flex-column align-items-center product-details">
+                                    
+                                </div> -->
                                 <div class="price d-flex flex-row align-items-center"
                                     v-if="cart.marketDiscount == 0 || cart.marketDiscount == false || cart.marketDiscount == null || cart.marketDiscount == 'null' || cart.marketDiscount == '' || cart.marketDiscount == 'NULL'">
                                     <h4>Ksh. {{ cart.marketPrice }} </h4>
