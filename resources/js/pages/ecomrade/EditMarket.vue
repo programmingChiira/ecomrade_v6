@@ -29,7 +29,7 @@
                             </div>
                         </nav>
                     </div>
-                    <div style="float: right" class="col-md-8 col-3">
+                    <div style="float: right" class="col-md-8 col-2">
                         <router-link
                             to="/createmarket"
                             style="float: right"
@@ -43,7 +43,7 @@
                                 type="button"
                                 class="btn bg-gradient-primary btn-sm"
                             >
-                                New
+                                <i class="fa fa-plus"></i>
                             </button>
                         </router-link>
                     </div>
