@@ -33,14 +33,17 @@
                                 v-if="cart.senderId == id">
                                 <div class="mr-1">
                                     <!-- <img class="rounded" src="assets/img/logo.png" width="70"> -->
+                                    <router-link :to="{
+                                        name: 'ViewMarket',
+                                        params: { slug: cart.marketSlug },
+                                    }">
+                                        <img v-if="cart.marketImg == false || cart.marketImg == null || cart.marketImg == 'null' || cart.marketImg == '' || cart.marketImg == ' ' || cart.marketImg == NULL"
+                                            loading="lazy" src="/web/img/no_img.jpg" class="avatar-sm rounded-circle me-2" style="background-color: white;width: 100%;height: 200px;">
 
-                                    <img v-if="cart.marketImg == false || cart.marketImg == null || cart.marketImg == 'null' || cart.marketImg == '' || cart.marketImg == ' ' || cart.marketImg == NULL"
-                                        loading="lazy" src="/web/img/no_img.jpg" class="rounded" width="100">
-
-                                    <img v-else :src="'./img/market/' + cart.marketImg" class="rounded" width="100">
-                                    <br/>
-                                    <span style="text-align: center;" class="font-weight-bold"> {{ cart.marketName }}</span>
-
+                                        <img v-else :src="'./img/market/' + cart.marketImg" class="avatar-sm rounded-circle me-2" style="background-color: white;width: 100%;height: 200px;">
+                                        <br/>
+                                        <span style="text-align: center;" class=""> {{ cart.marketName }}</span>
+                                    </router-link>
                                 </div>
                                 <!-- <div class="d-flex flex-column align-items-center product-details">
                                     
@@ -62,6 +65,7 @@
                                     </button>
                                 </div>
                             </div>
+                            <hr class="horizontal dark my-1">
                         </div>
                         <h5 v-if="!carts.length">Sorry, no item found!</h5>
                     </div>

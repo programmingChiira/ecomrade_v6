@@ -224,7 +224,7 @@
                                 }"><i style="font-size: 12px;" class="fa fa-user-friends"></i>
                                 </router-link>
                             </div>
-
+                            
                             <div class="profile-card-inf__item">
                                 <router-link style="background-color: white;" class="btn btn-sm" :to="{
                                     name: 'ProdProfile',
