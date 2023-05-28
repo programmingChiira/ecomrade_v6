@@ -1,8 +1,6 @@
 <template>
     <body class="index-page">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section class="my-5 py-5">
 
             <div class="container">
@@ -65,11 +63,13 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     data() {
         return {
@@ -162,9 +162,7 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
+        //
     },
 };
 </script>

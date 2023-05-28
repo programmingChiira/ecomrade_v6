@@ -1,8 +1,6 @@
 <template>
     <body class="about-us">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">
@@ -76,11 +74,13 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     emits: ["updateSidebar"],
     data() {
@@ -100,7 +100,6 @@ export default {
 
             id: "",
             name: "",
-            loading: true,
         };
     },
 
@@ -200,10 +199,6 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
-
         axios
             .get("/api/carts")
             .then((response) => {

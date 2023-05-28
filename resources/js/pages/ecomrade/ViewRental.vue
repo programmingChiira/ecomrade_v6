@@ -1,8 +1,6 @@
 <template>
     <body class="index-page">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row">
@@ -707,11 +705,13 @@
 <script>
 import axios from 'axios';
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     emits: ["updateSidebar"],
     props: ["slug"],
@@ -730,7 +730,6 @@ export default {
             bookingCount: 0,
             booked: "",
             rentalNameCount: 0,
-            loading: true,
             imageLoading: false
         };
     },
@@ -1255,10 +1254,6 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
-
         axios
             .get("/api/user")
             //.then((response) => (this.id = response.data.id))

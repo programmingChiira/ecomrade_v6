@@ -1,8 +1,6 @@
 <template>
   <body class="index-page">
-    <div class="full-page-loader" v-if="loading">
-      <img src="/triangle.svg" alt="Loader" />
-    </div>
+    <Loader/>
     <section class="my-5 py-5" style="height: 88vh">
       <div class="container">
         <div class="row no-gutters  d-flex justify-content-center">
@@ -239,11 +237,13 @@
 
 <script>
 import Footer from './Footer.vue';
+import Loader from './Loader.vue';
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 export default {
   components: {
-    Footer
+    Footer,
+    Loader,
   },
   emits: ["updateSidebar"],
   props: ["slug"],
@@ -260,7 +260,6 @@ export default {
       name: "",
       url1: "",
       messageCount: 0,
-      loading: true,
       isSubmitting: false,
     };
   },
@@ -600,10 +599,6 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
-
     axios
       .get("/api/user")
       //.then((response) => (this.id = response.data.id))

@@ -1,8 +1,6 @@
 <template>
     <body class="sign-in-illustration">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section>
             <div class="page-header min-vh-100">
                 <div class="container">
@@ -163,12 +161,14 @@
 
 <script>
 import Footer from "./Footer.vue";
+import Loader from "./Loader.vue";
 import Cookies from "js-cookie";
 import axios from "axios";
 
 export default {
     components: {
         Footer,
+        Loader,
     },
     data() {
         return {
@@ -177,7 +177,6 @@ export default {
             errors: "",
             showPassword: false,
             password: null,
-            loading: true,
             isSubmitting: false,
         };
     },
@@ -217,9 +216,7 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
+        //
     },
 };
 </script>

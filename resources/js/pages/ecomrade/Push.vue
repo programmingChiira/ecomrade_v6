@@ -1,8 +1,6 @@
 <template>
   <body class="contact-us">
-    <div class="full-page-loader" v-if="loading">
-      <img src="/triangle.svg" alt="Loader" />
-    </div>
+    <Loader/>
     <div v-if="type == 'admin'">
       <header>
         <div class="page-header min-vh-85">
@@ -244,11 +242,13 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
   components: {
-    Footer
+    Footer,
+    Loader,
   },
   emits: ["updateSidebar"],
   data() {
@@ -260,7 +260,6 @@ export default {
       id: "",
       name: "",
       type: "",
-      loading: true,
     };
   },
 
@@ -309,10 +308,6 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
-
     axios
       .get("/api/user")
       .then(response => {

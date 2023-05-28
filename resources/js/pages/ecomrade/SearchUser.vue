@@ -96,6 +96,7 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 import axios from 'axios';
 
@@ -104,7 +105,8 @@ import Cookies from 'js-cookie';
 export default {
 
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     emits: ["updateSidebar"],
     data() {
@@ -125,7 +127,6 @@ export default {
             links: [],
 
             id: "",
-            loading: true,
         };
     },
 
@@ -265,10 +266,6 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-      this.loading = false;
-    }, 2000);
-
         axios
             .get("/api/user")
             .then(response => {

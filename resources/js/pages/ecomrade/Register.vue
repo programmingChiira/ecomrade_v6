@@ -1,8 +1,6 @@
 <template>
     <body class="sign-in-illustration">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section class="my-5 py-5">
             <div class="page-header min-vh-100">
                 <div class="container">
@@ -328,10 +326,12 @@
 
 <script>
 import Footer from "./Footer.vue";
+import Loader from "./Loader.vue";
 
 export default {
     components: {
         Footer,
+        Loader,
     },
     data() {
         return {
@@ -350,7 +350,6 @@ export default {
             showPassword: false,
             password: null,
             showPasswordConfirm: false,
-            loading: true,
             isSubmitting: false,
         };
     },
@@ -485,10 +484,6 @@ export default {
         },
     },
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
-
         axios.get("/api/locations").then((response) => {
             this.locations = response.data.data;
         });

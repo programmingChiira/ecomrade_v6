@@ -1,8 +1,6 @@
 <template>
     <body class="index-page">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <section class="my-5 py-5">
             <div class="container py-4">
                 <div class="row text-center">
@@ -545,10 +543,12 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     emits: ["updateSidebar"],
     props: ["slug"],
@@ -565,7 +565,6 @@ export default {
             name: "",
             avgRating: 0,
             commentCount: 0,
-            loading: true,
         };
     },
 
@@ -830,10 +829,6 @@ export default {
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
-
         axios
             .get("/api/user")
             //.then((response) => (this.id = response.data.id))

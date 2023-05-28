@@ -1,8 +1,6 @@
 <template>
     <body class="about-us">
-        <div class="full-page-loader" v-if="loading">
-            <img src="/triangle.svg" alt="Loader" />
-        </div>
+        <loader/>
         <!-- -------- START HEADER 7 w/ text and video ------- -->
         <header class="bg-gradient-dark">
             <div class="page-header min-vh-55" style="background-image: url('web/faq.png');">
@@ -223,11 +221,13 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
     components: {
-        Footer
+        Footer,
+        Loader,
     },
     emits: ["updateSidebar"],
     data() {
@@ -236,15 +236,10 @@ export default {
 
             id: "",
             name: "",
-            loading: true,
         };
     },
 
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-        }, 2000);
-
         axios
             .get("/api/home-posts")
             .then((response) => (this.posts = response.data.data))

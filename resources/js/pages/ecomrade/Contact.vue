@@ -1,8 +1,6 @@
 <template>
   <body class="contact-us">
-    <div class="full-page-loader" v-if="loading">
-      <img src="/triangle.svg" alt="Loader" />
-    </div>
+    <Loader/>
     <header>
       <div class="page-header min-vh-85">
         <div>
@@ -66,11 +64,13 @@
 
 <script>
 import Footer from './Footer.vue'
+import Loader from './Loader.vue'
 
 export default {
 
   components: {
-    Footer
+    Footer,
+    Loader,
   },
   emits: ["updateSidebar"],
   data() {
