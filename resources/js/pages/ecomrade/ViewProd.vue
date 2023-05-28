@@ -1,6 +1,6 @@
 <template>
     <body class="index-page">
-        <loader/>
+        <Loader/>
         <section class="my-5 py-5">
             <div class="container mt-5 mb-5">
 

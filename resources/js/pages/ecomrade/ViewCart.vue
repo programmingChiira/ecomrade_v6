@@ -1,6 +1,6 @@
 <template>
     <body class="about-us">
-        <loader/>
+        <Loader/>
         <section class="py-7">
             <div class="container mt-5 mb-5">
                 <div class="d-flex justify-content-center row">

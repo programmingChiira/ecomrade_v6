@@ -1,6 +1,6 @@
 <template>
     <body class="about-us">
-        <loader/>
+        <Loader/>
         <section class="my-5 py-5">
             <div class="wrapperr">
                 <div class="profile-card js-profile-card">

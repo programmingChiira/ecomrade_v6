@@ -1,6 +1,6 @@
 <template>
     <body class="sign-in-illustration">
-        <loader/>
+        <Loader/>
         <section>
             <div class="page-header min-vh-100">
                 <div class="container">
