@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "Install",
+    name: "Loader",
     data() {
         return {
             loading: true,
