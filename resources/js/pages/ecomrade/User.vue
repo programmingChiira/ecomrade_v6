@@ -194,8 +194,8 @@
                         <hr class="horizontal dark my-5" />
 
                         <div class="d-flex justify-content-between" style="margin: 5px;">
-                            <a :href="user.facebook" target="_blank">
-                                <i style="color: #3b5998;" class="fa fa-facebook-f"></i>
+                            <a :href="user.linkedin" target="_blank">
+                                <i style="color: #0072b1;" class="fa fa-linkedin"></i>
                             </a>
 
                             <a :href="user.twitter" target="_blank">
