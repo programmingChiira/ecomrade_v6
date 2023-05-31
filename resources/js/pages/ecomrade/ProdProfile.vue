@@ -27,10 +27,10 @@
                                                     data-bs-dismiss="modal" aria-label="Close"> X </button>
                                             </div>
                                             <div class="modal-body">
-                                                <img style="width: 100%;"
+                                                <img style="width: 100%;border-radius: 5px;"
                                                     v-if="user.profile_pic == false || user.profile_pic == null || user.profile_pic == 'null' || user.profile_pic == '' || user.profile_pic == ' '"
                                                     src="/web/img/no_img.jpg" alt="profile card">
-                                                <img style="width: 100%;" v-else :src="'./img/profiles/' + user.profile_pic"
+                                                <img style="width: 100%;border-radius: 5px;" v-else :src="'./img/profiles/' + user.profile_pic"
                                                     alt="profile card">
 
 
