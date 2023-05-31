@@ -84,6 +84,7 @@ export default {
             message: "install",
             isPWAInstalled: false,
             showInstallModal: false,
+            installPromptEvent: null,
         };
     },
 
@@ -108,13 +109,8 @@ export default {
     },
     mounted() {
         window.addEventListener("beforeinstallprompt", (event) => {
-            // Prevent the default prompt from showing
             event.preventDefault();
-
-            // Show your custom installation prompt
             this.showInstallModal = true;
-
-            // Save the event for later use
             this.installPromptEvent = event;
         });
     },
