@@ -1215,4 +1215,65 @@ export default {
 .red:focus {
 	background-color: red;
 }
+
+.blue{
+	background-color: #fff;
+	border: 2px solid #40C4FF;
+}
+
+.blue:hover {
+	border: 3px solid #40C4FF;
+}
+.blue:focus {
+	background-color: #40C4FF;
+}
+.darkblue{
+	background-color: #fff;
+	border: 2px solid #01579B;
+}
+.darkblue:hover {
+	border: 3px solid #01579B;
+}
+.darkblue:focus {
+	background-color: #01579B;
+}
+.yellow{
+	background-color: #fff;
+	border: 2px solid #FFCA28;
+}
+.yellow:hover {
+	border-radius: 3px solid #FFCA28;
+}
+.yellow:focus {
+	background-color: #FFCA28;
+}
+.item-size{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: #fff;
+	border: 1px solid grey;
+	color: grey;
+	font-size: 10px;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+
+.rating-star{
+	font-size: 10px !important;
+}
+.rating-number{
+	font-size: 10px;
+	color: grey;
+
+}
+.buy{
+	font-size: 12px;
+	color: purple;
+	font-weight: 500;
+}
+
 </style>
