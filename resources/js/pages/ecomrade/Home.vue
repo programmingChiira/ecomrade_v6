@@ -133,7 +133,7 @@
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-lg-4 col-sm-6 col-12" v-for="market in markets" :key="market.id">
+          <div class="col-lg-4 col-sm-4 col-12" v-for="market in markets" :key="market.id">
             <div class="card card-plain card-blog">
               <div style="background-color: #E9ECEF;" class="card">
 
