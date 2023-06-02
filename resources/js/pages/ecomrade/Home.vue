@@ -1276,4 +1276,48 @@ export default {
 	font-weight: 500;
 }
 
+.voutchers{
+	background-color: #fff;
+	border:none;
+	border-radius: 10px;
+	width: 190px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow: hidden;
+
+}
+.voutcher-divider{
+
+	display: flex;
+
+}
+.voutcher-left{
+	width: 60%
+}
+.voutcher-name{
+	color: grey;
+	font-size: 9px;
+	font-weight: 500;
+}
+.voutcher-code{
+	color: red;
+	font-size: 11px;
+	font-weight: bold;
+}
+.voutcher-right{
+	width: 40%;	 
+	background-color: purple;
+	color: #fff;
+}
+
+.discount-percent{
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+	top: 5px;
+}
+.off{
+	font-size: 14px;
+	position: relative;
+	bottom: 5px;
+}
 </style>
