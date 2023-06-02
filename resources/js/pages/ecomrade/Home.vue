@@ -1208,4 +1208,11 @@ export default {
 	border: 2px solid red;
 	
 }
+
+.red:hover {
+	border: 3px solid red;
+}
+.red:focus {
+	background-color: red;
+}
 </style>
