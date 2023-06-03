@@ -10,7 +10,6 @@
                 ecomrade
               </router-link>
 
-              
               <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
                 aria-label="Toggle navigation">
