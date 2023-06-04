@@ -95,7 +95,7 @@
                                 <div>
                                   <h6
                                     class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                    Clubs / Societies</h6>
+                                    Clubs & Societies</h6>
                                   <span class="text-sm">ecomrade clubs and society. </span>
                                 </div>
                               </div>
@@ -153,7 +153,7 @@
                               <div>
                                 <h6
                                   class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                  Clubs / Societies</h6>
+                                  Clubs & Societies</h6>
                                 <span class="text-sm">ecomrade clubs and society.</span>
                               </div>
                             </div>
