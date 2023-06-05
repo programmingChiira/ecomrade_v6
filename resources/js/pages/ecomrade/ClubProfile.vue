@@ -86,7 +86,7 @@
                                         Campus
                                     </router-link>
                                 </span>
-                                <span v-else>{{ user.campus }}</span>,<br>
+                                <span v-else>{{ user.campus }}</span><br>
 
                                 <span
                                     v-if="user.campus_area == false || user.campus_area == null || user.campus_area == 'null' || user.campus_area == '' || user.campus_area == ' '">
