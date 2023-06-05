@@ -38,10 +38,10 @@
                                                     <span class="profile-card-loc__txt">
                                                         <span
                                                             v-if="user.personal_description == false || user.personal_description == null || user.personal_description == 'null' || user.personal_description == '' || user.personal_description == ' '">
-                                                            "No Personal description" :- {{ user.name }}
+                                                            No Personal description
                                                         </span>
                                                         <span v-else> " <i>{{ user.personal_description }}</i> "
-                                                            :-</span>
+                                                            :- {{ user.name }}</span>
                                                     </span>
                                                 </div>
                                             </div>
