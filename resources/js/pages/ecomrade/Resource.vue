@@ -48,7 +48,7 @@
                                         <div style="padding: 15px;" class="container row">
                                             <ul>
                                                 <li style="display: inline;" v-for="course in courses" :key="course.id">
-                                                    <input data-bs-dismiss="modal" class="btn btn-sm" type="button"
+                                                    <input data-bs-dismiss="modal" type="button"
                                                         name="search" :value="course.name" @click="title = course.name">
                                                 </li>
                                                 <h5 v-if="!courses.length">Sorry, no item found!</h5>
@@ -77,7 +77,7 @@
                                         <div style="padding: 15px;" class="container row">
                                             <ul>
                                                 <li style="display: inline;" v-for="year in years" :key="year.id">
-                                                    <input data-bs-dismiss="modal" class="btn btn-sm" type="button"
+                                                    <input data-bs-dismiss="modal" type="button"
                                                         name="search" :value="'Year ' + year.year"
                                                         @click="title = 'Year ' + year.year">
                                                 </li>
