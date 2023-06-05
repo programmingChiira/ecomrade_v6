@@ -47,7 +47,7 @@
                                             <ul>
                                                 <li style="display: inline;" v-for="location in locations"
                                                     :key="location.id">
-                                                    <input data-bs-dismiss="modal" class="btn btn-sm" type="button"
+                                                    <input data-bs-dismiss="modal" type="button"
                                                         name="search" :value="location.name" @click="title = location.name">
                                                 </li>
                                                 <h5 v-if="!locations.length">Sorry, no item found!</h5>
