@@ -58,6 +58,7 @@ class UserController extends Controller
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
+                    'title' => $user->title,
                     'slug' => $user->slug,
                     'phone' => $user->phone,
                     'email' => $user->email,
@@ -104,6 +105,7 @@ class UserController extends Controller
             return [
                 'id' => $user->id,
                 'name' => $user->name,
+                'title' => $user->title,
                 'slug' => $user->slug,
                 'phone' => $user->phone,
                 'email' => $user->email,
@@ -174,6 +176,7 @@ class UserController extends Controller
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
+                    'title' => $user->title,
                     'slug' => $user->slug,
                     'phone' => $user->phone,
                     'email' => $user->email,
@@ -276,6 +279,7 @@ class UserController extends Controller
             'name' => $user->name,
             'slug' => $user->slug,
             'phone' => $user->phone,
+            'title' => $user->title,
             'email' => $user->email,
             'type' => $user->type,
             'youtube' => $user->youtube,
