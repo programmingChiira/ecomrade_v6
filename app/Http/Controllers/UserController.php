@@ -28,6 +28,7 @@ class UserController extends Controller
             $users = UserResource::collection(User::where('name', 'like', '%' . $request->search . '%')
                 ->orWhere('phone', 'like', '%' . $request->search . '%')
                 ->orWhere('email', 'like', '%' . $request->search . '%')
+                ->orWhere('title', 'like', '%' . $request->search . '%')
                 ->orWhere('type', 'like', '%' . $request->search . '%')
                 ->orWhere('youtube', 'like', '%' . $request->search . '%')
                 ->orWhere('instagram', 'like', '%' . $request->search . '%')
@@ -145,6 +146,7 @@ class UserController extends Controller
         if ($request->search) {
             $users = UserResource::collection(User::where('name', 'like', '%' . $request->search . '%')
                 ->orWhere('phone', 'like', '%' . $request->search . '%')
+                ->orWhere('title', 'like', '%' . $request->search . '%')
                 ->orWhere('email', 'like', '%' . $request->search . '%')
                 ->orWhere('type', 'like', '%' . $request->search . '%')
                 ->orWhere('youtube', 'like', '%' . $request->search . '%')
