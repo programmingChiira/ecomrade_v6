@@ -58,10 +58,10 @@
 
                         <div class="profile-card__txt">
                             <span
-                                v-if="user.title == false || user.title == null || user.title == 'null' || user.title == '' || user.title == 'undefined'">
+                                v-if="user.title == false || user.title == null || user.title == 'null' || user.title == '' || user.title == ' ' || user.title == 'undefined'">
                             </span>
 
-                            <strong>{{ user.title }}</strong>
+                            <strong v-else>{{ user.title }}</strong>
                         </div>
 
 
@@ -70,7 +70,7 @@
                                 <span
                                     v-if="user.campus == false || user.campus == null || user.campus == 'null' || user.campus == '' || user.campus == ' '">
                                 </span>
-                                <span v-else>{{ user.campus }} </span><br>
+                                <span v-else>{{ user.campus }} ,</span><br>
 
                                 <span
                                     v-if="user.campus_area == false || user.campus_area == null || user.campus_area == 'null' || user.campus_area == '' || user.campus_area == ' '">
