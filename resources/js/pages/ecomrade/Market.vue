@@ -58,7 +58,7 @@
                                             <ul>
                                                 <li style="display: inline;" v-for="category in categories"
                                                     :key="category.id">
-                                                    <input data-bs-dismiss="modal" class="btn btn-sm" type="button"
+                                                    <input data-bs-dismiss="modal" type="button"
                                                         name="search" :value="category.name"
                                                         @click="product_name = category.name">
                                                 </li>
@@ -81,7 +81,7 @@
                                             <h5 class="modal-title" id="exampleModal1Label">
                                                 Product Location
                                             </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            <button type="button" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
 
