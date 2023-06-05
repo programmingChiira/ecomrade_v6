@@ -48,7 +48,7 @@
                                                             </router-link>
                                                         </span>
                                                         <span v-else> " <i>{{ user.personal_description }}</i> "
-                                                            :-</span>
+                                                            :- {{ user.name }}</span>
                                                     </span>
                                                 </div>
                                             </div>
