@@ -4,7 +4,7 @@
         <section class="my-5 py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-10">
+                    <div class="col-md-4 col-6">
                         <nav
                             aria-label="breadcrumb"
                             class="breadcrumb-nav mb-2"
@@ -18,31 +18,25 @@
                                         style="color: #189483"
                                         class="breadcrumb-item"
                                     >
-                                        <strong>Edit profile</strong>
+                                        <strong>Edit</strong>
                                     </li>
                                 </ol>
                             </div>
                         </nav>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div
-                        style="
-                            display: flex;
-                            flex-wrap: wrap;
-                            margin: 6px;
-                            float: right;
-                        "
-                    >
-                        <!-- <router-link style="margin: 10px;float:right;" title="Delete my account" to="/createblog" class="btn btn-sm">
+                    <div style="float: right" class="col-md-8 col-6">
+                        <router-link style="margin: 10px;float:right;" title="Delete my account" to="/createblog" class="btn btn-sm">
                             <i style="font-size: 12px;color:red;" class="fa fa-trash-o"></i>
                         </router-link>
 
                         <router-link style="margin: 10px;float:right;" title="Change password" :to="'/editPassword' + slug" class="btn btn-sm">
                             <i style="font-size: 12px;color: green;" class="fa fa-eye-slash"></i>
-                        </router-link> -->
+                        </router-link>
                     </div>
+                </div>
+
+                <div class="row">
                     <div style="padding: 10px" class="col-lg-12 col-sm-12">
                         <form @submit.prevent="submit">
                             <!-- Title -->
