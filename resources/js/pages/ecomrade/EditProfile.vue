@@ -26,7 +26,7 @@
                     </div>
 
                     <div style="float: right" class="col-md-8 col-6">
-                        <router-link style="margin: 10px;float:right;" title="Change password" :to="'/editPassword' + slug" class="btn btn-sm">
+                        <router-link style="margin: 10px;float:right;" title="Change password" :to="'/editPassword' + slug" class="btn bg-gradient-primary btn-sm">
                             <i style="font-size: 12px;color: green;" class="fa fa-eye-slash"></i>
                         </router-link>
                     </div>
