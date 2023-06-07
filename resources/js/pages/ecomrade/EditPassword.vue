@@ -40,19 +40,7 @@
                                 <span v-if="errors.newPassword" class="error">{{ errors.newPassword[0] }}</span>
                                 <br />
 
-                                <label for="password"><span>Current password</span></label>
-                                <span style="float: right" @click="toggleShow"><span class="icon is-small is-right">
-                                        <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }">
-                                        </i>
-                                    </span>
-                                </span>
-                                <input v-if="showPassword" type="text" class="form-control form-control-lg"
-                                    v-model="passwordValue" />
-                                <input v-else type="password" class="form-control form-control-lg" v-model="passwordValue">
-                                <span v-if="errors.password" class="error">{{ errors.password[0] }}</span>
-                                <br />
-
-                                <label for="confirmPassword"><span>Confirm current password</span></label>
+                                <label for="confirmPassword"><span>Confirm password</span></label>
                                 <span style="float: right;" @click="toggleShowConfirm"><span class="icon is-small is-right">
                                         <i class="fas"
                                             :class="{ 'fa-eye-slash': showPasswordConfirm, 'fa-eye': !showPasswordConfirm }"></i>
@@ -65,7 +53,7 @@
                                 <span v-if="errors.password" class="error">{{ errors.password[0] }}</span>
 
                                 <br />
-                                <button style="margin: 5px;" class="btn bg-gradient-primary btn-sm" type="submit">Submit
+                                <button style="margin: 5px;float: right;" class="btn bg-gradient-primary btn-sm" type="submit">Submit
                                 </button>
                             </div>
                         </form>
