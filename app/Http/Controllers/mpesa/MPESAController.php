@@ -13,8 +13,8 @@ class MPESAController extends Controller
     public function getAccessToken()
     {
         $url = env('MPESA_ENV') == 0
-        ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-        : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+            ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+            : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
         $curl = curl_init($url);
         curl_setopt_array(
@@ -36,4 +36,26 @@ class MPESAController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function makeHttp($url, $body)
+    {
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/' . $url;
+        $curl = curl_init();
+        curl_setopt_array(
+            $curl,
+            array(
+                CURLOPT_URL => $url,
+                CURLOPT_HTTPHEADER => array('Content-Type:application/json', 'Authorization:Bearer ' . $this->getAccessToken()),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => json_encode($body)
+            )
+        );
+        $curl_response = curl_exec($curl);
+        curl_close($curl);
+
+        // Return the curl_response in a JSON response
+        return response()->json([
+            'curl_response' => $curl_response,
+        ], Response::HTTP_OK);
+    }
 }
