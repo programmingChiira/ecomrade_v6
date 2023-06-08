@@ -4,7 +4,7 @@
     <section class="my-5 py-5">
       <div class="container">
 
-        <div class="row justify-content-center my-2 py-1">
+        <div class="row justify-content-center my-2 py-2">
           <div class="custom-search">
           <!-- <Cache /> -->
             <input v-model="product_name" @input="search" type="text" class="custom-search-input"
