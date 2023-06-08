@@ -1,7 +1,7 @@
 <template>
     <body class="index-page">
         <Loader/>
-        <section class="my-5 py-5">
+        <section class="my-6 py-6">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-10">
