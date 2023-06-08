@@ -276,7 +276,7 @@
                                 <p>Request Access Token</p>
                             </router-link>
 
-                            <router-link v-if="type == 'admin' && id == 1" class="profile-card-inf__item" to="/admmarket">
+                            <router-link v-if="type == 'admin' && id == 1" class="profile-card-inf__item" to="/registerurl">
                                 <i style="color: #3b5998;" class="fa fa-money"></i>
                                 <p>Register URLs</p>
                             </router-link>

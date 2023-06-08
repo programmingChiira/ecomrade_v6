@@ -48,6 +48,7 @@ import CreateRentalCategory from "../pages/ecomrade/CreateRentalCategory.vue";
 import CreateLocation from "../pages/ecomrade/CreateLocation.vue";
 import CreateYear from "../pages/ecomrade/CreateYear.vue";
 import Simulate from "../pages/ecomrade/Simulate.vue";
+import RegisterUrl from "../pages/ecomrade/RegisterUrl.vue";
 import AccessToken from "../pages/ecomrade/AccessToken.vue";
 import CreateCourse from "../pages/ecomrade/CreateCourse.vue";
 import CreateMarketSubCategory from "../pages/ecomrade/CreateMarketSubCategory.vue";
@@ -1311,6 +1312,17 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'Sumulate transaction:- ecomrade',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/registerurl",
+        name: "RegisterUrl",
+        component: RegisterUrl,
+        meta: {
+            requiresGuest: true,
+            title: 'Register url:- ecomrade',
             favicon: '/favicon.ico'
         },
     },

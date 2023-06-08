@@ -48,10 +48,15 @@ class MPESAController extends Controller
             'ValidationURL' => env('MPESA_TEST_URL') . '/api/validation'
         );
 
-        $url = '/c2b/v1/registerurl';
+        $url = env('MPESA_ENV') == 0
+        ? 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl'
+        : 'https://api.safaricom.co.ke/mpesa/c2b/v1/registerurl';
         $response = $this->makeHttp($url, $body);
 
-        return $response;
+        // Return the response in a JSON response
+        return response()->json([
+            'response' => $response,
+        ], Response::HTTP_OK);
     }
 
     public function makeHttp($url, $body)
@@ -62,7 +67,7 @@ class MPESAController extends Controller
             $curl,
             array(
                 CURLOPT_URL => $url,
-                CURLOPT_HTTPHEADER => array('Content-Type:application/json', 'Authorization:Bearer ' . $this->getAccessToken()),
+                CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: Bearer ' . $this->getAccessToken()),
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => json_encode($body)
@@ -71,9 +76,7 @@ class MPESAController extends Controller
         $curl_response = curl_exec($curl);
         curl_close($curl);
 
-        // Return the curl_response in a JSON response
-        return response()->json([
-            'curl_response' => $curl_response,
-        ], Response::HTTP_OK);
+        // Return the curl_response as a string
+        return $curl_response;
     }
 }

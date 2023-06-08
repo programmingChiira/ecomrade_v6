@@ -40,6 +40,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RelatedPostController;
 use App\Http\Controllers\RoomUserController;
 use App\Http\Controllers\mpesa\MPESAController;
+use App\Http\Controllers\mpesa\MPESAResponsesController;
 use App\Http\Middleware\CustomAuthMiddleware;
 use App\Models\Market;
 use App\Models\MarketCart;
@@ -82,7 +83,18 @@ Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('/user', function (R
 
 // Route::middleware('auth:sanctum')->post('logout', [AuthenticatedSessionController::class, 'destroy']);
 // categories
- Route::middleware('auth:sanctum')->get('get-token', [MPESAController::class, 'getAccessToken']);
+Route::middleware('auth:sanctum')->get('get-token', [MPESAController::class, 'getAccessToken']);
+
+Route::middleware('auth:sanctum')->post('register-urls', [MPESAController::class, 'registerUrls']);
+
+
+Route::middleware('auth:sanctum')->post('validation', [MPESAResponsesController::class, 'validation']);
+Route::middleware('auth:sanctum')->post('confirmation', [MPESAResponsesController::class, 'confirmation']);
+Route::middleware('auth:sanctum')->post('stkpush', [MPESAResponsesController::class, 'stkPush']);
+Route::middleware('auth:sanctum')->post('b2ccallback', [MPESAResponsesController::class, 'b2cCallback']);
+Route::middleware('auth:sanctum')->post('transaction-status/result_url', [MPESAResponsesController::class, 'transactionStatusResponse']);
+Route::middleware('auth:sanctum')->post('reversal/result_url', [MPESAResponsesController::class, 'transactionReversal']);
+
 
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->post('categories/create', [CategoryController::class, 'store']);
 Route::middleware(['auth:sanctum', 'throttle:1200,1'])->get('categories/{category}', [CategoryController::class, 'show']);
