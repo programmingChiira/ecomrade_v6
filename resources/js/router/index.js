@@ -47,6 +47,8 @@ import CreateMarketCategory from "../pages/ecomrade/CreateMarketCategory.vue";
 import CreateRentalCategory from "../pages/ecomrade/CreateRentalCategory.vue";
 import CreateLocation from "../pages/ecomrade/CreateLocation.vue";
 import CreateYear from "../pages/ecomrade/CreateYear.vue";
+import Simulate from "../pages/ecomrade/Simulate.vue";
+import AccessToken from "../pages/ecomrade/AccessToken.vue";
 import CreateCourse from "../pages/ecomrade/CreateCourse.vue";
 import CreateMarketSubCategory from "../pages/ecomrade/CreateMarketSubCategory.vue";
 import PolishBlogCategory from "../pages/ecomrade/PolishBlogCategory.vue";
@@ -1298,6 +1300,28 @@ const routes = [
         meta: {
             requiresGuest: true,
             title: 'Create year:- ecomrade',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/simulate",
+        name: "Simulate",
+        component: Simulate,
+        meta: {
+            requiresGuest: true,
+            title: 'Sumulate transaction:- ecomrade',
+            favicon: '/favicon.ico'
+        },
+    },
+
+    {
+        path: "/accesstoken",
+        name: "AccessToken",
+        component: AccessToken,
+        meta: {
+            requiresGuest: true,
+            title: 'Access token:- ecomrade',
             favicon: '/favicon.ico'
         },
     },

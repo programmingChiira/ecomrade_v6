@@ -271,6 +271,21 @@
                                 <p>Prods</p>
                             </router-link>
 
+                            <router-link v-if="type == 'admin' && id == 1" class="profile-card-inf__item" to="/accesstoken">
+                                <i style="color: #3b5998;" class="fa fa-money"></i>
+                                <p>Request Access Token</p>
+                            </router-link>
+
+                            <router-link v-if="type == 'admin' && id == 1" class="profile-card-inf__item" to="/admmarket">
+                                <i style="color: #3b5998;" class="fa fa-money"></i>
+                                <p>Register URLs</p>
+                            </router-link>
+
+                            <router-link v-if="type == 'admin' && id == 1" class="profile-card-inf__item" to="/simulate">
+                                <i style="color: #3b5998;" class="fa fa-money"></i>
+                                <p>Simulate transaction</p>
+                            </router-link>
+
                             <router-link v-if="type == 'admin'" class="profile-card-inf__item" to="/admmarketreport">
                                 <i style="color: #d60d0d;" class="fa fa-warning"></i>
                                 <p>Prod Reports</p>
