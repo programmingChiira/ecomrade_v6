@@ -195,9 +195,9 @@
         <div class="row gy-5">
           <div class="col-lg-9">
             <h4 style="text-decoration: underline;">{{ post.title }}</h4>
-            <p class="lead drop-caps mb-3">{{
+            <pre class="lead drop-caps mb-3">{{
               post.body
-            }}</p>
+            }}</pre>
 
             <div class="row">
               <div class="col-lg-6 mb-4"><a class="glightbox product-view" href="#" data-gallery="gallery"
