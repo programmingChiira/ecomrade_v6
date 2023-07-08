@@ -44,7 +44,7 @@
                     <div style="padding: 15px;" class="container row">
                       <ul>
                         <li style="display: inline;" v-for="category in categories" :key="category.id">
-                          <input data-bs-dismiss="modal" type="button" name="search"
+                          <input style="margin: 3px;" data-bs-dismiss="modal" type="button" name="search"
                             :value="category.name" @click="title = category.name">
                         </li>
                         <h5 v-if="!categories.length">Sorry, no item found!</h5>
