@@ -51,7 +51,7 @@
                                             <ul>
                                                 <li style="display: inline;" v-for="category in categories"
                                                     :key="category.id">
-                                                    <input data-bs-dismiss="modal" type="button"
+                                                    <input style="margin: 3px;" data-bs-dismiss="modal" type="button"
                                                         name="search" :value="category.name"
                                                         @click="rental_name = category.name">
                                                 </li>
