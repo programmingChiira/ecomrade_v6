@@ -82,7 +82,7 @@
                                             <ul>
                                                 <li style="display: inline;" v-for="location in locations"
                                                     :key="location.id">
-                                                    <input data-bs-dismiss="modal" type="button"
+                                                    <input style="margin: 3px;" data-bs-dismiss="modal" type="button"
                                                         name="search" :value="location.name"
                                                         @click="rental_name = location.name">
                                                 </li>
