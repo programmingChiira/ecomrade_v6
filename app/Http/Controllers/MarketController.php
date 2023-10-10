@@ -59,6 +59,24 @@ class MarketController extends Controller
                     'image_5' => $market->image_5,
                     'image_6' => $market->image_6,
                     'image_7' => $market->image_7,
+                    'image_8' => $market->image_8,
+                    'image_9' => $market->image_9,
+                    'image_10' => $market->image_10,
+                    'image_11' => $market->image_11,
+                    'image_12' => $market->image_12,
+                    'image_13' => $market->image_13,
+                    'image_14' => $market->image_14,
+                    'image_15' => $market->image_15,
+                    'image_16' => $market->image_16,
+                    'image_17' => $market->image_17,
+                    'image_18' => $market->image_18,
+                    'image_19' => $market->image_19,
+                    'image_20' => $market->image_20,
+                    'image_21' => $market->image_21,
+                    'image_22' => $market->image_22,
+                    'image_23' => $market->image_23,
+                    'image_24' => $market->image_24,
+                    'image_25' => $market->image_25,
                     'product_name' => $market->product_name,
                     'product_category' => $market->product_category,
                     'product_sub_category' => $market->product_sub_category,
@@ -116,6 +134,24 @@ class MarketController extends Controller
                 'image_5' => $market->image_5,
                 'image_6' => $market->image_6,
                 'image_7' => $market->image_7,
+                'image_8' => $market->image_8,
+                'image_9' => $market->image_9,
+                'image_10' => $market->image_10,
+                'image_11' => $market->image_11,
+                'image_12' => $market->image_12,
+                'image_13' => $market->image_13,
+                'image_14' => $market->image_14,
+                'image_15' => $market->image_15,
+                'image_16' => $market->image_16,
+                'image_17' => $market->image_17,
+                'image_18' => $market->image_18,
+                'image_19' => $market->image_19,
+                'image_20' => $market->image_20,
+                'image_21' => $market->image_21,
+                'image_22' => $market->image_22,
+                'image_23' => $market->image_23,
+                'image_24' => $market->image_24,
+                'image_25' => $market->image_25,
                 'product_name' => $market->product_name,
                 'product_category' => $market->product_category,
                 'product_sub_category' => $market->product_sub_category,
@@ -212,6 +248,24 @@ class MarketController extends Controller
                 'image_5' => $market->image_5,
                 'image_6' => $market->image_6,
                 'image_7' => $market->image_7,
+                'image_8' => $market->image_8,
+                'image_9' => $market->image_9,
+                'image_10' => $market->image_10,
+                'image_11' => $market->image_11,
+                'image_12' => $market->image_12,
+                'image_13' => $market->image_13,
+                'image_14' => $market->image_14,
+                'image_15' => $market->image_15,
+                'image_16' => $market->image_16,
+                'image_17' => $market->image_17,
+                'image_18' => $market->image_18,
+                'image_19' => $market->image_19,
+                'image_20' => $market->image_20,
+                'image_21' => $market->image_21,
+                'image_22' => $market->image_22,
+                'image_23' => $market->image_23,
+                'image_24' => $market->image_24,
+                'image_25' => $market->image_25,
                 'product_name' => $market->product_name,
                 'product_category' => $market->product_category,
                 'product_sub_category' => $market->product_sub_category,
@@ -290,6 +344,24 @@ class MarketController extends Controller
                     'image_5' => $market->image_5,
                     'image_6' => $market->image_6,
                     'image_7' => $market->image_7,
+                    'image_8' => $market->image_8,
+                    'image_9' => $market->image_9,
+                    'image_10' => $market->image_10,
+                    'image_11' => $market->image_11,
+                    'image_12' => $market->image_12,
+                    'image_13' => $market->image_13,
+                    'image_14' => $market->image_14,
+                    'image_15' => $market->image_15,
+                    'image_16' => $market->image_16,
+                    'image_17' => $market->image_17,
+                    'image_18' => $market->image_18,
+                    'image_19' => $market->image_19,
+                    'image_20' => $market->image_20,
+                    'image_21' => $market->image_21,
+                    'image_22' => $market->image_22,
+                    'image_23' => $market->image_23,
+                    'image_24' => $market->image_24,
+                    'image_25' => $market->image_25,
                     'product_name' => $market->product_name,
                     'product_category' => $market->product_category,
                     'product_sub_category' => $market->product_sub_category,
@@ -346,6 +418,24 @@ class MarketController extends Controller
                 'image_5' => $market->image_5,
                 'image_6' => $market->image_6,
                 'image_7' => $market->image_7,
+                'image_8' => $market->image_8,
+                'image_9' => $market->image_9,
+                'image_10' => $market->image_10,
+                'image_11' => $market->image_11,
+                'image_12' => $market->image_12,
+                'image_13' => $market->image_13,
+                'image_14' => $market->image_14,
+                'image_15' => $market->image_15,
+                'image_16' => $market->image_16,
+                'image_17' => $market->image_17,
+                'image_18' => $market->image_18,
+                'image_19' => $market->image_19,
+                'image_20' => $market->image_20,
+                'image_21' => $market->image_21,
+                'image_22' => $market->image_22,
+                'image_23' => $market->image_23,
+                'image_24' => $market->image_24,
+                'image_25' => $market->image_25,
                 'product_name' => $market->product_name,
                 'product_category' => $market->product_category,
                 'product_sub_category' => $market->product_sub_category,
@@ -524,6 +614,258 @@ class MarketController extends Controller
                 $constraint->aspectRatio();
             })->save($destinationPath . '/' . $image_7);
             $market->image_7 = $image_7;
+        }
+
+        if ($request->file('file8')) {
+            $request->validate([
+                'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image8 = $request->file('file8');
+            $image_8 = $request->file('file8')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image8->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_8);
+            $market->image_8 = $image_8;
+        }
+
+        if ($request->file('file9')) {
+            $request->validate([
+                'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image9 = $request->file('file9');
+            $image_9 = $request->file('file9')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image9->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_9);
+            $market->image_9 = $image_9;
+        }
+
+        if ($request->file('file10')) {
+            $request->validate([
+                'file10' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image10 = $request->file('file10');
+            $image_10 = $request->file('file10')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image10->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_10);
+            $market->image_10 = $image_10;
+        }
+
+        if ($request->file('file11')) {
+            $request->validate([
+                'file11' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image11 = $request->file('file11');
+            $image_11 = $request->file('file11')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image11->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_11);
+            $market->image_11 = $image_11;
+        }
+
+        if ($request->file('file12')) {
+            $request->validate([
+                'file12' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image12 = $request->file('file12');
+            $image_12 = $request->file('file12')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image12->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_12);
+            $market->image_12 = $image_12;
+        }
+
+        if ($request->file('file13')) {
+            $request->validate([
+                'file13' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image13 = $request->file('file13');
+            $image_13 = $request->file('file13')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image13->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_13);
+            $market->image_13 = $image_13;
+        }
+
+        if ($request->file('file14')) {
+            $request->validate([
+                'file14' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image14 = $request->file('file14');
+            $image_14 = $request->file('file14')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image14->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_14);
+            $market->image_14 = $image_14;
+        }
+
+        if ($request->file('file15')) {
+            $request->validate([
+                'file15' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image15 = $request->file('file15');
+            $image_15 = $request->file('file15')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image15->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_15);
+            $market->image_15 = $image_15;
+        }
+
+        if ($request->file('file16')) {
+            $request->validate([
+                'file16' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image16 = $request->file('file16');
+            $image_16 = $request->file('file16')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image16->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_16);
+            $market->image_16 = $image_16;
+        }
+
+        if ($request->file('file17')) {
+            $request->validate([
+                'file17' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image17 = $request->file('file17');
+            $image_17 = $request->file('file17')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image17->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_17);
+            $market->image_17 = $image_17;
+        }
+
+        if ($request->file('file18')) {
+            $request->validate([
+                'file18' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image18 = $request->file('file18');
+            $image_18 = $request->file('file18')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image18->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_18);
+            $market->image_18 = $image_18;
+        }
+
+        if ($request->file('file19')) {
+            $request->validate([
+                'file19' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image19 = $request->file('file19');
+            $image_19 = $request->file('file19')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image19->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_19);
+            $market->image_19 = $image_19;
+        }
+
+        if ($request->file('file20')) {
+            $request->validate([
+                'file20' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image20 = $request->file('file20');
+            $image_20 = $request->file('file20')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image20->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_20);
+            $market->image_20 = $image_20;
+        }
+
+        if ($request->file('file21')) {
+            $request->validate([
+                'file21' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image21 = $request->file('file21');
+            $image_21 = $request->file('file21')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image21->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_21);
+            $market->image_21 = $image_21;
+        }
+
+        if ($request->file('file22')) {
+            $request->validate([
+                'file22' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image22 = $request->file('file22');
+            $image_22 = $request->file('file22')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image22->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_22);
+            $market->image_22 = $image_22;
+        }
+
+        if ($request->file('file23')) {
+            $request->validate([
+                'file23' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image23 = $request->file('file23');
+            $image_23 = $request->file('file23')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image23->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_23);
+            $market->image_23 = $image_23;
+        }
+
+        if ($request->file('file24')) {
+            $request->validate([
+                'file24' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image24 = $request->file('file24');
+            $image_24 = $request->file('file24')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image24->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_24);
+            $market->image_24 = $image_24;
+        }
+
+        if ($request->file('file25')) {
+            $request->validate([
+                'file25' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            $image25 = $request->file('file25');
+            $image_25 = $request->file('file25')->store('');
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image25->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_25);
+            $market->image_25 = $image_25;
         }
 
         // create and save market
@@ -712,6 +1054,348 @@ class MarketController extends Controller
 
             $market->image_7 = $image_7;
         }
+
+        if ($request->file('file8')) {
+            $request->validate([
+                'file8' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_8);
+
+            $image = $request->file('file8');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_8 = $request->file('file8')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_8);
+
+            $market->image_8 = $image_8;
+        }
+
+        if ($request->file('file9')) {
+            $request->validate([
+                'file9' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_9);
+
+            $image = $request->file('file9');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_9 = $request->file('file9')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_9);
+
+            $market->image_9 = $image_9;
+        }
+
+        if ($request->file('file10')) {
+            $request->validate([
+                'file10' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_10);
+
+            $image = $request->file('file10');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_10 = $request->file('file10')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_10);
+
+            $market->image_10 = $image_10;
+        }
+
+        if ($request->file('file11')) {
+            $request->validate([
+                'file11' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_11);
+
+            $image = $request->file('file11');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_11 = $request->file('file11')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_11);
+
+            $market->image_11 = $image_11;
+        }
+        if ($request->file('file12')) {
+            $request->validate([
+                'file12' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_12);
+
+            $image = $request->file('file12');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_12 = $request->file('file12')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_12);
+
+            $market->image_12 = $image_12;
+        }
+
+        if ($request->file('file13')) {
+            $request->validate([
+                'file13' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_13);
+
+            $image = $request->file('file13');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_13 = $request->file('file13')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_13);
+
+            $market->image_13 = $image_13;
+        }
+
+        if ($request->file('file14')) {
+            $request->validate([
+                'file14' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_14);
+
+            $image = $request->file('file14');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_14 = $request->file('file14')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_14);
+
+            $market->image_14 = $image_14;
+        }
+
+        if ($request->file('file15')) {
+            $request->validate([
+                'file15' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_15);
+
+            $image = $request->file('file15');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_15 = $request->file('file15')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_15);
+
+            $market->image_15 = $image_15;
+        }
+
+        if ($request->file('file16')) {
+            $request->validate([
+                'file16' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_16);
+
+            $image = $request->file('file16');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_16 = $request->file('file16')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_16);
+
+            $market->image_16 = $image_16;
+        }
+
+        if ($request->file('file17')) {
+            $request->validate([
+                'file17' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_17);
+
+            $image = $request->file('file17');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_17 = $request->file('file17')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_17);
+
+            $market->image_17 = $image_17;
+        }
+
+        if ($request->file('file18')) {
+            $request->validate([
+                'file18' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_18);
+
+            $image = $request->file('file18');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_18 = $request->file('file18')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_18);
+
+            $market->image_18 = $image_18;
+        }
+
+        if ($request->file('file19')) {
+            $request->validate([
+                'file19' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_19);
+
+            $image = $request->file('file19');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_19 = $request->file('file19')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_19);
+
+            $market->image_19 = $image_19;
+        }
+
+        if ($request->file('file20')) {
+            $request->validate([
+                'file20' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_20);
+
+            $image = $request->file('file20');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_20 = $request->file('file20')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_20);
+
+            $market->image_20 = $image_20;
+        }
+
+        if ($request->file('file21')) {
+            $request->validate([
+                'file21' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_21);
+
+            $image = $request->file('file21');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_21 = $request->file('file21')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_21);
+
+            $market->image_21 = $image_21;
+        }
+
+        if ($request->file('file22')) {
+            $request->validate([
+                'file22' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_22);
+
+            $image = $request->file('file22');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_22 = $request->file('file22')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_22);
+
+            $market->image_22 = $image_22;
+        }
+
+        if ($request->file('file23')) {
+            $request->validate([
+                'file23' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_23);
+
+            $image = $request->file('file23');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_23 = $request->file('file23')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_23);
+
+            $market->image_23 = $image_23;
+        }
+
+        if ($request->file('file24')) {
+            $request->validate([
+                'file24' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_24);
+
+            $image = $request->file('file24');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_24 = $request->file('file24')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_24);
+
+            $market->image_24 = $image_24;
+        }
+
+        if ($request->file('file25')) {
+            $request->validate([
+                'file25' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,avif,webp,bmp,eps,heif,psd,svg,tiff|max:2048',
+            ]);
+            File::delete($market->image_25);
+
+            $image = $request->file('file25');
+            //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image_25 = $request->file('file25')->store('');
+
+            $destinationPath = public_path('img/market');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_25);
+
+            $market->image_25 = $image_25;
+        }
+        
 
         // create and save post
 
