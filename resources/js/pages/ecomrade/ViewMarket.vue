@@ -120,16 +120,6 @@
                                                 <i style="font-size: 12px;border: white 1px solid; border-radius: 5px;color: white;padding: 10px;float: right;margin: 5px;"
                                                     class="fa fa-times" @click="deactivateImageView"></i>
 
-                                                <!-- <div class="image-wrapper">
-                                                    <img style="width: 100%; object-fit: contain;" id="image360"
-                                                        :src="'./img/market/' + market['image_' + selectedImageIndex]"
-                                                        @click="deactivateImageView" />
-                                                    <br />
-                                                    <br />
-                                                    <input style="width: 95%;" id="slider customRange2" type="range" v-model="selectedImageIndex"
-                                                        class="form-range" min="1" max="25" step="1">
-                                                </div> -->
-
                                                 <div class="image-wrapper">
                                                     <img style="width: 100%; object-fit: contain;" id="image360"
                                                         v-if="market['image_' + selectedImageIndex]"
@@ -1366,10 +1356,6 @@ export default {
         for (var i = 1; i <= 25; i++) {
             images[i] = this.market['image_' + i];
         }
-
-        // slider.addEventListener("input", function () {
-        //     image360.src = images[slider.value];
-        // });
 
         axios
             .get("/api/user")
